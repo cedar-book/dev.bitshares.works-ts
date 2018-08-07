@@ -24,6 +24,10 @@ In other words: Alice, Bobe, Charlie and Dennis, each have 33% weight while 100%
   <img src="/core/imgs/weight-threshold1.png" width="350" title="Multi">
 </p>
 
+
+![BitShares](../imgs/weight-threshold1.png)
+
+
 All four participants have a weight of 33% but the threshold is set to 51%. Hence only two out of the four need to agree to validate the transaction.
 
 Alternatively, to construct a 3-of-4 scheme, we can either decrease the weights to 17 or increase the threshold to 99%.
@@ -45,6 +49,11 @@ With the threshold and weights, we now have more flexibility over our funds, or 
 </p>
 
 
+![BitShares](../imgs/weight-threshold2.png)
+
+
+
+
 Now the funds can either be accessed by Alice and a single friend or by all three friends together.
 
 ### Multi-Hierarchical Flexible Multi-Signature
@@ -62,6 +71,9 @@ Let’s take a look at a simple multi-hierarchical corporate account setup. We a
 </p>
     
 
+![BitShares](../imgs/weight-threshold3.png)
+
+
 whereas CEO.COMPANY and CFO.COMPANY have their own authorities. For instance, the CFO.COMPANY account could look like:     
   
 | CFO.COMPANY | **Weight** |
@@ -77,6 +89,9 @@ whereas CEO.COMPANY and CFO.COMPANY have their own authorities. For instance, th
   <img src="/core/imgs/weight-threshold4.png" width="750" title="Multi-Hierarchical">
 </p>
     
+![BitShares](../imgs/weight-threshold4.png)
+
+   
 This scheme allows:
 
 - the CEO to spend funds
