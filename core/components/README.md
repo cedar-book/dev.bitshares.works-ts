@@ -18,7 +18,13 @@
 
 ***
 
+### Address
+#### address
 
+
+
+
+***
 
 ### Block Header
 
@@ -85,13 +91,24 @@
  
  ***
  
+ ### Core Message Structures
+ 
+ #### 
+ 
+ 
+ ####
+ 
+ 
+ 
+ 
+ ***
 
  ### Message Header
  Defines an 8 byte header that is always present because the minimum encrypted packet, size is 8 bytes (blowfish).  The maximum message size is defined in config.hpp. The channel, and message type is also included because almost every channel will have a message type field and we might as well include it in the 8 byte header to save space.
  
  #### message_header
  
-      // *message Header Inheritance* (i.e.) 1.0.0.0 
+      // *message header Inheritance* (i.e.) 1.0.0.0 
       // graphene::net
 
        struct message_header
@@ -104,7 +121,10 @@
 
 #### message
 Abstracts the process of packing/unpacking a message for a particular channel.
-   
+
+      // *message header Inheritance* (i.e.) 1.1.0.0 
+      // graphene::net
+
       struct message : public message_header
       {
          std::vector<char> data;
