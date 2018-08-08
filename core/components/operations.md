@@ -2,7 +2,7 @@
 
 This sectopn purpose: Lest Available Operations and the details.
 
-## base_operation
+## base_operation and Detailed Descriptions
 
 - [account_create_operation](../components/operations.md#account_create_operation)
 - [account_transfer_operation](../components/operations.md#account_transfer_operation)
@@ -57,8 +57,7 @@ This sectopn purpose: Lest Available Operations and the details.
 
 ***
 
-### Details
-
+### Detailed Descriptions
 
 #### account_create_operation
 
