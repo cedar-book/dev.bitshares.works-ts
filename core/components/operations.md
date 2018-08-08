@@ -3,6 +3,10 @@
 This sectopn purpose: Lest Available Operations and the details.
 
 ### base_operation
+
+This section purpose: List Available Operations and Definitions.
+
+
 - [account_create_operation](../components/operations.md#account_create_operation)
 - [account_transfer_operation](../components/operations.md#account_transfer_operation)
 - [account_update_operation](../components/operations.md#account_update_operation)
@@ -111,6 +115,19 @@ This sectopn purpose: Lest Available Operations and the details.
 - This operation is used to indicate the legal transfer of title to this account and a break in the operation history.
 - This operation will clear the account's whitelist statuses, but not the blacklist statuses. 
 
+  	  struct account_transfer_operation : public base_operation
+	  {
+	  struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+	 
+	  asset fee;
+	  account_id_type account_id;
+	  account_id_type new_owner;
+	  extensions_type extensions;
+	 
+	  account_id_type fee_payer()const { return account_id; }
+	  void validate()const;
+	  };
+
 #### account_update_operation
 - Update an existing account.
 - This operation is used to update an existing account. It can be used to update the authorities, or adjust the options on the account. See `account_object::options_type` for the options which may be updated. 
@@ -180,6 +197,28 @@ This sectopn purpose: Lest Available Operations and the details.
 - Accounts can freely specify opinions about other accounts, in the form of either whitelisting or blacklisting them. This information is used in chain validation only to determine whether an account is authorized to transact in an asset type which enforces a whitelist, but third parties can use this information for other uses as well, as long as it does not conflict with the use of whitelisted assets.
 - An asset which enforces a whitelist specifies a list of accounts to maintain its whitelist, and a list of accounts to maintain its blacklist. In order for a given account A to hold and transact in a whitelisted asset S, A must be whitelisted by at least one of S's whitelist_authorities and blacklisted by none of S's blacklist_authorities. If A receives a balance of S, and is later removed from the whitelist(s) which allowed it to hold S, or added to any blacklist S specifies as authoritative, A's balance of S will be frozen until A's authorization is reinstated.
 - This operation requires authorizing_account's signature, but not account_to_list's. The fee is paid by authorizing_account
+
+		  struct account_whitelist_operation : public base_operation
+		  {
+		  struct fee_parameters_type { share_type fee = 300000; };
+		  enum account_listing {
+		  no_listing = 0x0, 
+		  white_listed = 0x1, 
+		  black_listed = 0x2, 
+		  white_and_black_listed = white_listed | black_listed 
+		  };
+		 
+		  asset fee;
+		  account_id_type authorizing_account;
+		  account_id_type account_to_list;
+		  uint8_t new_listing = no_listing;
+		  extensions_type extensions;
+		 
+		  account_id_type fee_payer()const { return authorizing_account; }
+		  void validate()const { FC_ASSERT( fee.amount >= 0 ); FC_ASSERT(new_listing < 0x4); }
+		  };
+		 
+		 
 
 #### asset_operation
 - assert that some conditions are true.
@@ -326,6 +365,20 @@ This sectopn purpose: Lest Available Operations and the details.
 
 > Note: You cannot use this operation on market-issued assets. 
 
+		  struct asset_reserve_operation : public base_operation
+		  {
+		  struct fee_parameters_type { uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+		 
+		  asset fee;
+		  account_id_type payer;
+		  asset amount_to_reserve;
+		  extensions_type extensions;
+		 
+		  account_id_type fee_payer()const { return payer; }
+		  void validate()const;
+		  };
+ 
+ 
 #### asset_settle_cancel_operation
 - Virtual op generated when force settlement is canceled. 
 
@@ -629,7 +682,23 @@ This sectopn purpose: Lest Available Operations and the details.
 - provides a generic way to add higher level protocols on top of witness consensus
 - There is no validation for this operation other than that required auths are valid and a fee is paid that is appropriate for the data contained. 
 
-
+		  struct custom_operation : public base_operation
+		  {
+		  struct fee_parameters_type { 
+		  uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; 
+		  uint32_t price_per_kbyte = 10;
+		  };
+		 
+		  asset fee;
+		  account_id_type payer;
+		  flat_set<account_id_type> required_auths;
+		  uint16_t id = 0;
+		  vector<char> data;
+		 
+		  account_id_type fee_payer()const { return payer; }
+		  void validate()const;
+		  share_type calculate_fee(const fee_parameters_type& k)const;
+		  };
   
 #### execute_bit_operation
 
@@ -916,30 +985,28 @@ This sectopn purpose: Lest Available Operations and the details.
 	  void validate()const;
 	  share_type calculate_fee(const fee_parameters_type& k)const;
 	  };
-	  
+  
 #### transfer_to_blind_operation
 - Converts public account balance to a blinded or stealth balance. 
 
-	 struct transfer_to_blind_operation : public base_operation
-	 {
-	  struct fee_parameters_type { 
-	  uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
-	  uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
-	  };
+		 struct transfer_to_blind_operation : public base_operation
+		 {
+		  struct fee_parameters_type { 
+		  uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+		  uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
+		  };
+		 
+		  asset fee;
+		  asset amount;
+		  account_id_type from;
+		  blind_factor_type blinding_factor;
+		  vector<blind_output> outputs;
+		 
+		  account_id_type fee_payer()const { return from; }
+		  void validate()const;
+		  share_type calculate_fee(const fee_parameters_type& )const;
+		 };
 	 
-	  asset fee;
-	  asset amount;
-	  account_id_type from;
-	  blind_factor_type blinding_factor;
-	  vector<blind_output> outputs;
-	 
-	  account_id_type fee_payer()const { return from; }
-	  void validate()const;
-	  share_type calculate_fee(const fee_parameters_type& )const;
-	 };
- 
- 
- 
  
 #### vesting_balance_create_operation
 - Create a vesting balance.
@@ -948,46 +1015,46 @@ This sectopn purpose: Lest Available Operations and the details.
 - **Returns**
   - ID of newly created `vesting_balance_object` 
 
-	  struct vesting_balance_create_operation : public base_operation
-	  {
-	  struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
-	 
-	  asset fee;
-	  account_id_type creator; 
-	  account_id_type owner; 
-	  asset amount;
-	  vesting_policy_initializer policy;
-	 
-	  account_id_type fee_payer()const { return creator; }
-	  void validate()const
-	  {
-	  FC_ASSERT( fee.amount >= 0 );
-	  FC_ASSERT( amount.amount > 0 );
-	  }
-	  };
-	  
+		  struct vesting_balance_create_operation : public base_operation
+		  {
+		  struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+		 
+		  asset fee;
+		  account_id_type creator; 
+		  account_id_type owner; 
+		  asset amount;
+		  vesting_policy_initializer policy;
+		 
+		  account_id_type fee_payer()const { return creator; }
+		  void validate()const
+		  {
+		  FC_ASSERT( fee.amount >= 0 );
+		  FC_ASSERT( amount.amount > 0 );
+		  }
+		  };
+		  
 #### vesting_balance_withdraw_operation
 - Withdraw from a vesting balance.
 - Withdrawal from a not-completely-mature vesting balance will result in paying fees. 
 - **Returns**
   - nothing 
 
-	  struct vesting_balance_withdraw_operation : public base_operation
-	  {
-	  struct fee_parameters_type { uint64_t fee = 20*GRAPHENE_BLOCKCHAIN_PRECISION; };
-	 
-	  asset fee;
-	  vesting_balance_id_type vesting_balance;
-	  account_id_type owner; 
-	  asset amount;
-	 
-	  account_id_type fee_payer()const { return owner; }
-	  void validate()const
-	  {
-	  FC_ASSERT( fee.amount >= 0 );
-	  FC_ASSERT( amount.amount > 0 );
-	  }
-	  };
+		  struct vesting_balance_withdraw_operation : public base_operation
+		  {
+		  struct fee_parameters_type { uint64_t fee = 20*GRAPHENE_BLOCKCHAIN_PRECISION; };
+		 
+		  asset fee;
+		  vesting_balance_id_type vesting_balance;
+		  account_id_type owner; 
+		  asset amount;
+		 
+		  account_id_type fee_payer()const { return owner; }
+		  void validate()const
+		  {
+		  FC_ASSERT( fee.amount >= 0 );
+		  FC_ASSERT( amount.amount > 0 );
+		  }
+		  };
 	  
 #### withdraw_permission_claim_operation
 - Withdraw from an account which has published a withdrawal permission
