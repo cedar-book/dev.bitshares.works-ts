@@ -1,5 +1,4 @@
-## Components Structures and Details
-
+## Components Structure and Details
 
 ## Block
 
