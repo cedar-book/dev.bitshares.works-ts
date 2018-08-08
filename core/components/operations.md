@@ -1,11 +1,8 @@
-## BitShares Core - graphene::chain
+### BitShares Core - graphene::chain
 
 This sectopn purpose: Lest Available Operations and the details.
 
-### base_operation
-
-This section purpose: List Available Operations and Definitions.
-
+## base_operation
 
 - [account_create_operation](../components/operations.md#account_create_operation)
 - [account_transfer_operation](../components/operations.md#account_transfer_operation)
