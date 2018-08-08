@@ -2,7 +2,7 @@
 
 ##  graphene::chain::base_operation
 
-Learning BitShares Core Available Operations.
+Learning BitShares-Core Available Operations.
 
 #### base_operations and Detailed Descriptions
 
