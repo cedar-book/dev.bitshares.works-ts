@@ -79,7 +79,7 @@ This sectopn purpose: Lest Available Operations and the details.
 		  uint64_t premium_fee = 2000*GRAPHENE_BLOCKCHAIN_PRECISION; 
 		  uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
 		  }; 
-	   
+
 		  asset fee;
 		  account_id_type registrar;
 		 
@@ -105,7 +105,7 @@ This sectopn purpose: Lest Available Operations and the details.
 		  a.insert( extensions.value.buyback_options->asset_to_buy_issuer );
 		  }
 		  };
-  
+
 #### account_transfer_operation
 - Transfers the account to another account while clearing the white list. 
 - In theory an account can be transferred by simply updating the authorities, but that kind of transfer lacks semantic meaning and is more often done to rotate keys without transferring ownership. This operation is used to indicate the legal transfer of title to this account and a break in the operation history. 
@@ -496,6 +496,20 @@ This sectopn purpose: Lest Available Operations and the details.
 #### bit_collateral_operation
 - This operation can be used after a black swan to bid collateral for taking over part of the debt and the settlement_fund (see BSIP-0018).
 
+	  struct bid_collateral_operation : public base_operation
+	  {
+	  struct fee_parameters_type { uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+	 
+	  asset fee;
+	  account_id_type bidder; 
+	  asset additional_collateral; 
+	  asset debt_covered; 
+	  extensions_type extensions;
+	 
+	  account_id_type fee_payer()const { return bidder; }
+	  void validate()const;
+	  };
+  
 #### blind_transfer_operation
 - Transfers from blind to blind.
 - There are two ways to transfer value while maintaining privacy:
@@ -568,19 +582,57 @@ This sectopn purpose: Lest Available Operations and the details.
 - Create a committee_member object, as a bid to hold a committee_member seat on the network.
 - Accounts which wish to become committee_members may use this operation to create a committee_member object which stakeholders may vote on to approve its position as a committee_member. 
 
+	  struct committee_member_create_operation : public base_operation
+	  {
+	  struct fee_parameters_type { uint64_t fee = 5000 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+	 
+	  asset fee;
+	  account_id_type committee_member_account;
+	  string url;
+	 
+	  account_id_type fee_payer()const { return committee_member_account; }
+	  void validate()const;
+	  };
+	  
 #### committee_member_update_global_parameters_operation
 - Used by committee_members to update the global parameters of the blockchain.
 - This operation allows the committee_members to update the global parameters on the blockchain. These control various tunable aspects of the chain, including block and maintenance intervals, maximum data sizes, the fees charged by the network, etc.
 - This operation may only be used in a proposed transaction, and a proposed transaction which contains this operation must have a review period specified in the current global parameters before it may be accepted. 
 
+	  struct committee_member_update_global_parameters_operation : public base_operation
+	  {
+	  struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+	 
+	  asset fee;
+	  chain_parameters new_parameters;
+	 
+	  account_id_type fee_payer()const { return account_id_type(); }
+	  void validate()const;
+	  };
+  
 #### committee_member_update_operation
 - Update a committee_member object.
 - Currently the only field which can be updated is the url field. 
 
+	  struct committee_member_update_operation : public base_operation
+	  {
+	  struct fee_parameters_type { uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+	 
+	  asset fee;
+	  committee_member_id_type committee_member;
+	  account_id_type committee_member_account;
+	  optional< string > new_url;
+	 
+	  account_id_type fee_payer()const { return committee_member_account; }
+	  void validate()const;
+	  };
+  
 #### custom_operation
 - provides a generic way to add higher level protocols on top of witness consensus
 - There is no validation for this operation other than that required auths are valid and a fee is paid that is appropriate for the data contained. 
 
+
+  
 #### execute_bit_operation
 
  > Note: This is a virtual operation that is created while reviving a bitasset from collateral bids. 
@@ -710,6 +762,27 @@ This sectopn purpose: Lest Available Operations and the details.
   - amount.asset_id->issuer == issuer 
   - issuer != from because this is pointless, use a normal transfer operation 
 
+	  struct override_transfer_operation : public base_operation
+	  {
+	  struct fee_parameters_type {
+	  uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+	  uint32_t price_per_kbyte = 10; 
+	  };
+	 
+	  asset fee;
+	  account_id_type issuer;
+	  account_id_type from;
+	  account_id_type to;
+	  asset amount;
+	 
+	  optional<memo_data> memo;
+	  extensions_type extensions;
+	 
+	  account_id_type fee_payer()const { return issuer; }
+	  void validate()const;
+	  share_type calculate_fee(const fee_parameters_type& k)const;
+	  };
+	  
 #### proposal_create_operation
 - The `proposal_create_operation` creates a transaction proposal, for use in multi-sig scenarios
 - Creates a transaction proposal. The operations which compose the transaction are listed in order in proposed_ops, and expiration_time specifies the time by which the proposal must be accepted or it will fail permanently. The expiration_time cannot be farther in the future than the maximum expiration time set in the global properties object. 
@@ -791,6 +864,28 @@ This sectopn purpose: Lest Available Operations and the details.
 #### transfer_from_blind_operation
 - Converts blinded/stealth balance to a public account balance.
 
+	 struct transfer_from_blind_operation : public base_operation
+	 {
+	  struct fee_parameters_type { 
+	  uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+	  };
+	 
+	  asset fee;
+	  asset amount;
+	  account_id_type to;
+	  blind_factor_type blinding_factor;
+	  vector<blind_input> inputs;
+	 
+	  account_id_type fee_payer()const { return GRAPHENE_TEMP_ACCOUNT; }
+	  void validate()const;
+	 
+	  void get_required_authorities( vector<authority>& a )const
+	  {
+	  for( const auto& in : inputs )
+	  a.push_back( in.owner ); 
+	  }
+	 };
+	 
 #### transfer_operation
 - Transfers an amount of one asset from one account to another.
 - Fees are paid by the "from" account
@@ -804,6 +899,26 @@ This sectopn purpose: Lest Available Operations and the details.
 - **Returns**
 - n/a 
 
+	  struct transfer_operation : public base_operation
+	  {
+	  struct fee_parameters_type {
+	  uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+	  uint32_t price_per_kbyte = 10 * GRAPHENE_BLOCKCHAIN_PRECISION; 
+	  };
+	 
+	  asset fee;
+	  account_id_type from;
+	  account_id_type to;
+	  asset amount;
+	 
+	  optional<memo_data> memo;
+	  extensions_type extensions;
+	 
+	  account_id_type fee_payer()const { return from; }
+	  void validate()const;
+	  share_type calculate_fee(const fee_parameters_type& k)const;
+	  };
+  
 #### transfer_to blind_operation
 - Converts public account balance to a blinded or stealth balance. 
 
