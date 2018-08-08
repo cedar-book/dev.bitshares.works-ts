@@ -1,4 +1,4 @@
-## Components Structures and Detailed Description
+## Components Structures and Detailed Descriptions
 
 ### Block
 - [A Block Elements and Structure(PDF)](../knowledge_base/shared_files/structures/BitShares-Block-Structurev1.pdf)
