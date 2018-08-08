@@ -2,7 +2,9 @@
 
 ## graphene::chain Namespace: Class - Objects
 
-|  |  |
+#### Object Names and Detailed Descriptions
+
+|  | Detailed Description |
 |---|---|
 | [account_balance_object](https://bitshares.org/doxygen/classgraphene_1_1chain_1_1account__balance__object.html) | Tracks the balance of a single account/asset pairThis object is indexed on owner and asset_type so that black swan events in asset_type can be processed quickly  |  
 | [account_object](https://bitshares.org/doxygen/classgraphene_1_1chain_1_1account__object.html) | This class represents an account on the object graphAccounts are the primary unit of authority on the graphene system. Users must have an account in order to use assets, trade in the markets, vote for committee_members, etc  | 
