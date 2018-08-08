@@ -572,7 +572,12 @@ Learning BitShares-Core Available Operations.
 
 **Stealth Transfers:**
 
-- Assuming Receiver has key pair R,r and has shared public key R with Sender Assuming Sender has key pair S,s Generate one time key pair O,o as s.child(nonce) where nonce can be inferred from transaction Calculate secret V = o*R blinding_factor = sha256(V) memo is encrypted via aes of V owner = R.child(sha256(blinding_factor))
+- Assuming Receiver has key pair R,r and has shared public key R with Sender 
+- Assuming Sender has key pair S,
+- s Generate one time key pair O,
+- o as s.child(nonce) where nonce can be inferred from transaction 
+- Calculate secret V = o*R blinding_factor = sha256(V) memo is encrypted 
+- via aes of V owner = R.child(sha256(blinding_factor))
 - Sender gives Receiver output ID to complete the payment.
 - This process can also be used to send money to a cold wallet without having to pre-register any accounts.
 - Outputs are assigned the same IDs as the inputs until no more input IDs are available, in which case a the return value will be the first ID allocated for an output. Additional output IDs are allocated sequentially thereafter. If there are fewer outputs than inputs then the input IDs are freed and never used again. 
@@ -827,26 +832,26 @@ Learning BitShares-Core Available Operations.
   - amount.asset_id->issuer == issuer 
   - issuer != from because this is pointless, use a normal transfer operation 
 
-	  struct override_transfer_operation : public base_operation
-	  {
-	  struct fee_parameters_type {
-	  uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	  uint32_t price_per_kbyte = 10; 
-	  };
-	 
-	  asset fee;
-	  account_id_type issuer;
-	  account_id_type from;
-	  account_id_type to;
-	  asset amount;
-	 
-	  optional<memo_data> memo;
-	  extensions_type extensions;
-	 
-	  account_id_type fee_payer()const { return issuer; }
-	  void validate()const;
-	  share_type calculate_fee(const fee_parameters_type& k)const;
-	  };
+		struct override_transfer_operation : public base_operation
+		{
+		struct fee_parameters_type {
+		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		uint32_t price_per_kbyte = 10; 
+		};
+
+		asset fee;
+		account_id_type issuer;
+		account_id_type from;
+		account_id_type to;
+		asset amount;
+
+		optional<memo_data> memo;
+		extensions_type extensions;
+
+		account_id_type fee_payer()const { return issuer; }
+		void validate()const;
+		share_type calculate_fee(const fee_parameters_type& k)const;
+		};
 	  
 #### proposal_create_operation
 - The `proposal_create_operation` creates a transaction proposal, for use in multi-sig scenarios
@@ -929,12 +934,12 @@ Learning BitShares-Core Available Operations.
 #### transfer_from_blind_operation
 - Converts blinded/stealth balance to a public account balance.
 
-	 struct transfer_from_blind_operation : public base_operation
-	 {
-	  struct fee_parameters_type { 
-	  uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
-	  };
-	 
+	  struct transfer_from_blind_operation : public base_operation
+	  {
+	   struct fee_parameters_type { 
+	   uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+	   };
+
 	  asset fee;
 	  asset amount;
 	  account_id_type to;
