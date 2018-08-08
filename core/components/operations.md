@@ -1,7 +1,8 @@
 #### BitShares Core - graphene::chain
 
 ##  graphene::chain::base_operation
-This sectopn purpose: Lest Available Operations and the details.
+
+Learning BitShares Core Available Operations.
 
 #### base_operations and Detailed Descriptions
 
