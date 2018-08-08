@@ -1,4 +1,4 @@
-### BitShares Core - graphene::chain
+#### BitShares Core - graphene::chain
 
 ## graphene::chain Namespace: Class - Objects
 
