@@ -10,3 +10,5 @@
 ### Operation 
 - graphene::chain::[base_operation and Details](../components/operations.md#bitshares-core---graphenechain)
 
+### Object
+- graphene::chain Namespace: Class - Objects
