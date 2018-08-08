@@ -8,7 +8,7 @@
 
 
 ### Operations 
-- [graphene::chain::base_operation and Details](../components/operations.md#bitshares-core---graphenechain)
+- [graphene::chain::base_operation and Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain)
 
 ### Objects
-- [graphene::chain Namespace: Class - Objects](../components/objects.md#bitshares-core---graphenechain)
+- [graphene::chain Namespace: Class - Objects and Detailed Descriptions](../components/objects.md#bitshares-core---graphenechain)
