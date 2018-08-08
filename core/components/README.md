@@ -74,7 +74,7 @@
     };
 
  
-#### signed_block
+#### signed_block_with_info 
   
     // *Block Header Inheritance* (i.e.) 1.1.1.1
     // graphene::wallet
