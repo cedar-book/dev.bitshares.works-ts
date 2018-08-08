@@ -1,8 +1,10 @@
-### BitShares Core - graphene::chain
+#### BitShares Core - graphene::chain
 
 This sectopn purpose: Lest Available Operations and the details.
 
-## base_operation and Detailed Descriptions
+##  graphene::chain::base_operation
+
+#### base_operations and Detailed Descriptions
 
 - [account_create_operation](../components/operations.md#account_create_operation)
 - [account_transfer_operation](../components/operations.md#account_transfer_operation)
