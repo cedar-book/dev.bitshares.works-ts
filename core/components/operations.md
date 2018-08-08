@@ -325,7 +325,7 @@ This section purpose: Lest Available Operations and Definitions.
 - This operation allows accounts to add or revoke approval of a proposed transaction. Signatures sufficient to satisfy the authority of each account in approvals are required on the transaction containing this operation.
 - If an account with a multi-signature authority is listed in `approvals_to_add`or `approvals_to_remove`, either all required signatures to satisfy that account's authority must be provided in the transaction containing this operation, or a secondary proposal must be created which contains this operation.
 
-> NOTE: If the proposal requires only an account's active authority, the account must not update adding its owner authority's approval. This is considered an error. An owner approval may only be added if the proposal requires the owner's authority.
+  > NOTE: If the proposal requires only an account's active authority, the account must not update adding its owner authority's approval. This is considered an error. An owner approval may only be added if the proposal requires the owner's authority.
 
 - If an account's owner and active authority are both required, only the owner authority may approve. An attempt to add or remove active authority approval to such a proposal will fail. 
 
@@ -335,16 +335,13 @@ This section purpose: Lest Available Operations and Definitions.
 #### transfer_operation
 - Transfers an amount of one asset from one account to another.
 - Fees are paid by the "from" account
-
 - **Precondition**
   - amount.amount > 0 
   - fee.amount >= 0 
   - from != to 
-
 - **Postcondition**
   - from account's balance will be reduced by fee and amount 
   - to account's balance will be increased by amount 
-
 - **Returns**
 - n/a 
 
