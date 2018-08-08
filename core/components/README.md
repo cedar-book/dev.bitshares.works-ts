@@ -18,9 +18,9 @@
 
 
 
-### Block Header Inheritance
+### Block Header
 
-
+*Block Header Inheritance*
 #### block_header
 
     // (i.e.) 1.0.0.0 
