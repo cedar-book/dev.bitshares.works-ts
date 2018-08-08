@@ -4,57 +4,56 @@ This sectopn purpose: Lest Available Operations and the details.
 
 ### base_operation
 
+
 - [account_create_operation](../components/operations.md#account_create_operation)
-- account_transfer_operation
-- account_update_operation
-- account_upgrade_operation
-- account_whitelist_operation
-- asset_operation
-- asset_clain_fees_operation
-- asset_claim_pool_operation
-- zsset_create_operation
-- asset_fund_fee_pool_operation
-- asset_global_settle_operation
-- asset_issue_operation
-- asset_publish_feed_operation
-- asset_reserve_operation
-- asset_settle_cancel_operation
-- asset_settle_operation
-- asset_update_bitasset_operation
-- asset_update_feed_producers_operation
-- asset_update_issuer_operation
-- asset_update_operation
-- balance_claim_operation
-- bit_collateral_operation
-- blind_transfer_operation
-- call_order_update_operation
-- committee_member_create_operation
-- committee_member_update_global_parameters_operation
-- committee_member_update_operation
-- custom_operation
-- execute_bit_operation
-- fba_distribute_operation
-- fill_order_operation
-- limit_order_cancel_operation
-- limit_orders_create_operation
-- override_transfer_operation
-- proposal_create_operation
-- proposal_delete_operation
-- proposal_update_operation
-- transfer_from_blind_operation
-- transfer_operation
-- transfer_to blind_operation
-- vesting_balance_create_operation
-- vesting_balance_withdraw_operation
-- withdraw_permission_claim_operation
-- withdraw_permission_create_operation
-- withdraw_permission_delete_operation
-- withdraw_permission_update_operation
-- witness_create_operation
-- witness_update_operation
-- worker_create_operation
-
-
+- [account_transfer_operation](../components/operations.md#account_transfer_operation)
+- [account_update_operation](../components/operations.md#account_update_operation)
+- [account_upgrade_operation](../components/operations.md#account_upgrade_operation)
+- [account_whitelist_operation](../components/operations.md#account_whitelist_operation)
+- [asset_operation](../components/operations.md#asset_operation)
+- [asset_clain_fees_operation](../components/operations.md#asset_clain_fees_operation)
+- [asset_claim_pool_operation](../components/operations.md#asset_claim_pool_operation)
+- [asset_create_operation](../components/operations.md#asset_create_operation)
+- [asset_fund_fee_pool_operation](../components/operations.md#asset_fund_fee_pool_operation)
+- [asset_global_settle_operation](../components/operations.md#asset_global_settle_operation)
+- [asset_issue_operation](../components/operations.md#asset_issue_operation)
+- [asset_publish_feed_operation](../components/operations.md#asset_publish_feed_operat)
+- [asset_reserve_operation](../components/operations.md#asset_reserve_operation)
+- [asset_settle_cancel_operation](../components/operations.md#asset_settle_cancel_operation)
+- [asset_settle_operation](../components/operations.md#asset_settle_operation)
+- [asset_update_bitasset_operation](../components/operations.md#asset_update_bitasset_operation)
+- [asset_update_feed_producers_operation](../components/operations.md#asset_update_feed_producers_operation)
+- [asset_update_issuer_operation](../components/operations.md#asset_update_issuer_operation)
+- [asset_update_operation](../components/operations.md#asset_update_operation)
+- [balance_claim_operation](../components/operations.md#balance_claim_operation)
+- [bit_collateral_operation](../components/operations.md#bit_collateral_operation)
+- [blind_transfer_operation](../components/operations.md#blind_transfer_operation)
+- [call_order_update_operation](../components/operations.md#call_order_update_operation)
+- [committee_member_create_operation](../components/operations.md#committee_member_create_operation)
+- [committee_member_update_global_parameters_operation](../components/operations.md#committee_member_update_global_parameters_operation)
+- [committee_member_update_operation](../components/operations.md#committee_member_update_operation)
+- [custom_operation](../components/operations.md#custom_operation)
+- [execute_bit_operation](../components/operations.md#execute_bit_operation)
+- [fba_distribute_operation](../components/operations.md#fba_distribute_operation)
+- [fill_order_operation](../components/operations.md#fill_order_operation)
+- [limit_order_cancel_operation](../components/operations.md#limit_order_cancel_operation)
+- [limit_orders_create_operation](../components/operations.md#limit_orders_create_operation)
+- [override_transfer_operation](../components/operations.md#override_transfer_operation)
+- [proposal_create_operation](../components/operations.md#proposal_create_operation)
+- [proposal_delete_operation](../components/operations.md#proposal_delete_operation)
+- [proposal_update_operation](../components/operations.md#proposal_update_operation)
+- [transfer_from_blind_operation](../components/operations.md#transfer_from_blind_operation)
+- [transfer_operation](../components/operations.md#transfer_operation)
+- [transfer_to_blind_operation](../components/operations.md#transfer_to_blind_operation)
+- [vesting_balance_create_operation](../components/operations.md#vesting_balance_create_operation)
+- [vesting_balance_withdraw_operation](../components/operations.md#vesting_balance_withdraw_operation)
+- [withdraw_permission_claim_operation](../components/operations.md#withdraw_permission_claim_operation)
+- [withdraw_permission_create_operation](../components/operations.md#withdraw_permission_create_operation)
+- [withdraw_permission_delete_operation](../components/operations.md#withdraw_permission_delete_operation)
+- [withdraw_permission_update_operation](../components/operations.md#withdraw_permission_update_operation)
+- [witness_create_operation](../components/operations.md#witness_create_operation)
+- [witness_update_operation](../components/operations.md#witness_update_operation)
+- [worker_create_operation](../components/operations.md#worker_create_operation)
 
 ***
 
