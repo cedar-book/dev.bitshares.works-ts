@@ -20,7 +20,6 @@
 
 ### Block Header
 
-*Block Header Inheritance*
 #### block_header
 
     // *Block Header Inheritance* (i.e.) 1.0.0.0 
