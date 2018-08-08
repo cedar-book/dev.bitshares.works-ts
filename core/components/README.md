@@ -43,7 +43,7 @@
         checksum_type        transaction_merkle_root;
         extensions_type      extensions;
 
-        static uint32_t num_from_id(const block_id_type& id);
+        static uint32_t      num_from_id(const block_id_type& id);
     };
 
  
@@ -56,10 +56,10 @@
     {
         block_id_type         id()const;
         fc::ecc::public_key   signee()const;
-        void sign( const fc::ecc::private_key& signer );
-        bool validate_signee( const fc::ecc::public_key& expected_signee )const;
+        void                  sign( const fc::ecc::private_key& signer );
+        bool                  validate_signee( const fc::ecc::public_key& expected_signee )const;
 
-        signature_type witness_signature;
+        signature_type        witness_signature;
     };
  
 #### signed_block
