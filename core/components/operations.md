@@ -3,8 +3,6 @@
 This sectopn purpose: Lest Available Operations and the details.
 
 ### base_operation
-
-
 - [account_create_operation](../components/operations.md#account_create_operation)
 - [account_transfer_operation](../components/operations.md#account_transfer_operation)
 - [account_update_operation](../components/operations.md#account_update_operation)
@@ -54,6 +52,7 @@ This sectopn purpose: Lest Available Operations and the details.
 - [witness_create_operation](../components/operations.md#witness_create_operation)
 - [witness_update_operation](../components/operations.md#witness_update_operation)
 - [worker_create_operation](../components/operations.md#worker_create_operation)
+
 
 ***
 
@@ -918,9 +917,28 @@ This sectopn purpose: Lest Available Operations and the details.
 	  share_type calculate_fee(const fee_parameters_type& k)const;
 	  };
   
-#### transfer_to blind_operation
+#### transfer_to_blind_operation
 - Converts public account balance to a blinded or stealth balance. 
 
+ struct transfer_to_blind_operation : public base_operation
+ {
+  struct fee_parameters_type { 
+  uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+  uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
+  };
+ 
+  asset fee;
+  asset amount;
+  account_id_type from;
+  blind_factor_type blinding_factor;
+  vector<blind_output> outputs;
+ 
+  account_id_type fee_payer()const { return from; }
+  void validate()const;
+  share_type calculate_fee(const fee_parameters_type& )const;
+ };
+ 
+ 
 #### vesting_balance_create_operation
 - Create a vesting balance.
 - The chain allows a user to create a vesting balance. Normally, vesting balances are created automatically as part of cashback and worker operations. This operation allows vesting balances to be created manually as well.
@@ -928,13 +946,47 @@ This sectopn purpose: Lest Available Operations and the details.
 - **Returns**
   - ID of newly created `vesting_balance_object` 
 
-
+	  struct vesting_balance_create_operation : public base_operation
+	  {
+	  struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+	 
+	  asset fee;
+	  account_id_type creator; 
+	  account_id_type owner; 
+	  asset amount;
+	  vesting_policy_initializer policy;
+	 
+	  account_id_type fee_payer()const { return creator; }
+	  void validate()const
+	  {
+	  FC_ASSERT( fee.amount >= 0 );
+	  FC_ASSERT( amount.amount > 0 );
+	  }
+	  };
+	  
 #### vesting_balance_withdraw_operation
 - Withdraw from a vesting balance.
 - Withdrawal from a not-completely-mature vesting balance will result in paying fees. 
 - **Returns**
   - nothing 
 
+	  struct vesting_balance_withdraw_operation : public base_operation
+	  {
+	  struct fee_parameters_type { uint64_t fee = 20*GRAPHENE_BLOCKCHAIN_PRECISION; };
+	 
+	  asset fee;
+	  vesting_balance_id_type vesting_balance;
+	  account_id_type owner; 
+	  asset amount;
+	 
+	  account_id_type fee_payer()const { return owner; }
+	  void validate()const
+	  {
+	  FC_ASSERT( fee.amount >= 0 );
+	  FC_ASSERT( amount.amount > 0 );
+	  }
+	  };
+	  
 #### withdraw_permission_claim_operation
 - Withdraw from an account which has published a withdrawal permission
 - This operation is used to withdraw from an account which has authorized such a withdrawal. It may be executed at most once per withdrawal period for the given permission. On execution, `amount_to_withdraw` is transferred from `withdraw_from_account` to `withdraw_to_account`, assuming `amount_to_withdraw` is within the withdrawal limit. The withdrawal permission will be updated to note that the withdrawal for the current period has occurred, and further withdrawals will not be permitted until the next withdrawal period, assuming the permission has not expired. This operation may be executed at any time within the current withdrawal period.
@@ -1080,7 +1132,4 @@ This sectopn purpose: Lest Available Operations and the details.
 		};
 
 ***
-
-
-
 
