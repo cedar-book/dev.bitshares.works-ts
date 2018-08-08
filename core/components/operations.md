@@ -62,7 +62,7 @@ This section purpose: Lest Available Operations and Definitions.
 
 ***
 
-### Definitions
+### Details
 
 
 #### account_create_operation
@@ -156,14 +156,12 @@ This section purpose: Lest Available Operations and Definitions.
 
 #### asset_claim_pool_operation
 - Transfers BTS from the fee pool of a specified asset back to the issuer's balance. 
-
 - Parameters
   - `fee`  Payment for the operation execution
   - `issuer`  Account which will be used for transfering BTS
   - `asset_id`  Id of the asset whose fee pool is going to be drained
   - `amount_to_claim`  Amount of BTS to claim from the fee pool
   - `extensions`  Field for future expansion
-
 - Precondition
   - `fee` must be paid in the asset other than the one whose pool is being drained 
   - `amount_to_claim` should be specified in the core asset 
@@ -323,14 +321,12 @@ This section purpose: Lest Available Operations and Definitions.
 #### asset_update_feed_producers_operation
 - Update the set of feed-producing accounts for a BitAsset
 - BitAssets have price feeds selected by taking the median values of recommendations from a set of feed producers. This operation is used to specify which accounts may produce feeds for a given BitAsset. 
-
 - Precondition
   - `issuer` MUST be an existing account, and MUST match `asset_object::issuer` on `asset_to_update` 
   - `issuer` MUST NOT be the committee account 
   - `asset_to_update` MUST be a BitAsset, i.e. `asset_object::is_market_issued()` returns true 
   - `fee` MUST be nonnegative, and `issuer` MUST have a sufficient balance to pay it 
   - Cardinality of `new_feed_producers` MUST NOT exceed `chain_parameters::maximum_asset_feed_publishers` 
-
 - Postcondition
   - `asset_to_update` will have a set of feed producers matching `new_feed_producers` 
   - All valid feeds supplied by feed producers in `new_feed_producers`, which were already feed producers prior to execution of this operation, will be preserved 
@@ -387,7 +383,6 @@ This section purpose: Lest Available Operations and Definitions.
   - `issuer` SHALL be an existing account and MUST match `asset_object::issuer` on `asset_to_update` 
   - `fee` SHALL be nonnegative, and `issuer` MUST have a sufficient balance to pay it 
   - `new_options` SHALL be internally consistent, as verified by `validate()` 
-
 - **Postcondition**
   - `asset_to_update` will have options matching those of new_options 
 
@@ -891,4 +886,7 @@ This section purpose: Lest Available Operations and Definitions.
 	  };
   
 ***
+
+
+
 
