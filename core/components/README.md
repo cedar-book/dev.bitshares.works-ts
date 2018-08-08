@@ -2,7 +2,7 @@
 
 ### Block
 - [A Block Elements and Structure(PDF)](../knowledge_base/shared_files/structures/BitShares-Block-Structurev1.pdf)
-- [Block Header](README.md#block-header)
+- [Block Header - inheritance](README.md#block-header)
 
 
 ### Evaluators
