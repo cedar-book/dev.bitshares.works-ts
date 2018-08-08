@@ -7,7 +7,7 @@ Documentation related to BitShares Core internals and development fundamentals.
 ### [Development Environment & Getting Started](../core/installation/README.md#development-environment--getting-started)
 - Getting Started, Requirements(OS, Hardware, CPU, storage, Memory,etc), CLI-windows Tools, Core in WSL, Known issues
  
-### [Components Structures and Details](../core/components#components-structures-and-details)
+### [Components Structures and Descriptios](../core/components#components-structures-and-detailed-description)
  - Block structure, operations, evaluators
 
 ### [BitShares Accounts](../core/accounts/README.md#accounts)
