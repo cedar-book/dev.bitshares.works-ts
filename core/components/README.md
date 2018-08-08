@@ -1,4 +1,4 @@
-## Components Structure and Details
+## Components Structures and Details
 
 ## Block
 
