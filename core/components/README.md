@@ -23,7 +23,7 @@
 *Block Header Inheritance*
 #### block_header
 
-    // (i.e.) 1.0.0.0 
+    // *Block Header Inheritance* (i.e.) 1.0.0.0 
     // graphene::chain
     
     struct block_header
@@ -42,7 +42,7 @@
  
 #### signed_block_header
  
-    // (i.e.) 1.1.0.0
+    // *Block Header Inheritance* (i.e.) 1.1.0.0
     // graphene::chain
         
     struct signed_block_header : public block_header
@@ -57,7 +57,7 @@
  
 #### signed_block
  
-    // (i.e.) 1.1.1.0
+    // *Block Header Inheritance* (i.e.) 1.1.1.0
     // graphene::chain
         
     struct signed_block : public signed_block_header
@@ -69,7 +69,7 @@
  
 #### signed_block
   
-    // (i.e.) 1.1.1.1
+    // *Block Header Inheritance* (i.e.) 1.1.1.1
     // graphene::wallet
     
     struct signed_block_with_info : public signed_block
