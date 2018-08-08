@@ -916,27 +916,29 @@ This sectopn purpose: Lest Available Operations and the details.
 	  void validate()const;
 	  share_type calculate_fee(const fee_parameters_type& k)const;
 	  };
-  
+	  
 #### transfer_to_blind_operation
 - Converts public account balance to a blinded or stealth balance. 
 
- struct transfer_to_blind_operation : public base_operation
- {
-  struct fee_parameters_type { 
-  uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
-  uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
-  };
+	 struct transfer_to_blind_operation : public base_operation
+	 {
+	  struct fee_parameters_type { 
+	  uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+	  uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
+	  };
+	 
+	  asset fee;
+	  asset amount;
+	  account_id_type from;
+	  blind_factor_type blinding_factor;
+	  vector<blind_output> outputs;
+	 
+	  account_id_type fee_payer()const { return from; }
+	  void validate()const;
+	  share_type calculate_fee(const fee_parameters_type& )const;
+	 };
  
-  asset fee;
-  asset amount;
-  account_id_type from;
-  blind_factor_type blinding_factor;
-  vector<blind_output> outputs;
  
-  account_id_type fee_payer()const { return from; }
-  void validate()const;
-  share_type calculate_fee(const fee_parameters_type& )const;
- };
  
  
 #### vesting_balance_create_operation
