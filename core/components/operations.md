@@ -384,13 +384,44 @@ This section purpose: Lest Available Operations and Definitions.
 - This operation is used to update the settings for an existing withdrawal permission. The accounts to withdraw to and from may never be updated. The fields which may be updated are the withdrawal limit (both amount and asset type may be updated), the withdrawal period length, the remaining number of periods until expiration, and the starting time of the new period.
 - Fee is paid by `withdraw_from_account`, which is required to authorize this operation 
 
+
 #### witness_create_operation
 - Create a witness object, as a bid to hold a witness position on the network.
 - Accounts which wish to become witnesses may use this operation to create a witness object which stakeholders may vote on to approve its position as a witness. 
 
+	  struct witness_create_operation : public base_operation
+	  {
+	  struct fee_parameters_type { uint64_t fee = 5000 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+	 
+	  asset fee;
+	  account_id_type witness_account;
+	  string url;
+	  public_key_type block_signing_key;
+	 
+	  account_id_type fee_payer()const { return witness_account; }
+	  void validate()const;
+	  };
+  
 #### witness_update_operation
 - Update a witness object's URL and block signing key. 
 
+	  struct witness_update_operation : public base_operation
+	  {
+	  struct fee_parameters_type
+	  {
+	  share_type fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+	  };
+	 
+	  asset fee;
+	  witness_id_type witness;
+	  account_id_type witness_account;
+	  optional< string > new_url;
+	  optional< public_key_type > new_signing_key;
+	 
+	  account_id_type fee_payer()const { return witness_account; }
+	  void validate()const;
+	  };
+  
 #### worker_create_operation
 - Create a new worker object. 
 
@@ -412,3 +443,7 @@ This section purpose: Lest Available Operations and Definitions.
 	  };
   
 ***
+
+
+
+
