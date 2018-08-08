@@ -67,48 +67,48 @@ This section purpose: Lest Available Operations and Definitions.
 
 #### account_create_operation
 
-	  struct account_create_operation : public base_operation
-	  {
-	  struct ext
-	  {
-	  optional< void_t > null_ext;
-	  optional< special_authority > owner_special_authority;
-	  optional< special_authority > active_special_authority;
-	  optional< buyback_account_options > buyback_options;
-	  };
-	 
-	  struct fee_parameters_type
-	  {
-	  uint64_t basic_fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
-	  uint64_t premium_fee = 2000*GRAPHENE_BLOCKCHAIN_PRECISION; 
-	  uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
-	  }; 
-   
-	  asset fee;
-	  account_id_type registrar;
-	 
-	  account_id_type referrer;
-	  uint16_t referrer_percent = 0;
-	 
-	  string name;
-	  authority owner;
-	  authority active;
-	 
-	  account_options options;
-	  extension< ext > extensions;
-	 
-	  account_id_type fee_payer()const { return registrar; }
-	  void validate()const;
-	  share_type calculate_fee(const fee_parameters_type& )const;
-	 
-	  void get_required_active_authorities( flat_set<account_id_type>& a )const
-	  {
-	  // registrar should be required anyway as it is the fee_payer(), but we insert it here just to be sure
-	  a.insert( registrar );
-	  if( extensions.value.buyback_options.valid() )
-	  a.insert( extensions.value.buyback_options->asset_to_buy_issuer );
-	  }
-	  };
+		  struct account_create_operation : public base_operation
+		  {
+		  struct ext
+		  {
+		  optional< void_t > null_ext;
+		  optional< special_authority > owner_special_authority;
+		  optional< special_authority > active_special_authority;
+		  optional< buyback_account_options > buyback_options;
+		  };
+		 
+		  struct fee_parameters_type
+		  {
+		  uint64_t basic_fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+		  uint64_t premium_fee = 2000*GRAPHENE_BLOCKCHAIN_PRECISION; 
+		  uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
+		  }; 
+	   
+		  asset fee;
+		  account_id_type registrar;
+		 
+		  account_id_type referrer;
+		  uint16_t referrer_percent = 0;
+		 
+		  string name;
+		  authority owner;
+		  authority active;
+		 
+		  account_options options;
+		  extension< ext > extensions;
+		 
+		  account_id_type fee_payer()const { return registrar; }
+		  void validate()const;
+		  share_type calculate_fee(const fee_parameters_type& )const;
+		 
+		  void get_required_active_authorities( flat_set<account_id_type>& a )const
+		  {
+		  // registrar should be required anyway as it is the fee_payer(), but we insert it here just to be sure
+		  a.insert( registrar );
+		  if( extensions.value.buyback_options.valid() )
+		  a.insert( extensions.value.buyback_options->asset_to_buy_issuer );
+		  }
+		  };
   
 #### account_transfer_operation
 - Transfers the account to another account while clearing the white list. 
@@ -121,65 +121,65 @@ This section purpose: Lest Available Operations and Definitions.
 - Update an existing account.
 - This operation is used to update an existing account. It can be used to update the authorities, or adjust the options on the account. See `account_object::options_type` for the options which may be updated. 
 
-	struct account_update_operation : public base_operation
-	{
-	struct ext
-	{
-	optional< void_t > null_ext;
-	optional< special_authority > owner_special_authority;
-	optional< special_authority > active_special_authority;
-	};
+		struct account_update_operation : public base_operation
+		{
+		struct ext
+		{
+		optional< void_t > null_ext;
+		optional< special_authority > owner_special_authority;
+		optional< special_authority > active_special_authority;
+		};
 
-	struct fee_parameters_type
-	{
-	share_type fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
-	};
+		struct fee_parameters_type
+		{
+		share_type fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
+		};
 
-	asset fee;
-	account_id_type account;
+		asset fee;
+		account_id_type account;
 
-	optional<authority> owner;
-	optional<authority> active;
+		optional<authority> owner;
+		optional<authority> active;
 
-	optional<account_options> new_options;
-	extension< ext > extensions;
+		optional<account_options> new_options;
+		extension< ext > extensions;
 
-	account_id_type fee_payer()const { return account; }
-	void validate()const;
-	share_type calculate_fee( const fee_parameters_type& k )const;
+		account_id_type fee_payer()const { return account; }
+		void validate()const;
+		share_type calculate_fee( const fee_parameters_type& k )const;
 
-	bool is_owner_update()const
-	{ return owner || extensions.value.owner_special_authority.valid(); }
+		bool is_owner_update()const
+		{ return owner || extensions.value.owner_special_authority.valid(); }
 
-	void get_required_owner_authorities( flat_set<account_id_type>& a )const
-	{ if( is_owner_update() ) a.insert( account ); }
+		void get_required_owner_authorities( flat_set<account_id_type>& a )const
+		{ if( is_owner_update() ) a.insert( account ); }
 
-	void get_required_active_authorities( flat_set<account_id_type>& a )const
-	{ if( !is_owner_update() ) a.insert( account ); }
-	};
+		void get_required_active_authorities( flat_set<account_id_type>& a )const
+		{ if( !is_owner_update() ) a.insert( account ); }
+		};
 
 #### account_upgrade_operation
 - Manage an account's membership status
 - This operation is used to upgrade an account to a member, or renew its subscription. If an account which is an unexpired annual subscription member publishes this operation with `upgrade_to_lifetime_member` set to false, the account's membership expiration date will be pushed backward one year. If a basic account publishes it with `upgrade_to_lifetime_member` set to false, the account will be upgraded to a subscription member with an expiration date one year after the processing time of this operation.
 - Any account may use this operation to become a lifetime member by setting `upgrade_to_lifetime_member` to true. Once an account has become a lifetime member, it may not use this operation anymore. 
 
-	struct account_upgrade_operation : public base_operation
-	{
-	struct fee_parameters_type { 
-	uint64_t membership_annual_fee = 2000 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	uint64_t membership_lifetime_fee = 10000 * GRAPHENE_BLOCKCHAIN_PRECISION; 
-	};
+		struct account_upgrade_operation : public base_operation
+		{
+		struct fee_parameters_type { 
+		uint64_t membership_annual_fee = 2000 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		uint64_t membership_lifetime_fee = 10000 * GRAPHENE_BLOCKCHAIN_PRECISION; 
+		};
 
-	asset fee;
-	account_id_type account_to_upgrade;
-	bool upgrade_to_lifetime_member = false;
-	extensions_type extensions;
+		asset fee;
+		account_id_type account_to_upgrade;
+		bool upgrade_to_lifetime_member = false;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return account_to_upgrade; }
-	void validate()const;
-	share_type calculate_fee( const fee_parameters_type& k )const;
-	};
+		account_id_type fee_payer()const { return account_to_upgrade; }
+		void validate()const;
+		share_type calculate_fee( const fee_parameters_type& k )const;
+		};
 
 #### account_whitelist_operation
 - This operation is used to whitelist and blacklist accounts, primarily for transacting in whitelisted assets.
@@ -191,38 +191,38 @@ This section purpose: Lest Available Operations and Definitions.
 - assert that some conditions are true.
 - This operation performs no changes to the database state, but can used to verify pre or post conditions for other operations. 
 
-	struct assert_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct assert_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee;
-	account_id_type fee_paying_account;
-	vector<predicate> predicates;
-	flat_set<account_id_type> required_auths;
-	extensions_type extensions;
+		asset fee;
+		account_id_type fee_paying_account;
+		vector<predicate> predicates;
+		flat_set<account_id_type> required_auths;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return fee_paying_account; }
-	void validate()const;
-	share_type calculate_fee(const fee_parameters_type& k)const;
-	};
+		account_id_type fee_payer()const { return fee_paying_account; }
+		void validate()const;
+		share_type calculate_fee(const fee_parameters_type& k)const;
+		};
 
 #### asset_claim_fees_operation
 - used to transfer accumulated fees back to the issuer's balance. 
 
-	struct asset_claim_fees_operation : public base_operation
-	{
-	struct fee_parameters_type {
-	uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	};
+		struct asset_claim_fees_operation : public base_operation
+		{
+		struct fee_parameters_type {
+		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		};
 
-	asset fee;
-	account_id_type issuer;
-	asset amount_to_claim; 
-	extensions_type extensions;
+		asset fee;
+		account_id_type issuer;
+		asset amount_to_claim; 
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return issuer; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return issuer; }
+		void validate()const;
+		};
 
 #### asset_claim_pool_operation
 - Transfers BTS from the fee pool of a specified asset back to the issuer's balance. 
@@ -237,95 +237,95 @@ This section purpose: Lest Available Operations and Definitions.
   - `amount_to_claim` should be specified in the core asset 
   - `amount_to_claim` should be nonnegative 
  
-	struct asset_claim_pool_operation : public base_operation
-	{
-	struct fee_parameters_type {
-	uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	};
+		struct asset_claim_pool_operation : public base_operation
+		{
+		struct fee_parameters_type {
+		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		};
 
-	asset fee;
-	account_id_type issuer;
-	asset_id_type asset_id; 
-	asset amount_to_claim; 
-	extensions_type extensions;
+		asset fee;
+		account_id_type issuer;
+		asset_id_type asset_id; 
+		asset amount_to_claim; 
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return issuer; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return issuer; }
+		void validate()const;
+		};
   
 #### asset_create_operation
  
-	struct asset_create_operation : public base_operation
-	{
-	struct fee_parameters_type { 
-	uint64_t symbol3 = 500000 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	uint64_t symbol4 = 300000 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	uint64_t long_symbol = 5000 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	uint32_t price_per_kbyte = 10; 
-	};
+		struct asset_create_operation : public base_operation
+		{
+		struct fee_parameters_type { 
+		uint64_t symbol3 = 500000 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		uint64_t symbol4 = 300000 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		uint64_t long_symbol = 5000 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		uint32_t price_per_kbyte = 10; 
+		};
 
 #### asset_fund_fee_pool_operation
 
-	struct asset_fund_fee_pool_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct asset_fund_fee_pool_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee; 
-	account_id_type from_account;
-	asset_id_type asset_id;
-	share_type amount; 
-	extensions_type extensions;
+		asset fee; 
+		account_id_type from_account;
+		asset_id_type asset_id;
+		share_type amount; 
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return from_account; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return from_account; }
+		void validate()const;
+		};
 
 #### asset_global_settle_operation
 - Allows global settling of bitassets (black swan or prediction markets)
 - In order to use this operation, `asset_to_settle` must have the global_settle flag set
 - When this operation is executed all balances are converted into the backing asset at the settle_price and all open margin positions are called at the settle price. If this asset is used as backing for other bitassets, those bitassets will be force settled at their current feed price. 
 
-	struct asset_global_settle_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct asset_global_settle_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee;
-	account_id_type issuer; 
-	asset_id_type asset_to_settle;
-	price settle_price;
-	extensions_type extensions;
+		asset fee;
+		account_id_type issuer; 
+		asset_id_type asset_to_settle;
+		price settle_price;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return issuer; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return issuer; }
+		void validate()const;
+		};
 
 #### asset_issue_operation
 
-	struct asset_issue_operation : public base_operation
-	{
-	struct fee_parameters_type { 
-	uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
-	uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
-	};
+		struct asset_issue_operation : public base_operation
+		{
+		struct fee_parameters_type { 
+		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
+		uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
+		};
 
 #### asset_publish_feed_operation
 - Publish price feeds for market-issued assets
 - Price feed providers use this operation to publish their price feeds for **market-issued assets**. A price feed is used to tune the market for a particular **market-issued asset**. For each value in the feed, the median across all committee_member feeds for that asset is calculated and the market for the asset is configured with the median of that value.
 - The feed in the operation contains three prices: **a call price limit**, **a short price limit**, and **a settlement price**. The call limit price is structured as `(collateral asset) / (debt asset)` and the short limit price is structured as `(asset for sale) / (collateral asset`). Note that the `asset IDs` are opposite to eachother, so if we're publishing a feed for USD, the call limit price will be `CORE/USD `and the short limit price will be `USD/CORE`. The settlement price may be flipped either direction, as long as it is a ratio between the **market-issued asset** and **its collateral**. 
 
-	struct asset_publish_feed_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct asset_publish_feed_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee; 
-	account_id_type publisher;
-	asset_id_type asset_id; 
-	price_feed feed;
-	extensions_type extensions;
+		asset fee; 
+		account_id_type publisher;
+		asset_id_type asset_id; 
+		price_feed feed;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return publisher; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return publisher; }
+		void validate()const;
+		};
   
 #### asset_reserve_operation
 - used to take an asset out of circulation, returning to the issuer
@@ -335,24 +335,24 @@ This section purpose: Lest Available Operations and Definitions.
 #### asset_settle_cancel_operation
 - Virtual op generated when force settlement is canceled. 
 
-	struct asset_settle_cancel_operation : public base_operation
-	{
-	struct fee_parameters_type { };
+		struct asset_settle_cancel_operation : public base_operation
+		{
+		struct fee_parameters_type { };
 
-	asset fee;
-	force_settlement_id_type settlement;
-	account_id_type account;
-	asset amount;
-	extensions_type extensions;
+		asset fee;
+		force_settlement_id_type settlement;
+		account_id_type account;
+		asset amount;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return account; }
-	void validate()const {
-	FC_ASSERT( amount.amount > 0, "Must settle at least 1 unit" );
-	}
+		account_id_type fee_payer()const { return account; }
+		void validate()const {
+		FC_ASSERT( amount.amount > 0, "Must settle at least 1 unit" );
+		}
 
-	share_type calculate_fee(const fee_parameters_type& params)const
-	{ return 0; }
-	};
+		share_type calculate_fee(const fee_parameters_type& params)const
+		{ return 0; }
+		};
 
 
 #### asset_settle_operation
@@ -360,20 +360,20 @@ This section purpose: Lest Available Operations and Definitions.
 - Holders of *market-issued assets* may request a forced settlement for some amount of their asset. This means that the specified sum will be locked by the chain and held for the settlement period, after which time the chain will choose a margin position holder and buy the settled asset using the margin's collateral. The price of this sale will be based on the feed price for the market-issued asset being settled. The exact settlement price will be the feed price at the time of settlement with an offset in favor of the margin position, where the offset is a blockchain parameter set in the `global_property_object`.
 - The fee is paid by **account**, and **account** must authorize this operation
 
-	struct asset_settle_operation : public base_operation
-	{
-	struct fee_parameters_type { 
-	uint64_t fee = 100 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	};
+		struct asset_settle_operation : public base_operation
+		{
+		struct fee_parameters_type { 
+		uint64_t fee = 100 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		};
 
-	asset fee;
-	account_id_type account;
-	asset amount;
-	extensions_type extensions;
+		asset fee;
+		account_id_type account;
+		asset amount;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return account; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return account; }
+		void validate()const;
+		};
 
 #### asset_update_bitasset_operation
 - Update options specific to BitAssets
@@ -386,21 +386,21 @@ This section purpose: Lest Available Operations and Definitions.
 - **Postcondition**
   - `asset_to_update` will have BitAsset-specific options matching those of new_options 
 
-	struct asset_update_bitasset_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct asset_update_bitasset_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee;
-	account_id_type issuer;
-	asset_id_type asset_to_update;
+		asset fee;
+		account_id_type issuer;
+		asset_id_type asset_to_update;
 
-	bitasset_options new_options;
-	extensions_type extensions;
+		bitasset_options new_options;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return issuer; }
-	void validate()const;
-	};
-	   
+		account_id_type fee_payer()const { return issuer; }
+		void validate()const;
+		};
+		   
 
 #### asset_update_feed_producers_operation
 - Update the set of feed-producing accounts for a BitAsset
@@ -414,48 +414,48 @@ This section purpose: Lest Available Operations and Definitions.
 - Postcondition
   - `asset_to_update` will have a set of feed producers matching `new_feed_producers` 
   - All valid feeds supplied by feed producers in `new_feed_producers`, which were already feed producers prior to execution of this operation, will be preserved 
-	
-	struct asset_update_feed_producers_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+		
+		struct asset_update_feed_producers_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee;
-	account_id_type issuer;
-	asset_id_type asset_to_update;
+		asset fee;
+		account_id_type issuer;
+		asset_id_type asset_to_update;
 
-	flat_set<account_id_type> new_feed_producers;
-	extensions_type extensions;
+		flat_set<account_id_type> new_feed_producers;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return issuer; }
-	void validate()const;
-	};
-	  
+		account_id_type fee_payer()const { return issuer; }
+		void validate()const;
+		};
+		  
 #### asset_update_issuer_operation
 - Update issuer of an asset
 - An issuer has general administrative power of an asset and in some cases also its shares issued to individuals. Thus, changing the issuer today requires the use of a separate operation that needs to be signed by the owner authority. 
 
-	struct asset_update_issuer_operation : public base_operation
-	{
-	struct fee_parameters_type {
-	uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	};
+		struct asset_update_issuer_operation : public base_operation
+		{
+		struct fee_parameters_type {
+		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		};
 
-	asset fee;
-	account_id_type issuer;
-	asset_id_type asset_to_update;
-	account_id_type new_issuer;
-	extensions_type extensions;
+		asset fee;
+		account_id_type issuer;
+		asset_id_type asset_to_update;
+		account_id_type new_issuer;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return issuer; }
-	void validate()const;
+		account_id_type fee_payer()const { return issuer; }
+		void validate()const;
 
-	void get_required_owner_authorities( flat_set<account_id_type>& a )const
-	{ a.insert( issuer ); }
+		void get_required_owner_authorities( flat_set<account_id_type>& a )const
+		{ a.insert( issuer ); }
 
-	void get_required_active_authorities( flat_set<account_id_type>& a )const
-	{ }
+		void get_required_active_authorities( flat_set<account_id_type>& a )const
+		{ }
 
-	};
+		};
   
 #### asset_update_operation
 - Update options common to all assets
@@ -470,28 +470,28 @@ This section purpose: Lest Available Operations and Definitions.
 - **Postcondition**
   - `asset_to_update` will have options matching those of new_options 
 
-	struct asset_update_issuer_operation : public base_operation
-	{
-	struct fee_parameters_type {
-	uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	};
+		struct asset_update_issuer_operation : public base_operation
+		{
+		struct fee_parameters_type {
+		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		};
 
-	asset fee;
-	account_id_type issuer;
-	asset_id_type asset_to_update;
-	account_id_type new_issuer;
-	extensions_type extensions;
+		asset fee;
+		account_id_type issuer;
+		asset_id_type asset_to_update;
+		account_id_type new_issuer;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return issuer; }
-	void validate()const;
+		account_id_type fee_payer()const { return issuer; }
+		void validate()const;
 
-	void get_required_owner_authorities( flat_set<account_id_type>& a )const
-	{ a.insert( issuer ); }
+		void get_required_owner_authorities( flat_set<account_id_type>& a )const
+		{ a.insert( issuer ); }
 
-	void get_required_active_authorities( flat_set<account_id_type>& a )const
-	{ }
+		void get_required_active_authorities( flat_set<account_id_type>& a )const
+		{ }
 
-	};
+		};
   
 #### balance_claim_operation
 - Claim a balance in a balanc_object.
@@ -518,27 +518,27 @@ This section purpose: Lest Available Operations and Definitions.
 - This process can also be used to send money to a cold wallet without having to pre-register any accounts.
 - Outputs are assigned the same IDs as the inputs until no more input IDs are available, in which case a the return value will be the first ID allocated for an output. Additional output IDs are allocated sequentially thereafter. If there are fewer outputs than inputs then the input IDs are freed and never used again. 
 
-	struct blind_transfer_operation : public base_operation
-	{
-	struct fee_parameters_type { 
-	uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
-	uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
-	};
+		struct blind_transfer_operation : public base_operation
+		{
+		struct fee_parameters_type { 
+		uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+		uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
+		};
 
-	asset fee;
-	vector<blind_input> inputs;
-	vector<blind_output> outputs;
+		asset fee;
+		vector<blind_input> inputs;
+		vector<blind_output> outputs;
 
-	account_id_type fee_payer()const;
-	void validate()const;
-	share_type calculate_fee( const fee_parameters_type& k )const;
+		account_id_type fee_payer()const;
+		void validate()const;
+		share_type calculate_fee( const fee_parameters_type& k )const;
 
-	void get_required_authorities( vector<authority>& a )const
-	{
-	for( const auto& in : inputs )
-	a.push_back( in.owner ); 
-	}
-	};
+		void get_required_authorities( vector<authority>& a )const
+		{
+		for( const auto& in : inputs )
+		a.push_back( in.owner ); 
+		}
+		};
 
 #### call_order_update_operation
 - This operation can be used to add collateral, cover, and adjust the margin call price for a particular user.
@@ -546,27 +546,27 @@ This section purpose: Lest Available Operations and Definitions.
 - This operation will fail if it would trigger a margin call that couldn't be filled. If the margin call hits the call price limit then it will fail if the call price is above the settlement price.
 
  > Note: this operation can be used to force a market order using the collateral without requiring outside funds. 
-	
-	struct call_order_update_operation : public base_operation
-	{
-	struct options_type
-	{
-	optional<uint16_t> target_collateral_ratio; 
-	};
+		
+		struct call_order_update_operation : public base_operation
+		{
+		struct options_type
+		{
+		optional<uint16_t> target_collateral_ratio; 
+		};
 
-	struct fee_parameters_type { uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct fee_parameters_type { uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee;
-	account_id_type funding_account; 
-	asset delta_collateral; 
-	asset delta_debt; 
+		asset fee;
+		account_id_type funding_account; 
+		asset delta_collateral; 
+		asset delta_debt; 
 
-	typedef extension<options_type> extensions_type; // note: this will be jsonified to {...} but no longer [...]
-	extensions_type extensions;
+		typedef extension<options_type> extensions_type; // note: this will be jsonified to {...} but no longer [...]
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return funding_account; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return funding_account; }
+		void validate()const;
+		};
   
 #### committee_member_create_operation
 - Create a committee_member object, as a bid to hold a committee_member seat on the network.
@@ -589,72 +589,72 @@ This section purpose: Lest Available Operations and Definitions.
 
  > Note: This is a virtual operation that is created while reviving a bitasset from collateral bids. 
 
-	struct execute_bid_operation : public base_operation
-	{
-	struct fee_parameters_type {};
+		struct execute_bid_operation : public base_operation
+		{
+		struct fee_parameters_type {};
 
-	execute_bid_operation(){}
-	execute_bid_operation( account_id_type a, asset d, asset c )
-	: bidder(a), debt(d), collateral(c) {}
+		execute_bid_operation(){}
+		execute_bid_operation( account_id_type a, asset d, asset c )
+		: bidder(a), debt(d), collateral(c) {}
 
-	account_id_type bidder;
-	asset debt;
-	asset collateral;
-	asset fee;
+		account_id_type bidder;
+		asset debt;
+		asset collateral;
+		asset fee;
 
-	account_id_type fee_payer()const { return bidder; }
-	void validate()const { FC_ASSERT( !"virtual operation" ); }
+		account_id_type fee_payer()const { return bidder; }
+		void validate()const { FC_ASSERT( !"virtual operation" ); }
 
-	share_type calculate_fee(const fee_parameters_type& k)const { return 0; }
-	};
+		share_type calculate_fee(const fee_parameters_type& k)const { return 0; }
+		};
   
 #### fba_distribute_operation
 
-	struct fba_distribute_operation : public base_operation
-	{
-	struct fee_parameters_type {};
+		struct fba_distribute_operation : public base_operation
+		{
+		struct fee_parameters_type {};
 
-	asset fee; // always zero
-	account_id_type account_id;
-	fba_accumulator_id_type fba_id;
-	share_type amount;
+		asset fee; // always zero
+		account_id_type account_id;
+		fba_accumulator_id_type fba_id;
+		share_type amount;
 
-	account_id_type fee_payer()const { return account_id; }
-	void validate()const { FC_ASSERT( false ); }
-	share_type calculate_fee(const fee_parameters_type& k)const { return 0; }
-	};
+		account_id_type fee_payer()const { return account_id; }
+		void validate()const { FC_ASSERT( false ); }
+		share_type calculate_fee(const fee_parameters_type& k)const { return 0; }
+		};
 	 
 #### fill_order_operation
 
  > Note: This is a virtual operation that is created while matching orders and emitted for the purpose of accurately tracking account history, accelerating a reindex
 	
-	struct fill_order_operation : public base_operation
-	{
-	struct fee_parameters_type {};
+		struct fill_order_operation : public base_operation
+		{
+		struct fee_parameters_type {};
 
-	fill_order_operation(){}
-	fill_order_operation( object_id_type o, account_id_type a, asset p, asset r, asset f, price fp, bool m )
-	:order_id(o),account_id(a),pays(p),receives(r),fee(f),fill_price(fp),is_maker(m) {}
+		fill_order_operation(){}
+		fill_order_operation( object_id_type o, account_id_type a, asset p, asset r, asset f, price fp, bool m )
+		:order_id(o),account_id(a),pays(p),receives(r),fee(f),fill_price(fp),is_maker(m) {}
 
-	object_id_type order_id;
-	account_id_type account_id;
-	asset pays;
-	asset receives;
-	asset fee; // paid by receiving account
-	price fill_price;
-	bool is_maker;
+		object_id_type order_id;
+		account_id_type account_id;
+		asset pays;
+		asset receives;
+		asset fee; // paid by receiving account
+		price fill_price;
+		bool is_maker;
 
-	pair<asset_id_type,asset_id_type> get_market()const
-	{
-	return pays.asset_id < receives.asset_id ?
-	std::make_pair( pays.asset_id, receives.asset_id ) :
-	std::make_pair( receives.asset_id, pays.asset_id );
-	}
-	account_id_type fee_payer()const { return account_id; }
-	void validate()const { FC_ASSERT( !"virtual operation" ); }
+		pair<asset_id_type,asset_id_type> get_market()const
+		{
+		return pays.asset_id < receives.asset_id ?
+		std::make_pair( pays.asset_id, receives.asset_id ) :
+		std::make_pair( receives.asset_id, pays.asset_id );
+		}
+		account_id_type fee_payer()const { return account_id; }
+		void validate()const { FC_ASSERT( !"virtual operation" ); }
 
-	share_type calculate_fee(const fee_parameters_type& k)const { return 0; }
-	};
+		share_type calculate_fee(const fee_parameters_type& k)const { return 0; }
+		};
 
   
   
@@ -663,18 +663,18 @@ This section purpose: Lest Available Operations and Definitions.
 - Used to cancel an existing limit order. Both fee_pay_account and the account to receive the proceeds must be the same as order->seller.
 - **Returns**   the amount actually refunded 
 	
-	struct limit_order_cancel_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = 0; };
+		struct limit_order_cancel_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = 0; };
 
-	asset fee;
-	limit_order_id_type order;
-	account_id_type fee_paying_account;
-	extensions_type extensions;
+		asset fee;
+		limit_order_id_type order;
+		account_id_type fee_paying_account;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return fee_paying_account; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return fee_paying_account; }
+		void validate()const;
+		};
 
 #### limit_orders_create_operation
 - instructs the blockchain to attempt to sell one asset for another
@@ -682,30 +682,30 @@ This section purpose: Lest Available Operations and Definitions.
 - If either the selling asset or the receiving asset is white list restricted, the order will only be created if the seller is on the white list of the restricted asset type.
 - Market orders are matched in the order they are included in the block chain. 
 
-	struct limit_order_create_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = 5 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct limit_order_create_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = 5 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee;
-	account_id_type seller;
-	asset amount_to_sell;
-	asset min_to_receive;
+		asset fee;
+		account_id_type seller;
+		asset amount_to_sell;
+		asset min_to_receive;
 
-	time_point_sec expiration = time_point_sec::maximum();
+		time_point_sec expiration = time_point_sec::maximum();
 
-	bool fill_or_kill = false;
-	extensions_type extensions;
+		bool fill_or_kill = false;
+		extensions_type extensions;
 
-	pair<asset_id_type,asset_id_type> get_market()const
-	{
-	return amount_to_sell.asset_id < min_to_receive.asset_id ?
-	std::make_pair(amount_to_sell.asset_id, min_to_receive.asset_id) :
-	std::make_pair(min_to_receive.asset_id, amount_to_sell.asset_id);
-	}
-	account_id_type fee_payer()const { return seller; }
-	void validate()const;
-	price get_price()const { return amount_to_sell / min_to_receive; }
-	};
+		pair<asset_id_type,asset_id_type> get_market()const
+		{
+		return amount_to_sell.asset_id < min_to_receive.asset_id ?
+		std::make_pair(amount_to_sell.asset_id, min_to_receive.asset_id) :
+		std::make_pair(min_to_receive.asset_id, amount_to_sell.asset_id);
+		}
+		account_id_type fee_payer()const { return seller; }
+		void validate()const;
+		price get_price()const { return amount_to_sell / min_to_receive; }
+		};
 
 
 #### override_transfer_operation
@@ -718,44 +718,44 @@ This section purpose: Lest Available Operations and Definitions.
 - The `proposal_create_operation` creates a transaction proposal, for use in multi-sig scenarios
 - Creates a transaction proposal. The operations which compose the transaction are listed in order in proposed_ops, and expiration_time specifies the time by which the proposal must be accepted or it will fail permanently. The expiration_time cannot be farther in the future than the maximum expiration time set in the global properties object. 
 
-	struct proposal_create_operation : public base_operation
-	{
-	struct fee_parameters_type { 
-	uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
-	uint32_t price_per_kbyte = 10;
-	};
+		struct proposal_create_operation : public base_operation
+		{
+		struct fee_parameters_type { 
+		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
+		uint32_t price_per_kbyte = 10;
+		};
 
-	asset fee;
-	account_id_type fee_paying_account;
-	vector<op_wrapper> proposed_ops;
-	time_point_sec expiration_time;
-	optional<uint32_t> review_period_seconds;
-	extensions_type extensions;
+		asset fee;
+		account_id_type fee_paying_account;
+		vector<op_wrapper> proposed_ops;
+		time_point_sec expiration_time;
+		optional<uint32_t> review_period_seconds;
+		extensions_type extensions;
 
-	static proposal_create_operation committee_proposal(const chain_parameters& param, fc::time_point_sec head_block_time );
+		static proposal_create_operation committee_proposal(const chain_parameters& param, fc::time_point_sec head_block_time );
 
-	account_id_type fee_payer()const { return fee_paying_account; }
-	void validate()const;
-	share_type calculate_fee(const fee_parameters_type& k)const;
-	};
+		account_id_type fee_payer()const { return fee_paying_account; }
+		void validate()const;
+		share_type calculate_fee(const fee_parameters_type& k)const;
+		};
 
 #### proposal_delete_operation
 - The `proposal_delete_operation` deletes an existing transaction proposal
 - This operation allows the early veto of a proposed transaction. It may be used by any account which is a required authority on the proposed transaction, when that account's holder feels the proposal is ill-advised and he decides he will never approve of it and wishes to put an end to all discussion of the issue. Because he is a required authority, he could simply refuse to add his approval, but this would leave the topic open for debate until the proposal expires. Using this operation, he can prevent any further breath from being wasted on such an absurd proposal. 
  
-	struct proposal_delete_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct proposal_delete_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	account_id_type fee_paying_account;
-	bool using_owner_authority = false;
-	asset fee;
-	proposal_id_type proposal;
-	extensions_type extensions;
+		account_id_type fee_paying_account;
+		bool using_owner_authority = false;
+		asset fee;
+		proposal_id_type proposal;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return fee_paying_account; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return fee_paying_account; }
+		void validate()const;
+		};
 
 #### proposal_update_operation
 - The `proposal_update_operation` updates an existing transaction proposal
@@ -766,31 +766,31 @@ This section purpose: Lest Available Operations and Definitions.
 
 - If an account's owner and active authority are both required, only the owner authority may approve. An attempt to add or remove active authority approval to such a proposal will fail. 
 
-	struct proposal_update_operation : public base_operation
-	{
-	struct fee_parameters_type { 
-	uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
-	uint32_t price_per_kbyte = 10;
-	};
+		struct proposal_update_operation : public base_operation
+		{
+		struct fee_parameters_type { 
+		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
+		uint32_t price_per_kbyte = 10;
+		};
 
-	account_id_type fee_paying_account;
-	asset fee;
-	proposal_id_type proposal;
-	flat_set<account_id_type> active_approvals_to_add;
-	flat_set<account_id_type> active_approvals_to_remove;
-	flat_set<account_id_type> owner_approvals_to_add;
-	flat_set<account_id_type> owner_approvals_to_remove;
-	flat_set<public_key_type> key_approvals_to_add;
-	flat_set<public_key_type> key_approvals_to_remove;
-	extensions_type extensions;
+		account_id_type fee_paying_account;
+		asset fee;
+		proposal_id_type proposal;
+		flat_set<account_id_type> active_approvals_to_add;
+		flat_set<account_id_type> active_approvals_to_remove;
+		flat_set<account_id_type> owner_approvals_to_add;
+		flat_set<account_id_type> owner_approvals_to_remove;
+		flat_set<public_key_type> key_approvals_to_add;
+		flat_set<public_key_type> key_approvals_to_remove;
+		extensions_type extensions;
 
-	account_id_type fee_payer()const { return fee_paying_account; }
-	void validate()const;
-	share_type calculate_fee(const fee_parameters_type& k)const;
-	void get_required_authorities( vector<authority>& )const;
-	void get_required_active_authorities( flat_set<account_id_type>& )const;
-	void get_required_owner_authorities( flat_set<account_id_type>& )const;
-	};
+		account_id_type fee_payer()const { return fee_paying_account; }
+		void validate()const;
+		share_type calculate_fee(const fee_parameters_type& k)const;
+		void get_required_authorities( vector<authority>& )const;
+		void get_required_active_authorities( flat_set<account_id_type>& )const;
+		void get_required_owner_authorities( flat_set<account_id_type>& )const;
+		};
   
 #### transfer_from_blind_operation
 - Converts blinded/stealth balance to a public account balance.
@@ -830,24 +830,24 @@ This section purpose: Lest Available Operations and Definitions.
 - This operation is used to withdraw from an account which has authorized such a withdrawal. It may be executed at most once per withdrawal period for the given permission. On execution, `amount_to_withdraw` is transferred from `withdraw_from_account` to `withdraw_to_account`, assuming `amount_to_withdraw` is within the withdrawal limit. The withdrawal permission will be updated to note that the withdrawal for the current period has occurred, and further withdrawals will not be permitted until the next withdrawal period, assuming the permission has not expired. This operation may be executed at any time within the current withdrawal period.
 - Fee is paid by `withdraw_to_accoun`t, which is required to authorize this operation 
 
-	struct withdraw_permission_claim_operation : public base_operation
-	{
-	struct fee_parameters_type { 
-	uint64_t fee = 20*GRAPHENE_BLOCKCHAIN_PRECISION; 
-	uint32_t price_per_kbyte = 10;
-	};
+		struct withdraw_permission_claim_operation : public base_operation
+		{
+		struct fee_parameters_type { 
+		uint64_t fee = 20*GRAPHENE_BLOCKCHAIN_PRECISION; 
+		uint32_t price_per_kbyte = 10;
+		};
 
-	asset fee;
-	withdraw_permission_id_type withdraw_permission;
-	account_id_type withdraw_from_account;
-	account_id_type withdraw_to_account;
-	asset amount_to_withdraw;
-	optional<memo_data> memo;
+		asset fee;
+		withdraw_permission_id_type withdraw_permission;
+		account_id_type withdraw_from_account;
+		account_id_type withdraw_to_account;
+		asset amount_to_withdraw;
+		optional<memo_data> memo;
 
-	account_id_type fee_payer()const { return withdraw_to_account; }
-	void validate()const;
-	share_type calculate_fee(const fee_parameters_type& k)const;
-	};
+		account_id_type fee_payer()const { return withdraw_to_account; }
+		void validate()const;
+		share_type calculate_fee(const fee_parameters_type& k)const;
+		};
 
 #### withdraw_permission_create_operation
 - Create a new withdrawal permission
@@ -856,99 +856,99 @@ This section purpose: Lest Available Operations and Definitions.
 - Withdrawal permissions authorize only a specific pairing, i.e. a permission only authorizes one specified authorized account to withdraw from one specified authorizing account. Withdrawals are limited and may not exceed the withdrawal limit. The withdrawal must be made in the same asset as the limit; attempts with withdraw any other asset type will be rejected.
 - The fee for this operation is paid by `withdraw_from_account`, and this account is required to authorize this operation. 
 
-	struct withdraw_permission_create_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct withdraw_permission_create_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee;
-	account_id_type withdraw_from_account;
-	account_id_type authorized_account;
-	asset withdrawal_limit;
-	uint32_t withdrawal_period_sec = 0;
-	uint32_t periods_until_expiration = 0;
-	time_point_sec period_start_time;
+		asset fee;
+		account_id_type withdraw_from_account;
+		account_id_type authorized_account;
+		asset withdrawal_limit;
+		uint32_t withdrawal_period_sec = 0;
+		uint32_t periods_until_expiration = 0;
+		time_point_sec period_start_time;
 
-	account_id_type fee_payer()const { return withdraw_from_account; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return withdraw_from_account; }
+		void validate()const;
+		};
 
 #### withdraw_permission_delete_operation
 - Delete an existing withdrawal permission
 - This operation cancels a withdrawal permission, thus preventing any future withdrawals using that permission.
 - Fee is paid by `withdraw_from_account`, which is required to authorize this operation 
 
-	struct withdraw_permission_delete_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = 0; };
+		struct withdraw_permission_delete_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = 0; };
 
-	asset fee;
-	account_id_type withdraw_from_account;
-	account_id_type authorized_account;
-	withdraw_permission_id_type withdrawal_permission;
+		asset fee;
+		account_id_type withdraw_from_account;
+		account_id_type authorized_account;
+		withdraw_permission_id_type withdrawal_permission;
 
-	account_id_type fee_payer()const { return withdraw_from_account; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return withdraw_from_account; }
+		void validate()const;
+		};
 	  
 #### withdraw_permission_update_operation
 - Update an existing withdraw permission
 - This operation is used to update the settings for an existing withdrawal permission. The accounts to withdraw to and from may never be updated. The fields which may be updated are the withdrawal limit (both amount and asset type may be updated), the withdrawal period length, the remaining number of periods until expiration, and the starting time of the new period.
 - Fee is paid by `withdraw_from_account`, which is required to authorize this operation 
 
-	struct withdraw_permission_update_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct withdraw_permission_update_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee;
-	account_id_type withdraw_from_account;
-	account_id_type authorized_account;
-	withdraw_permission_id_type permission_to_update;
-	asset withdrawal_limit;
-	uint32_t withdrawal_period_sec = 0;
-	time_point_sec period_start_time;
-	uint32_t periods_until_expiration = 0;
+		asset fee;
+		account_id_type withdraw_from_account;
+		account_id_type authorized_account;
+		withdraw_permission_id_type permission_to_update;
+		asset withdrawal_limit;
+		uint32_t withdrawal_period_sec = 0;
+		time_point_sec period_start_time;
+		uint32_t periods_until_expiration = 0;
 
-	account_id_type fee_payer()const { return withdraw_from_account; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return withdraw_from_account; }
+		void validate()const;
+		};
 
 #### witness_create_operation
 - Create a witness object, as a bid to hold a witness position on the network.
 - Accounts which wish to become witnesses may use this operation to create a witness object which stakeholders may vote on to approve its position as a witness. 
 
-	struct witness_create_operation : public base_operation
-	{
-	struct fee_parameters_type { uint64_t fee = 5000 * GRAPHENE_BLOCKCHAIN_PRECISION; };
+		struct witness_create_operation : public base_operation
+		{
+		struct fee_parameters_type { uint64_t fee = 5000 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-	asset fee;
-	account_id_type witness_account;
-	string url;
-	public_key_type block_signing_key;
+		asset fee;
+		account_id_type witness_account;
+		string url;
+		public_key_type block_signing_key;
 
-	account_id_type fee_payer()const { return witness_account; }
-	void validate()const;
-	};
+		account_id_type fee_payer()const { return witness_account; }
+		void validate()const;
+		};
   
 #### witness_update_operation
 - Update a witness object's URL and block signing key. 
 
-	struct witness_update_operation : public base_operation
-	{
-	struct fee_parameters_type
-	{
-	share_type fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-	};
+		struct witness_update_operation : public base_operation
+		{
+		struct fee_parameters_type
+		{
+		share_type fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		};
 
-	asset fee;
-	witness_id_type witness;
-	account_id_type witness_account;
-	optional< string > new_url;
-	optional< public_key_type > new_signing_key;
+		asset fee;
+		witness_id_type witness;
+		account_id_type witness_account;
+		optional< string > new_url;
+		optional< public_key_type > new_signing_key;
 
-	account_id_type fee_payer()const { return witness_account; }
-	void validate()const;
-	};
-  
+		account_id_type fee_payer()const { return witness_account; }
+		void validate()const;
+		};
+	  
 #### worker_create_operation
 - Create a new worker object. 
 
