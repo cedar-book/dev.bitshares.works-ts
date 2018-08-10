@@ -17,7 +17,10 @@ There are different interests to get into BitShares.
 1. Run  a node
 1. Create an application or software
 1. Create a token
-1. Build and BitShares exchange 
+1. Build and BitShares exchange
+1. Learn Financial features
+1. Learn BisShares data structures
+
 
 Each case, you can check different repositories and branches.  There are contributed tools and plugins to support developments and implementations. Many people join the BitShares Community groups to ask a question or answer to other member's questions. 
  
