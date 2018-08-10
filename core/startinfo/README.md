@@ -21,3 +21,28 @@ There are different interests to get into BitShares.
 
 Each case, you can check different repositories and branches.  There are contributed tools and plugins to support developments and implementations. Many people join the BitShares Community groups to ask a question or answer to other member's questions. 
  
+| purpose | repositories  | first time  |
+|---|---|---|
+| Create a GUI BitShares wallet                  | - bitshares-ui <br/> - https://wallet.bitshares.org |   |
+| Create a CLI (Command Line) BitShares wallet   |  - bitshares-core   | release  |
+| Learn and try BitShares Features             |  - bitshares-core <br/> - python-bitshares   |  testnet |
+| Contribute the BitShares Community            |  - bitshares-core <br/> - python-bitshares    | develop  | 
+| Run  a node                                  |   - bitshares-core <br/> - python-bitshares    | testnet   |
+| Create an application or software            |  - bitshares-core <br/> - python-bitshares     | release  |
+| Create a token (GUI)                         |  - bitshares-ui <br/> - https://wallet.bitshares.org  |   |
+| Create a token (CLI)                         |  - bitshares-core <br/> - python-bitshares    | testnet  |
+| Build and BitShares exchange                  |  - bitshares-core <br/> - python-bitshares     |  release |
+
+
+***
+
+|   purpose      | Extract only |Tx+not modify code| Tx+modify code | Develop branch | Release branch |Testnet: may use|
+| ------------------- |:----------:|:---:|:---:|:---:|:---:|:---:|
+| Only Extract Data from the Blockcahin |[X] |  |  |  | install | public|
+| Want to use BitShares Blockchain for business | | [x] |  |  | install |(public) |
+| Want to help the Core Team          | |  | [x] |install  |  |public |
+| Fork: experiment with changes, etc  | |  | [x] | Entire Core repo | Entire Core repo |private |
+| Want to develop own application     | |  | [x] |  | install |private |
+| Want to build tools for trading     | |[x] | |  | install |private |
+| Want to create a custom blockchain  | |  | [x] |  | install |private |
+
