@@ -1,4 +1,4 @@
-## Components Structures and Detailed Description
+## Components Structures and Descriptions
 
 ### Block
 - [A Block Elements and Structure(PDF)](../knowledge_base/shared_files/structures/BitShares-Block-Structurev1.pdf)
@@ -68,7 +68,7 @@
     };
 
  
-#### signed_block
+#### signed_block_with_info
   
     // *Block Header Inheritance* (i.e.) 1.1.1.1
     // graphene::wallet
