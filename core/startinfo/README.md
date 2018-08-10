@@ -23,15 +23,15 @@ Each case, you can check different repositories and branches.  There are contrib
  
 | | purpose | repositories  | first time  |
 |---|---|---|---|
-| 1 | Create a GUI BitShares wallet                  | - bitshares-ui <br/> - https://wallet.bitshares.org |   |
+| 1 | Create a GUI BitShares wallet                  | - bitshares-ui / - https://wallet.bitshares.org |   |
 | 2 | Create a CLI (Command Line) BitShares wallet   |  - bitshares-core   | release  |
-| 3 | Learn and try BitShares Features             |  - bitshares-core <br/> - python-bitshares   |  testnet |
-| 4 | Contribute the BitShares Community            |  - bitshares-core <br/> - python-bitshares    | develop  | 
-| 5 | Run  a node                                  |   - bitshares-core <br/> - python-bitshares    | testnet   |
-| 6 | Create an application or software            |  - bitshares-core <br/> - python-bitshares     | release  |
-| 7 | Create a token (GUI)                         |  - bitshares-ui <br/> - https://wallet.bitshares.org  |   |
-| 8 | Create a token (CLI)                         |  - bitshares-core <br/> - python-bitshares    | testnet  |
-| 9 | Build and BitShares exchange                  |  - bitshares-core <br/> - python-bitshares     |  release |
+| 3 | Learn and try BitShares Features             |  - bitshares-core / - python-bitshares   |  testnet |
+| 4 | Contribute the BitShares Community            |  - bitshares-core / - python-bitshares    | develop  | 
+| 5 | Run  a node                                  |   - bitshares-core / - python-bitshares    | testnet   |
+| 6 | Create an application or software            |  - bitshares-core / - python-bitshares     | release  |
+| 7 | Create a token (GUI)                         |  - bitshares-ui / - https://wallet.bitshares.org  |   |
+| 8 | Create a token (CLI)                         |  - bitshares-core / - python-bitshares    | testnet  |
+| 9 | Build and BitShares exchange                  |  - bitshares-core / - python-bitshares     |  release |
 
 
 ***
