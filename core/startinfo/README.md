@@ -10,39 +10,30 @@ With the BitShares Community support, BitSahres has been upgrading significantly
 
 There are different interests to get into BitShares. 
 
-- Create a GUI BitShares wallet
-- Create a CLI (Command Line) BitShares wallet
-- Learn and try BitShares Features
-- Contribute the BitShares Community
-- Run  a node
-- Create an application or software
-- Create a token
-- Build and BitShares exchange 
+1. Create a GUI BitShares wallet
+1. Create a CLI (Command Line) BitShares wallet
+1. Learn and try BitShares Features
+1. Contribute the BitShares Community
+1. Run  a node
+1. Create an application or software
+1. Create a token
+1. Build and BitShares exchange 
 
 Each case, you can check different repositories and branches.  There are contributed tools and plugins to support developments and implementations. Many people join the BitShares Community groups to ask a question or answer to other member's questions. 
  
-| purpose | repositories  | first time  |
-|---|---|---|
-| Create a GUI BitShares wallet                  | - bitshares-ui <br/> - https://wallet.bitshares.org |   |
-| Create a CLI (Command Line) BitShares wallet   |  - bitshares-core   | release  |
-| Learn and try BitShares Features             |  - bitshares-core <br/> - python-bitshares   |  testnet |
-| Contribute the BitShares Community            |  - bitshares-core <br/> - python-bitshares    | develop  | 
-| Run  a node                                  |   - bitshares-core <br/> - python-bitshares    | testnet   |
-| Create an application or software            |  - bitshares-core <br/> - python-bitshares     | release  |
-| Create a token (GUI)                         |  - bitshares-ui <br/> - https://wallet.bitshares.org  |   |
-| Create a token (CLI)                         |  - bitshares-core <br/> - python-bitshares    | testnet  |
-| Build and BitShares exchange                  |  - bitshares-core <br/> - python-bitshares     |  release |
+| | purpose | repositories  | first time  |
+|---|---|---|---|
+| 1 | Create a GUI BitShares wallet                  | - bitshares-ui <br/> - https://wallet.bitshares.org |   |
+| 2 | Create a CLI (Command Line) BitShares wallet   |  - bitshares-core   | release  |
+| 3 | Learn and try BitShares Features             |  - bitshares-core <br/> - python-bitshares   |  testnet |
+| 4 | Contribute the BitShares Community            |  - bitshares-core <br/> - python-bitshares    | develop  | 
+| 5 | Run  a node                                  |   - bitshares-core <br/> - python-bitshares    | testnet   |
+| 6 | Create an application or software            |  - bitshares-core <br/> - python-bitshares     | release  |
+| 7 | Create a token (GUI)                         |  - bitshares-ui <br/> - https://wallet.bitshares.org  |   |
+| 8 | Create a token (CLI)                         |  - bitshares-core <br/> - python-bitshares    | testnet  |
+| 9 | Build and BitShares exchange                  |  - bitshares-core <br/> - python-bitshares     |  release |
 
 
 ***
 
-|   purpose      | Extract only |Tx+not modify code| Tx+modify code | Develop branch | Release branch |Testnet: may use|
-| ------------------- |:----------:|:---:|:---:|:---:|:---:|:---:|
-| Only Extract Data from the Blockcahin |[X] |  |  |  | install | public|
-| Want to use BitShares Blockchain for business | | [x] |  |  | install |(public) |
-| Want to help the Core Team          | |  | [x] |install  |  |public |
-| Fork: experiment with changes, etc  | |  | [x] | Entire Core repo | Entire Core repo |private |
-| Want to develop own application     | |  | [x] |  | install |private |
-| Want to build tools for trading     | |[x] | |  | install |private |
-| Want to create a custom blockchain  | |  | [x] |  | install |private |
 
