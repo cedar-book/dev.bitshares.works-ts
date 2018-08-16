@@ -58,35 +58,13 @@ BitShares is designed from the ground up to process more transactions every seco
 	  - referrer 
 	  - referrer fees
 	- Vesting valance
+- BSIP: 
+- Glossary
+
 
 ## Platform
 
 ### Tour of the BitShares Environment
-- Open source
-	- BitShares GitHub has all resources files for the development.
-- Language uses: BitShares-Core(C++), python 
-- BitShares GitHub has all resources files for the development.
-   **GItHub** 
-	   - BitShares-Core (C++)
-       - Bitshares-FC
-	   - BitShares python
-	   - BitShares-UI
-	   - BitSharesjs
-	   - BitSharesjs-ws
-	   - more
-- BitShares-Core (files)
-	  - This repository is the main files of BitShares 
-	  - There are branches to select for a development. 
-- BitShares-Core (Team)
-   This is a team of developers who work on the issues those are submitted by developers. The team make a plan of next release and communicate to the Bitshares community about the Project plan. 
-	  **roles** 
-	  - improving
-	  - maintaining
-	  - upgrading protocol if needed
-	  - making Project plans for the future release
-      - creating/ announcing  Release 
-
-### Installation and build
 - Development environments and requirements
 - Select your development environment
 	*Target Operating system*
@@ -96,7 +74,32 @@ BitShares is designed from the ground up to process more transactions every seco
 	- Windows
 	  - Visual Studio
 	  - WSL (for Wondows 10)
-	- CLI wallet Tool		
+	- CLI wallet Tool
+- Open source
+	- BitShares GitHub has all resources files for the development.
+- Language uses: BitShares-Core(C++), python 
+- BitShares GitHub has all resources files for the development.
+   **GItHub** 
+  - BitShares-Core (C++)
+  - Bitshares-FC
+  - BitShares python
+  - BitShares-UI
+  - BitSharesjs
+  - BitSharesjs-ws
+  - more
+- BitShares-Core (files)
+  - This repository is the main files of BitShares 
+  - There are branches to select for a development. 
+- BitShares-Core (Team)
+   This is a team of developers who work on the issues those are submitted by developers. The team make a plan of next release and communicate to the Bitshares community about the Project plan. 
+  **roles** 
+  - improving
+  - maintaining
+  - upgrading protocol if needed
+  - making Project plans for the future release
+  - creating/ announcing  Release 
+
+### Installation and build		
 - Installation
   - Dependencies
   - Installation Guide
@@ -149,9 +152,10 @@ first wallet, free
     - files folder
     - transaction- block - witness
     - history data
-    - witness_node
+    - witness_node (block producing)
       - transactions 
 	  - has sync data
+	  
     - Concepts (*choode some of them*)
       - Program Structure
 	  - Namespace
@@ -182,21 +186,32 @@ first wallet, free
   
 ***
 
-  
+## Technology Guidance and Best Practicces
  
-## Getting Started
+- Testnet (branch / test folder)
+- Public Testnet
+ 
+### Getting Started
+
+- Connect a CLI wallet by using BitShares Public services
+  - Get help
+    - help()
+    - gethelp()
+  - Look up your accopunt and device ingormation 
+    - info()
+    - about()
+  - Set a password for the wallet 
+  - Unlock a wallet
+  - Look up an asset information
+  - 
+  
+- Get data from the blockchain
+ 
+### Tutorials
+- 
 
 
-  
-  
-   - Testnet (branch / test folder)
- - Public Testnet
- 
- - BISP
- 
- 
+
+
  
   ****
-## [BitShares Core](/core/README.md#bitshares-core)
-Documentation related to BitShares Core internals and development fundamentals. 
-
