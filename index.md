@@ -91,26 +91,21 @@ BitShares is designed from the ground up to process more transactions every seco
 - Select your development environment
 	*Target Operating system*
 	- Linux
-		- Ubuntu
+	  - Ubuntu
 	- OS X
 	- Windows
-		- Visual Studio
-		- WSL (for Wondows 10)
-	- CLI wallet Tool
-
-	- Build From source
-	- Dependencies
-	
-		
-2. Installation
-	Installation Guide
-		- Phython
-		- BitShares-Core (C++)
-			- (each link)
-	Install CLI wallet Tool
-
-3.  Build
-- T
+	  - Visual Studio
+	  - WSL (for Wondows 10)
+	- CLI wallet Tool		
+- Installation
+  - Dependencies
+  - Installation Guide
+    - Phython
+    - BitShares-Core (C++)
+    - (**each link)
+  - Install CLI wallet Tool
+- Build
+  - 
 
 
 ## Account Security
