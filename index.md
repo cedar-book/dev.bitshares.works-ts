@@ -141,7 +141,7 @@ first wallet, free
 
 ## System Components
 
-### Blockchain Elements
+### Blockchain Elements/structure
 - block
 - data objects
 - Operations 
