@@ -12,7 +12,7 @@ The purpose of this site is to provide in-depth documentation about the BitShare
 
 ***
 
-## BitShares Guide
+# BitShares Guide
 
 ## Introduction
 BitShares is designed from the ground up to process more transactions every second than VISA and MasterCard combined.
@@ -179,7 +179,7 @@ first wallet, free
   
 ***
 
-## Technology Guidance and Best Practicces
+# Technology Guidance and Best Practicces
  
 BitShares has Public Testnet environment, a branch, and a test file folder. Use those materials to practice and learn your environment.  
 - Testnet (branch / test folder)
