@@ -32,7 +32,7 @@ BitShares is designed from the ground up to process more transactions every seco
   - BitShares performance compareson (observe current real situations)
 	-  Blockchain Activity: http://blocktivity.info/
 
-- System Features (*add short descriptions*)
+- System Features (*add short descriptions)
 	- Dynamic Account Permissions
 	- Multi-user control for account
 	- Two authorities: owner and active
@@ -44,6 +44,7 @@ BitShares is designed from the ground up to process more transactions every seco
       - Transaction fee
 	- UIA 
 	  - use cases
+	    - 
 	    - privatized SmartCoins
 	    - Predictions Market
 	    - How to profit (from UIA)? 
@@ -110,6 +111,44 @@ Traditional blockchain designs use cryptographic hashes to generate globally uni
 - UI wallet Features
 	 * image*
     ( - list element items and short descriptions)
+
+### System Components
+  - block
+  - data objects
+  - Operations 
+  - Evaluations 
+  - more...
+    - blockchain database data
+    - files folder
+    - transaction- block - witness
+    - history data
+    - witness_node
+      - transactions 
+	  - has sync data
+    - Concepts (*some of them*)
+      - Program Structure
+	  - Namespace
+	  - Types and Variables
+	  - Expressions
+	  - Statements
+	  - Classes and objects
+	  - Structs
+	  - Arrays
+	  - Interfaces
+	  - Methods
+	  - Indexes
+	  - Enums
+	  - Delegates
+	  - Attributes
+
+### Installation and build
+- Development environments and requirements
+
+
+
+  
+ 
+## Getting Started
 
 
   
