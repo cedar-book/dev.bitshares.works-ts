@@ -13,9 +13,98 @@ The purpose of this site is to provide in-depth documentation about the BitShare
 ***
 
 ## BitShares Dev Guide
+# BitShares Developers Documentation Portal
 
-- In
+Welcome to the documentation portal for the BitShares Blockchain. The content on this page is managed by the BitShares community and is constantly improved.
 
+The purpose of this site is to provide in-depth documentation about the BitShares Blockchain and make it easier for users and developers to leverage the full power of the BitShares Blockchain.
+
+***
+
+### Releases
+- [BitShares-Core Release](https://github.com/bitshares/bitshares-core/releases)
+- [BitShares-UI Release](https://github.com/bitshares/bitshares-ui/releases)
+
+***
+
+## BitShares Dev Guide
+
+## Introduction
+BitShares is designed from the ground up to process more transactions every second than VISA and MasterCard combined.
+
+- Architecture
+    - Graphene technology - Blockchain
+    - Finance Smart contract platform
+	- 	Trading Features
+	- DEX (BitShares provides a high-performance decentralized exchange, with all the features you would expect in a trading platform. )
+	- P2P, web wallet, node, API
+- observe BitSharers transactions and performance
+  - BitShares running transactions (observe running BitShares Transactions) 
+	- [Bitshares Block Exploer - cryptofresh](https://www.cryptofresh.com/)
+	- [Bitshares Block Exploer - Expl0ere](http://bitshares-explorer.io/#/dashboard)
+	- [Bitshares.Exploer - bts.ai](https://bts.ai/)
+  - BitShares performance compareson (observe current real situations)
+	-  Blockchain Activity: http://blocktivity.info/
+
+- System Features (*add short descriptions*)
+	- Dynamic Account Permissions
+	- Multi-user control for account
+	- Two authorities: owner and active
+	- Decentralized Exchange
+	- Transaction + multi signature
+	- Proposed transaction infrastructure
+	- (witch tracks partially approved transactions)
+	- Fees 
+      - Transaction fee
+	- UIA 
+	  - use cases
+	    - 
+	    - privatized SmartCoins
+	    - Predictions Market
+	    - How to profit (from UIA)? 
+	      - Fee pools
+	- SmartCoins
+	  - Merchant
+	  - Blackswans
+	- DPOS 
+	  - Under DPOS, BTS Holder has influence...
+	- Referral Program
+	  - LTM
+	  - referrer 
+	  - referrer fees
+	- Vesting valance
+
+### Tour of the BitShares Environment
+- Open source
+	- BitShares GitHub has all resources files for the development.
+- Language uses: BitShares-Core(C++), python 
+- BitShares GitHub has all resources files for the development.
+   **GItHub** 
+	   - BitShares-Core (C++)
+       - Bitshares-FC
+	   - BitShares python
+	   - BitShares-UI
+	   - BitSharesjs
+	   - BitSharesjs-ws
+	   - more
+- BitShares-Core (files)
+	  - This repository is the main files of BitShares 
+	  - There are branches to select for a development. 
+- BitShares-Core (Team)
+   This is a team of developers who work on the issues those are submitted by developers. The team make a plan of next release and communicate to the Bitshares community about the Project plan. 
+	  **roles** 
+	  - improving
+	  - maintaining
+	  - upgrading protocol if needed
+	  - making Project plans for the future release
+      - creating/ announcing  Release 
+
+
+  
+  
+  
+  
+  ****
 ## [BitShares Core](/core/README.md#bitshares-core)
 Documentation related to BitShares Core internals and development fundamentals. 
 
