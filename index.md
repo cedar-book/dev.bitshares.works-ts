@@ -18,12 +18,12 @@ The purpose of this site is to provide in-depth documentation about the BitShare
 BitShares is designed from the ground up to process more transactions every second than VISA and MasterCard combined.
 
 - Architecture
-    - Graphene technology - Blockchain
-    - Finance Smart contract platform
-	- 	Trading Features
-	- DEX (BitShares provides a high-performance decentralized exchange, with all the features you would expect in a trading platform. )
-	- P2P, web wallet, node, API
-	*image*
+  - Graphene technology - Blockchain
+  - Finance Smart contract platform
+  - Trading Features
+  - DEX (BitShares provides a high-performance decentralized exchange, with all the features you would expect in a trading platform. )
+  - P2P, web wallet, node, API
+  - *image*
 - Observation BitSharers transactions and performance
   - BitShares running transactions (observe running BitShares Transactions) 
 	- [Bitshares Block Exploer - cryptofresh](https://www.cryptofresh.com/)
@@ -66,8 +66,7 @@ BitShares is designed from the ground up to process more transactions every seco
 
 ### Tour of the BitShares Environment
 - Development environments and requirements
-- Select your development environment
-	*Target Operating system*
+  - Target Operating system
 	- Linux
 	  - Ubuntu
 	- OS X
@@ -77,7 +76,7 @@ BitShares is designed from the ground up to process more transactions every seco
 	- CLI wallet Tool
 - Open source
 	- BitShares GitHub has all resources files for the development.
-- Language uses: BitShares-Core(C++), python 
+- Language uses (mainly): BitShares-Core(C++), python 
 - BitShares GitHub has all resources files for the development.
    **GItHub** 
   - BitShares-Core (C++)
@@ -99,17 +98,17 @@ BitShares is designed from the ground up to process more transactions every seco
   - making Project plans for the future release
   - creating/ announcing  Release 
 
-### Installation and build		
-- Installation
-  - Dependencies
-  - Installation Guide
-    - Phython
-    - BitShares-Core (C++)
-    - (**each link)
-  - Install CLI wallet Tool
+### Installation and build information		
+- Know the code Dependencies
+- Download a target brance progran and Install 
+    - Use Phython
+    - Use BitShares-Core (C++)
+    - (**add each link)  
 - Build
-  - 
 
+If your interest is getting a CLI-Wallet use the below link
+- Install CLI wallet Tool 
+  
 
 ## Account Security
 
@@ -143,34 +142,28 @@ first wallet, free
 ## System Components
 
 ### Blockchain Elements
-  - block
-  - data objects
-  - Operations 
-  - Evaluations 
-  - more...
-    - blockchain database data
-    - files folder
-    - transaction- block - witness
-    - history data
-    - witness_node (block producing)
-      - transactions 
-	  - has sync data
-	  
-    - Concepts (*choode some of them*)
-      - Program Structure
-	  - Namespace
-	  - Types and Variables
-	  - Expressions
-	  - Statements
-	  - Classes and objects
-	  - Structs
-	  - Arrays
-	  - Interfaces
-	  - Methods
-	  - Indexes
-	  - Enums
-	  - Delegates
-	  - Attributes
+- block
+- data objects
+- Operations 
+- Evaluations 
+- more...
+- blockchain database data
+- files folder
+- transaction- block - witness
+- history data
+- witness_node (block producing)
+  - transactions 
+  - has sync data
+
+#### Concepts (*choode some of them*)
+  - Program Structure
+  - Namespace
+  - Types and Variables
+  - Classes and objects
+  - Structs
+  - Methods
+  - Indexes
+  - Attributes
 
 ## Network and Security
 
@@ -188,6 +181,7 @@ first wallet, free
 
 ## Technology Guidance and Best Practicces
  
+BitShares has Public Testnet environment, a branch, and a test file folder. Use those materials to practice and learn your environment.  
 - Testnet (branch / test folder)
 - Public Testnet
  
@@ -210,6 +204,32 @@ first wallet, free
 ### Tutorials
 - 
 
+### Optimizations
+- (*about useful tools*)
+- How to optimize...?
+
+*noun*
+Node, Database, log files, History data, RAM, etc
+
+*verb*
+- Know your data
+- Create Efficient settings/ environments
+- Design for performance
+- Make…
+- Record and Analyze
+- Reduce…
+
+
+
+## API
+- BitShares BlockChain API
+
+- Wallet API
+
+
+## Knowledge Book
+- issues notes.
+- wikis legacy
 
 
 
