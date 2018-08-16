@@ -100,8 +100,7 @@ Traditional blockchain designs use cryptographic hashes to generate globally uni
    *image*
 
 ### Create a BitShares account by using UI wallet
- 	  - first wallet, free
-	  - 
+first wallet, free
 - GUI wallet type
   - Web Wallet
   - Light wallet
@@ -125,7 +124,7 @@ Traditional blockchain designs use cryptographic hashes to generate globally uni
     - witness_node
       - transactions 
 	  - has sync data
-    - Concepts (*some of them*)
+    - Concepts (*choode some of them*)
       - Program Structure
 	  - Namespace
 	  - Types and Variables
@@ -143,6 +142,36 @@ Traditional blockchain designs use cryptographic hashes to generate globally uni
 
 ### Installation and build
 - Development environments and requirements
+- Select your development environment
+	*Target Operating system*
+	- Linux
+		- Ubuntu
+	- OS X
+	- Windows
+		- Visual Studio
+		- WSL (for Wondows 10)
+	- CLI wallet Tool
+
+	- Build From source
+	- Dependencies
+	
+		
+2. Installation
+	Installation Guide
+		- Phython
+		- BitShares-Core (C++)
+			- (each link)
+	Install CLI wallet Tool
+
+3.  Build
+- T
+
+
+  
+ 
+## Getting Started
+
+- 
 
 
 
