@@ -76,7 +76,7 @@ BitShares is designed from the ground up to process more transactions every seco
 	- CLI wallet Tool
 - Open source
 	- BitShares GitHub has all resources files for the development.
-- Language uses (mainly): BitShares-Core(C++), python 
+- **Language uses** (mainly): BitShares-Core(C++), python 
 - BitShares GitHub has all resources files for the development.
    **GItHub** 
   - BitShares-Core (C++)
@@ -86,10 +86,10 @@ BitShares is designed from the ground up to process more transactions every seco
   - BitSharesjs
   - BitSharesjs-ws
   - more
-- BitShares-Core (files)
+- **BitShares-Core (files)**
   - This repository is the main files of BitShares 
   - There are branches to select for a development. 
-- BitShares-Core (Team)
+- **BitShares-Core (Team)**
    This is a team of developers who work on the issues those are submitted by developers. The team make a plan of next release and communicate to the Bitshares community about the Project plan. 
   **roles** 
   - improving
@@ -98,7 +98,7 @@ BitShares is designed from the ground up to process more transactions every seco
   - making Project plans for the future release
   - creating/ announcing  Release 
 
-### Installation and build information		
+### Installation and build 		
 - Know the code Dependencies
 - Download a target brance progran and Install 
     - Use Phython
@@ -148,6 +148,7 @@ first wallet, free
 - Evaluations 
 - more...
 - blockchain database data
+- directory
 - files folder
 - transaction- block - witness
 - history data
@@ -184,10 +185,11 @@ first wallet, free
 BitShares has Public Testnet environment, a branch, and a test file folder. Use those materials to practice and learn your environment.  
 - Testnet (branch / test folder)
 - Public Testnet
- 
-### Getting Started
+- (*somimage*)
 
-- Connect a CLI wallet by using BitShares Public services
+## Getting Started
+
+- Connect a CLI wallet by using BitShares Public API services
   - Get help
     - help()
     - gethelp()
@@ -201,15 +203,15 @@ BitShares has Public Testnet environment, a branch, and a test file folder. Use 
   
 - Get data from the blockchain
  
-### Tutorials
+## Tutorials
 - 
 
-### Optimizations
+## Optimizations
 - (*about useful tools*)
 - How to optimize...?
 
 *noun*
-Node, Database, log files, History data, RAM, etc
+Node, Database, log files, History data, RAM, sync, etc
 
 *verb*
 - Know your data
@@ -222,10 +224,21 @@ Node, Database, log files, History data, RAM, etc
 
 
 ## API
+- formatt
+- Restriction
+- RPC
 - BitShares BlockChain API
 
 - Wallet API
-
+	- General Calls
+	- Wallet Calls
+	- Account Calls
+	- Trading Calls
+	- Asset Calls
+	- Governance
+	- Privacy Mode
+	- Blockchain Inspection
+	- Transaction Builder
 
 ## Knowledge Book
 - issues notes.
