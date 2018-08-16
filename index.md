@@ -12,7 +12,7 @@ The purpose of this site is to provide in-depth documentation about the BitShare
 
 ***
 
-## BitShares Components
+## BitShares Guide
 
 ## Introduction
 BitShares is designed from the ground up to process more transactions every second than VISA and MasterCard combined.
@@ -32,7 +32,7 @@ BitShares is designed from the ground up to process more transactions every seco
   - BitShares performance compareson (observe current real situations)
 	-  Blockchain Activity: http://blocktivity.info/
 
-- System Features (*add short descriptions)
+- System Features (*add short descriptions*)
 	- Dynamic Account Permissions
 	- Multi-user control for account
 	- Two authorities: owner and active
@@ -44,7 +44,6 @@ BitShares is designed from the ground up to process more transactions every seco
       - Transaction fee
 	- UIA 
 	  - use cases
-	    - 
 	    - privatized SmartCoins
 	    - Predictions Market
 	    - How to profit (from UIA)? 
@@ -59,6 +58,8 @@ BitShares is designed from the ground up to process more transactions every seco
 	  - referrer 
 	  - referrer fees
 	- Vesting valance
+
+## Platform
 
 ### Tour of the BitShares Environment
 - Open source
@@ -84,6 +85,35 @@ BitShares is designed from the ground up to process more transactions every seco
 	  - upgrading protocol if needed
 	  - making Project plans for the future release
       - creating/ announcing  Release 
+
+### Installation and build
+- Development environments and requirements
+- Select your development environment
+	*Target Operating system*
+	- Linux
+		- Ubuntu
+	- OS X
+	- Windows
+		- Visual Studio
+		- WSL (for Wondows 10)
+	- CLI wallet Tool
+
+	- Build From source
+	- Dependencies
+	
+		
+2. Installation
+	Installation Guide
+		- Phython
+		- BitShares-Core (C++)
+			- (each link)
+	Install CLI wallet Tool
+
+3.  Build
+- T
+
+
+## Account Security
 
 ### Account & Keys
 Traditional blockchain designs use cryptographic hashes to generate globally unique IDs that are statically guaranteed to never have a collision.  However, those hashes require significantly more memory and more CPU cycle to manipulate. It takes more CPU time to look up. Thus, BitShares assign globally unique IDs to BitShares account name.
@@ -111,7 +141,10 @@ first wallet, free
 	 * image*
     ( - list element items and short descriptions)
 
-### System Components
+
+## System Components
+
+### Blockchain Elements
   - block
   - data objects
   - Operations 
@@ -140,32 +173,16 @@ first wallet, free
 	  - Delegates
 	  - Attributes
 
-### Installation and build
-- Development environments and requirements
-- Select your development environment
-	*Target Operating system*
-	- Linux
-		- Ubuntu
-	- OS X
-	- Windows
-		- Visual Studio
-		- WSL (for Wondows 10)
-	- CLI wallet Tool
+## Network and Security
 
-	- Build From source
-	- Dependencies
-	
-		
-2. Installation
-	Installation Guide
-		- Phython
-		- BitShares-Core (C++)
-			- (each link)
-	Install CLI wallet Tool
+### Network Configration for wallet
 
-3.  Build
-- T
-
+- General Set up
+  - Trusted Node
+- High Security Set up
+  - Trusted Node
+  - Delayed Node
+  
 
   
 ***
