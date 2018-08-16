@@ -14,6 +14,7 @@ The purpose of this site is to provide in-depth documentation about the BitShare
 
 ## BitShares Dev Guide
 
+- In
 
 ## [BitShares Core](/core/README.md#bitshares-core)
 Documentation related to BitShares Core internals and development fundamentals. 
