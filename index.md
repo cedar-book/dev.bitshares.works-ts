@@ -12,7 +12,7 @@ The purpose of this site is to provide in-depth documentation about the BitShare
 
 ***
 
-## BitShares Dev Guide
+## BitShares Components
 
 ## Introduction
 BitShares is designed from the ground up to process more transactions every second than VISA and MasterCard combined.
@@ -168,12 +168,7 @@ first wallet, free
 
 
   
- 
-## Getting Started
-
-- 
-
-
+***
 
   
  
