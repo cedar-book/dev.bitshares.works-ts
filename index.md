@@ -32,7 +32,7 @@ BitShares is designed from the ground up to process more transactions every seco
   - BitShares performance compareson (observe current real situations)
 	-  Blockchain Activity: http://blocktivity.info/
 
-- System Features (*add short descriptions)
+- System Features (*add short descriptions*)
 	- Dynamic Account Permissions
 	- Multi-user control for account
 	- Two authorities: owner and active
@@ -44,7 +44,6 @@ BitShares is designed from the ground up to process more transactions every seco
       - Transaction fee
 	- UIA 
 	  - use cases
-	    - 
 	    - privatized SmartCoins
 	    - Predictions Market
 	    - How to profit (from UIA)? 
