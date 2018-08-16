@@ -29,7 +29,7 @@ BitShares is designed from the ground up to process more transactions every seco
 	- [Bitshares Block Exploer - cryptofresh](https://www.cryptofresh.com/)
 	- [Bitshares Block Exploer - Expl0ere](http://bitshares-explorer.io/#/dashboard)
 	- [Bitshares.Exploer - bts.ai](https://bts.ai/)
-  - BitShares performance compareson (observe current real situations)
+  - BitShares performance comparison (observe current real situations)
 	-  Blockchain Activity: http://blocktivity.info/
 
 - System Features (*add short descriptions*)
@@ -72,7 +72,7 @@ BitShares is designed from the ground up to process more transactions every seco
 	- OS X
 	- Windows
 	  - Visual Studio
-	  - WSL (for Wondows 10)
+	  - WSL (for Windows 10)
 	- CLI wallet Tool
 - Open source
 	- BitShares GitHub has all resources files for the development.
@@ -100,7 +100,7 @@ BitShares is designed from the ground up to process more transactions every seco
 
 ### Installation and build 		
 - Know the code Dependencies
-- Download a target brance progran and Install 
+- Download a target branch program and Install 
     - Use Phython
     - Use BitShares-Core (C++)
     - (**add each link)  
@@ -156,7 +156,7 @@ first wallet, free
   - transactions 
   - has sync data
 
-#### Concepts (*choode some of them*)
+#### Concepts (*choose some of them*)
   - Program Structure
   - Namespace
   - Types and Variables
@@ -168,7 +168,7 @@ first wallet, free
 
 ## Network and Security
 
-### Network Configration for wallet
+### Network Configuration for wallet
 
 - General Set up
   - Trusted Node
@@ -180,12 +180,12 @@ first wallet, free
   
 ***
 
-# Technology Guidance and Best Practicces
+# Technology Guidance and Best Practices
  
 BitShares has Public Testnet environment, a branch, and a test file folder. Use those materials to practice and learn your environment.  
 - Testnet (branch / test folder)
 - Public Testnet
-- (*somimage*)
+- (*some image*)
 
 ## Getting Started
 
@@ -193,7 +193,7 @@ BitShares has Public Testnet environment, a branch, and a test file folder. Use 
   - Get help
     - help()
     - gethelp()
-  - Look up your accopunt and device ingormation 
+  - Look up your account and device information 
     - info()
     - about()
   - Set a password for the wallet 
@@ -224,7 +224,7 @@ Node, Database, log files, History data, RAM, sync, etc
 
 
 ## API
-- formatt
+- format
 - Restriction
 - RPC
 - BitShares BlockChain API
