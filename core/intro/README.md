@@ -46,7 +46,7 @@ Another option, Windows SubSystem for Linux (WSL).  This is for a developer who 
 
 - Open Source program
 - Language uses (mainly): BitShares-Core(C++), python
-- BitShares GitHub 
+- [BitShares GitHub](https://github.com/bitshares)
   - **BitShares-Core (C++)** - BitShares Blockchain implementation and command-line interface.
   - **Bitshares-FC** - Fast-compiling C++ library 
   - **BitShares python** - Fully featured client-side library for the BitShares Blockchain - written entirely in python.
