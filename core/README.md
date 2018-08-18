@@ -5,7 +5,7 @@ Documentation related to BitShares Core internals and development fundamentals.
 - BitShares Core Workflow (Project / Issues) , BitShares Core Repository Gitflow, Development Environment 
    
 ### [Getting Started](../core/installation/README.md#getting-started)
-- Getting Started, Requirements(OS, Hardware, CPU, storage, Memory,etc), CLI-windows Tools, Core in WSL, Known issues
+- Getting Started, Requirements(OS, Hardware, CPU, storage, Memory,etc), CLI-windows Tools, Core in WSL, Known issues, Next Step Guide
  
 ### [Components Structures and Descriptions](../core/components/README.md#components-structures-and-descriptions)
  - Block structure, operations, evaluators, objects
