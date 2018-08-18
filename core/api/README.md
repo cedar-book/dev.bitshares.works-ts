@@ -54,17 +54,19 @@ BitShares-Core uses a different model to represent the blockchain(space), its tr
 BitShares objects were identified by a unique id, an type and a space. You should know some of them.
    
    
-**Example Call and a result: account object (1.2.x)**
+**Example Call and a result: account object (id: 1.2.x)**
 
 		unlocked >>> get_account_id "user123"
+		
 		get_account_id "user123"
 		"1.2.539269"
 		unlocked >>>
 
 
-**Example Call and a result: asset object (1.3.x)**
+**Example Call and a result: asset object (id: 1.3.x)**
 
 		unlocked >>> list_assets "BTS" "2"
+		
 		list_assets "BTS" "2"
 		[{
 				"id": "1.3.0",
