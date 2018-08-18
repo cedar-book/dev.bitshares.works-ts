@@ -1,7 +1,8 @@
 ## Components Structures and Descriptions
 
 ### Block
-- [A Block Elements and Structure(PDF)](../knowledge_base/shared_files/structures/BitShares-Block-Structurev1.pdf)
+- [A Block Elements and Structure: simple version(PDF)](../knowledge_base/shared_files/structures/block_structure_sv1.pdf)
+- [A Block Elements and Structure (PDF)](../knowledge_base/shared_files/structures/BitShares-Block-Structurev1.pdf)
 - [Block Header - inheritance](README.md#block-header)
 
 
