@@ -3,7 +3,7 @@
 #### Table of Contents:
 - [BitShares Architecture  ](#bitshares-architecture--github-repositories-and-entities)
 - [Development Environments and Requirements](#development-environments-and-requirements)
-- [BitShares code and files](#bitshares-code-and-files)
+- [BitShares Code and Files](#bitshares-code-and-files)
 - [BitShares Core Projects Guide](#bitshares-core-projects-guide)
 - [BitShares Core Code Management - GitFlow](#bitshares-core-code-management---gitflow)
 - [Your purpose and a download branch](#your-purpose-and-a-download-branch)
@@ -30,7 +30,7 @@ Another option, Windows SubSystem for Linux (WSL).  This is for a developer who 
 
 > See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) to run a node (updated: 2018-07-02).
 
-### BitShares code and files 
+### BitShares Code and Files 
 
 - Open Source program
 - Language uses (mainly): BitShares-Core(C++), python
