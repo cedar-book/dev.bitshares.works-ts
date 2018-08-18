@@ -5,8 +5,8 @@
 - [List of Commonly used Objects](../api/object_ids.md#list-of-commonly-used-objects)
    - [Examples](../api/object_ids.md#examples)
    - [Examples - Accounts](../api/object_ids.md#examples---accounts)
-   - [Example Call and a result: account object (1.2.x)](../api/object_ids.md#example-call-and-a-result-account-object-12x)
-   - [Example Call and a result: asset object (1.3.x) ](../api/object_ids.md#example-call-and-a-result-asset-object-13x)
+   - [Example Call and a result: account object (1.2.x)](../api/object_ids.md#example-call-and-a-result-account-object-id-12x)
+   - [Example Call and a result: asset object (1.3.x) ](../api/object_ids.md#example-call-and-a-result-asset-object-id-13x)
 - [Defenitions](../api/object_ids.md#definitions)
    - [Protocol Space (1.x.x)](../api/object_ids.md#protocol-space-1xx)
       - enum graphene::chain::object_type
