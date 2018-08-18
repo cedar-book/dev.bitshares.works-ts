@@ -2,7 +2,7 @@
 
 #### Table of Contents:
 - Block
-  - [A Block Elements and Structure: simple version](../knowledge_base/shared_files/structures/block_structure_sv1.pdf)  
+  - [A Block Elements and Structure: simple version](README.md#block)  
 - Block Headers - inheritance (objects)
   - [Block Header](README.md#block-header)
 
