@@ -32,7 +32,7 @@ It's important to understand that **only** you know your password, and no one ca
 
 ### BitShares UI Wallet
 
-![BitShares Architecture](../imgs/create_account_gui.png)
+![BitShares Architecture](../imgs/create_account_gui_v1.png)
 
 If you are a user who wants to create your account and a wallet, you can check [BitShares User Guide](https://github.com/bitshares/how.bitshares.works/tree/master/bbf/user_guide#user-guide) - [Create a BitShares Wallet](https://github.com/bitshares/how.bitshares.works/blob/master/bbf/user_guide/create_account.md#create-a-bitshares-wallet) section. 
 
