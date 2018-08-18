@@ -37,7 +37,7 @@ Select an operation system and install and build.
 
 ***
 
-## Next Step Guide
+## Next Steps Guide
 
 *If you want to...*
 
@@ -45,7 +45,6 @@ Select an operation system and install and build.
 - Check [BitShares-UI Release](https://github.com/bitshares/bitshares-ui/releases)
 - Check [User Guide](https://github.com/bitshares/how.bitshares.works/tree/master/bbf/user_guide#user-guide)
 - Refer [Create an Account](https://github.com/bitshares/how.bitshares.works/blob/master/bbf/user_guide/create_account.md#create-a-bitshares-wallet) steps
-- 
 
 #### Create a CLI wallet
 - Understand [BitShares Account](../accounts/README.md#bitshares-accounts)
@@ -53,10 +52,17 @@ Select an operation system and install and build.
 - Check [Connecting a CLI wallet](../wallet/cli_wallet.md#connecting-a-cli-wallet) steps
 
 #### Run a node
-
+- Understand [BitShares Account](../accounts/README.md#bitshares-accounts)
+- Understand about a [BitShares Node](../nodes_full_witness/README.md#bitshares-nodes-and-p2p-network) 
+- Learn the [Node conficgulation](../nodes_full_witness/full_nodes.md#full-nodes-witness-nodes)
+- Learn [Running a BitShares API Node](../nodes_full_witness/running-api-node.md#running-a-bitshares-api-node) steps 
 
 #### Run a witness node
-
+- Understand [BitShares Account](../accounts/README.md#bitshares-accounts)
+- Understand about a [BitShares Node](../nodes_full_witness/README.md#bitshares-nodes-and-p2p-network) 
+- Learn the [Node conficgulation](../nodes_full_witness/full_nodes.md#full-nodes-witness-nodes)
+- Learn [Running a BitShares API Node](../nodes_full_witness/running-api-node.md#running-a-bitshares-api-node) steps 
+- Learn [how to become an Active Witness](../nodes_full_witness/active_witness.md#become-an-active-witness)
 
 #### Learn BitShares system compornents
 
