@@ -5,8 +5,10 @@
   - [Blockchain APIs list](../api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links) - [(open doxygen)](https://bitshares.org/doxygen/namespacegraphene_1_1app.html) 
   - [Wallet API lisk](../api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links) - [(open doxygen)](https://bitshares.org/doxygen/classgraphene_1_1wallet_1_1wallet__api.html) 
 - [API Access & Restrictions](../api/api_restrictions.md#api-access-and-restrictions)
-- [Objects and IDs](../api/README.md#objects-and-ids)
+- [Objects and IDs](.../api/object_ids.md#objects-and-ids)  
 - [Available Calls](../api/README.md#available-calls) 
+  - [Remote Procedure Calls (RPC)](../api/rpc.md#remote-procedure-calls)
+  - [Websocket Calls & Notifications](../api/websocket_calls_notifications.md#websocket-calls-notifications)
 - [FAQ - API](../api/README.md#faq---api)
 
 ***
