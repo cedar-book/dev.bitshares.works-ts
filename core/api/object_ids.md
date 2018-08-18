@@ -95,17 +95,19 @@ The BitShares blockchain users are requires to register each account with a uniq
 
 ***
    
-#### Example Call and a result: account object (1.2.x)
+#### Example Call and a result: account object (id: 1.2.x)
 
 		unlocked >>> get_account_id "user123"
+		
 		get_account_id "user123"
 		"1.2.539269"
 		unlocked >>>
 
 
-#### Example Call and a result: asset object (1.3.x)
+#### Example Call and a result: asset object (id: 1.3.x)
 
 		unlocked >>> list_assets "BTS" "2"
+		
 		list_assets "BTS" "2"
 		[{
 				"id": "1.3.0",
