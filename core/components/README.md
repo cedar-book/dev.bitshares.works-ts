@@ -3,7 +3,7 @@
 ### Block
 - [A Block Elements and Structure: simple version(PDF)](../knowledge_base/shared_files/structures/block_structure_sv1.pdf)
 - [A Block Elements and Structure (PDF)](../knowledge_base/shared_files/structures/BitShares-Block-Structurev1.pdf)
-- [Block Header - inheritance](README.md#block-header)
+- [Block Header object details- inheritance](README.md#block-header)
 
 
 ### Evaluators
@@ -37,15 +37,15 @@ The below is simple blockchain structure image.
     
     struct block_header
     {
-        digest_type digest()const;
-        block_id_type previous;
-        uint32_t block_num()const { return num_from_id(previous) + 1; }
-        fc::time_point_sec timestamp;
-        witness_id_type witness;
-        checksum_type transaction_merkle_root;
-        extensions_type extensions;
+        digest_type         digest()const;
+        block_id_type       previous;
+        uint32_t            block_num()const { return num_from_id(previous) + 1; }
+        fc::time_point_sec  timestamp;
+        witness_id_type     witness;
+        checksum_type       transaction_merkle_root;
+        extensions_type     extensions;
 
-        static uint32_t num_from_id(const block_id_type& id);
+        static uint32_t     num_from_id(const block_id_type& id);
     };
 
  
@@ -56,12 +56,12 @@ The below is simple blockchain structure image.
         
     struct signed_block_header : public block_header
     {
-        block_id_type id()const;
-        fc::ecc::public_key signee()const;
-        void sign( const fc::ecc::private_key& signer );
-        bool validate_signee( const fc::ecc::public_key& expected_signee )const;
+        block_id_type        id()const;
+        fc::ecc::public_key  signee()const;
+        void                 sign( const fc::ecc::private_key& signer );
+        bool                 validate_signee( const fc::ecc::public_key& expected_signee )const;
 
-        signature_type witness_signature;
+        signature_type       witness_signature;
     };
  
 #### signed_block
@@ -71,7 +71,7 @@ The below is simple blockchain structure image.
         
     struct signed_block : public signed_block_header
     {
-        checksum_type calculate_merkle_root()const;
+        checksum_type                 calculate_merkle_root()const;
         vector<processed_transaction> transactions;
     };
 
@@ -86,9 +86,9 @@ The below is simple blockchain structure image.
         signed_block_with_info( const signed_block& block );
         signed_block_with_info( const signed_block_with_info& block ) = default;
 
-        block_id_type block_id;
-        public_key_type signing_key;
-        vector< transaction_id_type > transaction_ids;
+        block_id_type                  block_id;
+        public_key_type                signing_key;
+        vector< transaction_id_type >  transaction_ids;
     };
  
  
