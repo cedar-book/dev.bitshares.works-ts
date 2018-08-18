@@ -1,12 +1,12 @@
 ## Often Used API Calls
 
 #### Table of Contents:
-- [ist_account_balances] <account>](#list_account_balances-account)
-- [transfer <from> <to> <amount> <asset> "<memo>" <broadcast>](#transfer-from-to-amount-asset-memo-broadcast)
-- [transfer2 <from> <to> <amount> <asset> "<memo>"](#ransfer2-from-to-amount-asset-memo)
-- [get_account_history <account> <limit>](#get_account_history-account-limit)
-- [get_object "1.11.<id>"](#get_object-111id)
-- [get_asset <USD>](#get_asset-usd)
+- [ist_account_balances \<account\>](#list_account_balances-account)
+- [transfer \<from\> \<to\> \<amount\> \<asset\> "\<memo\>" <broadcast>](#transfer-from-to-amount-asset-memo-broadcast)
+- [`transfer2 <from> <to> <amount> <asset> "<memo>"`](#ransfer2-from-to-amount-asset-memo)
+- [`get_account_history <account> <limit>`](#get_account_history-account-limit)
+- [`get_object "1.11.<id>"`](#get_object-111id)
+- [`get_asset <USD>`](#get_asset-usd)
 
 ***
 
