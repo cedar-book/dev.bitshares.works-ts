@@ -8,7 +8,7 @@
 - **Evaluators**
   - graphene::chain::account_create_evaluator 
 - **Operations** : BitShares available operations details and the object structures.
-  - [graphene::chain::base_operation](../components/operations.md#bitshares-core---graphenechain)
+  - [Operations and Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain) *graphene::chain::base_operation*
 - **Objects**
   - [graphene::chain Namespace: Class - Objects](../components/objects.md#bitshares-core---graphenechain)
 
