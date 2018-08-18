@@ -1,6 +1,6 @@
 ## Getting Started
 
-> See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) to run a node (updated: 2018-07-02).
+> See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) if you are interested to run a node (updated: 2018-07-02).
 
 BitShares Core is the BitShares blockchain implementation and command-line interface. The web wallet is [BitShares UI](https://github.com/bitshares/bitshares-ui).
 
@@ -19,7 +19,8 @@ Visit [BitShares.org](https://bitshares.org/) to learn about BitShares and join 
 
 ***
 
-### Installation
+### Installation and Build
+Select an operation system and install and build.
 
 - [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
 - [OS X](../installation/build_osx.md#building-on-os-x)
