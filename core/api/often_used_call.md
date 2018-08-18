@@ -10,6 +10,8 @@
 
 ***
 
+#### Examples
+
 ### `list_account_balances <account>`
 
 Script
