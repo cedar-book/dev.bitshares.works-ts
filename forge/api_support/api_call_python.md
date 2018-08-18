@@ -68,3 +68,75 @@ Response Body
 ]
 ~~~
 
+#### /account_id
+
+~~~
+curl -X GET --header 'Accept: application/json' 'http://185.208.208.184:5000/account_id?account_name=committee-account'
+~~~
+
+Response Body
+
+~~~
+"1.2.0"
+~~~
+
+Response Headers
+
+~~~
+{
+  "access-control-allow-origin": "*",
+  "connection": "keep-alive",
+  "content-length": "8",
+  "content-type": "application/json",
+  "date": "Sat, 18 Aug 2018 04:29:04 GMT",
+  "server": "nginx/1.6.2"
+}
+~~~
+
+#### /acount_name
+
+~~~
+curl -X GET --header 'Accept: application/json' 'http://185.208.208.184:5000/account_name?account_id=1.2.0'
+~~~
+
+Response Body
+
+~~~
+"committee-account"
+~~~
+
+#### /accounts
+(*Get an account list of the most 100 rich CORE holders.*)
+
+~~~
+curl -X GET --header 'Accept: application/json' 'http://185.208.208.184:5000/accounts'
+~~~
+
+Response Body
+
+~~~
+[
+  {
+    "account_id": "1.2.20067",
+    "amount": "19019320146385",
+    "name": "poloniexwallet"
+  },
+  {
+    "account_id": "1.2.809079",
+    "amount": "16119240552757",
+    "name": "bitkkchubei002"
+  },
+  {
+    "account_id": "1.2.479516",
+    "amount": "11478766398323",
+    "name": "binance-cold-1"
+  },
+  ...
+ ]
+~~~  
+  
+  
+  
+
+
+
