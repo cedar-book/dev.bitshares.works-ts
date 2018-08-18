@@ -5,17 +5,12 @@
   - [A Block Elements and Structure: simple version](README.md#block)  
 - Block Headers - inheritance (objects)
   - [Block Header](README.md#block-header)
-
-
-### Evaluators
-- graphene::chain::account_create_evaluator 
-
-
-### Operations 
-- [graphene::chain::base_operation](../components/operations.md#bitshares-core---graphenechain)
-
-### Objects
-- [graphene::chain Namespace: Class - Objects](../components/objects.md#bitshares-core---graphenechain)
+- Evaluators
+  - graphene::chain::account_create_evaluator 
+- Operations 
+  - [graphene::chain::base_operation](../components/operations.md#bitshares-core---graphenechain)
+- Objects
+  - [graphene::chain Namespace: Class - Objects](../components/objects.md#bitshares-core---graphenechain)
 
 
 ***
