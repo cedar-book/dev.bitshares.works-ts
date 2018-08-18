@@ -2,8 +2,7 @@
 
 #### Table of Contents:
 - Block
-  - [A Block Elements and Structure: simple version(PDF)](../knowledge_base/shared_files/structures/block_structure_sv1.pdf)
-  - [A Block Elements and Structure (PDF)](../knowledge_base/shared_files/structures/BitShares-Block-Structurev1.pdf)
+  - [A Block Elements and Structure: simple version](../knowledge_base/shared_files/structures/block_structure_sv1.pdf)  
 - Block Headers - inheritance (objects)
   - [Block Header](README.md#block-header)
 
@@ -29,7 +28,10 @@ The below is simple blockchain structure image.
 
 ![BitShares Architecture](../imgs/structure/block_structure_si1.png)
 
-
+  - [A Block Elements and Structure: simple version(PDF)](../knowledge_base/shared_files/structures/block_structure_sv1.pdf)
+  - [A Block Elements and Structure (PDF)](../knowledge_base/shared_files/structures/BitShares-Block-Structurev1.pdf)
+  
+  
 ## Block Header - inheritance 
 
 #### block_header
