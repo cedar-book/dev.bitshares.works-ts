@@ -19,7 +19,7 @@ Visit [BitShares.org](https://bitshares.org/) to learn about BitShares and join 
 
 ***
 
-### Installation and Build
+## Installation and Build
 Select an operation system and install and build.
 
 - [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
@@ -31,11 +31,13 @@ Select an operation system and install and build.
 - Use **Windows Subsystem for Linux**
   - [Instruction how to prepare Ubuntu to Windows 10 OS](../installation/wsl.md#windows-subsystem-for-linux-wsl) 
 
-***
-
 ### Known issues
 
 - [Boost versions](../installation/boost_versions.md#boost-version)
 
 ***
+
+## Next Step Guide
+
+
 
