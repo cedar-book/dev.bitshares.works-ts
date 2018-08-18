@@ -4,7 +4,7 @@
 
 Learning BitShares-Core Available Operations.
 
-#### base_operations and Detailed Descriptions
+### Operations and Detailed Descriptions
 - Account
   - [account_create_operation](../components/operations.md#account_create_operation)
   - [account_transfer_operation](../components/operations.md#account_transfer_operation)
