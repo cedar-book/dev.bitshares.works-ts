@@ -14,17 +14,17 @@
 
 Script
 
-~~~
+```python
 import json
 from grapheneapi import GrapheneAPI
 client = GrapheneAPI("localhost", 8092, "", "")
 res = client.list_account_balances("dan")
 print(json.dumps(res,indent=4))
-~~~
+```
 
 Result
 
-~~~
+```python
 [
     {
         "asset_id": "1.3.0",
@@ -43,26 +43,25 @@ Result
         "amount": 31957981
     }
 ]
-~~~
+```
 
 
 ### transfer <from> <to> <amount> <asset> "<memo>" <broadcast>
 
 Script
 
-~~~
+```python
 import json
 from grapheneapi import GrapheneAPI
 client = GrapheneAPI("localhost", 8092, "", "")
 res = client.transfer("fromaccount","toaccount","10", "USD", "$10 gift", True);
-print(json.dumps(res,indent=4))
-~~~
+```
 
 The final parameter True states that the signed transaction will be broadcast. If this parameter is False the transaction will be signed but not broadcast, hence not executed.
 
 Result
 
-~~~
+```python
 {
   "ref_block_num": 18,
   "ref_block_prefix": 2320098938,
@@ -94,26 +93,26 @@ Result
     "1f147aed197a2925038e4821da54bd7818472ebe25257ac9a7ea66429494e7242d0dc13c55c6840614e6da6a5bf65ae609a436d13a3174fd12f073550f51c8e565"
   ]
 }
-~~~
+```
 
 
 ### transfer2 <from> <to> <amount> <asset> "<memo>"
 
 Script
 
-~~~
+```python
 import json
 from grapheneapi import GrapheneAPI
 client = GrapheneAPI("localhost", 8092, "", "")
 res = client.transfer2("fromaccount","toaccount","10", "USD", "$10 gift");
 print(json.dumps(res,indent=4))
-~~~
+```
 
 This method works just like transfer, except it always broadcasts and returns the transaction ID along with the signed transaction.
 
 Result
 
-~~~
+```python
  [b546a75a891b5c51de6d1aafd40d10e91a717bb3,{
    "ref_block_num": 18,
    "ref_block_prefix": 2320098938,
@@ -146,24 +145,24 @@ Result
    ]
  }
 ]
-~~~
+```
 
 
 ### get_account_history <account> <limit>
 
 Script
 
-~~~
+```python
 import json
 from grapheneapi import GrapheneAPI
 client = GrapheneAPI("localhost", 8092, "", "")
 res = client.get_account_history("dan", 1)
 print(json.dumps(res,indent=4))
-~~~
+```
 
 Result
 
-~~~
+```python
 [
      {
          "description": "fill_order_operation dan fee: 0 CORE",
@@ -200,23 +199,23 @@ Result
          "memo": ""
      }
  ]
-~~~
+```
 
 ### get_object "1.11.<id>"
 
 Script
 
-~~~
+```python
 import json
 from grapheneapi import GrapheneAPI
 client = GrapheneAPI("localhost", 8092, "", "")
 res = client.get_object("1.11.213277")
 print(json.dumps(res,indent=4))
-~~~
+```
 
 Result
 
-~~~
+```python
 {
     "trx_in_block": 0,
     "id": "1.11.213277",
@@ -247,24 +246,24 @@ Result
     "op_in_trx": 0,
     "virtual_op": 47888
 }
-~~~
+```
 
 
 ### get_asset <USD>
 
 Script
 
-~~~
+```python
 import json
 from grapheneapi import GrapheneAPI
 client = GrapheneAPI("localhost", 8092, "", "")
 res = client.get_asset("USD")
 print(json.dumps(res,indent=4))
-~~~
+```
 
 Result
 
-~~~
+```python
 {
     "symbol": "USD",
     "issuer": "1.2.1",
@@ -296,7 +295,7 @@ Result
     "id": "1.3.536",
     "precision": 4
 }
-~~~
+```
 
 
 ***
