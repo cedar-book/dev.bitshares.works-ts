@@ -18,7 +18,7 @@
 - [Available Calls](../api/README.md#available-calls) 
   - [Remote Procedure Calls (RPC)](../api/rpc.md#remote-procedure-calls)
   - [Websocket Calls & Notifications](../api/websocket_calls_notifications.md#websocket-calls-notifications)
-- [Often Used API Calls]()
+- [Often Used API Calls](../api/often_used_call.md#often-used-api-calls)
 - [FAQ - API](../api/README.md#faq---api)
 
 ***
