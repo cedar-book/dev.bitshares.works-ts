@@ -89,8 +89,9 @@ Select an operation system and install and build.
 - [Object Names and Detailed Descriptions](../components/objects.md#object-names-and-detailed-descriptions)
 
 
-#### 
-
+#### know about BSIP
+- Read [the Guide](../knowledge_base/bsip_funding.md#businesses-developers-and-business-developers)
+- Check the [BSIP Repository](https://github.com/bitshares/bsips)
 
 
 ###
