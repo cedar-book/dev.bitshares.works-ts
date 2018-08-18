@@ -73,9 +73,9 @@ Learning BitShares-Core Available Operations.
 
 ***
 
-### Detailed Descriptions
+#### Detailed Descriptions
 
-#### account_create_operation
+### account_create_operation
 
 		  struct account_create_operation : public base_operation
 		  {
@@ -120,7 +120,7 @@ Learning BitShares-Core Available Operations.
 		  }
 		  };
 
-#### account_transfer_operation
+### account_transfer_operation
 - Transfers the account to another account while clearing the white list. 
 - In theory an account can be transferred by simply updating the authorities, but that kind of transfer lacks semantic meaning and is more often done to rotate keys without transferring ownership. This operation is used to indicate the legal transfer of title to this account and a break in the operation history. 
 - The account_id's owner/active/voting/memo authority should be set to new_owner
@@ -140,7 +140,7 @@ Learning BitShares-Core Available Operations.
 	  void validate()const;
 	  };
 
-#### account_update_operation
+### account_update_operation
 - Update an existing account.
 - This operation is used to update an existing account. It can be used to update the authorities, or adjust the options on the account. See `account_object::options_type` for the options which may be updated. 
 
@@ -182,7 +182,7 @@ Learning BitShares-Core Available Operations.
 		{ if( !is_owner_update() ) a.insert( account ); }
 		};
 
-#### account_upgrade_operation
+### account_upgrade_operation
 - Manage an account's membership status
 - This operation is used to upgrade an account to a member, or renew its subscription. If an account which is an unexpired annual subscription member publishes this operation with `upgrade_to_lifetime_member` set to false, the account's membership expiration date will be pushed backward one year. If a basic account publishes it with `upgrade_to_lifetime_member` set to false, the account will be upgraded to a subscription member with an expiration date one year after the processing time of this operation.
 - Any account may use this operation to become a lifetime member by setting `upgrade_to_lifetime_member` to true. Once an account has become a lifetime member, it may not use this operation anymore. 
@@ -204,7 +204,7 @@ Learning BitShares-Core Available Operations.
 		share_type calculate_fee( const fee_parameters_type& k )const;
 		};
 
-#### account_whitelist_operation
+### account_whitelist_operation
 - This operation is used to whitelist and blacklist accounts, primarily for transacting in whitelisted assets.
 - Accounts can freely specify opinions about other accounts, in the form of either whitelisting or blacklisting them. This information is used in chain validation only to determine whether an account is authorized to transact in an asset type which enforces a whitelist, but third parties can use this information for other uses as well, as long as it does not conflict with the use of whitelisted assets.
 - An asset which enforces a whitelist specifies a list of accounts to maintain its whitelist, and a list of accounts to maintain its blacklist. In order for a given account A to hold and transact in a whitelisted asset S, A must be whitelisted by at least one of S's whitelist_authorities and blacklisted by none of S's blacklist_authorities. If A receives a balance of S, and is later removed from the whitelist(s) which allowed it to hold S, or added to any blacklist S specifies as authoritative, A's balance of S will be frozen until A's authorization is reinstated.
@@ -232,7 +232,7 @@ Learning BitShares-Core Available Operations.
 		 
 		 
 
-#### asset_operation
+### asset_operation
 - assert that some conditions are true.
 - This operation performs no changes to the database state, but can used to verify pre or post conditions for other operations. 
 
@@ -251,7 +251,7 @@ Learning BitShares-Core Available Operations.
 		share_type calculate_fee(const fee_parameters_type& k)const;
 		};
 
-#### asset_claim_fees_operation
+### asset_claim_fees_operation
 - used to transfer accumulated fees back to the issuer's balance. 
 
 		struct asset_claim_fees_operation : public base_operation
@@ -269,7 +269,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 
-#### asset_claim_pool_operation
+### asset_claim_pool_operation
 - Transfers BTS from the fee pool of a specified asset back to the issuer's balance. 
 - Parameters
   - `fee`  Payment for the operation execution
@@ -298,7 +298,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
   
-#### asset_create_operation
+### asset_create_operation
  
 		struct asset_create_operation : public base_operation
 		{
@@ -309,7 +309,7 @@ Learning BitShares-Core Available Operations.
 		uint32_t price_per_kbyte = 10; 
 		};
 
-#### asset_fund_fee_pool_operation
+### asset_fund_fee_pool_operation
 
 		struct asset_fund_fee_pool_operation : public base_operation
 		{
@@ -325,7 +325,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 
-#### asset_global_settle_operation
+### asset_global_settle_operation
 - Allows global settling of bitassets (black swan or prediction markets)
 - In order to use this operation, `asset_to_settle` must have the global_settle flag set
 - When this operation is executed all balances are converted into the backing asset at the settle_price and all open margin positions are called at the settle price. If this asset is used as backing for other bitassets, those bitassets will be force settled at their current feed price. 
@@ -344,7 +344,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 
-#### asset_issue_operation
+### asset_issue_operation
 
 		struct asset_issue_operation : public base_operation
 		{
@@ -353,7 +353,7 @@ Learning BitShares-Core Available Operations.
 		uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-#### asset_publish_feed_operation
+### asset_publish_feed_operation
 - Publish price feeds for market-issued assets
 - Price feed providers use this operation to publish their price feeds for **market-issued assets**. A price feed is used to tune the market for a particular **market-issued asset**. For each value in the feed, the median across all committee_member feeds for that asset is calculated and the market for the asset is configured with the median of that value.
 - The feed in the operation contains three prices: **a call price limit**, **a short price limit**, and **a settlement price**. The call limit price is structured as `(collateral asset) / (debt asset)` and the short limit price is structured as `(asset for sale) / (collateral asset`). Note that the `asset IDs` are opposite to eachother, so if we're publishing a feed for USD, the call limit price will be `CORE/USD `and the short limit price will be `USD/CORE`. The settlement price may be flipped either direction, as long as it is a ratio between the **market-issued asset** and **its collateral**. 
@@ -372,7 +372,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
   
-#### asset_reserve_operation
+### asset_reserve_operation
 - used to take an asset out of circulation, returning to the issuer
 
 > Note: You cannot use this operation on market-issued assets. 
@@ -391,7 +391,7 @@ Learning BitShares-Core Available Operations.
 		  };
  
  
-#### asset_settle_cancel_operation
+### asset_settle_cancel_operation
 - Virtual op generated when force settlement is canceled. 
 
 		struct asset_settle_cancel_operation : public base_operation
@@ -414,7 +414,7 @@ Learning BitShares-Core Available Operations.
 		};
 
 
-#### asset_settle_operation
+### asset_settle_operation
 - Schedules a *market-issued asset* for automatic settlement
 - Holders of *market-issued assets* may request a forced settlement for some amount of their asset. This means that the specified sum will be locked by the chain and held for the settlement period, after which time the chain will choose a margin position holder and buy the settled asset using the margin's collateral. The price of this sale will be based on the feed price for the market-issued asset being settled. The exact settlement price will be the feed price at the time of settlement with an offset in favor of the margin position, where the offset is a blockchain parameter set in the `global_property_object`.
 - The fee is paid by **account**, and **account** must authorize this operation
@@ -434,7 +434,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 
-#### asset_update_bitasset_operation
+### asset_update_bitasset_operation
 - Update options specific to BitAssets
 - BitAssets have some options which are not relevant to other asset types. This operation is used to update those options an an existing BitAsset. 
 - **Precondition**
@@ -461,7 +461,7 @@ Learning BitShares-Core Available Operations.
 		};
 		   
 
-#### asset_update_feed_producers_operation
+### asset_update_feed_producers_operation
 - Update the set of feed-producing accounts for a BitAsset
 - BitAssets have price feeds selected by taking the median values of recommendations from a set of feed producers. This operation is used to specify which accounts may produce feeds for a given BitAsset. 
 - Precondition
@@ -489,7 +489,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 		  
-#### asset_update_issuer_operation
+### asset_update_issuer_operation
 - Update issuer of an asset
 - An issuer has general administrative power of an asset and in some cases also its shares issued to individuals. Thus, changing the issuer today requires the use of a separate operation that needs to be signed by the owner authority. 
 
@@ -516,7 +516,7 @@ Learning BitShares-Core Available Operations.
 
 		};
   
-#### asset_update_operation
+### asset_update_operation
 - Update options common to all assets
 - There are a number of options which all assets in the network use. These options are enumerated in the `asset_options` struct. This operation is used to update these options for an existing asset. 
 
@@ -552,7 +552,7 @@ Learning BitShares-Core Available Operations.
 
 		};
   
-#### balance_claim_operation
+### balance_claim_operation
 - Claim a balance in a balanc_object.
 - This operation is used to claim the balance in a given `balance_object`. If the balance object contains a vesting balance, `total_claimed` must not exceed `balance_object::available` at the time of evaluation. If the object contains a non-vesting balance, `total_claimed` must be the full balance of the object. 
 
