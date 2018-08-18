@@ -1,9 +1,10 @@
 ## Getting Started
 
 #### Table of Contents:
-- Installation and Build
+- [Installation and Build](README.md#installation-and-build)
 - Next Steps Guide
 
+***
 
 > See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) if you are interested to run a node (updated: 2018-07-02).
 
