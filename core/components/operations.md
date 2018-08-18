@@ -556,7 +556,7 @@ Learning BitShares-Core Available Operations.
 - Claim a balance in a balanc_object.
 - This operation is used to claim the balance in a given `balance_object`. If the balance object contains a vesting balance, `total_claimed` must not exceed `balance_object::available` at the time of evaluation. If the object contains a non-vesting balance, `total_claimed` must be the full balance of the object. 
 
-#### bit_collateral_operation
+### bit_collateral_operation
 - This operation can be used after a black swan to bid collateral for taking over part of the debt and the settlement_fund (see BSIP-0018).
 
 	  struct bid_collateral_operation : public base_operation
@@ -573,7 +573,7 @@ Learning BitShares-Core Available Operations.
 	  void validate()const;
 	  };
   
-#### blind_transfer_operation
+### blind_transfer_operation
 - Transfers from blind to blind.
 - There are two ways to transfer value while maintaining privacy:
   1. account to account with amount kept secret
@@ -613,7 +613,7 @@ Learning BitShares-Core Available Operations.
 		}
 		};
 
-#### call_order_update_operation
+### call_order_update_operation
 - This operation can be used to add collateral, cover, and adjust the margin call price for a particular user.
 - For prediction markets the collateral and debt must always be equal.
 - This operation will fail if it would trigger a margin call that couldn't be filled. If the margin call hits the call price limit then it will fail if the call price is above the settlement price.
@@ -641,7 +641,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
   
-#### committee_member_create_operation
+### committee_member_create_operation
 - Create a committee_member object, as a bid to hold a committee_member seat on the network.
 - Accounts which wish to become committee_members may use this operation to create a committee_member object which stakeholders may vote on to approve its position as a committee_member. 
 
@@ -657,7 +657,7 @@ Learning BitShares-Core Available Operations.
 	  void validate()const;
 	  };
 	  
-#### committee_member_update_global_parameters_operation
+### committee_member_update_global_parameters_operation
 - Used by committee_members to update the global parameters of the blockchain.
 - This operation allows the committee_members to update the global parameters on the blockchain. These control various tunable aspects of the chain, including block and maintenance intervals, maximum data sizes, the fees charged by the network, etc.
 - This operation may only be used in a proposed transaction, and a proposed transaction which contains this operation must have a review period specified in the current global parameters before it may be accepted. 
@@ -673,7 +673,7 @@ Learning BitShares-Core Available Operations.
 	  void validate()const;
 	  };
   
-#### committee_member_update_operation
+### committee_member_update_operation
 - Update a committee_member object.
 - Currently the only field which can be updated is the url field. 
 
@@ -690,7 +690,7 @@ Learning BitShares-Core Available Operations.
 	  void validate()const;
 	  };
   
-#### custom_operation
+### custom_operation
 - provides a generic way to add higher level protocols on top of witness consensus
 - There is no validation for this operation other than that required auths are valid and a fee is paid that is appropriate for the data contained. 
 
@@ -712,7 +712,7 @@ Learning BitShares-Core Available Operations.
 		  share_type calculate_fee(const fee_parameters_type& k)const;
 		  };
   
-#### execute_bit_operation
+### execute_bit_operation
 
  > Note: This is a virtual operation that is created while reviving a bitasset from collateral bids. 
 
@@ -735,7 +735,7 @@ Learning BitShares-Core Available Operations.
 		share_type calculate_fee(const fee_parameters_type& k)const { return 0; }
 		};
   
-#### fba_distribute_operation
+### fba_distribute_operation
 
 		struct fba_distribute_operation : public base_operation
 		{
@@ -751,7 +751,7 @@ Learning BitShares-Core Available Operations.
 		share_type calculate_fee(const fee_parameters_type& k)const { return 0; }
 		};
 	 
-#### fill_order_operation
+### fill_order_operation
 
  > Note: This is a virtual operation that is created while matching orders and emitted for the purpose of accurately tracking account history, accelerating a reindex
 	
@@ -785,7 +785,7 @@ Learning BitShares-Core Available Operations.
 
   
   
-#### limit_order_cancel_operation
+### limit_order_cancel_operation
 
 - Used to cancel an existing limit order. Both fee_pay_account and the account to receive the proceeds must be the same as order->seller.
 - **Returns**   the amount actually refunded 
@@ -803,7 +803,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 
-#### limit_orders_create_operation
+### limit_orders_create_operation
 - instructs the blockchain to attempt to sell one asset for another
 - The blockchain will atempt to sell `amount_to_sell.asset_id` for as much `min_to_receive.asset_id` as possible. The fee will be paid by the seller's account. Market fees will apply as specified by the issuer of both the selling asset and the receiving asset as a percentage of the amount exchanged.
 - If either the selling asset or the receiving asset is white list restricted, the order will only be created if the seller is on the white list of the restricted asset type.
@@ -835,7 +835,7 @@ Learning BitShares-Core Available Operations.
 		};
 
 
-#### override_transfer_operation
+### override_transfer_operation
 - Allows the issuer of an asset to transfer an asset from any account to any account if they have override_authority.
 - **Precondition**
   - amount.asset_id->issuer == issuer 
@@ -862,7 +862,7 @@ Learning BitShares-Core Available Operations.
 	  share_type calculate_fee(const fee_parameters_type& k)const;
 	  };
 	  
-#### proposal_create_operation
+### proposal_create_operation
 - The `proposal_create_operation` creates a transaction proposal, for use in multi-sig scenarios
 - Creates a transaction proposal. The operations which compose the transaction are listed in order in proposed_ops, and expiration_time specifies the time by which the proposal must be accepted or it will fail permanently. The expiration_time cannot be farther in the future than the maximum expiration time set in the global properties object. 
 
@@ -887,7 +887,7 @@ Learning BitShares-Core Available Operations.
 		share_type calculate_fee(const fee_parameters_type& k)const;
 		};
 
-#### proposal_delete_operation
+### proposal_delete_operation
 - The `proposal_delete_operation` deletes an existing transaction proposal
 - This operation allows the early veto of a proposed transaction. It may be used by any account which is a required authority on the proposed transaction, when that account's holder feels the proposal is ill-advised and he decides he will never approve of it and wishes to put an end to all discussion of the issue. Because he is a required authority, he could simply refuse to add his approval, but this would leave the topic open for debate until the proposal expires. Using this operation, he can prevent any further breath from being wasted on such an absurd proposal. 
  
@@ -905,7 +905,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 
-#### proposal_update_operation
+### proposal_update_operation
 - The `proposal_update_operation` updates an existing transaction proposal
 - This operation allows accounts to add or revoke approval of a proposed transaction. Signatures sufficient to satisfy the authority of each account in approvals are required on the transaction containing this operation.
 - If an account with a multi-signature authority is listed in `approvals_to_add`or `approvals_to_remove`, either all required signatures to satisfy that account's authority must be provided in the transaction containing this operation, or a secondary proposal must be created which contains this operation.
@@ -940,7 +940,7 @@ Learning BitShares-Core Available Operations.
 		void get_required_owner_authorities( flat_set<account_id_type>& )const;
 		};
   
-#### transfer_from_blind_operation
+### transfer_from_blind_operation
 - Converts blinded/stealth balance to a public account balance.
 
 	 struct transfer_from_blind_operation : public base_operation
@@ -965,7 +965,7 @@ Learning BitShares-Core Available Operations.
 	  }
 	 };
 	 
-#### transfer_operation
+### transfer_operation
 - Transfers an amount of one asset from one account to another.
 - Fees are paid by the "from" account
 - **Precondition**
@@ -998,7 +998,7 @@ Learning BitShares-Core Available Operations.
 	  share_type calculate_fee(const fee_parameters_type& k)const;
 	  };
   
-#### transfer_to_blind_operation
+### transfer_to_blind_operation
 - Converts public account balance to a blinded or stealth balance. 
 
 		 struct transfer_to_blind_operation : public base_operation
@@ -1020,7 +1020,7 @@ Learning BitShares-Core Available Operations.
 		 };
 	 
  
-#### vesting_balance_create_operation
+### vesting_balance_create_operation
 - Create a vesting balance.
 - The chain allows a user to create a vesting balance. Normally, vesting balances are created automatically as part of cashback and worker operations. This operation allows vesting balances to be created manually as well.
 - Manual creation of vesting balances can be used by a stakeholder to publicly demonstrate that they are committed to the chain. It can also be used as a building block to create transactions that function like public debt. Finally, it is useful for testing vesting balance functionality.
@@ -1045,7 +1045,7 @@ Learning BitShares-Core Available Operations.
 		  }
 		  };
 		  
-#### vesting_balance_withdraw_operation
+### vesting_balance_withdraw_operation
 - Withdraw from a vesting balance.
 - Withdrawal from a not-completely-mature vesting balance will result in paying fees. 
 - **Returns**
@@ -1068,7 +1068,7 @@ Learning BitShares-Core Available Operations.
 		  }
 		  };
 	  
-#### withdraw_permission_claim_operation
+### withdraw_permission_claim_operation
 - Withdraw from an account which has published a withdrawal permission
 - This operation is used to withdraw from an account which has authorized such a withdrawal. It may be executed at most once per withdrawal period for the given permission. On execution, `amount_to_withdraw` is transferred from `withdraw_from_account` to `withdraw_to_account`, assuming `amount_to_withdraw` is within the withdrawal limit. The withdrawal permission will be updated to note that the withdrawal for the current period has occurred, and further withdrawals will not be permitted until the next withdrawal period, assuming the permission has not expired. This operation may be executed at any time within the current withdrawal period.
 - Fee is paid by `withdraw_to_accoun`t, which is required to authorize this operation 
@@ -1092,7 +1092,7 @@ Learning BitShares-Core Available Operations.
 		share_type calculate_fee(const fee_parameters_type& k)const;
 		};
 
-#### withdraw_permission_create_operation
+### withdraw_permission_create_operation
 - Create a new withdrawal permission
 - This operation creates a withdrawal permission, which allows some authorized account to withdraw from an authorizing account. This operation is primarily useful for scheduling recurring payments.
 - Withdrawal permissions define withdrawal periods, which is a span of time during which the authorized account may make a withdrawal. Any number of withdrawals may be made so long as the total amount withdrawn per period does not exceed the limit for any given period.
@@ -1115,7 +1115,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 
-#### withdraw_permission_delete_operation
+### withdraw_permission_delete_operation
 - Delete an existing withdrawal permission
 - This operation cancels a withdrawal permission, thus preventing any future withdrawals using that permission.
 - Fee is paid by `withdraw_from_account`, which is required to authorize this operation 
@@ -1133,7 +1133,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 	  
-#### withdraw_permission_update_operation
+### withdraw_permission_update_operation
 - Update an existing withdraw permission
 - This operation is used to update the settings for an existing withdrawal permission. The accounts to withdraw to and from may never be updated. The fields which may be updated are the withdrawal limit (both amount and asset type may be updated), the withdrawal period length, the remaining number of periods until expiration, and the starting time of the new period.
 - Fee is paid by `withdraw_from_account`, which is required to authorize this operation 
@@ -1155,7 +1155,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 
-#### witness_create_operation
+### witness_create_operation
 - Create a witness object, as a bid to hold a witness position on the network.
 - Accounts which wish to become witnesses may use this operation to create a witness object which stakeholders may vote on to approve its position as a witness. 
 
@@ -1172,7 +1172,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
   
-#### witness_update_operation
+### witness_update_operation
 - Update a witness object's URL and block signing key. 
 
 		struct witness_update_operation : public base_operation
@@ -1192,7 +1192,7 @@ Learning BitShares-Core Available Operations.
 		void validate()const;
 		};
 	  
-#### worker_create_operation
+### worker_create_operation
 - Create a new worker object. 
 
 		struct worker_create_operation : public base_operation
