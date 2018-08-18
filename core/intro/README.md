@@ -4,7 +4,7 @@
 - [BitShares Architecture  ](#bitshares-architecture--github-repositories-and-entities)
 - [Development Environments and Requirements](#development-environments-and-requirements)
   - [BitShares Code and Files](#bitshares-code-and-files)
-- [Features](#bitshares-key-design-concepts-and-the-features)
+- [Key Features](#bitshares-key-design-concepts-and-the-features)
 - [BitShares Blockchain Transactions and Performance](#observe-bitshares-blockchain-transactions-and-performance)
 - [BitShares Core](#bitshares-core-projects-guide)
   - [Projects Guide](#bitshares-core-projects-guide)
