@@ -6,11 +6,14 @@ Learning BitShares-Core Available Operations.
 
 #### base_operations and Detailed Descriptions
 
+### Account
 - [account_create_operation](../components/operations.md#account_create_operation)
 - [account_transfer_operation](../components/operations.md#account_transfer_operation)
 - [account_update_operation](../components/operations.md#account_update_operation)
 - [account_upgrade_operation](../components/operations.md#account_upgrade_operation)
 - [account_whitelist_operation](../components/operations.md#account_whitelist_operation)
+
+### Asset
 - [asset_operation](../components/operations.md#asset_operation)
 - [asset_clain_fees_operation](../components/operations.md#asset_clain_fees_operation)
 - [asset_claim_pool_operation](../components/operations.md#asset_claim_pool_operation)
@@ -26,34 +29,60 @@ Learning BitShares-Core Available Operations.
 - [asset_update_feed_producers_operation](../components/operations.md#asset_update_feed_producers_operation)
 - [asset_update_issuer_operation](../components/operations.md#asset_update_issuer_operation)
 - [asset_update_operation](../components/operations.md#asset_update_operation)
+
+### Balance Claim
 - [balance_claim_operation](../components/operations.md#balance_claim_operation)
+
+### Bit collateral
 - [bit_collateral_operation](../components/operations.md#bit_collateral_operation)
+
+### 
 - [blind_transfer_operation](../components/operations.md#blind_transfer_operation)
 - [call_order_update_operation](../components/operations.md#call_order_update_operation)
+
+### Committee
 - [committee_member_create_operation](../components/operations.md#committee_member_create_operation)
 - [committee_member_update_global_parameters_operation](../components/operations.md#committee_member_update_global_parameters_operation)
 - [committee_member_update_operation](../components/operations.md#committee_member_update_operation)
+
+### Custom 
 - [custom_operation](../components/operations.md#custom_operation)
 - [execute_bit_operation](../components/operations.md#execute_bit_operation)
+
+### FBA
 - [fba_distribute_operation](../components/operations.md#fba_distribute_operation)
+
+### Order
 - [fill_order_operation](../components/operations.md#fill_order_operation)
 - [limit_order_cancel_operation](../components/operations.md#limit_order_cancel_operation)
 - [limit_orders_create_operation](../components/operations.md#limit_orders_create_operation)
+
+### Transfer
 - [override_transfer_operation](../components/operations.md#override_transfer_operation)
-- [proposal_create_operation](../components/operations.md#proposal_create_operation)
-- [proposal_delete_operation](../components/operations.md#proposal_delete_operation)
-- [proposal_update_operation](../components/operations.md#proposal_update_operation)
 - [transfer_from_blind_operation](../components/operations.md#transfer_from_blind_operation)
 - [transfer_operation](../components/operations.md#transfer_operation)
 - [transfer_to_blind_operation](../components/operations.md#transfer_to_blind_operation)
+
+### Proposal
+- [proposal_create_operation](../components/operations.md#proposal_create_operation)
+- [proposal_delete_operation](../components/operations.md#proposal_delete_operation)
+- [proposal_update_operation](../components/operations.md#proposal_update_operation)
+
+### Vesting Balance
 - [vesting_balance_create_operation](../components/operations.md#vesting_balance_create_operation)
 - [vesting_balance_withdraw_operation](../components/operations.md#vesting_balance_withdraw_operation)
+
+### Withdraw
 - [withdraw_permission_claim_operation](../components/operations.md#withdraw_permission_claim_operation)
 - [withdraw_permission_create_operation](../components/operations.md#withdraw_permission_create_operation)
 - [withdraw_permission_delete_operation](../components/operations.md#withdraw_permission_delete_operation)
 - [withdraw_permission_update_operation](../components/operations.md#withdraw_permission_update_operation)
+
+### Witnwss
 - [witness_create_operation](../components/operations.md#witness_create_operation)
 - [witness_update_operation](../components/operations.md#witness_update_operation)
+
+### Worker
 - [worker_create_operation](../components/operations.md#worker_create_operation)
 
 
