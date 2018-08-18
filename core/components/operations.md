@@ -81,9 +81,9 @@ Learning BitShares-Core Available Operations.
 		  {
 		  struct ext
 		  {
-		  optional< void_t > null_ext;
-		  optional< special_authority > owner_special_authority;
-		  optional< special_authority > active_special_authority;
+		  optional< void_t >                  null_ext;
+		  optional< special_authority >       owner_special_authority;
+		  optional< special_authority >       active_special_authority;
 		  optional< buyback_account_options > buyback_options;
 		  };
 		 
@@ -94,24 +94,24 @@ Learning BitShares-Core Available Operations.
 		  uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
 		  }; 
 
-		  asset fee;
+		  asset           fee;
 		  account_id_type registrar;
 		 
 		  account_id_type referrer;
-		  uint16_t referrer_percent = 0;
+		  uint16_t        referrer_percent = 0;
 		 
-		  string name;
-		  authority owner;
-		  authority active;
+		  string          name;
+		  authority       owner;
+		  authority       active;
 		 
-		  account_options options;
+		  account_options  options;
 		  extension< ext > extensions;
 		 
-		  account_id_type fee_payer()const { return registrar; }
-		  void validate()const;
-		  share_type calculate_fee(const fee_parameters_type& )const;
+		  account_id_type  fee_payer()const { return registrar; }
+		  void             validate()const;
+		  share_type       calculate_fee(const fee_parameters_type& )const;
 		 
-		  void get_required_active_authorities( flat_set<account_id_type>& a )const
+		  void             get_required_active_authorities( flat_set<account_id_type>& a )const
 		  {
 		  // registrar should be required anyway as it is the fee_payer(), but we insert it here just to be sure
 		  a.insert( registrar );
@@ -136,8 +136,8 @@ Learning BitShares-Core Available Operations.
 	  account_id_type new_owner;
 	  extensions_type extensions;
 	 
-	  account_id_type fee_payer()const { return account_id; }
-	  void validate()const;
+	  account_id_type  fee_payer()const { return account_id; }
+	  void             validate()const;
 	  };
 
 ### account_update_operation
@@ -148,29 +148,29 @@ Learning BitShares-Core Available Operations.
 		{
 		struct ext
 		{
-		optional< void_t > null_ext;
+		optional< void_t >            null_ext;
 		optional< special_authority > owner_special_authority;
 		optional< special_authority > active_special_authority;
 		};
 
 		struct fee_parameters_type
 		{
-		share_type fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-		uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
+		share_type   fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		uint32_t     price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
+		asset           fee;
 		account_id_type account;
 
 		optional<authority> owner;
 		optional<authority> active;
 
 		optional<account_options> new_options;
-		extension< ext > extensions;
+		extension< ext >          extensions;
 
-		account_id_type fee_payer()const { return account; }
-		void validate()const;
-		share_type calculate_fee( const fee_parameters_type& k )const;
+		account_id_type  fee_payer()const { return account; }
+		void             validate()const;
+		share_type       calculate_fee( const fee_parameters_type& k )const;
 
 		bool is_owner_update()const
 		{ return owner || extensions.value.owner_special_authority.valid(); }
@@ -189,19 +189,19 @@ Learning BitShares-Core Available Operations.
 
 		struct account_upgrade_operation : public base_operation
 		{
-		struct fee_parameters_type { 
+		struct   fee_parameters_type { 
 		uint64_t membership_annual_fee = 2000 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		uint64_t membership_lifetime_fee = 10000 * GRAPHENE_BLOCKCHAIN_PRECISION; 
 		};
 
-		asset fee;
-		account_id_type account_to_upgrade;
-		bool upgrade_to_lifetime_member = false;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  account_to_upgrade;
+		bool             upgrade_to_lifetime_member = false;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return account_to_upgrade; }
-		void validate()const;
-		share_type calculate_fee( const fee_parameters_type& k )const;
+		account_id_type  fee_payer()const { return account_to_upgrade; }
+		void             validate()const;
+		share_type       calculate_fee( const fee_parameters_type& k )const;
 		};
 
 ### account_whitelist_operation
@@ -220,14 +220,14 @@ Learning BitShares-Core Available Operations.
 		  white_and_black_listed = white_listed | black_listed 
 		  };
 		 
-		  asset fee;
-		  account_id_type authorizing_account;
-		  account_id_type account_to_list;
-		  uint8_t new_listing = no_listing;
-		  extensions_type extensions;
+		  asset            fee;
+		  account_id_type  authorizing_account;
+		  account_id_type  account_to_list;
+		  uint8_t          new_listing = no_listing;
+		  extensions_type  extensions;
 		 
-		  account_id_type fee_payer()const { return authorizing_account; }
-		  void validate()const { FC_ASSERT( fee.amount >= 0 ); FC_ASSERT(new_listing < 0x4); }
+		  account_id_type  fee_payer()const { return authorizing_account; }
+		  void             validate()const { FC_ASSERT( fee.amount >= 0 ); FC_ASSERT(new_listing < 0x4); }
 		  };
 		 
 		 
@@ -240,15 +240,15 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee;
-		account_id_type fee_paying_account;
-		vector<predicate> predicates;
+		asset                     fee;
+		account_id_type           fee_paying_account;
+		vector<predicate>         predicates;
 		flat_set<account_id_type> required_auths;
-		extensions_type extensions;
+		extensions_type           extensions;
 
-		account_id_type fee_payer()const { return fee_paying_account; }
-		void validate()const;
-		share_type calculate_fee(const fee_parameters_type& k)const;
+		account_id_type           fee_payer()const { return fee_paying_account; }
+		void                      validate()const;
+		share_type                calculate_fee(const fee_parameters_type& k)const;
 		};
 
 ### asset_claim_fees_operation
@@ -256,17 +256,17 @@ Learning BitShares-Core Available Operations.
 
 		struct asset_claim_fees_operation : public base_operation
 		{
-		struct fee_parameters_type {
+		struct   fee_parameters_type {
 		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type issuer;
-		asset amount_to_claim; 
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer;
+		asset            amount_to_claim; 
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 		};
 
 ### asset_claim_pool_operation
@@ -288,21 +288,21 @@ Learning BitShares-Core Available Operations.
 		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_id; 
-		asset amount_to_claim; 
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer;
+		asset_id_type    asset_id; 
+		asset            amount_to_claim; 
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 		};
   
 ### asset_create_operation
  
 		struct asset_create_operation : public base_operation
 		{
-		struct fee_parameters_type { 
+		struct   fee_parameters_type { 
 		uint64_t symbol3 = 500000 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		uint64_t symbol4 = 300000 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		uint64_t long_symbol = 5000 * GRAPHENE_BLOCKCHAIN_PRECISION;
@@ -315,14 +315,14 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee; 
+		asset           fee; 
 		account_id_type from_account;
-		asset_id_type asset_id;
-		share_type amount; 
+		asset_id_type   asset_id;
+		share_type      amount; 
 		extensions_type extensions;
 
 		account_id_type fee_payer()const { return from_account; }
-		void validate()const;
+		void            validate()const;
 		};
 
 ### asset_global_settle_operation
@@ -334,23 +334,23 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee;
-		account_id_type issuer; 
-		asset_id_type asset_to_settle;
-		price settle_price;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer; 
+		asset_id_type    asset_to_settle;
+		price            settle_price;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 		};
 
 ### asset_issue_operation
 
 		struct asset_issue_operation : public base_operation
 		{
-		struct fee_parameters_type { 
-		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
-		uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
+		struct      fee_parameters_type { 
+		uint64_t    fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
+		uint32_t    price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
 ### asset_publish_feed_operation
@@ -362,14 +362,14 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee; 
-		account_id_type publisher;
-		asset_id_type asset_id; 
-		price_feed feed;
-		extensions_type extensions;
+		asset            fee; 
+		account_id_type  publisher;
+		asset_id_type    asset_id; 
+		price_feed       feed;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return publisher; }
-		void validate()const;
+		account_id_type  fee_payer()const { return publisher; }
+		void             validate()const;
 		};
   
 ### asset_reserve_operation
@@ -381,13 +381,13 @@ Learning BitShares-Core Available Operations.
 		  {
 		  struct fee_parameters_type { uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 		 
-		  asset fee;
-		  account_id_type payer;
-		  asset amount_to_reserve;
-		  extensions_type extensions;
+		  asset            fee;
+		  account_id_type  payer;
+		  asset            amount_to_reserve;
+		  extensions_type  extensions;
 		 
-		  account_id_type fee_payer()const { return payer; }
-		  void validate()const;
+		  account_id_type  fee_payer()const { return payer; }
+		  void             validate()const;
 		  };
  
  
@@ -398,13 +398,13 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { };
 
-		asset fee;
-		force_settlement_id_type settlement;
-		account_id_type account;
-		asset amount;
-		extensions_type extensions;
+		asset                     fee;
+		force_settlement_id_type  settlement;
+		account_id_type           account;
+		asset                     amount;
+		extensions_type           extensions;
 
-		account_id_type fee_payer()const { return account; }
+		account_id_type           fee_payer()const { return account; }
 		void validate()const {
 		FC_ASSERT( amount.amount > 0, "Must settle at least 1 unit" );
 		}
@@ -425,12 +425,12 @@ Learning BitShares-Core Available Operations.
 		uint64_t fee = 100 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type account;
-		asset amount;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  account;
+		asset            amount;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return account; }
+		account_id_type  fee_payer()const { return account; }
 		void validate()const;
 		};
 
@@ -449,15 +449,15 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_to_update;
+		asset            fee;
+		account_id_type  issuer;
+		asset_id_type    asset_to_update;
 
 		bitasset_options new_options;
-		extensions_type extensions;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 		};
 		   
 
@@ -478,15 +478,15 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_to_update;
+		asset             fee;
+		account_id_type   issuer;
+		asset_id_type     asset_to_update;
 
 		flat_set<account_id_type> new_feed_producers;
-		extensions_type extensions;
+		extensions_type           extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type   fee_payer()const { return issuer; }
+		void              validate()const;
 		};
 		  
 ### asset_update_issuer_operation
@@ -499,14 +499,14 @@ Learning BitShares-Core Available Operations.
 		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_to_update;
-		account_id_type new_issuer;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer;
+		asset_id_type    asset_to_update;
+		account_id_type  new_issuer;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 
 		void get_required_owner_authorities( flat_set<account_id_type>& a )const
 		{ a.insert( issuer ); }
@@ -531,18 +531,18 @@ Learning BitShares-Core Available Operations.
 
 		struct asset_update_issuer_operation : public base_operation
 		{
-		struct fee_parameters_type {
+		struct   fee_parameters_type {
 		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_to_update;
-		account_id_type new_issuer;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer;
+		asset_id_type    asset_to_update;
+		account_id_type  new_issuer;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 
 		void get_required_owner_authorities( flat_set<account_id_type>& a )const
 		{ a.insert( issuer ); }
