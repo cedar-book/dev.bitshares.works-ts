@@ -118,6 +118,8 @@ Blockchain Activity Matrix shows different tokens (assets) *Activity*, *Value*, 
 - http://blocktivity.info/
   
 ## BitShares Core Projects Guide
+
+### Project Guide
 - [Contribution Guide](../intro/contribution_guide.md#contribution-guide) [DRAFT]
 - [Contribution Guide Project](https://github.com/bitshares/bitshares-core/projects/6)
 
@@ -130,7 +132,7 @@ This is a team of developers who manage BitShares-Core code updates and handle t
     - making Project plans for the future release
     - creating/ announcing  Release 
     
-## BitShares Core Code Management - GitFlow
+### BitShares Core Code Management - GitFlow
 This section describes and defines how changes flow into our code and through the various stages of development until it finally goes into production.
 
 - [Purpose](../intro/bitshares_core_gitflow.md)
