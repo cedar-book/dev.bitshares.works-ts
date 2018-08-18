@@ -39,26 +39,26 @@ Select an operation system and install and build.
 
 ## Next Step Guide
 
-If you want to...
+*If you want to...*
 
-#### create a BitShares GUI wallet and user account. 
+#### Create a BitShares GUI wallet and user account. 
 - Check [BitShares-UI Release](https://github.com/bitshares/bitshares-ui/releases)
 - Check [User Guide](https://github.com/bitshares/how.bitshares.works/tree/master/bbf/user_guide#user-guide)
 - Refer [Create an Account](https://github.com/bitshares/how.bitshares.works/blob/master/bbf/user_guide/create_account.md#create-a-bitshares-wallet) steps
 - 
 
-#### create a CLI wallet
-- Understand BitShares Account
+#### Create a CLI wallet
+- Understand [BitShares Account](../accounts/README.md#bitshares-accounts)
 - Check [CLI Client and Wallet - Architecture](../wallet/README.md#table-of-contents)
 - Check [Connecting a CLI wallet](../wallet/cli_wallet.md#connecting-a-cli-wallet) steps
 
-#### run a node
+#### Run a node
 
 
-#### run a witness node
+#### Run a witness node
 
 
-#### learn BitShares system compornents
+#### Learn BitShares system compornents
 
 
 #### 
