@@ -3,11 +3,12 @@
 #### Table of Contents:
 - [BitShares Architecture  ](#bitshares-architecture--github-repositories-and-entities)
 - [Development Environments and Requirements](#development-environments-and-requirements)
-- [BitShares Code and Files](#bitshares-code-and-files)
-- [BitShares System and the Features](#bitshares-system-and-the-features)
-- [Observe BitShares Blockchain Transaction and Performance](#observe-bitshares-blockchain-transaction-and-performance)
-- [BitShares Core Projects Guide](#bitshares-core-projects-guide)
-- [BitShares Core Code Management - GitFlow](#bitshares-core-code-management---gitflow)
+  - [BitShares Code and Files](#bitshares-code-and-files)
+- [Features](#bitshares-system-and-the-features)
+- [BitShares Blockchain Transactions and Performance](#observe-bitshares-blockchain-transactions-and-performance)
+- [BitShares Core](#bitshares-core-projects-guide)
+  - [Projects Guide](#bitshares-core-projects-guide)
+  - [Code Management - GitFlow](#bitshares-core-code-management---gitflow)
 - [Your purpose and a download branch](#your-purpose-and-a-download-branch)
 
 ***
@@ -100,7 +101,7 @@ BitShares can be made to function as a software, a network, a ledger, a bank, an
  - Referral Program
  - Vesting valance
 
-## Observe BitShares Blockchain Transaction and Performance
+## Observe BitShares Blockchain Transactions and Performance
 
 #### Bitshares Block Explorer
 BitShares Explorer shows BitShares Blockchain information. You can observe BitShares Blockchain *Health* Status (head_block_num, head_block_age, chain_id, etc.), how transactions processing, assets volume, and members.
