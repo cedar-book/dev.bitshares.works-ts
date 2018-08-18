@@ -38,7 +38,7 @@ Another option, Windows SubSystem for Linux (WSL).  This is for a developer who 
 
 > See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) if you are interested to run a node (updated: 2018-07-02).
 
-#### Installation Guide
+### Installation Guide
 - [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
 - [OS X](../installation/build_osx.md#building-on-os-x)
 - [Windows](../installation/build_windows.md#building-on-windows)
