@@ -10,8 +10,7 @@
 - **Operations** : BitShares available operations details and the object structures.
   - [Operations and Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain) 
 - **Objects**
-  - [graphene::chain Namespace: Class - Objects](../components/objects.md#bitshares-core---graphenechain)
-
+  - [Object Names and Detailed Descriptions](../components/objects.md#object-names-and-detailed-descriptions)
 
 ***
 
