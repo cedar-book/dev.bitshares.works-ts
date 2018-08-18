@@ -56,12 +56,12 @@ Another option, Windows SubSystem for Linux (WSL).  This is for a developer who 
   - **BitSharesjs-ws** - Javascript websocket interface for Bitshares 
   - more
 
-## BitShares System and the Features
+## BitShares key Design Concepts and the Features
 
 BitShares is a Finance Smart contract platform supported by Graphene technology - Blockchain.  
 BitShares is designed from the ground up to process more transactions every second than VISA and MasterCard combined.
 
-- Key points and fundamentals for the design:
+#### Key points and fundamentals for the design:
 - Keep everything in memory.
 - Keep the core business logic in a single thread.
 - Keep cryptographic operations (hashes and signatures) out of the core business logic.
