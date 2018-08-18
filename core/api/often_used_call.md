@@ -10,7 +10,7 @@
 
 ***
 
-#### list_account_balances <account>
+### list_account_balances <account>
 
 Script
 
@@ -46,7 +46,7 @@ Result
 ~~~
 
 
-#### transfer <from> <to> <amount> <asset> "<memo>" <broadcast>
+### transfer <from> <to> <amount> <asset> "<memo>" <broadcast>
 
 Script
 
@@ -97,7 +97,7 @@ Result
 ~~~
 
 
-#### transfer2 <from> <to> <amount> <asset> "<memo>"
+### transfer2 <from> <to> <amount> <asset> "<memo>"
 
 Script
 
@@ -149,7 +149,7 @@ Result
 ~~~
 
 
-#### get_account_history <account> <limit>
+### get_account_history <account> <limit>
 
 Script
 
@@ -202,7 +202,7 @@ Result
  ]
 ~~~
 
-#### get_object "1.11.<id>"
+### get_object "1.11.<id>"
 
 Script
 
@@ -250,7 +250,7 @@ Result
 ~~~
 
 
-#### get_asset <USD>
+### get_asset <USD>
 
 Script
 
