@@ -5,36 +5,32 @@
 Learning BitShares-Core Available Operations.
 
 #### base_operations and Detailed Descriptions
-
-### Account
-- [account_create_operation](../components/operations.md#account_create_operation)
-- [account_transfer_operation](../components/operations.md#account_transfer_operation)
-- [account_update_operation](../components/operations.md#account_update_operation)
-- [account_upgrade_operation](../components/operations.md#account_upgrade_operation)
-- [account_whitelist_operation](../components/operations.md#account_whitelist_operation)
-
-### Asset
-- [asset_operation](../components/operations.md#asset_operation)
-- [asset_clain_fees_operation](../components/operations.md#asset_clain_fees_operation)
-- [asset_claim_pool_operation](../components/operations.md#asset_claim_pool_operation)
-- [asset_create_operation](../components/operations.md#asset_create_operation)
-- [asset_fund_fee_pool_operation](../components/operations.md#asset_fund_fee_pool_operation)
-- [asset_global_settle_operation](../components/operations.md#asset_global_settle_operation)
-- [asset_issue_operation](../components/operations.md#asset_issue_operation)
-- [asset_publish_feed_operation](../components/operations.md#asset_publish_feed_operat)
-- [asset_reserve_operation](../components/operations.md#asset_reserve_operation)
-- [asset_settle_cancel_operation](../components/operations.md#asset_settle_cancel_operation)
-- [asset_settle_operation](../components/operations.md#asset_settle_operation)
-- [asset_update_bitasset_operation](../components/operations.md#asset_update_bitasset_operation)
-- [asset_update_feed_producers_operation](../components/operations.md#asset_update_feed_producers_operation)
-- [asset_update_issuer_operation](../components/operations.md#asset_update_issuer_operation)
-- [asset_update_operation](../components/operations.md#asset_update_operation)
-
-### Balance Claim
-- [balance_claim_operation](../components/operations.md#balance_claim_operation)
-
-### Bit collateral
-- [bit_collateral_operation](../components/operations.md#bit_collateral_operation)
+- Account
+  - [account_create_operation](../components/operations.md#account_create_operation)
+  - [account_transfer_operation](../components/operations.md#account_transfer_operation)
+  - [account_update_operation](../components/operations.md#account_update_operation)
+  - [account_upgrade_operation](../components/operations.md#account_upgrade_operation)
+  - [account_whitelist_operation](../components/operations.md#account_whitelist_operation)
+- Asset
+  - [asset_operation](../components/operations.md#asset_operation)
+  - [asset_clain_fees_operation](../components/operations.md#asset_clain_fees_operation)
+  - [asset_claim_pool_operation](../components/operations.md#asset_claim_pool_operation)
+  - [asset_create_operation](../components/operations.md#asset_create_operation)
+  - [asset_fund_fee_pool_operation](../components/operations.md#asset_fund_fee_pool_operation)
+  - [asset_global_settle_operation](../components/operations.md#asset_global_settle_operation)
+  - [asset_issue_operation](../components/operations.md#asset_issue_operation)
+  - [asset_publish_feed_operation](../components/operations.md#asset_publish_feed_operat)
+  - [asset_reserve_operation](../components/operations.md#asset_reserve_operation)
+  - [asset_settle_cancel_operation](../components/operations.md#asset_settle_cancel_operation)
+  - [asset_settle_operation](../components/operations.md#asset_settle_operation)
+  - [asset_update_bitasset_operation](../components/operations.md#asset_update_bitasset_operation)
+  - [asset_update_feed_producers_operation](../components/operations.md#asset_update_feed_producers_operation)
+  - [asset_update_issuer_operation](../components/operations.md#asset_update_issuer_operation)
+  - [asset_update_operation](../components/operations.md#asset_update_operation)
+- Balance Claim
+  - [balance_claim_operation](../components/operations.md#balance_claim_operation)
+- Bit collateral
+  - [bit_collateral_operation](../components/operations.md#bit_collateral_operation)
 
 ### 
 - [blind_transfer_operation](../components/operations.md#blind_transfer_operation)
