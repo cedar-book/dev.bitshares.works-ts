@@ -17,7 +17,7 @@ Welcome to BitShares! In this section, you will find the overview of BitShares A
 
 ## BitShares Members Map
 
-![BitShares Architecture](../imgs/structure/btsholders-2.png)
+![BitShares Architecture](../imgs/structure/btsholders-v1.png)
 
 ## BitShares Architecture – GitHub Repositories and Entities
 - [GitHub Repositories and Entities with a guide (pdf)](../knowledge_base/shared_files/BitShares_Architecture-V3.pdf) 
