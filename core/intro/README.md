@@ -30,6 +30,9 @@ The CLI-wallet tools for Windows (x64) allows you to try several methods to get 
 
 Another option, Windows SubSystem for Linux (WSL).  This is for a developer who uses a Windows 10 (x64) Operation System and wants to build BitShares Core on Ubuntu. 
 
+> See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) if you are interested to run a node (updated: 2018-07-02).
+
+
 - [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
 - [OS X](../installation/build_osx.md#building-on-os-x)
 - [Windows](../installation/build_windows.md#building-on-windows)
@@ -37,7 +40,6 @@ Another option, Windows SubSystem for Linux (WSL).  This is for a developer who 
 - Use **Windows Subsystem for Linux**
   - [Instruction how to prepare Ubuntu to Windows 10 OS](../installation/wsl.md#windows-subsystem-for-linux-wsl) 
 
-> See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) if you are interested to run a node (updated: 2018-07-02).
 
 ## BitShares Code and Files 
 
