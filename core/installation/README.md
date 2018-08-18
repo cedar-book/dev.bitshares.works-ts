@@ -74,7 +74,7 @@ Select an operation system and install and build.
 - Learn [how to become an Active Witness](../nodes_full_witness/active_witness.md#become-an-active-witness)
 - Try [BitShares Public TestNet](../testnets/README.md#testnets)
 
-### Use BitShares API 
+#### Use BitShares API 
 - Check [BitShares-Core API References](../api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links) page.
 - Learn [API Restrictions](../api/api_restrictions.md#api-access-and-restrictions)
 - Understand [Objects and IDs and the format](../api/object_ids.md#objects-and-ids)
