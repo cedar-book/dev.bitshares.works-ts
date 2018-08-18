@@ -78,6 +78,10 @@ Select an operation system and install and build.
 - Check [BitShares-Core API References](../api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links) page.
 - Learn [API Restrictions](../api/api_restrictions.md#api-access-and-restrictions)
 - Understand [Objects and IDs and the format](../api/object_ids.md#objects-and-ids)
+- Understand BitShares' [Remote Procedure Calls (RPC)](../api/rpc.md#remote-procedure-calls) 
+- Understand BitShares' [Websocket Calls & Notifications](../api/websocket_calls_notifications.md#websocket-calls-notifications)
+- Check out [Often Used API Calls](../api/often_used_call.md#often-used-api-calls)
+
 
 #### Learn BitShares system components
 - [block](../components/README.md#components-structures-and-descriptions)
