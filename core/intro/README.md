@@ -3,7 +3,7 @@
 #### Table of Contents:
 - [BitShares Architecture  ](#bitshares-architecture--github-repositories-and-entities)
 - [Development Environments and Requirements](#development-environments-and-requirements)
-- BitShares code and files
+- [BitShares code and files](#bitshares-code-and-files)
 - [BitShares Core Projects Guide](#bitshares-core-projects-guide)
 - [BitShares Core Code Management - GitFlow](#bitshares-core-code-management---gitflow)
 - [Your purpose and a download branch](#your-purpose-and-a-download-branch)
