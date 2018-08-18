@@ -1,16 +1,15 @@
 ## Components Structures and Descriptions
 
 #### Table of Contents:
-- Block
+- **Block**
   - [A Block Elements and Structure: simple version](README.md#block)  
-- Block Headers - inheritance (objects)
+- **Block Headers** - inheritance (objects)
   - [Block Header](README.md#block-header)
-- Evaluators
+- **Evaluators**
   - graphene::chain::account_create_evaluator 
-- Operations 
-BitShares available operations details and the object structures.
+- **Operations** : BitShares available operations details and the object structures.
   - [graphene::chain::base_operation](../components/operations.md#bitshares-core---graphenechain)
-- Objects
+- **Objects**
   - [graphene::chain Namespace: Class - Objects](../components/objects.md#bitshares-core---graphenechain)
 
 
