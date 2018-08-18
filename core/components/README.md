@@ -19,8 +19,11 @@
 
 ***
 
-### Block 
+## Block 
 The below is simple blockchain structure image. 
+- Each block has a block_id and refers a previous block_id. And each block has more than one transaction(s). 
+- Each transaction has more than one operation(s). 
+- Each operation has "fee" and element(s). Each operation has different elements (processes). 
 
 ![BitShares Architecture](../imgs/structure/block_structure_sv1.png)
 
