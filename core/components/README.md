@@ -21,7 +21,7 @@
 ### Block 
 The below is simple blockchain structure image. 
 
-![BitShares Architecture](../imgs/structure/bitshares-architecture-v3notop.png)
+![BitShares Architecture](../imgs/structure/block_structure_sv1.png)
 
 
 ### Block Header
