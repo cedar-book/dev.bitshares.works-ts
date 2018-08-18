@@ -2,6 +2,7 @@
 
 #### Table of Contents:
 - [BitShares Architecture  ](#bitshares-architecture--github-repositories-and-entities)
+- [Development Environments and Requirements](#development-environments-and-requirements)
 - [BitShares Core Projects Guide](#bitshares-core-projects-guide)
 - [BitShares Core Code Management - GitFlow](#bitshares-core-code-management---gitflow)
 - [Your purpose and a download branch](#your-purpose-and-a-download-branch)
@@ -15,10 +16,47 @@ Welcome to BitShares! In this section, you will find the overview of BitShares A
 
 ![BitShares Architecture](../imgs/structure/bitshares-architecture-v3notop.png)
 
+
+### Development Environments and Requirements
+
+BitShares offers you to install BitShares-Core into different platforms; **Linux:Ubuntu (x64), OSx, and Windows**.  There are  dependencies to check when you download OpenSSL and  Boost. Please make sure which versions you downloaded. 
+
+Also, if you are a Windows user, you have other two choices to install BitShares Core to your Windows (x64) Operation System.  One is **CLI-Wallet tools for Windows (x64)**, another is **Windows SubSystem for Linux (WSL)**.  
+
+The CLI-wallet tools for Windows (x64) allows you to try several methods to get the data from BitShares blockchain without the BitShares Core installation. After you download the cli-wallet tools, you will find a cli_wallet executable to try Wallet API. 
+
+Another option, Windows SubSystem for Linux (WSL).  This is for a developer who uses a Windows 10 (x64) Operation System and wants to build BitShares Core on Ubuntu. 
+
+> See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) to run a node (updated: 2018-07-02).
+
+### BitShares Programs and files 
+
+- Open Source program
+- Language uses (mainly): BitShares-Core(C++), python
+- BitShares GitHub 
+  - **BitShares-Core (C++)** - BitShares Blockchain implementation and command-line interface.
+  - **Bitshares-FC** - Fast-compiling C++ library 
+  - **BitShares python** - Fully featured client-side library for the BitShares Blockchain - written entirely in python.
+  - **BitShares-UI** - Fully featured Graphical User Interface / Reference Wallet for the BitShares Blockchain.
+  - **BSIPs** - BitShares Improvement Proposals and Protocols. These technical documents describe the process of updating and improving the BitShares blockchain and technical ecosystem.
+  - **BitSharesjs** - JavaScript tools for BitShares Encryption and Serialization.
+  - **BitSharesjs-ws** - Javascript websocket interface for Bitshares 
+  - more
+  
+  
 ### BitShares Core Projects Guide
 - [Contribution Guide](../intro/contribution_guide.md#contribution-guide) [DRAFT]
 - [Contribution Guide Project](https://github.com/bitshares/bitshares-core/projects/6)
 
+**BitShares-Core (Team) :**
+This is a team of developers who manage BitShares-Core code updates and handle the issues that are submitted by developers. The team creates a project plan of next release and delivers to the Bitshares community about the Project information. 
+  - **Roles** 
+    - improving
+    - maintaining
+    - upgrading protocol if needed
+    - making Project plans for the future release
+    - creating/ announcing  Release 
+    
 ### BitShares Core Code Management - GitFlow
 This section describes and defines how changes flow into our code and through the various stages of development until it finally goes into production.
 
