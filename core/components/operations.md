@@ -1,10 +1,11 @@
 #### BitShares Core - graphene::chain
 
-####  graphene::chain::base_operation
+
+## Operations and Detailed Descriptions
+*graphene::chain::base_operation*
 
 Learning BitShares-Core Available Operations.
 
-### Operations and Detailed Descriptions
 - Account
   - [account_create_operation](../components/operations.md#account_create_operation)
   - [account_transfer_operation](../components/operations.md#account_transfer_operation)
