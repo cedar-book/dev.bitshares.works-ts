@@ -2,7 +2,7 @@
 
 #### Table of Contents:
 - [Installation and Build](README.md#installation-and-build)
-- [Next Steps Guide](README.md#next-steps-guide)
+- [Next Step Guide](README.md#next-step-guide)
   - *If you want to...*
   
   
@@ -45,7 +45,7 @@ Select an operation system and install and build.
 
 ***
 
-## Next Steps Guide
+## Next Step Guide
 
 *If you want to...*
 
