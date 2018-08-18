@@ -2,8 +2,10 @@
 
 #### Table of Contents:
 - [Installation and Build](README.md#installation-and-build)
-- Next Steps Guide
-
+- [Next Steps Guide](README.md#next-steps-guide)
+  - *If you want to...*
+  
+  
 ***
 
 > See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) if you are interested to run a node (updated: 2018-07-02).
@@ -33,11 +35,11 @@ Select an operation system and install and build.
 - [Windows](../installation/build_windows.md#building-on-windows)
 - [Windows - CLI Tools](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64)
 
-### Build and Run BitShares-Core in WSL (Installation Option)
+#### Build and Run BitShares-Core in WSL (Installation Option)
 - Use **Windows Subsystem for Linux**
   - [Instruction how to prepare Ubuntu to Windows 10 OS](../installation/wsl.md#windows-subsystem-for-linux-wsl) 
 
-### Known issues
+#### Known issues
 
 - [Boost versions](../installation/boost_versions.md#boost-version)
 
