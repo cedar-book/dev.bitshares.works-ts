@@ -1,7 +1,9 @@
 ## BitShares API
-
+https://github.com/cedar-book/dev.bitshares.works-ts/blob/t-add-feature-20180817/core/api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links
 #### Table of Contents: 
 - [BitShares-Core API References](../api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links)
+  - [Blockchain APIs list](/api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links) - [(open doxygen)](https://bitshares.org/doxygen/namespacegraphene_1_1app.html) 
+  - [Wallet API lisk](/api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links) - [(open doxygen)](https://bitshares.org/doxygen/classgraphene_1_1wallet_1_1wallet__api.html) 
 - [API Access & Restrictions](../api/api_restrictions.md#api-access-and-restrictions)
 - [Objects and IDs](../api/README.md#objects-and-ids)
 - [Available Calls](../api/README.md#available-calls) 
