@@ -32,6 +32,7 @@
 - [Twitter](https://twitter.com/bitshares)
 - [Reddit](https://www.reddit.com/r/BitShares/)
 - [BitSharesTalk.io](https://bitsharestalk.io/forums)
+- (*will be added more*)
 
 ***
 
