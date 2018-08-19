@@ -35,17 +35,16 @@ Documentation related to BitShares Core internals and development fundamentals.
 ## BitShares Developers Forge
 BitShares topic targeting technical information guide and for best practices.
 
-- [Tutorials](/core/tutorials/Readme.md#tutorials) / [FAQ](/core/tutorials/FAQ.md#frequently-asked-questions---list-all)
+- [Tutorials](/core/tutorials/Readme.md#tutorials) 
+- [FAQ](/core/tutorials/FAQ.md#frequently-asked-questions---list-all)
 - [Testnets](/core/testnets/README.md#testnets)
   : Public Testnet and Private Testnet setup guide
-- [Use Cases/Integrations Guide](/forge/use_cases/README.md#use-cases-and-integrations-guide)
 - [Support and Optimizations](/forge/supports.md#support-and-optimizations) 
-  : API Support & References, Libraries, SDKs,Tools, Plugins, and Programs
-- [Use Cases](/forge/use_cases/README.md#use-cases)
+  : API Support & References, Libraries, SDKs,Tools, Plugins, and Programs  
+- [Use Cases/Integrations Guide](/forge/use_cases/README.md#use-cases-and-integrations-guide)
+- [BitShares Articles & References](/forge/by_community.md#bitshares-articles--references) 
 - [BitShares Developers' Contributions ](/forge/by_community.md#bitshares-developers-contributions)
   :Developers GitHub Repositories for Support
-- [BitShares Articles & References](/forge/by_community.md#bitshares-articles--references)
-
 
 ***
 
