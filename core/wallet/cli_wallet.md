@@ -14,7 +14,7 @@
 ### 1.Installation and build 
 You have the option to obtain a `cli_wallet`.  
 - 1a) Install and build it from BitShares-Core
-  - BitShares offers you to install BitShares-Core into different platforms; Ubuntu (x64), OSx, and Windows.  Please refer [**Installation Guide **.](../installation/README.md#install-a-development-environment)
+  - BitShares offers you to install BitShares-Core into different platforms; Ubuntu (x64), OSx, and Windows.  Please refer [**Installation Guide **.](../installation/README.md#getting-started)
 - 1b) Use the [**CLI-Wallet tools for Windows (x64)**](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64)
   - This option you do not need to install BitShates Core. To obtain the tool, go to a [BitShares release page]( https://github.com/bitshares/bitshares-core/releases) and download the BitShares-Core-\*-x64-cli-tools.zip. 
 
