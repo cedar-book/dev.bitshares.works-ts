@@ -63,5 +63,27 @@ And to check balance:
 ### Often use Commands 
 
 
+| | | |
+|---|---|---|
+| `set_password` |  | set a password to a cli wallet  |
+| `unlock` | a wallet by the password  |  |
+| `gethelp` | to see a command description. (e.g., gethelp "list_accounts")  |  |
+| `info` | to view the current synchronization |  |
+| `about` | |  |
+| `import_key` | `import_key <name> "<wifkey>"` | use an existing account and the private key |
+| `list_my_account` | to view the current synchronization |  |
+| `get_account` |   |  |
+| `import_balance` | import_balance <name> ["*"] true |  |
+| `suggest_brain_key` |   |  |   
+| `suggest_brain_key` |   |  |       
+| `upgrade_account` | upgrade_account faucet true  | to get a LTM (Lifetime Member status |
+| `register_account` | `register_account <name> <owner-public_key> <active-public_key> <registrar_account>  <referrer_account> <referrer_percent> <broadcast>` |  |
+| `transfer` | `transfer <from> <to> <amount> <asset> <memo> <broadcast>` |  |
+| `transfer2` | `transfer2 <from> <to> <amount> <asset> <memo> <broadcast>`  | return a transaction ID |
+| `get_account_history` | e.g., get_account_history "name" "5" |  |     
+| `get_privatre_key` |  get_privatre_key <public key>  | |
+  
+***
+
 
 
