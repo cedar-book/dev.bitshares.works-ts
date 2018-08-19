@@ -14,8 +14,6 @@
 
 ***
 
-After you installed BitShares Core successfully, you have `witness_node` and `cli_wallet`. In this first section, we talk about the BitShaares Nodes and some expectations.
-
 ## BitShares Nodes and P2P network
 - BitShares Client and Node
 - Witness Node and Full Node
