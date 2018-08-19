@@ -9,30 +9,25 @@
 
 ***
 
-## API Support & References
+### API Support & References
 
 #### [Bitshares Blockchain Explorer and the Wrappers](../api_support/explorer-wrappers.md#bitshares-blockchain-explorer-and-the-apis)
 * For Mainnet and Tesenet: ES Wrapper, Node Wrapper, and Tradingview UDF Wrapper for Bitshares
 
 
-## Plugins
+### Plugins
 
 - [ElasticSearch Plugin](../plugins/elastic_search_plugin.md#elasticsearch-plugin)
   - How to store account history data into an elasticsearch database.
 - [Memory Reduction for Nodes](../plugins/nodes_memory_reduction.md#memory-reduction-for-nodes)
   - Help to reduce RAM usage significantly by using witness_node executable options.
 
-## Programs & Libraries
-
-
-**programs**
+### programs
 
 - [Websockets Scripting Support](../program_libraries/websocket_scripting_support.md#websockets-scripting-support)
   - Ptython - websocket-client interact with the Core API
 
-***
-
-**Libraries**
+### Libraries
 - [BitShares-fc: Doxygen Documentation](http://open-explorer.io/doxygen/fc/)
 - [BitShares-fc: GitHub](https://github.com/bitshares/bitshares-fc#fc)
   - FC stands for fast-compiling c++ library and provides a set of utility libraries useful for the development of asynchronous libraries. 
@@ -40,9 +35,8 @@
   - Fully featured client-side library for the BitShares Blockchain - written entirely in python. 
 - [Python-Bitshares 0.1 Documentation](http://docs.pybitshares.com/) - http://pybitshares.com/
 
-## SDKs / Tools
 
-#### Tools
+### Tools
 
 - [Docker Container](https://github.com/bitshares/bitshares-core/blob/master/README-docker.md)
   -  Built-in Dockerfile to support docker containers. This README serves as documentation.
@@ -58,7 +52,7 @@
   - This nodejs script monitors the balance history of an account in a graphene-based network
  
  
-#### SDKs
+### SDKs
 
 
 
