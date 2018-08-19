@@ -7,7 +7,7 @@
 - [A Collection of command lines - Node, Wallet, and Witness](../wallet/node_wallet_witness.md#a-collection-of-command-lines---node-wallet-and-witness) 
 - [Wallet Full Nodes & Witness Nodes](../wallet/wallet_full_nodes_witness_nodes.md#wallet-full-nodes--witness-nodes)
    - Examples - connect to the network and open up a node
-- FAQs: [Assets](../wallet/README.md#faq---assets), [Transfer/Transactions](../wallet/README.md#faq---transfer--transactions), [Wallet](../wallet/README.md#faq---wallet)
+- FAQs: [Assets](../tutorials/FAQ.md#assets), [Transfer/Transactions](../tutorials/FAQ.md#transfer--transactions), [Wallet](../tutorials/FAQ.md#wallet--cli-wallet)
 
 
 ***
@@ -40,23 +40,6 @@ When you start the cli_wallet first time, it creates a local `wallet.json` file 
         "ws_user": "",
         "ws_password": ""
       }
-
-***
-
-### FAQ - Assets
-
-- [How to Create a new UIA](../tutorials/assets_uia.md#how-to-create-a-new-uia)
-- [more...](../tutorials/FAQ.md#assets)
-
-### FAQ - Transfer / Transactions
-- [How to use the CLI wallet to perform confidential transfers in BitShares](../tutorials/trn_confidential_transfer.md#how-to-use-the-cli-wallet-to-perform-confidential-transfers-in-bitshares)
-- [more...](../tutorials/FAQ.md#transfer--transactions)
-
-### FAQ - Wallet
-- [How can I close the CLI client in a clean way?](../tutorials/FAQ.md#q-how-can-i-close-the-cli-client-in-a-clean-way)
-- [How can I import my GUI-wallet account into CLI-wallet?](../tutorials/FAQ.md#q-how-can-i-import-my-gui-wallet-account-into-cli-wallet)
-- [Why does the CLI client crash immediately when I try to run it for the first time?](../tutorials/FAQ.md#q-why-does-the-cli-client-crash-immediately-when-i-try-to-run-it-for-the-first-time)
-- [more...](../tutorials/FAQ.md#wallet--cli-wallet)
 
 ***
 
