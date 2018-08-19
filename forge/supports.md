@@ -13,7 +13,7 @@
 ## API Support & References
 
 - [Bitshares Blockchain Explorer and the Wrappers](../forge/api_support/explorer-wrappers.md#bitshares-blockchain-explorer-and-the-apis)
-  - For Mainnet and Tesenet: ES Wrapper, Node Wrapper, and Tradingview UDF Wrapper for Bitshares
+  - For Mainnet and Tesenet: ES Wrapper to query the Bitshares data
 
 ## Libraries
 - [BitShares-fc: Doxygen Documentation](http://open-explorer.io/doxygen/fc/)
