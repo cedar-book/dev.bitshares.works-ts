@@ -32,7 +32,7 @@ Documentation related to BitShares Core internals and development fundamentals.
 
 
 
-## [BitShares Developers Forge](/forge/README.md#bts-developers-forge)
+## BitShares Developers Forge
 BitShares topic targeting technical information guide and for best practices.
 
 - [Tutorials](/core/tutorials/Readme.md#tutorials) / [FAQ](/core/tutorials/FAQ.md#frequently-asked-questions---list-all)
