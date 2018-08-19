@@ -33,7 +33,7 @@
 
 ***
 
-## Articles & References 
+## BitShares Articles & References 
 
 *by chronological*
 
