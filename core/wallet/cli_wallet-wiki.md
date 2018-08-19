@@ -1,5 +1,4 @@
-## Graphene CLI Wallet Cookbook
-
+## Graphene CLI Wallet (wiki)
 
 
 ### Running a Local Test Network
