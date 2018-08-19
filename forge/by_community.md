@@ -9,7 +9,6 @@
 
 ## BitShares Developers' Contributions 
 
-
 - [BPAB - Bitshares Python Api Backend](https://github.com/oxarbitrage/bitshares-python-api-backend) :oxarbitrage 
 - [Bitshares python API Backend](https://github.com/oxarbitrage/bitshares-python-api-backend) : oxarbitrage 
 - [Simple Wrapper to Query BitShares Data Stored in Elasticsearch Database - oxarbitrage](https://github.com/oxarbitrage/bitshares-es-wrapper) : oxarbitrage 
