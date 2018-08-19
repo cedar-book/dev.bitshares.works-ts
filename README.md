@@ -38,9 +38,9 @@ Documentation related to BitShares Core internals and development fundamentals.
 BitShares topic targeting technical information guide and for best practices.
 
 - Use cses/Integrations
+  - Set up a Witness Node
   - 
-  - 
-  - 
+
 
 - Support and Optimizations
   - API Support & References
