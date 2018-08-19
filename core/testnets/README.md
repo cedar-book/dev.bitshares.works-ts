@@ -12,8 +12,6 @@ We offer the Open Public Testnet for developers who want to learn about BitShare
 
 > **Important: [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) to run a node (updated: 2018-07-02).**
 
-***
-
 If you are considering to prepare Public TestNet for a witness node, check **System Requirements** and read through [BitShares Nodes](../nodes_full_witness/README.md#bitshares-nodes-and-p2p-network) section.
 
 ## [Public Testnet Witness Nodes](../testnets/public_testnet.md)
