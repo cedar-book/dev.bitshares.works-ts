@@ -63,7 +63,7 @@
 Post Format: **\- \[ title + (mm/yyyy)\]\( link \) by author name**
 
 
-BitShares Developers' Contributions for support BitShares. There are much more to catch up to add to this list. 
+*BitShares Developers' Contributions for support BitShares. There are much more to catch up to add to this list.*
 
 
 ***
