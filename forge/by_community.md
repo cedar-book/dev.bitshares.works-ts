@@ -1,6 +1,6 @@
 ## Community Support 
 
-Table of Contents:
+#### Table of Contents:
 - Developers GitHub Repositories for Support
 - Articles & References
 
