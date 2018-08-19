@@ -1,7 +1,8 @@
 ## Community Support 
 
 #### Table of Contents:
-- Developers GitHub Repositories for Support
+- BitShares Developers' Contributions 
+  - Developers GitHub Repositories for Support
 - Articles & References
 
 ***
