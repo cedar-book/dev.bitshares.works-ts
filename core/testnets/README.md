@@ -2,6 +2,10 @@
 
 We offer the Open Public Testnet for developers who want to learn about BitShares-Core and BitShares-UI wallet. You can create BitShares UI Wallet on Public Testnet to understand the functionalities. 
 
+> **Important: [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) to run a node (updated: 2018-07-02).**
+
+If you are considering to prepare Public TestNet for a witness node, check **System Requirements** and read through [BitShares Nodes](../nodes_full_witness/README.md#bitshares-nodes-and-p2p-network) section.
+
 ## [Public Testnet - Quick Start Guide](../testnets/public_testnet_details.md#public-testnet---quick-start-guide)
 - [Use UI Wallet on Public Testnet](../testnets/public_testnet_details.md#use-the-ui-wallet-on-public-testnet)
 - [Use CLI on Public Testnet](../testnets/public_testnet_details.md#use-the-cli-on-public-testnet)
@@ -9,10 +13,6 @@ We offer the Open Public Testnet for developers who want to learn about BitShare
 - [Code Covering Testing](../testnets/testing_wiki.md#testing)
 
 ***
-
-> **Important: [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) to run a node (updated: 2018-07-02).**
-
-If you are considering to prepare Public TestNet for a witness node, check **System Requirements** and read through [BitShares Nodes](../nodes_full_witness/README.md#bitshares-nodes-and-p2p-network) section.
 
 ## [Public Testnet Witness Nodes](../testnets/public_testnet.md)
 1. [Installation/Configuration of Witness](../testnets/public_testnet.md#1-installation_configuration-of-witness)
