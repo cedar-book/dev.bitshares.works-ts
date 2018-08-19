@@ -33,7 +33,7 @@ BitShares topic targeting technical information guide and for best practices.
 
 - [Tutorials](/core/tutorials/Readme.md#tutorials) 
 - [FAQ](/core/tutorials/FAQ.md#frequently-asked-questions---list-all)
-- [Testnets](/core/testnets/README.md#testnets)  
+- [Testnets](/core/testnets/README.md#testnets)
   : Public Testnet and Private Testnet setup guide
 - [Support and Optimizations](/forge/supports.md#support-and-optimizations) 
   : API Support & References, Libraries, SDKs,Tools, Plugins, and Programs  
