@@ -44,7 +44,7 @@ BitShares topic targeting technical information guide and for best practices.
 - [Use Cases](/forge/use_cases/README.md#use-cases)
 - [BitShares Developers' Contributions ](/forge/by_community.md#bitshares-developers-contributions)
   :Developers GitHub Repositories for Support
-- [Articles & References](/forge/by_community.md#bitshares-articles--references)
+- [BitShares Articles & References](/forge/by_community.md#bitshares-articles--references)
 
 
 ***
