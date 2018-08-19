@@ -1,5 +1,10 @@
 ## Community Support 
 
+Table of Contents:
+- Developers GitHub Repositories for Support
+- Articles & References
+
+***
 
 ## Developers GitHub Repositories
 
@@ -29,8 +34,6 @@
 ***
 
 ## Articles & References
-
-### Articles 
 
 *by chronological (now on)*
 
