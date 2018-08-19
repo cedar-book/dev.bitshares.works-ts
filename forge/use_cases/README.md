@@ -1,4 +1,4 @@
-## Use Cases
+## Use Cases and Integrations Guide
 
 #### Topics: 
 - [Exchange Integration](../use_cases/exchange-integration.md#exchange-integration)
