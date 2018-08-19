@@ -17,7 +17,7 @@ Documentation related to BitShares Core internals and development fundamentals.
   : Installations,Requirements(OS, Hardware, CPU, storage, Memory,etc), CLI-windows Tools, Core in WSL, Known issues, Next Step Guide
 - [**BitShares Accounts**](/core/accounts/README.md#bitshares-accounts)
   : Accounts, Memberships, Fees, Permissions, Authorities, Referral Program,Voting 
-- [**BitShares Nodes**](/core/nodes_full_witness/README.md#bitshares-nodes-and-p2p-network)
+- [**BitShares Nodes**](/core/nodes_full_witness/README.md#bitshares-nodes)
   : About Nodes, System Requirements, Running a BitShares API Node,Full/Witness Nodes
 - [**Cli_Wallet**](/core/wallet/README.md#cli_wallet-and-the-connectivity)
   : CLI wallet, wallet.json, General / Secure Network & Wallet Configuration
