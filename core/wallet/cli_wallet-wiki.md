@@ -65,13 +65,14 @@ unlocked >>> create_account_with_brain_key "this is the brain key for my account
 Like most methods in the wallet, create_account_with_brain_key's last parameter is the boolean broadcast. This parameter tells the wallet whether you want to publish the transaction on the network immediately, which is usually what you want to do. If you pass false, it will just create the transaction and sign it, and display it on the console, but it wouldn't be sent out onto the network. This could be used to build up a multi-sig transaction and collect the other signatures offline, or it could be used to construct a transaction in a offline cold wallet that you could put on a flash drive and broadcast from a machine connected to the network. Here, we'll always pass true for the broadcast parameter.
 
 If you were to execute list_my_accounts now, you would see that you control both nathan and my-account.
-Transferring Currency
+
+### Transferring Currency
 
 Your newly-created account doesn't have any funds in it yet, the nathan account still has all the money. To send some CORE from nathan to your account, use the transfer command:
 
-unlocked >>> transfer nathan my-account 10000 CORE "have some CORE" true
+    unlocked >>> transfer nathan my-account 10000 CORE "have some CORE" true
 
-Becoming a Witness
+### Becoming a Witness
 
 To become a witness and be able to produce blocks, you first need to create a witness object that can be voted in.
 
@@ -79,69 +80,69 @@ Note: If you want to experiment with things that require voting, be aware that v
 
 Before we get started, we can see the current list of witnesses voted in, which will simply be the ten default witnesses:
 
-unlocked >>> get_global_properties
-...
-  "active_witnesses": [
-    "1.6.0",
-    "1.6.1",
-    "1.6.2",
-    "1.6.3",
-    "1.6.4",
-    "1.6.5",
-    "1.6.6",
-    "1.6.7",
-    "1.6.8",
-    "1.6.9"
-  ],
-...
+    unlocked >>> get_global_properties
+    ...
+      "active_witnesses": [
+        "1.6.0",
+        "1.6.1",
+        "1.6.2",
+        "1.6.3",
+        "1.6.4",
+        "1.6.5",
+        "1.6.6",
+        "1.6.7",
+        "1.6.8",
+        "1.6.9"
+      ],
+    ...
 
 Only lifetime members can become witnesses, so you must first upgrade to a lifetime member. Upgrade and create our witness object.
 
-unlocked >>> upgrade_account my-account true
-unlocked >>> create_witness my-account "http://witness.bar.com/" true
-{
-  "ref_block_num": 139,
-  "ref_block_prefix": 3692461913,
-  "relative_expiration": 3,
-  "operations": [[
-      21,{
-        "fee": {
-          "amount": 0,
-          "asset_id": "1.3.0"
-        },
-        "witness_account": "1.2.16",
-        "url": "http://witness.bar.com/",
-        "block_signing_key": "PUBLIC KEY",
-        "initial_secret": "00000000000000000000000000000000000000000000000000000000"
-      }
-    ]
-  ],
-  "signatures": [
-      "1f2ad5597af2ac4bf7a50f1eef2db49c9c0f7616718776624c2c09a2dd72a0c53a26e8c2bc928f783624c4632924330fc03f08345c8f40b9790efa2e4157184a37"
-  ]
-}
+    unlocked >>> upgrade_account my-account true
+    unlocked >>> create_witness my-account "http://witness.bar.com/" true
+    {
+      "ref_block_num": 139,
+      "ref_block_prefix": 3692461913,
+      "relative_expiration": 3,
+      "operations": [[
+          21,{
+            "fee": {
+              "amount": 0,
+              "asset_id": "1.3.0"
+            },
+            "witness_account": "1.2.16",
+            "url": "http://witness.bar.com/",
+            "block_signing_key": "PUBLIC KEY",
+            "initial_secret": "00000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      ],
+      "signatures": [
+          "1f2ad5597af2ac4bf7a50f1eef2db49c9c0f7616718776624c2c09a2dd72a0c53a26e8c2bc928f783624c4632924330fc03f08345c8f40b9790efa2e4157184a37"
+      ]
+    }
 
 Our witness is registered, but it can't produce blocks because nobody has voted it in. You can see the current list of active witnesses with get_global_properties:
 
-unlocked >>> get_global_properties
-{
-  "active_witnesses": [
-    "1.6.0",
-    "1.6.1",
-    "1.6.2",
-    "1.6.3",
-    "1.6.4",
-    "1.6.5",
-    "1.6.7",
-    "1.6.8",
-    "1.6.9"
-  ],
-  ...
+    unlocked >>> get_global_properties
+    {
+      "active_witnesses": [
+        "1.6.0",
+        "1.6.1",
+        "1.6.2",
+        "1.6.3",
+        "1.6.4",
+        "1.6.5",
+        "1.6.7",
+        "1.6.8",
+        "1.6.9"
+      ],
+      ...
 
 Now, we should vote our witness in. Vote all of the shares in both my-account and nathan in favor of your new witness.
 
-unlocked >>> vote_for_witness my-account my-account true true
-unlocked >>> vote_for_witness nathan my-account true true
+    unlocked >>> vote_for_witness my-account my-account true true
+    unlocked >>> vote_for_witness nathan my-account true true
 
 Now we wait until the next maintenance interval. get_dynamic_global_properties tells us when that will be in next_maintenance_time. Once the next maintenance interval passes, run get_global_properties again and you should see that your new witness has been voted in.
 
@@ -151,49 +152,55 @@ Once we have that, run dump_private_keys which lists the public-key private-key 
 
 Warning: dump_private_keys will display your keys unencrypted on the terminal, don't do this with someone looking over your shoulder.
 
-unlocked >>> get_witness my-account
-{
-  "id": "1.6.10",
-  "witness_account": "1.2.16",
-  "signing_key": "GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8",
-}
-unlocked >>> dump_private_keys
-[[
-  ...
-  ],[
-    "GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8",
-    "5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ"
-  ]
-]
+    unlocked >>> get_witness my-account
+    {
+      "id": "1.6.10",
+      "witness_account": "1.2.16",
+      "signing_key": "GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8",
+    }
+    unlocked >>> dump_private_keys
+    [[
+      ...
+      ],[
+        "GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8",
+        "5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ"
+      ]
+    ]
 
 Now we need to re-start the witness, so shut down the wallet (ctrl-d), and shut down the witness (ctrl-c). Re-launch the witness, now mentioning the new witness 1.6.10 and its keypair:
 
-./witness_node --rpc-endpoint=0.0.0.0:8090 --enable-stale-production --witness-id \""1.6.0"\" \""1.6.1"\" \""1.6.2"\" \""1.6.3"\" \""1.6.4"\"  \""1.6.5"\" \""1.6.6"\" \""1.6.7"\" \""1.6.8"\" \""1.6.9"\"  \""1.6.10"\" --private-key "[\"GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8\", \"5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ\"]"
+    ./witness_node --rpc-endpoint=0.0.0.0:8090 --enable-stale-production --witness-id \""1.6.0"\" \""1.6.1"\" \""1.6.2"\" \""1.6.3"\" \""1.6.4"\"  \""1.6.5"\" \""1.6.6"\" \""1.6.7"\" \""1.6.8"\" \""1.6.9"\"  \""1.6.10"\" --private-key "[\"GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8\", \"5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ\"]"
 
 If you monitor the output of the witness_node, you should see it generate blocks signed by your witness:
 
-Witness 1.6.10 production slot has arrived; generating a block now...
-Generated block #367 with timestamp 2015-07-05T20:46:30 at time 2015-07-05T20:46:30
+    Witness 1.6.10 production slot has arrived; generating a block now...
+    Generated block #367 with timestamp 2015-07-05T20:46:30 at time 2015-07-05T20:46:30
 
-Becoming a Delegate
+### Becoming a Delegate
 
 Becoming a delegate is almost the same as becoming a witness, but it is simpler because delegates don't have a separate private key for signing blocks.
 
 As for witnesses, only lifetime members can become delegates, so you must first upgrade to a lifetime member if you haven't already. Upgrade and create our delegate object.
 
-unlocked >>> upgrade_account my-account true
-unlocked >>> create_delegate my-account "http://delegate.baz.com/" true
+    unlocked >>> upgrade_account my-account true
+    unlocked >>> create_delegate my-account "http://delegate.baz.com/" true
 
 Now that we're registered as a delegate, we should vote e should vote our delegate in. Vote all of the shares in both my-account and nathan in favor of your new delegate.
 
-unlocked >>> vote_for_delegate my-account my-account true true
-unlocked >>> vote_for_delegate nathan my-account true true
+    unlocked >>> vote_for_delegate my-account my-account true true
+    unlocked >>> vote_for_delegate nathan my-account true true
 
 Like with witnesses, you will have to wait for the next maintenance interval before the delegate becomes active. Get the id of the delegate with:
 
-unlocked >>> get_delegate my-account
-{
-  "id": "1.5.10",
-  ...
+    unlocked >>> get_delegate my-account
+    {
+      "id": "1.5.10",
+      ...
 
 and then run get_global_properties after the maintenance period and you should see the new delegate 1.5.10 listed in the active_delegates list.
+
+
+***
+
+(ref)
+https://github.com/bitshares/bitshares-core/wiki/CLI-Wallet-Cookbook
