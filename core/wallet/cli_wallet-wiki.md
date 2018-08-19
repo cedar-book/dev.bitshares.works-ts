@@ -1,5 +1,6 @@
-## Graphene CLI Wallet (wiki)
+## Graphene CLI Wallet 
 
+*(-wiki)*
 
 ### Running a Local Test Network
 
