@@ -68,7 +68,7 @@ This will open port 8090 and make it available over the internet (unless you run
 If you want it to be open for your machine only, replace 0.0.0.0 by localhost.
 
 ***
-<E.g. 4 [(source)](../wallet/cli_wallet.md#case-1-connecting-a-cli-wallet)>
+<E.g. 4>
 ### Use the Public API node 
 
 - Here is the latest list of [Public Full Node](https://github.com/bitshares/bitshares-ui/blob/staging/app/api/apiConfig.js#L67) information
