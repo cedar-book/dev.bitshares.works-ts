@@ -1,5 +1,15 @@
 ## How to import a GUI-wallet account into CLI-wallet
 
+#### Table of Contents:
+- 1.Find your private keys in your GUI-wallet
+- 2.Connect to a CLI-wallet pointing it to a live node
+- 3.Set a password and unlock
+- 4. import key(s)
+- 5.Check your account
+- Often use Commands 
+
+***
+
 CLI and GUI wallet are two separated applications. They use separated ways to represent backups. You can manually import keys from the GUI into the CLI to have a CLI-wallet.
 
 Your wallet private keys have extremely important roles. By importing your private keys to a new CLI-wallet, you can control your account funds from the CLI-wallet. 
