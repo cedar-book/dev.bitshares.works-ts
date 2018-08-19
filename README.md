@@ -10,24 +10,24 @@ The purpose of this site is to provide in-depth documentation about the BitShare
 
 ***
 
-## [BitShares Core](/core/README.md#bitshares-core)
+## BitShares Core
 Documentation related to BitShares Core internals and development fundamentals. 
 
-- [Introduction/Architectures](/core/intro/README.md#introduction--architectures)
+- [**Introduction/Architectures**](/core/intro/README.md#introduction--architectures)
   : BitShares Core Workflow (Project / Issues) , BitShares Core Repository Gitflow, Development Environment
-- [Getting Started](/core/installation/README.md#development-environment--getting-started)
+- [**Getting Started**](/core/installation/README.md#development-environment--getting-started)
   : Installations,Requirements(OS, Hardware, CPU, storage, Memory,etc), CLI-windows Tools, Core in WSL, Known issues, Next Step Guide
-- [BitShares Accounts](/core/accounts/README.md#bitshares-accounts)
+- [**BitShares Accounts**](/core/accounts/README.md#bitshares-accounts)
   : Accounts, Memberships, Fees, Permissions, Authorities, Referral Program,Voting, Account Registration
-- [BitShares Nodes](/core/nodes_full_witness/README.md#bitshares-nodes-and-p2p-network)
+- [**BitShares Nodes**](/core/nodes_full_witness/README.md#bitshares-nodes-and-p2p-network)
   : About Nodes, System Requirements, Running a BitShares API Node,Full/Witness Nodes
-- [Cli_Wallet and the Connectivity](/core/wallet/README.md#cli_wallet-and-the-connectivity)
+- [**Cli_Wallet and the Connectivity**](/core/wallet/README.md#cli_wallet-and-the-connectivity)
   : CLI wallet, wallet.json, General / Secure Network & Wallet Configuration
-- [BitShares API](/core/api/README.md#bitshares-api) 
+- [**BitShares API**](/core/api/README.md#bitshares-api) 
   : API Documentation (doxygen links), API(features, restrictions, configuration), Calls(RPC, Websocket), Objects and IDs
-- [System Components Structures and Descriptions](/core/components/README.md#components-structures-and-descriptions)
+- [**System Components Structures and Descriptions**](/core/components/README.md#components-structures-and-descriptions)
   : Block structure, operations, evaluators, objects
-- [Knowledge Bases](/core/knowledge_base/README.md#knowledge-base)
+- [**Knowledge Bases**](/core/knowledge_base/README.md#knowledge-base)
 - [Index - Help](/core/help/index.md#help)
 
 
