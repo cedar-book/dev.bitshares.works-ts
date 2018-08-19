@@ -37,7 +37,7 @@ Documentation related to BitShares Core internals and development fundamentals.
 ## [BitShares Developers Forge](/forge/README.md#bts-developers-forge)
 BitShares topic targeting technical information guide and for best practices.
 
--Use cses/Integrations
+- Use cses/Integrations
   - 
   - 
   - 
