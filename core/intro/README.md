@@ -1,7 +1,7 @@
 ## Introduction & Architectures 
 
 #### Table of Contents:
-- [BitShares Members]()
+- [BitShares Members](#bitshares-members)
 - [BitShares Architecture  ](#bitshares-architecture--github-repositories-and-entities)
 - [Development Environments and Requirements](#development-environments-and-requirements)
   - [BitShares Code and Files](#bitshares-code-and-files)
