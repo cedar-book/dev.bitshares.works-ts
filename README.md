@@ -28,12 +28,6 @@ Documentation related to BitShares Core internals and development fundamentals.
 - [**Knowledge Bases**](/core/knowledge_base/README.md#knowledge-base)
 - [**Index** - Help](/core/help/index.md#help)
 
-## BitShares Blockchain
-- [BitShares Blockchain Foundation](/core/bitshares_blockchain/README.md#bitshares-blockchain)
-- [Bitshares Block Explorer](/core/bitshares_blockchain/README.md#bitshares-block-exploer)
-- [UI User Guide](https://github.com/bitshares/how.bitshares.works/tree/master/bbf/user_guide#user-guide)
-- [BitShares Communities](/core/bitshares_blockchain/README.md#bitshares-communities)
-
 ## BitShares Developers Forge
 BitShares topic targeting technical information guide and for best practices.
 
@@ -47,6 +41,13 @@ BitShares topic targeting technical information guide and for best practices.
 - [BitShares Articles & References](/forge/by_community.md#bitshares-articles--references) 
 - [BitShares Developers' Contributions ](/forge/by_community.md#bitshares-developers-contributions)
   :Developers GitHub Repositories for Support
+
+## BitShares Blockchain
+- [BitShares Blockchain Foundation](/core/bitshares_blockchain/README.md#bitshares-blockchain)
+- [Bitshares Block Explorer](/core/bitshares_blockchain/README.md#bitshares-block-exploer)
+- [UI User Guide](https://github.com/bitshares/how.bitshares.works/tree/master/bbf/user_guide#user-guide)
+- [BitShares Communities](/core/bitshares_blockchain/README.md#bitshares-communities)
+
 
 ***
 
