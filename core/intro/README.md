@@ -39,7 +39,6 @@ Another option, Windows SubSystem for Linux (WSL).  This is for a developer who 
 
 > See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) if you are interested to run a node (updated: 2018-07-02).
 
-
 ## BitShares Code and Files 
 
 - Open Source program
