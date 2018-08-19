@@ -151,6 +151,8 @@ The `get_private_key` command allows us to obtain the **private key** correspond
 
 ### Connect a cli_wallet --> If you receive `new >>>` prompt,
 
+| | | |
+|---|---|---|
 | `set_password` |  |  |
 | `unlock` | a wallet by the password  |  |
 | `gethelp` | to see a command description. (e.g., gethelp "list_accounts")  |  |
