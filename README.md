@@ -42,6 +42,10 @@ BitShares topic targeting technical information guide and for best practices.
 - [Support and Optimizations](/forge/supports.md#support-and-optimizations) 
   : API Support & References, Libraries, SDKs,Tools, Plugins, and Programs
 - [Use Cases](/forge/use_cases/README.md#use-cases)
+- [BitShares Developers' Contributions ](/forge/by_community.md#bitshares-developers-contributions)
+  :Developers GitHub Repositories for Support
+- [Articles & References](/forge/by_community.md#articles--references)
+
 
 ***
 
