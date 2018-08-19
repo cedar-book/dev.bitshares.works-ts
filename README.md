@@ -19,7 +19,7 @@ Documentation related to BitShares Core internals and development fundamentals.
   : Accounts, Memberships, Fees, Permissions, Authorities, Referral Program,Voting 
 - [**BitShares Nodes**](/core/nodes_full_witness/README.md#bitshares-nodes-and-p2p-network)
   : About Nodes, System Requirements, Running a BitShares API Node,Full/Witness Nodes
-- [**Cli_Wallet and the Connectivity**](/core/wallet/README.md#cli_wallet-and-the-connectivity)
+- [**Cli_Wallet**](/core/wallet/README.md#cli_wallet-and-the-connectivity)
   : CLI wallet, wallet.json, General / Secure Network & Wallet Configuration
 - [**BitShares API**](/core/api/README.md#bitshares-api) 
   : API Documentation (doxygen links), API(features, restrictions, configuration), Calls(RPC, Websocket), Objects and IDs
