@@ -33,7 +33,7 @@ Documentation related to BitShares Core internals and development fundamentals.
 
 
 ## [BitShares Blockchain](/core/bitshares_blockchain/README.md#bitshares-blockchain)
-- BitShares Blockchain Foundation, Bitshares Block Exploer, [User Guide](https://github.com/bitshares/how.bitshares.works/tree/master/bbf/user_guide#user-guide), etc 
+- BitShares Blockchain Foundation, Bitshares Block Explorer, [User Guide](https://github.com/bitshares/how.bitshares.works/tree/master/bbf/user_guide#user-guide), etc 
 
 
 
