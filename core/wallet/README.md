@@ -5,6 +5,8 @@
 - [Connecting a Cli Wallet](../wallet/cli_wallet.md#connecting-a-cli-wallet)
 - [Network and Wallet Configuration](../wallet/wallet_network.md#network-and-wallet-configuration)
 - [A Collection of command lines - Node, Wallet, and Witness](../wallet/node_wallet_witness.md#a-collection-of-command-lines---node-wallet-and-witness) 
+- [Wallet Full Nodes & Witness Nodes](../wallet/wallet_full_nodes_witness_nodes.md#wallet-full-nodes--witness-nodes)
+   - Examples - connect to the network and open up a node
 - FAQs: [Assets](../wallet/README.md#faq---assets), [Transfer/Transactions](../wallet/README.md#faq---transfer--transactions), [Wallet](../wallet/README.md#faq---wallet)
 
 
@@ -40,36 +42,6 @@ When you start the cli_wallet first time, it creates a local `wallet.json` file 
       }
 
 ***
-
-### [Connecting a Wallet](../wallet/cli_wallet.md#connecting-a-wallet)
-1. [Installation and build](../wallet/cli_wallet.md#1installation-and-build)
-2. [Execute a cli_wallet](../wallet/cli_wallet.md#2-execute-a-cli_wallet)
-3. [Unlock the cli_wallet](../wallet/cli_wallet.md#3unlock-the-cli_wallet)
-4. [Gaining Access to Blockchain](../wallet/cli_wallet.md#4-gaining-access-to-blockchain)
-5. [Creating Accounts](../wallet/cli_wallet.md#5-creating-accounts)
-6. [Transferring Funds using the Cli-wallet](../wallet/cli_wallet.md#6-transferring-funds-using-the-cli-wallet)
-7. [Obtain the private key](../wallet/cli_wallet.md#7-obtain-the-private-key)
-
-
-### [Network and Wallet Configuration](../wallet/wallet_network.md#network-and-wallet-configuration)
-   - [Components](../wallet/wallet_network.md##components)
-      - P2P Network
-      - Trusted Full Node
-      - Wallet
-      - Wallet API     
-   - [General Network and Wallet Configuration](../wallet/wallet_network.md#general-network-and-wallet-configuration)
-      - Trusted Full Node
-      - Wallet
-   - [Secure Network and Wallet Configuration](../wallet/wallet_network.md#secure-network-and-wallet-configuration)
-      - Trusted Full Node
-      - Delayed Full Node
-      - Wallet
-
-### [A Collection of command lines - Node, Wallet, and Witness](../wallet/node_wallet_witness.md#a-collection-of-command-lines---node-wallet-and-witness)
-
-- [Wallet Full Nodes & Witness Nodes](../wallet/wallet_full_nodes_witness_nodes.md#wallet-full-nodes--witness-nodes)
-   - Examples - connect to the network and open up a node
-
 
 ### FAQ - Assets
 
