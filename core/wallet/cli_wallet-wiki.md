@@ -50,16 +50,16 @@ We control the account now, but there is no money in the account yet. In the gen
 
 In the test genesis state, there is only one balance object and it owns 100% of the funds in the system. Let's import that here:
 
-  unlocked >>> import_balance nathan [5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3] true
-  unlocked >>> list_account_balances nathan
-  10000000000 CORE
+      unlocked >>> import_balance nathan [5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3] true
+      unlocked >>> list_account_balances nathan
+      10000000000 CORE
 
 So we now have an account to act as registrar and it has plenty of funds to pay the registration key for new accounts. Only lifetime (prime?) members are allowed to register accounts, so we must upgrade `nathan` first. Then, go ahead and create our test account named my-account:
 
-# before nathan can create other accounts, we need to upgrade it to a prime member.
-unlocked >>> upgrade_account nathan true
-# register our account.  we list nathan as both the referrer and registrar.
-unlocked >>> create_account_with_brain_key "this is the brain key for my account" my-account nathan nathan true
+    # before nathan can create other accounts, we need to upgrade it to a prime member.
+    unlocked >>> upgrade_account nathan true
+    # register our account.  we list nathan as both the referrer and registrar.
+    unlocked >>> create_account_with_brain_key "this is the brain key for my account" my-account nathan nathan true
 
 Like most methods in the wallet, `create_account_with_brain_key`'s last parameter is the boolean `broadcast`. This parameter tells the wallet whether you want to publish the transaction on the network immediately, which is usually what you want to do. If you pass false, it will just create the transaction and sign it, and display it on the console, but it wouldn't be sent out onto the network. This could be used to build up a multi-sig transaction and collect the other signatures offline, or it could be used to construct a transaction in a offline cold wallet that you could put on a flash drive and broadcast from a machine connected to the network. Here, we'll always pass `true` for the `broadcast` parameter.
 
