@@ -22,7 +22,7 @@
 
 ***
 
-## BitShares Community
+## BitShares Communities
 
 - [Forum - BitSharesTalk](https://bitsharestalk.org/)
 - [Telagram - BitSharesDEX](https://t.me/BitSharesDEX)
