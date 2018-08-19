@@ -16,10 +16,10 @@ Your wallet private keys have extremely important roles. By importing your priva
 
 ### 1. Find your private keys in your GUI-wallet
 
-- Login to your GUI-wallet
-- Go to [Settings] – [Permissions]. There are Active, Owner, and Memo tabs. 
-- In the each tab, click your public key (or the key image). It will open a private key viewer.
-- On the form, click [Show], (it might ask you to login) save your each private key and public key information to use later.
+  1. Login to your GUI-wallet
+  1. Go to [Settings] – [Permissions]. There are Active, Owner, and Memo tabs. 
+  3. In the each tab, click your public key (or the key image). It will open a private key viewer.
+  4. On the form, click [Show], (it might ask you to login) save your each private key and public key information to use later.
 
 ### 2. Connect to a CLI-wallet pointing it to a live node
 
