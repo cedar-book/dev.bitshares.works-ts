@@ -35,7 +35,7 @@
 
 ## Articles & References
 
-*by chronological (now on)*
+*by chronological*
 
 - [DevWork Update: BitShares Witness Monitor (06/2018)](https://steemit.com/bitshares/@clockwork/devwork-update-bitshares-witness-monitor) : by  @cloclwork
 - [Bitshares ElasticSearch Wrapper and Swagger (05/2018)](https://steemit.com/bitshares/@oxarbitrage/bitshares-elasticsearch-wrapper-and-swagger)  by @oxarbitrage
