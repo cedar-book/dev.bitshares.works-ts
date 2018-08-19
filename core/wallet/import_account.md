@@ -4,7 +4,7 @@
 - 1.Find your private keys in your GUI-wallet
 - 2.Connect to a CLI-wallet pointing it to a live node
 - 3.Set a password and unlock
-- 4. import key(s)
+- 4.import key(s)
 - 5.Check your account
 - Often use Commands 
 
@@ -14,14 +14,14 @@ CLI and GUI wallet are two separated applications. They use separated ways to re
 
 Your wallet private keys have extremely important roles. By importing your private keys to a new CLI-wallet, you can control your account funds from the CLI-wallet. 
 
-### 1.Find your private keys in your GUI-wallet
+### 1. Find your private keys in your GUI-wallet
 
 - Login to your GUI-wallet
 - Go to [Settings] – [Permissions]. There are Active, Owner, and Memo tabs. 
 - In the each tab, click your public key (or the key image). It will open a private key viewer.
 - On the form, click [Show], (it might ask you to login) save your each private key and public key information to use later.
 
-### 2.Connect to a CLI-wallet pointing it to a live node
+### 2. Connect to a CLI-wallet pointing it to a live node
 
 Example:
 
@@ -33,7 +33,7 @@ You should get a prompt
 
     new>>>
     
-### 3.Set a password and unlock    
+### 3. Set a password and unlock    
 
 Set a password for your CLI-wallet and unlock.
 
@@ -56,7 +56,7 @@ Import your each private key you saved from your GUI-wallet into your new CLI-wa
 And you are done. No need to claim balance. Your account balances are in there. 
 
 
-### 5.Check your account
+### 5. Check your account
 
 Use `list_my_account`s to see your imported account.
 
