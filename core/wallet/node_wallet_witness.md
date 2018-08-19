@@ -3,14 +3,14 @@
 This page is a collection of command lines to connect Node, Wallet, and Witness. You can compare their differences to understand the patterns and how they are used.
 
 #### Table of Contents:
-- 1)[Launch the full node](../wallet/node_wallet_witness.md#launch-the-full-node)
-- 2)[Run the witness as a node in the network (localhost):](../wallet/node_wallet_witness.md#run-the-witness-as-a-node-in-the-network-localhost)
-- 3)[Run the witness as a node in the network](../wallet/node_wallet_witness.md#run-the-witness-as-a-node-in-the-network)
-- 4)[Use the Public API node](../wallet/node_wallet_witness.md#use-the-public-api-node)
-- 5)[Public Testnet - how to create/connect a cli_wallet](../wallet/node_wallet_witness.md#public-testnet---how-to-createconnect-a-cli_wallet)
-- 6)[Private Testnet](../wallet/node_wallet_witness.md#private-testnet)
-- 7)[General Network and Wallet Configuration](../wallet/node_wallet_witness.md#general-network-and-wallet-configuration)
-- 8)[Secure Network and Wallet ](../wallet/node_wallet_witness.md#secure-network-and-wallet)
+- 1: [Launch the full node](../wallet/node_wallet_witness.md#launch-the-full-node)
+- 2: [Run the witness as a node in the network (localhost):](../wallet/node_wallet_witness.md#run-the-witness-as-a-node-in-the-network-localhost)
+- 3: [Run the witness as a node in the network](../wallet/node_wallet_witness.md#run-the-witness-as-a-node-in-the-network)
+- 4: [Use the Public API node](../wallet/node_wallet_witness.md#use-the-public-api-node)
+- 5: [Public Testnet - how to create/connect a cli_wallet](../wallet/node_wallet_witness.md#public-testnet---how-to-createconnect-a-cli_wallet)
+- 6: [Private Testnet](../wallet/node_wallet_witness.md#private-testnet)
+- 7: [General Network and Wallet Configuration](../wallet/node_wallet_witness.md#general-network-and-wallet-configuration)
+- 8: [Secure Network and Wallet ](../wallet/node_wallet_witness.md#secure-network-and-wallet)
 
 
 *** 
