@@ -20,6 +20,8 @@ Your wallet private keys have extremely important roles. By importing your priva
   1. Go to [Settings] – [Permissions]. There are Active, Owner, and Memo tabs. 
   3. In the each tab, click your public key (or the key image). It will open a private key viewer.
   4. On the form, click [Show], (it might ask you to login) save your each private key and public key information to use later.
+  
+  > Important: Keep the private keys information to a safe place. 
 
 ### 2. Connect to a CLI-wallet pointing it to a live node
 
@@ -42,6 +44,7 @@ Set a password for your CLI-wallet and unlock.
     new >>> set_password mypass123
     set_password mypass
     null
+    
     locked >>> unlock mypass123
     unlock mypass123
     null
@@ -55,6 +58,7 @@ Import your each private key you saved from your GUI-wallet into your new CLI-wa
 
 And you are done. No need to claim balance. Your account balances are in there. 
 
+> Note: If you use the wallet to transfer funds, you just need to import the active private key. However, if you have different Active and Memo keys and use a Memo when you transfer, import the memo private key also. 
 
 ### 5. Check your account
 
