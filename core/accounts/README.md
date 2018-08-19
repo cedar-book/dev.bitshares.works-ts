@@ -14,6 +14,7 @@ In BitShares, you can create an account relatively easily by using the BitShares
 ### FAQ - Accounts
 
 - [Account Registration](../accounts/account_registration.md#account-registration)
+  : Create a CLI account
 - [How to change a password if using a Cloud Wallet](https://github.com/bitshares/bitshares-ui/wiki/Cloud-Wallet-Login-and-changing-password) : from BitShares UI wiki
 - [more...](../tutorials/FAQ.md#accounts)
 - Knowledge Base: [Multi-Signature](../knowledge_base/multi-signature.md#multi-signature)  
