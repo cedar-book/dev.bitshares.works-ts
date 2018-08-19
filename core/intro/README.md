@@ -1,6 +1,7 @@
 ## Introduction & Architectures 
 
 #### Table of Contents:
+- [BitShares Members](#bitshares-members)
 - [BitShares Architecture  ](#bitshares-architecture--github-repositories-and-entities)
 - [Development Environments and Requirements](#development-environments-and-requirements)
   - [BitShares Code and Files](#bitshares-code-and-files)
@@ -28,24 +29,15 @@ If you have an BitShares account, you are a BTS Holder and you have a voting pow
 
 ## Development Environments and Requirements
 
-BitShares offers you to install BitShares-Core into different platforms; **Linux:Ubuntu (x64), OSx, and Windows**.  There are  dependencies to check when you download OpenSSL and  Boost. Please make sure which versions you downloaded. 
+BitShares offers you to install BitShares-Core into different platforms; [**Linux:Ubuntu (x64)**](../installation/build_ubuntu.md#building-on-ubuntu), [**OS X**](../installation/build_osx.md#building-on-os-x), and [**Windows**](../installation/build_windows.md#building-on-windows)**.  There are  dependencies to check when you download OpenSSL and  Boost. Please make sure which versions you downloaded. 
 
-Also, if you are a Windows user, you have other two choices to install BitShares Core to your Windows (x64) Operation System.  One is **CLI-Wallet tools for Windows (x64)**, another is **Windows SubSystem for Linux (WSL)**.  
+Also, if you are a Windows user, you have other two choices to install BitShares Core to your Windows (x64) Operation System.  One is [**CLI-Wallet tools for Windows (x64)**](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64), another is [**Windows SubSystem for Linux (WSL)**](../installation/wsl.md#windows-subsystem-for-linux-wsl) .  
 
 The CLI-wallet tools for Windows (x64) allows you to try several methods to get the data from BitShares blockchain without the BitShares Core installation. After you download the cli-wallet tools, you will find a cli_wallet executable to try Wallet API. 
 
 Another option, Windows SubSystem for Linux (WSL).  This is for a developer who uses a Windows 10 (x64) Operation System and wants to build BitShares Core on Ubuntu. 
 
 > See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) if you are interested to run a node (updated: 2018-07-02).
-
-### Installation Guide
-- [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
-- [OS X](../installation/build_osx.md#building-on-os-x)
-- [Windows](../installation/build_windows.md#building-on-windows)
-- [Windows - CLI Tools](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64)
-- Use **Windows Subsystem for Linux**
-  - [Instruction how to prepare Ubuntu to Windows 10 OS](../installation/wsl.md#windows-subsystem-for-linux-wsl) 
-
 
 ## BitShares Code and Files 
 

@@ -11,13 +11,10 @@ In BitShares, you can create an account relatively easily by using the BitShares
 - [Voting](../accounts/accounts/voting-bh.md#voting)
   - Voting for… Witnesses, Committee, or/and Workers
   
-### [Account Registration](../accounts/account_registration.md#account-registration)
-   - [Create a brain Key and derive a private/public key pair](../accounts/account_registration.md#2-create-a-brain-key-and-derive-a-privatepublic-key-pair)
-   - [Create an Account](../accounts/account_registration.md#3-create-an-account)
-   - [Register an Account](../accounts/account_registration.md#4-register-an-account)
-
-
 ### FAQ - Accounts
+
+- [Account Registration](../accounts/account_registration.md#account-registration)
+  : Create a CLI account
 - [How to change a password if using a Cloud Wallet](https://github.com/bitshares/bitshares-ui/wiki/Cloud-Wallet-Login-and-changing-password) : from BitShares UI wiki
 - [more...](../tutorials/FAQ.md#accounts)
 - Knowledge Base: [Multi-Signature](../knowledge_base/multi-signature.md#multi-signature)  
