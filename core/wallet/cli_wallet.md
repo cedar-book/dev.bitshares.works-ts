@@ -55,7 +55,7 @@ If you open the cli-wallet successfully, you will receive `new >>>` prompt. Set 
 
     new >>>
 
-`set_password`
+#### `set_password`
 
 (e.g.) we used `supersecretpassphrase` as a password. This password is used to encrypt the private keys in the wallet.
 
@@ -64,7 +64,7 @@ If you open the cli-wallet successfully, you will receive `new >>>` prompt. Set 
     null
     locked >>>
     
-`unlock`
+#### `unlock`
 
     locked >>> unlock "supersecretpassphrase"   
     unlocked >>>
@@ -72,7 +72,7 @@ If you open the cli-wallet successfully, you will receive `new >>>` prompt. Set 
 > Note: After this point, you can issue any command available to the cli-wallet (Wallet APIs) or construct your own transaction manually.
 
 
-`gethelp`
+#### `gethelp`
 
 You can get more detailed information by issuing `gethelp`. Detailed explanations for most calls are available.
 
@@ -83,13 +83,13 @@ You can get more detailed information by issuing `gethelp`. Detailed explanation
 
 In Graphene, balances are contained in accounts. To claim an account that exists in the Graphene genesis, imports the private key for an existing account. The private key must match either an owner key or an active key for the named account.
 
-**import_key**
+#### `import_key`
 
     >>> import_key <name> "<wifkey>"
 
 Funds are stored in genesis balance objects. These funds can be claimed, with no fee, by using the `import_balance` command. This call will construct transaction(s) that will claim all balances controled by wif_keys and deposit them into the given account.
 
-**import_balance**
+#### `import_balance`
 
     >>> import_balance <name> ["*"] true
 
@@ -102,7 +102,7 @@ Funds are stored in genesis balance objects. These funds can be claimed, with no
  
     >>> upgrade_account faucet true
 
-**register_account**
+#### `register_account`
 
     >>> register_account <name> <owner-public_key> <active-public_key> <registrar_account> <referrer_account> <referrer_percent> <broadcast>
 
@@ -116,7 +116,7 @@ This command allows you to register an account using only a **public key**.
 
 In `transfer`, if the broadcast flag is `False`, the wallet will construct and sign, but **not**, broadcast the transaction. 
 
-**transfer**
+#### `transfer`
 
     unlocked >> transfer <from> <to> <amount> <asset> <memo> <broadcast>
    
