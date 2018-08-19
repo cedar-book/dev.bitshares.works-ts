@@ -26,7 +26,7 @@ Documentation related to BitShares Core internals and development fundamentals.
 - [**System Components Structures and Descriptions**](/core/components/README.md#components-structures-and-descriptions)
   : Block structure, operations, evaluators, objects
 - [**Knowledge Bases**](/core/knowledge_base/README.md#knowledge-base)
-- [**Index **- Help](/core/help/index.md#help)
+- [**Index**- Help](/core/help/index.md#help)
 
 ## BitShares Developers Forge
 BitShares topic targeting technical information guide and for best practices.
