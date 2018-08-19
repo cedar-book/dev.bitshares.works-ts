@@ -1,3 +1,5 @@
+## BitShares Nodes 
+
 #### Table of Contents:
 - [BitShares Nodes](../nodes_full_witness/README.md#bitshares-nodes-and-p2p-network)
 - [Full Node](../nodes_full_witness/full_nodes.md#full-nodes-witness-nodes)
