@@ -55,17 +55,13 @@ If you open the cli-wallet successfully, you will receive `new >>>` prompt. Set 
 
     new >>>
 
-#### `set_password`
+#### `set_password` and `unlock`
 
 (e.g.) we used `supersecretpassphrase` as a password. This password is used to encrypt the private keys in the wallet.
 
     new >>> set_password supersecretpassphrase
     set_password supersecretpassphrase
     null
-    locked >>>
-    
-#### `unlock`
-
     locked >>> unlock "supersecretpassphrase"   
     unlocked >>>
 
@@ -74,14 +70,14 @@ If you open the cli-wallet successfully, you will receive `new >>>` prompt. Set 
 
 #### `gethelp`
 
-You can get more detailed information by issuing `gethelp`. Detailed explanations for most calls are available.
+You can get more detailed information by issuing `gethelp`. Detailed explanations for most calls are available. For example, 
 
-      unlocked >> gethelp <command>
+      unlocked >> gethelp "list_account_balances"
 
 
 ### 4. Gaining Access to Blockchain
 
-In Graphene, balances are contained in accounts. To claim an account that exists in the Graphene genesis, imports the private key for an existing account. The private key must match either an owner key or an active key for the named account.
+In Graphene, balances are contained in accounts. To claim an account that exists in the Graphene genesis, **imports the private key for an existing account**. The private key must match either an owner key or an active key for the named account.
 
 #### `import_key`
 
@@ -148,8 +144,10 @@ The `get_private_key` command allows us to obtain the **private key** correspond
 
     >>> get_private_key GPH6viEhYCQr8xKP3Vj8wfHh6WfZeJK7H9uhLPDYWLGCRSj5kHQZM
 
+***
 
-### Connect a cli_wallet --> If you receive `new >>>` prompt,
+#### Connect a cli_wallet 
+ After receive `new >>>` prompt,
 
 | | | |
 |---|---|---|
