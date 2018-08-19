@@ -20,6 +20,10 @@ You have the option to obtain a `cli_wallet`.
 
 ### 2. Execute a cli_wallet
 
+- \<Example1\> Connecting a Cli-Wallet by using the public API server node
+- \<Example1\> Connecting a Cli-Wallet by an IP address (localhost)
+
+
 In this section, we show you two example patterns hoe to lunch the cli_wallet. The first one, we use the public API server node to connect the cli_wallet and also open WebSocket RPC or RPC-HTTP ports. The cli_wallet opens an RPC port for Wallet operations (i.e., spend, buy, sell...). The second one, we use an IP address (localhost) and also open the port for HTTP-RPC.
 
 After connecting to the wallet, either way, you will get `>>> new` prompt. Then, we can do the same steps to proceed with this example.
@@ -47,11 +51,11 @@ If you do not have a local wallet (`wallet.json` is a default file) yet, it will
 
 ### 3.Unlock the cli_wallet
 
-If you open the cli-wallet successfully, you will receive new >>> prompt. Set a password and unlock the cli-wallte.
+If you open the cli-wallet successfully, you will receive `new >>>` prompt. Set a password and unlock the cli-wallte.
 
     new >>>
 
-**set_password**
+`set_password`
 
 (e.g.) we used `supersecretpassphrase` as a password. This password is used to encrypt the private keys in the wallet.
 
@@ -59,8 +63,8 @@ If you open the cli-wallet successfully, you will receive new >>> prompt. Set a 
     set_password supersecretpassphrase
     null
     locked >>>
-
-**unlock**
+    
+`unlock`
 
     locked >>> unlock "supersecretpassphrase"   
     unlocked >>>
@@ -68,7 +72,7 @@ If you open the cli-wallet successfully, you will receive new >>> prompt. Set a 
 > Note: After this point, you can issue any command available to the cli-wallet (Wallet APIs) or construct your own transaction manually.
 
 
-**gethelp**
+`gethelp`
 
 You can get more detailed information by issuing `gethelp`. Detailed explanations for most calls are available.
 
