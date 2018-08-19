@@ -38,18 +38,8 @@ BitShares topic targeting technical information guide and for best practices.
 - [Testnets](/core/testnets/README.md#testnets)
 - [Tutorials](/core/tutorials/Readme.md#tutorials) / [FAQ](/core/tutorials/FAQ.md#frequently-asked-questions---list-all)
 - Use cses/Integrations
-- [Support and Optimizations](/forge/supports.md#support-and-optimizations)
-
-
-
-***
-
-- [API Support & References - JSON-RPC, REST, etc ](/forge/api_support/README.md#api-support--references)
-- [Plugins](/forge/plugins/README.md#plugins)
-- [Programs & Libraries](/forge/program_libraries/README.md#programs--libraries)
-- [SDK/Tools](/forge/sdk_tools/README.md#sdk--tools)
-- [Repositories - Developers](/forge/shared_repo/repo_byname_list.md#developers-github-repositories)
-- [Articles](/forge/articles/tech_articles_chronological.md#articles--references)
+- [Support and Optimizations](/forge/supports.md#support-and-optimizations) 
+  : API Support & References, Libraries, SDKs,Tools, Plugins, and Programs
 - [Use Cases](/forge/use_cases/README.md#use-cases)
 
 ***
