@@ -17,14 +17,12 @@ Documentation related to BitShares Core internals and development fundamentals.
 
 - [Introduction/Architectures](/core/intro/README.md#introduction--architectures)
 - [Getting Started](/core/installation/README.md#development-environment--getting-started)
-- [System Components Structures and Descriptions](/core/components/README.md#components-structures-and-descriptions)
 - [BitShares Accounts](/core/accounts/README.md#bitshares-accounts)
 - [BitShares Nodes](/core/nodes_full_witness/README.md#bitshares-nodes-and-p2p-network)
 - [Cli_Wallet and the Connectivity](/core/wallet/README.md#cli_wallet-and-the-connectivity)
 - [BitShares API](/core/api/README.md#bitshares-api) 
-- [Testnets](/core/testnets/README.md#testnets)
+- [System Components Structures and Descriptions](/core/components/README.md#components-structures-and-descriptions)
 - [Knowledge Bases](/core/knowledge_base/README.md#knowledge-base)
-- [Tutorials](/core/tutorials/Readme.md#tutorials) / [FAQ](/core/tutorials/FAQ.md#frequently-asked-questions---list-all)
 - [Index - Help](/core/help/index.md#help)
 
 
@@ -37,18 +35,11 @@ Documentation related to BitShares Core internals and development fundamentals.
 ## [BitShares Developers Forge](/forge/README.md#bts-developers-forge)
 BitShares topic targeting technical information guide and for best practices.
 
+- [Testnets](/core/testnets/README.md#testnets)
+- [Tutorials](/core/tutorials/Readme.md#tutorials) / [FAQ](/core/tutorials/FAQ.md#frequently-asked-questions---list-all)
 - Use cses/Integrations
-  - Set up a Witness Node
-  - 
+- [Support and Optimizations](/forge/supports.md#support-and-optimizations)
 
-
-- Support and Optimizations
-  - API Support & References
-  - Libraries
-  - SDKs
-  - Tools
-  - Plugins
-  - Programs
 
 
 ***
