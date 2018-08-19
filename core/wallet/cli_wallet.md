@@ -156,11 +156,11 @@ The `get_private_key` command allows us to obtain the **private key** correspond
 | `set_password` |  | set a password to a cli wallet  |
 | `unlock` | a wallet by the password  |  |
 | `gethelp` | to see a command description. (e.g., gethelp "list_accounts")  |  |
-| `mnport_key` | import_key <name> "<wifkey>" (e.g., mnport_key existing_account-name "<wifkey>"  | use an existing  account |
+| `mnport_key` | `import_key <name> "<wifkey>"` | use an existing  account |
 | `import_balance` | import_balance <name> ["*"] true |  |
 | `upgrade_account` | upgrade_account faucet true  | to get a LTM (Lifetime Member status |
-| `register_account` | register_account <name> <owner-public_key> <active-public_key> <registrar_account>  <referrer_account> <referrer_percent> <broadcast> |  |
-| `transfer` | transfer <from> <to> <amount> <asset> <memo> <broadcast> |  |
-| `transfer2` | transfer2 <from> <to> <amount> <asset> <memo> <broadcast>  | return a transaction ID |
+| `register_account` | `register_account <name> <owner-public_key> <active-public_key> <registrar_account>  <referrer_account> <referrer_percent> <broadcast>` |  |
+| `transfer` | `transfer <from> <to> <amount> <asset> <memo> <broadcast>` |  |
+| `transfer2` | `transfer2 <from> <to> <amount> <asset> <memo> <broadcast>`  | return a transaction ID |
   
 ***
