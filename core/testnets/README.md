@@ -16,7 +16,7 @@ We offer the Open Public Testnet for developers who want to learn about BitShare
 
 If you are considering to prepare Public TestNet for a witness node, check **System Requirements** and read through [BitShares Nodes](../nodes_full_witness/README.md#bitshares-nodes-and-p2p-network) section.
 
-### [Public Testnet Witness(Full) Nodes (block producing witness nodes) ](../testnets/public_testnet.md)
+### [Public Testnet Witness Nodes](../testnets/public_testnet.md)
 1. [Installation/Configuration of Witness](../testnets/public_testnet.md#1-installation_configuration-of-witness)
 2. [Genesis Configuration](../testnets/public_testnet.md#2-genesis-configuration)
 3. [Initializing Blockchain](../testnets/public_testnet.md#3-initializing-blockchain)
