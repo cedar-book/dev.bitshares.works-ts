@@ -6,7 +6,7 @@
   3. [Set a password and unlock](../wallet/import_account.md#3-set-a-password-and-unlock)
   4. [import key(s)](../wallet/import_account.md#4-import-keys)
   5. [Check your account](../wallet/import_account.md#5-check-your-account)
-  6. Often used Commands 
+  6. [Often used Commands ](../wallet/import_account.md#often-used-commands)
 
 ***
 
