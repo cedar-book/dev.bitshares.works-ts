@@ -96,8 +96,7 @@ And to check balance:
 | `register_account` | `register_account <name> <owner-public_key> <active-public_key> <registrar_account>  <referrer_account> <referrer_percent> <broadcast>` | Registers a third party’s account on the blockckain. |
 | `transfer` | `transfer <from> <to> <amount> <asset> <memo> <broadcast>` | Transfer an amount from one account to another. |
 | `transfer2` | `transfer2 <from> <to> <amount> <asset> <memo> <broadcast>`  | This method works just like transfer, except it always broadcasts and returns the transaction ID along with the signed transaction. |
-| `get_account_history` | e.g., get_account_history "name" "5" | Returns the most recent operations on the named account.
-This returns a list of operation history objects, which describe activity on the account. |     
+| `get_account_history` | e.g., get_account_history "name" "5" | Returns the most recent operations on the named account. |     
 | `get_privatre_key` |  get_privatre_key <public key>  | Get the WIF private key corresponding to a public key. The private key must already be in the wallet. |
   
 ***
