@@ -1,4 +1,4 @@
-## Voting
+# Voting
 
 #### Table of Contents:
 - Vote for…
