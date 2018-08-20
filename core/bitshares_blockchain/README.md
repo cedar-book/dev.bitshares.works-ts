@@ -34,8 +34,6 @@
 - [BitSharesTalk.io](https://bitsharestalk.io/forums)
 - (*will be added more*)
 
-***
-
 ## Beyond Bitcoin - Bitshares
 
 - [BitShares Discord Hangouts](https://discord.gg/RPJEsGp)
