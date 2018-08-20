@@ -74,7 +74,7 @@ And to check balance:
 
     unlocked >>>
 
-### Often use Commands 
+### Often Used Commands 
 
 
 | | | |
