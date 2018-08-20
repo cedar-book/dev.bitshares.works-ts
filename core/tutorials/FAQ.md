@@ -124,7 +124,7 @@
 - [How to setup Network and Wallet Configuration](../wallet/wallet_network.md#network-and-wallet-configuration)
    - [General](../wallet/wallet_network.md#general-network-and-wallet-configuration)
    - [Secure](../wallet/wallet_network.md#secure-network-and-wallet-configuration)
-- [Wallet Full Nodes & Witness Nodes](../wallet/wallet_full_nodes_witness_nodes.md#wallet-full-nodes--witness-nodes)
+- [Wallet Full Nodes & Witness Nodes (-wiki)](../wallet/wallet_full_nodes_witness_nodes.md#wallet-full-nodes--witness-nodes)
    - Examples - connect to the network and open up a node   
    
 ***
