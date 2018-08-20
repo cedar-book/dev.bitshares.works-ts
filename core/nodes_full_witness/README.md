@@ -1,7 +1,7 @@
 ## BitShares Nodes 
 
 #### Table of Contents:
-- [BitShares Nodes](../nodes_full_witness/README.md#bitshares-nodes-and-p2p-network)
+- [BitShares Nodes and P2P](../nodes_full_witness/README.md#bitshares-nodes-and-p2p-network)
 - [Full Node (Witness Nodes)](../nodes_full_witness/full_nodes.md#full-nodes-witness-nodes)
   : Type of Witness nodes, System Requirements, How to launch, Configuration 
 - [Running a BitShares API Node](../nodes_full_witness/running-api-node.md#running-a-bitshares-api-node)   
@@ -14,15 +14,7 @@
 
 ***
 
-After you installed BitShares Core successfully, you have `witness_node` and `cli_wallet`. In this first section, we talk about the BitShaares Nodes and some expectations.
-
 ## BitShares Nodes and P2P network
-- BitShares Client and Node
-- Witness Node and Full Node
-- Witness Node's Roles and Duties
-- Voting and a Witness Node
-- Open Public Testnet
-
 
 #### What is the Nodes?
 According to Wikipedia, in Computer Science, 

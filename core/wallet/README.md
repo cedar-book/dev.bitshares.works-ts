@@ -2,13 +2,15 @@
 
 #### Table of Contents:
 - [BitShares Architecture – CLI Client and Wallet](#bitshares-architecture--cli-client-and-wallet)
+- [Import a GUI-wallet account into CLI-wallet](../wallet/import_account.md#how-to-import-a-gui-wallet-account-into-cli-wallet) : How to, Often used Commands 
 - [Connecting a Cli Wallet](../wallet/cli_wallet.md#connecting-a-cli-wallet)
 - [Network and Wallet Configuration](../wallet/wallet_network.md#network-and-wallet-configuration) 
  :Components, General and Secure Network, Trusted Full Node, Delayed Full Node
 - [A Collection of command lines - Node, Wallet, and Witness](../wallet/node_wallet_witness.md#a-collection-of-command-lines---node-wallet-and-witness) 
-- [Wallet Full Nodes & Witness Nodes](../wallet/wallet_full_nodes_witness_nodes.md#wallet-full-nodes--witness-nodes)
-   - Examples - connect to the network and open up a node
-- FAQs: [Assets](../tutorials/FAQ.md#assets), [Transfer/Transactions](../tutorials/FAQ.md#transfer--transactions), [Wallet](../tutorials/FAQ.md#wallet--cli-wallet)
+- FAQs: 
+  - [Assets](../tutorials/FAQ.md#assets)
+  - [Transfer/Transactions](../tutorials/FAQ.md#transfer--transactions)
+  - [Wallet](../tutorials/FAQ.md#wallet--cli-wallet)
 
 
 ***

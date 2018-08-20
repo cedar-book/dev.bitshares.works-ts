@@ -115,12 +115,17 @@
 ***
 
 ### [Wallet / CLI Wallet](../tutorials/FAQ.md#wallet--cli-wallet-1)
+- [Running a Local Test Network (- wiki)](../wallet/cli_wallet-wiki.md#graphene-cli-wallet-wiki)
+- [Wallet Full Nodes & Witness Nodes(- wiki)](../wallet/wallet_full_nodes_witness_nodes.md#wallet-full-nodes--witness-nodes)
+- [Connect to a Public API Node service](../wallet/node_wallet_witness.md#use-the-public-api-node)
 - [How can I close the CLI client in a clean way?](../tutorials/FAQ.md#q-how-can-i-close-the-cli-client-in-a-clean-way)
 - [How to import a GUI-wallet account into CLI-wallet](../wallet/import_account.md#how-to-import-a-gui-wallet-account-into-cli-wallet)
 - [Why does the CLI client crash immediately when I try to run it for the first time?](../tutorials/FAQ.md#q-why-does-the-cli-client-crash-immediately-when-i-try-to-run-it-for-the-first-time)
 - [How to setup Network and Wallet Configuration](../wallet/wallet_network.md#network-and-wallet-configuration)
    - [General](../wallet/wallet_network.md#general-network-and-wallet-configuration)
    - [Secure](../wallet/wallet_network.md#secure-network-and-wallet-configuration)
+- [Wallet Full Nodes & Witness Nodes (-wiki)](../wallet/wallet_full_nodes_witness_nodes.md#wallet-full-nodes--witness-nodes)
+   - Examples - connect to the network and open up a node   
    
 ***
 ### [Witness](../tutorials/FAQ.md#witness)
