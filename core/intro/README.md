@@ -105,9 +105,9 @@ BitShares Explorer shows BitShares Blockchain information. You can observe BitSh
 
 If you would like to see more detailed information, the BitShares Open Explorer offers other information tabs (i.e., Operations, Proxies, Markets, SmartCoins, UIAs, and Holders) to view.
 
-- [Bitshares Block Exploer - cryptofresh](https://www.cryptofresh.com/)
-- [Bitshares Open Exploer - Exploere](http://bitshares-explorer.io/#/dashboard)
-- [Bitshares.Exploer - bts.ai](https://bts.ai/)
+- [Cryptofresh](https://www.cryptofresh.com/)
+- [Open Explorer](http://open-explorer.io/)
+- [bts.ai](https://bts.ai/)
 
 #### Blockchain Activity
 Blockchain Activity Matrix shows different tokens (assets) *Activity*, *Value*, and *Index*. It's interesting to check the CUI index is Capacity Utilization Index (a rate of blockchain daily activity to total blockchain capacity) to see how much numbers BitShares has.
