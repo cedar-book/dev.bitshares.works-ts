@@ -2,6 +2,7 @@
 
 #### Table of Contents:
 - [BitShares Architecture – CLI Client and Wallet](#bitshares-architecture--cli-client-and-wallet)
+- [Import a GUI-wallet account into CLI-wallet](/wallet/import_account.md#how-to-import-a-gui-wallet-account-into-cli-wallet)
 - [Connecting a Cli Wallet](../wallet/cli_wallet.md#connecting-a-cli-wallet)
 - [Network and Wallet Configuration](../wallet/wallet_network.md#network-and-wallet-configuration) 
  :Components, General and Secure Network, Trusted Full Node, Delayed Full Node
