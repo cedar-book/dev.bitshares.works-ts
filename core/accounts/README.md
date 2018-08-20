@@ -13,6 +13,7 @@ In BitShares, you can create an account relatively easily by using the BitShares
   
 ### FAQ - Accounts
 
+- [Import a GUI-wallet account into CLI-wallet](../wallet/import_account.md#how-to-import-a-gui-wallet-account-into-cli-wallet) : How to, Often used Commands 
 - [Account Registration](../accounts/account_registration.md#account-registration)
   : Create a CLI account
 - [How to change a password if using a Cloud Wallet](https://github.com/bitshares/bitshares-ui/wiki/Cloud-Wallet-Login-and-changing-password) : from BitShares UI wiki
