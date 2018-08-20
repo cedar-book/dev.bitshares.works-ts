@@ -42,7 +42,7 @@ Set a password for your CLI-wallet and unlock.
 **Note:** This password does not need to be the same with your GUI-wallet password. You will create a *new wallet* and it will be secured by the new password.
 
     new >>> set_password mypass123
-    set_password mypass
+    set_password mypass123
     null
     
     locked >>> unlock mypass123
