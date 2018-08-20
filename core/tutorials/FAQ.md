@@ -113,7 +113,6 @@
 - [How to find Vesting Balance](../tutorials/vesting-balance-dev.md#how-to-find-vesting-balance)
 
 ***
-https://github.com/cedar-book/dev.bitshares.works-ts/blob/t-add-feature-20180817/core/wallet/import_account.md#how-to-import-a-gui-wallet-account-into-cli-wallet
 
 ### [Wallet / CLI Wallet](../tutorials/FAQ.md#wallet--cli-wallet-1)
 - [How can I close the CLI client in a clean way?](../tutorials/FAQ.md#q-how-can-i-close-the-cli-client-in-a-clean-way)
