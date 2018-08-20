@@ -1,4 +1,4 @@
-## BitShares API
+# BitShares API
 
 #### Table of Contents: 
 - [BitShares-Core API References](../api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links)
