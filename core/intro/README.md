@@ -21,7 +21,7 @@ If you have an BitShares account, you are a BTS Holder and you have a voting pow
 
 ![BitShares Architecture](../imgs/structure/btsholders-v1.png)
 
-## BitShares Architecture – GitHub Repositories and Entities
+# BitShares Architecture – GitHub Repositories and Entities
 - [GitHub Repositories and Entities with a guide (pdf)](../knowledge_base/shared_files/BitShares_Architecture-V3.pdf) 
 
 ![BitShares Architecture](../imgs/structure/bitshares-architecture-v3notop.png)
