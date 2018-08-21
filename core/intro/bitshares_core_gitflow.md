@@ -17,7 +17,7 @@
 ***
 
 
-## Project Guide
+# Project Guide
 - [Contribution Guide](../intro/contribution_guide.md#contribution-guide) [DRAFT]
 - [Contribution Guide Project](https://github.com/bitshares/bitshares-core/projects/6)
 
