@@ -44,7 +44,7 @@
 - [How to create, register and upgrade an account to Lifetime Membership](../tutorials/account_create_to_ltm.md#how-to-create-register-and-upgrade-an-account-to-lifetime-membership)
 
 
-### Installation Guide
+### Installation 
 - Use [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
 - Use [OS X](../installation/build_osx.md#building-on-os-x)
 - Use [Windows](../installation/build_windows.md#building-on-windows)
