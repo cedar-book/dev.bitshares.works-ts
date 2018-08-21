@@ -40,6 +40,9 @@
 
 ***
 ### [APIs](#apis-1)
+- [Using the API](../api/api_restrictions.md#using-the-api)
+- [Access Restricted APIs](../api/api_restrictions.md#accessing-restricted-apis)
+- [Accessing the Named API via HTTP](../api/api_restrictions.md#accessing-the-named-api-via-http)
 - [Where to find BitShares APIs list in oxygen documentation](../api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links)
 - [What kinds of Object IDs and the types BitShares has?](../api/object_ids.md#objects-and-ids)  
 - [How an Exchange can integrate their services to the BitShares UI Wallet - Gateway Integration Requirements](https://github.com/bitshares/bitshares-ui/wiki/Gateway-Integration-Requirements) : from BitShares UI wiki
