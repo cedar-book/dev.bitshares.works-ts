@@ -1,5 +1,4 @@
-
-## Q. How can I create, register and upgrade an account to Lifetime Membership?
+## How to create, register and upgrade an account to Lifetime Membership?
 
 Without already having an account, or knowing someone that has an account, it is not possible. You can’t create accounts out of nowhere.
 
