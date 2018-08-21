@@ -48,7 +48,6 @@
   - [Instruction how to prepare Ubuntu to Windows 10 OS](../installation/wsl.md#windows-subsystem-for-linux-wsl) 
 - [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) 
 
-***
 ### [APIs](#apis-1)
 - [Using the API](../api/api_restrictions.md#using-the-api)
 - [Access Restricted APIs](../api/api_restrictions.md#accessing-restricted-apis)
