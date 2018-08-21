@@ -3,8 +3,7 @@
 #### Table of Contents:
 
 [**General**](../tutorials/FAQ.md#general)
-- [What is the standard Bitshares address structure and format?](../tutorials/FAQ.md#q-what-is-the-standard-bitshares-address-structure-and-format
-)
+- [What is the standard Bitshares address structure and format?](../tutorials/FAQ.md#q-what-is-the-standard-bitshares-address-structure-and-format)
 - [What is the format of the block header?](../tutorials/FAQ.md#q-what-is-the-format-of-the-block-header)
 - [What is the maximum bitshares block size?](../tutorials/FAQ.md#q-what-is-the-maximum-bitshares-block-size)
 - [Are there any sharding mechanics currently deployed?](../tutorials/FAQ.md#q-are-there-any-sharding-mechanics-currently-deployed)
@@ -29,6 +28,12 @@
 - [Is there a specification for Bitshares scripting language? (assuming there is one)](../tutorials/FAQ.md#q-is-there-a-specification-for-bitshares-scripting-language-assuming-there-is-one)
 - [Is the scripting language turing complete?](../tutorials/FAQ.md#q-is-the-scripting-language-turing-complete)
 
+### System Components
+- [How's a block structured?](../components/README.md#block)
+- [What types of Operations are available in BitShares? And want to read Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain) 
+- [What BitShares Objects names and the descriptions? ](../components/objects.md#object-names-and-detailed-descriptions)
+
+
 ***
 ### [Accounts](../tutorials/FAQ.md#accounts-1)
 - [Account Registration](../accounts/account_registration.md#account-registration)
@@ -40,10 +45,10 @@
 
 
 ### Installation Guide
-- [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
-- [OS X](../installation/build_osx.md#building-on-os-x)
-- [Windows](../installation/build_windows.md#building-on-windows)
-- [Windows - CLI Tools](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64)
+- Use [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
+- Use [OS X](../installation/build_osx.md#building-on-os-x)
+- Use [Windows](../installation/build_windows.md#building-on-windows)
+- Use [Windows - CLI Tools](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64)
 - Use **Windows Subsystem for Linux**
   - [Instruction how to prepare Ubuntu to Windows 10 OS](../installation/wsl.md#windows-subsystem-for-linux-wsl) 
 - [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) 
