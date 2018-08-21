@@ -33,8 +33,7 @@
 ### [Accounts](../tutorials/FAQ.md#accounts-1)
 - [How to change a password if using a Cloud Wallet](https://github.com/bitshares/bitshares-ui/wiki/Cloud-Wallet-Login-and-changing-password) : from BitShares UI wiki
 - [How can I create, register and upgrade an account to Lifetime Membership?](../tutorials/FAQ.md#q-how-can-i-create-register-and-upgrade-an-account-to-lifetime-membership)
-- [How to process Account Registration](../accounts/account_registration.md#account-registration)
-
+- [How to create, register and upgrade an account to Lifetime Membership](../tutorials/account_create_to_ltm.md#how-to-create-register-and-upgrade-an-account-to-lifetime-membership)
 
 ***
 ### [APIs](#apis-1)
