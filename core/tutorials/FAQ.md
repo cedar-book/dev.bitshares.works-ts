@@ -2,6 +2,15 @@
 
 #### Table of Contents:
 
+#### Where is the Installation Guide?
+- [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
+- [OS X](../installation/build_osx.md#building-on-os-x)
+- [Windows](../installation/build_windows.md#building-on-windows)
+- [Windows - CLI Tools](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64)
+- Use **Windows Subsystem for Linux**
+  - [Instruction how to prepare Ubuntu to Windows 10 OS](../installation/wsl.md#windows-subsystem-for-linux-wsl) 
+
+
 [**General**](../tutorials/FAQ.md#general)
 - [What is the standard Bitshares address structure and format?](../tutorials/FAQ.md#q-what-is-the-standard-bitshares-address-structure-and-format
 )
