@@ -113,6 +113,7 @@
 ***
 
 ### Transfer / Transactions
+- [How 'Multi-sugunature' works](../knowledge_base/multi-signature.md#multi-signature)
 - [How to use the CLI wallet to perform confidential transfers in BitShares](../tutorials/trn_confidential_transfer.md#how-to-use-the-cli-wallet-to-perform-confidential-transfers-in-bitshares)
 - [Hot to Construct Any Transaction - Manually](../tutorials/trn_construct_transaction.md#how-to-construct-any-transaction---manually)
 - [How to Propose a Transaction](../tutorials/trn_propose_transaction.md#how-to-propose-a-transaction)
