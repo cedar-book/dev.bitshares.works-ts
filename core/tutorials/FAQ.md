@@ -28,13 +28,13 @@
 - [Is there a specification for Bitshares scripting language? (assuming there is one)](../tutorials/FAQ.md#q-is-there-a-specification-for-bitshares-scripting-language-assuming-there-is-one)
 - [Is the scripting language turing complete?](../tutorials/FAQ.md#q-is-the-scripting-language-turing-complete)
 
+***
+
 ### System Components
 - [How's a block structured?](../components/README.md#block)
-- [What types of Operations are available in BitShares? And want to read Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain) 
+- [What types of Operations are available in BitShares? And want to read Detailed Descriptions?](../components/operations.md#bitshares-core---graphenechain) 
 - [What BitShares Objects names and the descriptions? ](../components/objects.md#object-names-and-detailed-descriptions)
 
-
-***
 ### [Accounts](../tutorials/FAQ.md#accounts-1)
 - [Account Registration](../accounts/account_registration.md#account-registration)
   - [Create a brain Key and derive a private/public key pair](../accounts/account_registration.md#2-create-a-brain-key-and-derive-a-privatepublic-key-pair)
