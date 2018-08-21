@@ -3,8 +3,8 @@
 #### Table of Contents:
 - Project Guide
   - Contribution Guide
-  - Contribution Guide Project
--BitShares Core - GitFlow
+  - Contribution Guide Project  
+- BitShares Core - GitFlow
   - [Purpose](../intro/bitshares_core_gitflow.md#purpose)
   - [Non-Consensus: Development / Release / Bugfix Workflows](../intro/bitshares_core_gitflow.md#non-consensus-development--release--bugfix-workflows)
   - [Consensus: Development / Release / Bugfix Workflows](../intro/bitshares_core_gitflow.md#consensus-development--release--bugfix-workflows)
