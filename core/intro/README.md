@@ -21,7 +21,7 @@ If you have an BitShares account, you are a BTS Holder and you have a voting pow
 
 ![BitShares Architecture](../imgs/structure/btsholders-v1.png)
 
-# BitShares Architecture – GitHub Repositories and Entities
+## BitShares Architecture – GitHub Repositories and Entities
 - [GitHub Repositories and Entities with a guide (pdf)](../knowledge_base/shared_files/BitShares_Architecture-V3.pdf) 
 
 ![BitShares Architecture](../imgs/structure/bitshares-architecture-v3notop.png)
@@ -114,9 +114,9 @@ Blockchain Activity Matrix shows different tokens (assets) *Activity*, *Value*, 
 
 - http://blocktivity.info/
   
-## BitShares Core Projects Guide
+# BitShares Core Projects Guide
 
-### Project Guide
+## Project Guide
 - [Contribution Guide](../intro/contribution_guide.md#contribution-guide) [DRAFT]
 - [Contribution Guide Project](https://github.com/bitshares/bitshares-core/projects/6)
 
@@ -129,7 +129,7 @@ This is a team of developers who manage BitShares-Core code updates and handle t
     - making Project plans for the future release
     - creating/ announcing  Release 
     
-### BitShares Core Code Management - GitFlow
+## BitShares Core Code Management - GitFlow
 This section describes and defines how changes flow into our code and through the various stages of development until it finally goes into production.
 
 - [Purpose](../intro/bitshares_core_gitflow.md)
