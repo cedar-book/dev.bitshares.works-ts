@@ -2,15 +2,6 @@
 
 #### Table of Contents:
 
-#### Installation Guide
-- [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
-- [OS X](../installation/build_osx.md#building-on-os-x)
-- [Windows](../installation/build_windows.md#building-on-windows)
-- [Windows - CLI Tools](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64)
-- Use **Windows Subsystem for Linux**
-  - [Instruction how to prepare Ubuntu to Windows 10 OS](../installation/wsl.md#windows-subsystem-for-linux-wsl) 
-- [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) 
-
 [**General**](../tutorials/FAQ.md#general)
 - [What is the standard Bitshares address structure and format?](../tutorials/FAQ.md#q-what-is-the-standard-bitshares-address-structure-and-format
 )
@@ -46,6 +37,16 @@
   - [Register an Account](../accounts/account_registration.md#4-register-an-account)
 - [How to change a password if using a Cloud Wallet](https://github.com/bitshares/bitshares-ui/wiki/Cloud-Wallet-Login-and-changing-password) : from BitShares UI wiki
 - [How to create, register and upgrade an account to Lifetime Membership](../tutorials/account_create_to_ltm.md#how-to-create-register-and-upgrade-an-account-to-lifetime-membership)
+
+
+### Installation Guide
+- [Ubuntu Linux](../installation/build_ubuntu.md#building-on-ubuntu)
+- [OS X](../installation/build_osx.md#building-on-os-x)
+- [Windows](../installation/build_windows.md#building-on-windows)
+- [Windows - CLI Tools](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64)
+- Use **Windows Subsystem for Linux**
+  - [Instruction how to prepare Ubuntu to Windows 10 OS](../installation/wsl.md#windows-subsystem-for-linux-wsl) 
+- [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) 
 
 ***
 ### [APIs](#apis-1)
@@ -88,6 +89,7 @@
 - [What is the fee pool all about?](../tutorials/FAQ.md#q-what-is-the-fee-pool-all-about)
 - [What to do if the fee pool is empty?](../tutorials/FAQ.md#q-what-to-do-if-the-fee-pool-is-empty)
 - [What is Fee Pool Draining?](../tutorials/FAQ.md#q-what-is-fee-pool-draining)
+
 
 **Market Fee**
 - [What happens if I enable Market fees?](../tutorials/FAQ.md#q-what-happens-if-i-enable-market-fees)
