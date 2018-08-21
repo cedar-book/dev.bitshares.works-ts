@@ -40,6 +40,7 @@
 
 ***
 ### [APIs](#apis-1)
+- [Where to find BitShares APIs list in oxygen documentation](../api/API_references.md#bitshares-core-api-references---doxygen-documentation)
 - [How an Exchange can integrate their services to the BitShares UI Wallet - Gateway Integration Requirements](https://github.com/bitshares/bitshares-ui/wiki/Gateway-Integration-Requirements) : from BitShares UI wiki
 - [How do I get the network_add_nodes command to work? Why is it so complicated?](../tutorials/FAQ.md#q-how-do-i-get-the-network_add_nodes-command-to-work-why-is-it-so-complicated)
 - [Is there a way to access methods which require login over HTTP?](../tutorials/FAQ.md#q-is-there-a-way-to-access-methods-which-require-login-over-http)
@@ -47,7 +48,6 @@
 - [Is there a way to generate help with parameter names and method descriptions?](../tutorials/FAQ.md#q-is-there-a-way-to-generate-help-with-parameter-names-and-method-descriptions)
 - [What is the meaning of a.b.c numbers?](../tutorials/FAQ.md#q-what-is-the-meaning-of-abc-numbers)
 - [The answer to the previous question was really confusing. Can you make it clearer?](../tutorials/FAQ.md#q-the-answer-to-the-previous-question-was-really-confusing-can-you-make-it-clearer)
-- [How to process Account Registration](../accounts/account_registration.md#account-registration)
 
 
 ***
