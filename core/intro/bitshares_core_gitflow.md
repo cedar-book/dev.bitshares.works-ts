@@ -46,19 +46,13 @@ For our purposes, the general concept behind gitflow has been extended to allow 
 1. We have two different types of releases, mainnet and testnet, with a master-like branch for each one.
 2. We have to distinguish Consensus Impacting Changes (aka hardforks) from Non-Consensus Impacting Changes.
 
-***
-
 ## Non-Consensus: Development / Release / Bugfix Workflows
 
 ![BitShares Core GitFlow](../../core/imgs/bts-non-concensus.png)
 
-***
-
 ## Consensus: Development / Release / Bugfix Workflows
 
 ![BitShares Core GitFlow](../../core/imgs/bts-concensus.png)
-
-***
 
 ## Goals To Achieve
 
@@ -78,8 +72,6 @@ For our purposes, the general concept behind gitflow has been extended to allow 
     5. Merges are always done as real merges, not as fast-forwards, and not squashed.
 3. Core devs coordinate regular merges from "develop" into "hardfork".
 4. Both "develop" and "hardfork" should always remain compatible with mainnet, i. e. a full replay must be possible.
-
-***
 
 ## How To Create a Release
 
@@ -108,8 +100,6 @@ For a release,
 **Note 4:** ~~the tag commit can be changed.~~ Don't change tags on github. This is a source of confusion, and of irreproducible bug reports. Make new one is better (ex: test-2.0.180321b or wait 1 day).
 
 **Note 5:** Do not mark releases as "pre release" unless there is a real new version coming immediately after. Never upgrade "pre release" to "release" as new emails to subscribers will not be sent when doing so.
-
-***
 
 ## How To Create an Emergency Fix
 
