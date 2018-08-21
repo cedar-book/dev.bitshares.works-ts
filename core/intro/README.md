@@ -114,6 +114,8 @@ Blockchain Activity Matrix shows different tokens (assets) *Activity*, *Value*, 
 
 - http://blocktivity.info/
   
+***
+
 # BitShares Core Projects Guide
 
 ## Project Guide
