@@ -41,6 +41,7 @@
 ***
 ### [APIs](#apis-1)
 - [Where to find BitShares APIs list in oxygen documentation](../api/API_references.md#bitshares-core-api-references---doxygen-documentation-quick-links)
+- [What kinds of Object IDs and the types BitShares has?](../api/object_ids.md#objects-and-ids)  
 - [How an Exchange can integrate their services to the BitShares UI Wallet - Gateway Integration Requirements](https://github.com/bitshares/bitshares-ui/wiki/Gateway-Integration-Requirements) : from BitShares UI wiki
 - [How do I get the network_add_nodes command to work? Why is it so complicated?](../tutorials/FAQ.md#q-how-do-i-get-the-network_add_nodes-command-to-work-why-is-it-so-complicated)
 - [Is there a way to access methods which require login over HTTP?](../tutorials/FAQ.md#q-is-there-a-way-to-access-methods-which-require-login-over-http)
