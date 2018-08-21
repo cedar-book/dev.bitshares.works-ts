@@ -27,7 +27,7 @@ If you have an BitShares account, you are a BTS Holder and you have a voting pow
 ![BitShares Architecture](../imgs/structure/bitshares-architecture-v3notop.png)
 
 
-# Development Environments and Requirements
+## Development Environments and Requirements
 
 BitShares offers you to install BitShares-Core into different platforms; [**Linux:Ubuntu (x64)**](../installation/build_ubuntu.md#building-on-ubuntu), [**OS X**](../installation/build_osx.md#building-on-os-x), and [**Windows**](../installation/build_windows.md#building-on-windows)**.  There are  dependencies to check when you download OpenSSL and  Boost. Please make sure which versions you downloaded. 
 
@@ -53,7 +53,7 @@ Another option, Windows SubSystem for Linux (WSL).  This is for a developer who 
   - **BitSharesjs-ws** - Javascript websocket interface for Bitshares 
   - more
 
-# BitShares key Design Concepts and the Features
+## BitShares key Design Concepts and the Features
 
 BitShares is a Finance Smart contract platform supported by Graphene technology - Blockchain.  
 BitShares is designed from the ground up to process more transactions every second than VISA and MasterCard combined.
@@ -114,7 +114,7 @@ Blockchain Activity Matrix shows different tokens (assets) *Activity*, *Value*, 
 
 - http://blocktivity.info/
   
-# BitShares Core Projects Guide
+## BitShares Core Projects Guide
 
 ### Project Guide
 - [Contribution Guide](../intro/contribution_guide.md#contribution-guide) [DRAFT]
