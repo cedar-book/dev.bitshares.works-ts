@@ -33,7 +33,7 @@ BitShares offers you to install BitShares-Core into different platforms; [**Linu
 
 Also, if you are a Windows user, you have other two choices to install BitShares Core to your Windows (x64) Operation System.  One is [**CLI-Wallet tools for Windows (x64)**](../installation/windows_cli_tool.md#cli-wallet-on-windows-x64), another is [**Windows SubSystem for Linux (WSL)**](../installation/wsl.md#windows-subsystem-for-linux-wsl) .  
 
-The CLI-wallet tools for Windows (x64) allows you to try several methods to get the data from BitShares blockchain without the BitShares Core installation. After you download the cli-wallet tools, you will find a cli_wallet executable to try Wallet API. 
+The CLI-wallet tools for Windows (x64) allows you to have CLI wallet without the BitShares Core installation. After you download the cli-wallet tools (zip file) and unzip it, you will find all files you need to run CLI wallet.  
 
 Another option, Windows SubSystem for Linux (WSL).  This is for a developer who uses a Windows 10 (x64) Operation System and wants to build BitShares Core on Ubuntu. 
 
