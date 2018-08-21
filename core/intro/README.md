@@ -16,7 +16,7 @@
 
 Welcome to BitShares! In this section, you will find the overview of BitShares Architecture (repositories and entities), and how the Core team processes the development work.  If you are interested in contributing to the Core team, you might want to check the Contribution Guide and the GitFlow to understand how BitShares-Core team handles the repository files and branches.  If you would like to know the Core team current project, issues, and the releases plans, check under the Issues and the Projects tabs.
 
-# BitShares Members 
+## BitShares Members 
 If you have an BitShares account, you are a BTS Holder and you have a voting power to make decisions in the BitShares Community.
 
 ![BitShares Architecture](../imgs/structure/btsholders-v1.png)
@@ -39,7 +39,7 @@ Another option, Windows SubSystem for Linux (WSL).  This is for a developer who 
 
 > See [System Requirements](../nodes_full_witness/full_nodes.md#system-requirements) if you are interested to run a node (updated: 2018-07-02).
 
-# BitShares Code and Files 
+## BitShares Code and Files 
 
 - Open Source program
 - Language uses (mainly): BitShares-Core(C++), python
@@ -98,7 +98,7 @@ BitShares can be made to function as a software, a network, a ledger, a bank, an
  - Referral Program
  - Vesting valance
 
-# Observe BitShares Blockchain Transactions and Performance
+## Observe BitShares Blockchain Transactions and Performance
 
 #### Bitshares Block Explorer
 BitShares Explorer shows BitShares Blockchain information. You can observe BitShares Blockchain *Health* Status (head_block_num, head_block_age, chain_id, etc.), how transactions processing, assets volume, and members.
