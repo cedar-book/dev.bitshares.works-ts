@@ -4,7 +4,7 @@
 - **Block**
   - [A Block Elements and Structure: simple version](README.md#block)  
 - **Block Headers** - inheritance (objects)
-  - [Block Header](README.md#block-header)
+  - [Block Header](README.md#block-header---inheritance)
 - **Evaluators**
   - graphene::chain::account_create_evaluator 
 - **Operations** : BitShares available operations details and the object structures.
