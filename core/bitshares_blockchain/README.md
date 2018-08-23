@@ -1,6 +1,6 @@
-# BitShares Blockchain
 
 
+- [BitShares Whitepaper](http://www.bitshares.foundation/papers/BitSharesBlockchain.pdf)
 # BitShares Communities
 
 - [BitShares Community](https://t.me/bitshares_community)
@@ -28,6 +28,8 @@
 #### Blockchain Activity
 - [Blocktivity](http://blocktivity.info/)
 
+
+# BitShares Blockchain
 
 ## BitShares Blockchain Foundation
 
