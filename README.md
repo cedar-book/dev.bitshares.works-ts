@@ -43,10 +43,9 @@ BitShares topic targeting technical information guide and for best practices.
 
 ## BitShares Blockchain
 - [BitShares Communities](/core/bitshares_blockchain/README.md#bitshares-communities)
-- [Bitshares Block Explorer](/core/bitshares_blockchain/README.md#bitshares-block-exploer)
 - [BitShares Blockchain Foundation](/core/bitshares_blockchain/README.md#bitshares-blockchain)
 - [UI User Guide](https://github.com/bitshares/how.bitshares.works/tree/master/bbf/user_guide#user-guide)
-
+- [Bitshares Block Explorer](/core/bitshares_blockchain/README.md#bitshares-block-exploer)
 
 
 ***
