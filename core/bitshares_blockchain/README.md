@@ -1,6 +1,8 @@
-
+# BitShares
 
 - [BitShares Whitepaper](http://www.bitshares.foundation/papers/BitSharesBlockchain.pdf)
+
+
 # BitShares Communities
 
 - [BitShares Community](https://t.me/bitshares_community)
