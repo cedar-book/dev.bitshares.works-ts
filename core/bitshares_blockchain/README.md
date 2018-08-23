@@ -1,7 +1,8 @@
 # BitShares
 
 - [BitShares Whitepaper](http://www.bitshares.foundation/papers/BitSharesBlockchain.pdf)
-
+- [System Components Structures and Descriptions](/core/components/README.md#components-structures-and-descriptions)
+  : Block structure, operations, evaluators, objects
 
 # BitShares Communities
 
