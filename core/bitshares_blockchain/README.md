@@ -20,16 +20,6 @@
 
 - [BitShares Discord Hangouts](https://discord.gg/RPJEsGp)
    - [BitShares Hangout: Discord Tips](https://steemit.com/bitshares/@ash/bitshares-hangout-discord-tips)
- 
- 
-## BitShares Block Exploer
-- [Cryptofresh](https://www.cryptofresh.com/)
-- [Open Explorer](http://open-explorer.io/)
-- [bts.ai](https://bts.ai/)
-
-#### Blockchain Activity
-- [Blocktivity](http://blocktivity.info/)
-
 
 # BitShares Blockchain
 
@@ -43,6 +33,16 @@
 
 ## BitShares UI Wallet
 - BitShare UI wallet <https://wallet.bitshares.org>
+
+ 
+## BitShares Block Exploer
+- [Cryptofresh](https://www.cryptofresh.com/)
+- [Open Explorer](http://open-explorer.io/)
+- [bts.ai](https://bts.ai/)
+
+#### Blockchain Activity
+- [Blocktivity](http://blocktivity.info/)
+
 
 ***
 
