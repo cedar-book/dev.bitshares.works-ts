@@ -1,24 +1,23 @@
-# BitShares Blockchain 
+# BitShares Blockchain
 
-### BitShares Blockchain Foundation
+## BitShares Blockchain Foundation
 
-- [Bitshares Foundation](http://www.bitshares.foundation/)
-- [Bitshares Foundation : Worker](http://www.bitshares.foundation/worker)
-- [Bitshares Foundation : Accounting](http://www.bitshares.foundation/accounting)
-- [Bitshares Foundation : Public Mailing Lists](http://lists.bitshares.foundation/listinfo)
-- [Bitshares Foundation : Spokesperso](http://www.bitshares.foundation/spokesperson)
+- [BitShares Foundation](http://www.bitshares.foundation/)
+- [BitShares Foundation : Worker](http://www.bitshares.foundation/worker)
+- [BitShares Foundation : Accounting](http://www.bitshares.foundation/accounting)
+- [BitShares Foundation : Public Mailing Lists](http://lists.bitshares.foundation/listinfo)
+- [BitShares Foundation : Spokesperson](http://www.bitshares.foundation/spokesperson)
 
-### BitShares UI Wallet
+## BitShares UI Wallet
 - BitShare UI wallet <https://wallet.bitshares.org>
 
-### Bitshares Block Exploer
-
+## BitShares Block Exploer
 - [Cryptofresh](https://www.cryptofresh.com/)
 - [Open Explorer](http://open-explorer.io/)
 - [bts.ai](https://bts.ai/)
 
 #### Blockchain Activity
-- http://blocktivity.info/
+- [Blocktivity](http://blocktivity.info/)
 
 ***
 
