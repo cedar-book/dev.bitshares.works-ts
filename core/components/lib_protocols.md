@@ -421,7 +421,9 @@ struct asset_options {
 	void validate()const;
 };
 ``` 
-	 
+
+*The descriptions of `asset_options`*
+
 |  |  |  |
 |---|---|---|
 | share_type | max_supply = GRAPHENE_MAX_SHARE_SUPPLY; | The maximum supply of this asset which may exist at any given time. This can be as large as GRAPHENE_MAX_SHARE_SUPPLY |
@@ -456,7 +458,7 @@ struct bitasset_options {
 };
 ```
 
-*The descriptions of bitasset_options*
+*The descriptions of `bitasset_options`*
 
 |  |  |  |
 |---|---|---|
@@ -470,6 +472,10 @@ struct bitasset_options {
 | void | validate()const; | Perform internal consistency checks. @throws fc::exception if any check fails |
 
 *Operaions*
+
+| operation |   |
+|---|---|
+|  | - balance_claim_operation <br /> - asset_create_operation <br /> <br /> - asset_global_settle_operation <br /> - asset_settle_operation <br />- asset_settle_cancel_operation <br /> - asset_fund_fee_pool_operation <br /> - asset_update_operation <br /> - asset_update_bitasset_operation <br /> - asset_update_feed_producers_operation <br /> - asset_publish_feed_operation <br /> - asset_issue_operation <br /> - asset_reserve_operation <br /> - asset_claim_fees_operation <br /> - asset_update_issuer_operation <br /> - asset_claim_pool_operation |
 
 ```
 struct asset_create_operation : public base_operation{   };
@@ -485,8 +491,8 @@ struct asset_issue_operation : public base_operation{  };
 struct asset_reserve_operation : public base_operation{  };
 struct asset_claim_fees_operation : public base_operation{  };
 struct asset_update_issuer_operation : public base_operation{  };
-struct asset_claim_pool_operation : public base_operation{  };	
-```	
+struct asset_claim_pool_operation : public base_operation{  };
+```
 
 ### authority 
 
@@ -600,8 +606,13 @@ void add_authority_accounts(
 
 ### balance 
 
-struct balance_claim_operation : public base_operation{  };
+| operation |   |
+|---|---|
+|  | - balance_claim_operation  |
 
+```
+struct balance_claim_operation : public base_operation{  };
+```
 
 ### base 
 struct void_result{};
