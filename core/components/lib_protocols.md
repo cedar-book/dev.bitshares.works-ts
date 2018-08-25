@@ -45,30 +45,30 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 ### account 
 
 ```
-	bool is_valid_name( const string& s );
-	bool is_cheap_name( const string& n );
+bool is_valid_name( const string& s );
+bool is_cheap_name( const string& n );
 ```
 - These are the fields which can be updated by the active authority.
 ```
-		struct account_options
-		{
-			public_key_type  memo_key;
-			account_id_type voting_account = GRAPHENE_PROXY_TO_SELF_ACCOUNT;
-			
-			uint16_t num_witness = 0;
-			uint16_t num_committee = 0;
-			
-			flat_set<vote_id_type> votes;
-			extensions_type        extensions;
+struct account_options
+{
+	public_key_type  memo_key;
+	account_id_type voting_account = GRAPHENE_PROXY_TO_SELF_ACCOUNT;
 
-			/// Whether this account is voting
-			inline bool is_voting() const
-			{
-				return ( voting_account != GRAPHENE_PROXY_TO_SELF_ACCOUNT || !votes.empty() );
-			}
+	uint16_t num_witness = 0;
+	uint16_t num_committee = 0;
 
-			void validate()const;
-		};
+	flat_set<vote_id_type> votes;
+	extensions_type        extensions;
+
+	/// Whether this account is voting
+	inline bool is_voting() const
+	{
+		return ( voting_account != GRAPHENE_PROXY_TO_SELF_ACCOUNT || !votes.empty() );
+	}
+
+	void validate()const;
+};
 ```
 *
 | Parameter  |   | Description |
@@ -80,20 +80,20 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 | flat_set<vote_id_type>  |votes;  | - This is the list of vote IDs this account votes for. The weight of these votes is determined by this account's balance of core asset. |
 | extensions_type | extensions; |  |
 
-
-	struct account_create_operation : public base_operation
-
+```
+struct account_create_operation : public base_operation
+```
 
 ### address 
 ```
-	namespace fc { namespace ecc {
-		class public_key;
-		typedef fc::array<char,33>  public_key_data;
-	} } // fc::ecc
+namespace fc { namespace ecc {
+	class public_key;
+	typedef fc::array<char,33>  public_key_data;
+} } // fc::ecc
 ```
 
 ```
-	struct public_key_type;
+struct public_key_type;
 ```
 - A 160 bit hash of a public key
 - An address can be converted to or from a base58 string with 32 bit checksum.
@@ -123,6 +123,7 @@ class address
 	 }
 	 fc::ripemd160 addr;
 };
+
 inline bool operator == ( const address& a, const address& b ) { return a.addr == b.addr; }
 inline bool operator != ( const address& a, const address& b ) { return a.addr != b.addr; }
 inline bool operator <  ( const address& a, const address& b ) { return a.addr <  b.addr; }
@@ -157,11 +158,12 @@ namespace std
 ```
 struct account_name_eq_lit_predicate
 {
-account_id_type account_id;
-string          name;
-bool validate()const;
+	account_id_type account_id;
+	string          name;
+	bool validate()const;
 };
 ```
+
 - Used to verify that asset_id->symbol is equal to the given string literal.
 - Perform state independent checks.  Verify symbol is a valid asset symbol.
 ```
@@ -173,172 +175,175 @@ struct asset_symbol_eq_lit_predicate
 
 };
 ```
+
 - Used to verify that a specific block is part of the blockchain history.  This helps protect some high-value transactions to newly created IDs.
 - The block ID must be within the last 2^16 blocks.
 ```
-		struct block_id_predicate
-		{
-			block_id_type id;
-			bool validate()const{ return true; }
-		};
+struct block_id_predicate
+{
+	block_id_type id;
+	bool validate()const{ return true; }
+};
 ```
 - When defining predicates do not make the protocol dependent upon implementation details.
 ```
-		 typedef static_variant<
-				account_name_eq_lit_predicate,
-				asset_symbol_eq_lit_predicate,
-				block_id_predicate
-			 > predicate;
+typedef static_variant<
+	account_name_eq_lit_predicate,
+	asset_symbol_eq_lit_predicate,
+	block_id_predicate
+ > predicate;
 ```
 - assert that some conditions are true.
 
-		struct assert_operation : public base_operation{  };
+```
+struct assert_operation : public base_operation{  };
+```
 
 - this operation performs no changes to the database state, but can but used to verify pre or post conditions for other operations.
+```
+struct assert_operation : public base_operation
+{
+	struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		struct assert_operation : public base_operation
-		{
-			struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+	asset                      fee;
+	account_id_type            fee_paying_account;
+	vector<predicate>          predicates;
+	flat_set<account_id_type>  required_auths;
+	extensions_type            extensions;
 
-			asset                      fee;
-			account_id_type            fee_paying_account;
-			vector<predicate>          predicates;
-			flat_set<account_id_type>  required_auths;
-			extensions_type            extensions;
-
-			account_id_type fee_payer()const { return fee_paying_account; }
-			void            validate()const;
-			share_type      calculate_fee(const fee_parameters_type& k)const;
-		};
-
+	account_id_type fee_payer()const { return fee_paying_account; }
+	void            validate()const;
+	share_type      calculate_fee(const fee_parameters_type& k)const;
+};
+```
 
 ### asset 
 ```
-		extern const int64_t scaled_precision_lut[];
+extern const int64_t scaled_precision_lut[];
 
-		struct price;
+struct price;
 
-		struct asset
-		{
-			asset( share_type a = 0, asset_id_type id = asset_id_type() )
-			:amount(a),asset_id(id){}
+struct asset
+{
+	asset( share_type a = 0, asset_id_type id = asset_id_type() )
+	:amount(a),asset_id(id){}
 
-			share_type    amount;
-			asset_id_type asset_id;
+	share_type    amount;
+	asset_id_type asset_id;
 
-			asset& operator += ( const asset& o )
-			{
-				 FC_ASSERT( asset_id == o.asset_id );
-				 amount += o.amount;
-				 return *this;
-			}
-			asset& operator -= ( const asset& o )
-			{
-				 FC_ASSERT( asset_id == o.asset_id );
-				 amount -= o.amount;
-				 return *this;
-			}
-			asset operator -()const { return asset( -amount, asset_id ); }
+	asset& operator += ( const asset& o )
+	{
+		 FC_ASSERT( asset_id == o.asset_id );
+		 amount += o.amount;
+		 return *this;
+	}
+	asset& operator -= ( const asset& o )
+	{
+		 FC_ASSERT( asset_id == o.asset_id );
+		 amount -= o.amount;
+		 return *this;
+	}
+	asset operator -()const { return asset( -amount, asset_id ); }
 
-			friend bool operator == ( const asset& a, const asset& b )
-			{
-				 return std::tie( a.asset_id, a.amount ) == std::tie( b.asset_id, b.amount );
-			}
-			friend bool operator < ( const asset& a, const asset& b )
-			{
-				 FC_ASSERT( a.asset_id == b.asset_id );
-				 return a.amount < b.amount;
-			}
-			friend inline bool operator <= ( const asset& a, const asset& b )
-			{
-				 return !(b < a);
-			}
+	friend bool operator == ( const asset& a, const asset& b )
+	{
+		 return std::tie( a.asset_id, a.amount ) == std::tie( b.asset_id, b.amount );
+	}
+	friend bool operator < ( const asset& a, const asset& b )
+	{
+		 FC_ASSERT( a.asset_id == b.asset_id );
+		 return a.amount < b.amount;
+	}
+	friend inline bool operator <= ( const asset& a, const asset& b )
+	{
+		 return !(b < a);
+	}
 
-			friend inline bool operator != ( const asset& a, const asset& b )
-			{
-				 return !(a == b);
-			}
-			friend inline bool operator > ( const asset& a, const asset& b )
-			{
-				 return (b < a);
-			}
-			friend inline bool operator >= ( const asset& a, const asset& b )
-			{
-				 return !(a < b);
-			}
+	friend inline bool operator != ( const asset& a, const asset& b )
+	{
+		 return !(a == b);
+	}
+	friend inline bool operator > ( const asset& a, const asset& b )
+	{
+		 return (b < a);
+	}
+	friend inline bool operator >= ( const asset& a, const asset& b )
+	{
+		 return !(a < b);
+	}
 
-			friend asset operator - ( const asset& a, const asset& b )
-			{
-				 FC_ASSERT( a.asset_id == b.asset_id );
-				 return asset( a.amount - b.amount, a.asset_id );
-			}
-			friend asset operator + ( const asset& a, const asset& b )
-			{
-				 FC_ASSERT( a.asset_id == b.asset_id );
-				 return asset( a.amount + b.amount, a.asset_id );
-			}
+	friend asset operator - ( const asset& a, const asset& b )
+	{
+		 FC_ASSERT( a.asset_id == b.asset_id );
+		 return asset( a.amount - b.amount, a.asset_id );
+	}
+	friend asset operator + ( const asset& a, const asset& b )
+	{
+		 FC_ASSERT( a.asset_id == b.asset_id );
+		 return asset( a.amount + b.amount, a.asset_id );
+	}
 
-			static share_type scaled_precision( uint8_t precision )
-			{
-				 FC_ASSERT( precision < 19 );
-				 return scaled_precision_lut[ precision ];
-			}
+	static share_type scaled_precision( uint8_t precision )
+	{
+		 FC_ASSERT( precision < 19 );
+		 return scaled_precision_lut[ precision ];
+	}
 
-			asset multiply_and_round_up( const price& p )const; ///< Multiply and round up
-		};
+	asset multiply_and_round_up( const price& p )const; ///< Multiply and round up
+};
 
-	 
-	struct price{  };
-	struct price_feed{  };
+struct price{  };
+struct price_feed{  };
 ```
 
 - The price struct stores asset prices in the Graphene system.
 - A price is defined as a ratio between two assets, and represents a possible exchange rate between those two assets. prices are generally not stored in any simplified form, i.e. a price of (1000 CORE)/(20 USD) is perfectly normal.
 - The assets within a price are labeled base and quote. Throughout the Graphene code base, the convention used is that the base asset is the asset being sold, and the quote asset is the asset being purchased, where the price is represented as base/quote, so in the example price above the seller is looking to sell CORE asset and get USD in return.
+
 ```
-		struct price
-		{
-			explicit price(const asset& _base = asset(), const asset _quote = asset())
-				 : base(_base),quote(_quote){}
+struct price
+{
+	explicit price(const asset& _base = asset(), const asset _quote = asset())
+		 : base(_base),quote(_quote){}
 
-			asset base;
-			asset quote;
+	asset base;
+	asset quote;
 
-			static price max(asset_id_type base, asset_id_type quote );
-			static price min(asset_id_type base, asset_id_type quote );
+	static price max(asset_id_type base, asset_id_type quote );
+	static price min(asset_id_type base, asset_id_type quote );
 
-			static price call_price(const asset& debt, const asset& collateral, uint16_t collateral_ratio);
+	static price call_price(const asset& debt, const asset& collateral, uint16_t collateral_ratio);
 
-			/// The unit price for an asset type A is defined to be a price such that for any asset m, m*A=m
-			static price unit_price(asset_id_type a = asset_id_type()) { return price(asset(1, a), asset(1, a)); }
+	/// The unit price for an asset type A is defined to be a price such that for any asset m, m*A=m
+	static price unit_price(asset_id_type a = asset_id_type()) { return price(asset(1, a), asset(1, a)); }
 
-			price max()const { return price::max( base.asset_id, quote.asset_id ); }
-			price min()const { return price::min( base.asset_id, quote.asset_id ); }
+	price max()const { return price::max( base.asset_id, quote.asset_id ); }
+	price min()const { return price::min( base.asset_id, quote.asset_id ); }
 
-			double to_real()const { return double(base.amount.value)/double(quote.amount.value); }
+	double to_real()const { return double(base.amount.value)/double(quote.amount.value); }
 
-			bool is_null()const;
-			void validate()const;
-		};
+	bool is_null()const;
+	void validate()const;
+};
 
-		price operator / ( const asset& base, const asset& quote );
-		inline price operator~( const price& p ) { return price{p.quote,p.base}; }
+price operator / ( const asset& base, const asset& quote );
+inline price operator~( const price& p ) { return price{p.quote,p.base}; }
 
-		bool  operator <  ( const price& a, const price& b );
-		bool  operator == ( const price& a, const price& b );
+bool  operator <  ( const price& a, const price& b );
+bool  operator == ( const price& a, const price& b );
 
-		inline bool  operator >  ( const price& a, const price& b ) { return (b < a); }
-		inline bool  operator <= ( const price& a, const price& b ) { return !(b < a); }
-		inline bool  operator >= ( const price& a, const price& b ) { return !(a < b); }
-		inline bool  operator != ( const price& a, const price& b ) { return !(a == b); }
+inline bool  operator >  ( const price& a, const price& b ) { return (b < a); }
+inline bool  operator <= ( const price& a, const price& b ) { return !(b < a); }
+inline bool  operator >= ( const price& a, const price& b ) { return !(a < b); }
+inline bool  operator != ( const price& a, const price& b ) { return !(a == b); }
 
-		asset operator *  ( const asset& a, const price& b ); ///< Multiply and round down
+asset operator *  ( const asset& a, const price& b ); ///< Multiply and round down
 
-		price operator *  ( const price& p, const ratio_type& r );
-		price operator /  ( const price& p, const ratio_type& r );
+price operator *  ( const price& p, const ratio_type& r );
+price operator /  ( const price& p, const ratio_type& r );
 
-		inline price& operator *=  ( price& p, const ratio_type& r ) { return p = p * r; }
-		inline price& operator /=  ( price& p, const ratio_type& r ) { return p = p / r; }
+inline price& operator *=  ( price& p, const ratio_type& r ) { return p = p * r; }
+inline price& operator /=  ( price& p, const ratio_type& r ) { return p = p / r; }
 ```
 
 - defines market parameters for margin positions
@@ -371,18 +376,19 @@ struct asset_symbol_eq_lit_predicate
 - When selling collateral to pay off debt, the least amount of debt to receive should be
   - min_usd = max_short_squeeze_price() * collateral
 - This is provided to ensure that a black swan cannot be trigged due to poor liquidity alone, it must be confirmed by having the max_short_squeeze_price() move below the black swan price.
+
 ```
-		price max_short_squeeze_price()const;
+price max_short_squeeze_price()const;
 
-			friend bool operator == ( const price_feed& a, const price_feed& b )
-			{
-				 return std::tie( a.settlement_price, a.maintenance_collateral_ratio, a.maximum_short_squeeze_ratio ) ==
-								std::tie( b.settlement_price, b.maintenance_collateral_ratio, b.maximum_short_squeeze_ratio );
-			}
+	friend bool operator == ( const price_feed& a, const price_feed& b )
+	{
+		 return std::tie( a.settlement_price, a.maintenance_collateral_ratio, a.maximum_short_squeeze_ratio ) ==
+						std::tie( b.settlement_price, b.maintenance_collateral_ratio, b.maximum_short_squeeze_ratio );
+	}
 
-			void validate() const;
-			bool is_for( asset_id_type asset_id ) const;
-		};
+	void validate() const;
+	bool is_for( asset_id_type asset_id ) const;
+};
 ```
 	 
 ### asset_ops 
@@ -394,25 +400,25 @@ struct asset_symbol_eq_lit_predicate
 
 ```
 struct asset_options {
-		share_type max_supply = GRAPHENE_MAX_SHARE_SUPPLY;
-		uint16_t market_fee_percent = 0;	
-		share_type max_market_fee = GRAPHENE_MAX_SHARE_SUPPLY;
-		
-		uint16_t issuer_permissions = UIA_ASSET_ISSUER_PERMISSION_MASK;
-		uint16_t flags = 0;
-		
-		price core_exchange_rate = price(asset(), asset(0, asset_id_type(1)));
+	share_type max_supply = GRAPHENE_MAX_SHARE_SUPPLY;
+	uint16_t market_fee_percent = 0;	
+	share_type max_market_fee = GRAPHENE_MAX_SHARE_SUPPLY;
 
-		flat_set<account_id_type> whitelist_authorities;
-		flat_set<account_id_type> blacklist_authorities;
+	uint16_t issuer_permissions = UIA_ASSET_ISSUER_PERMISSION_MASK;
+	uint16_t flags = 0;
 
-		flat_set<asset_id_type>   whitelist_markets;
-		flat_set<asset_id_type>   blacklist_markets;
+	price core_exchange_rate = price(asset(), asset(0, asset_id_type(1)));
 
-		string description;
-		extensions_type extensions;
+	flat_set<account_id_type> whitelist_authorities;
+	flat_set<account_id_type> blacklist_authorities;
 
-		void validate()const;
+	flat_set<asset_id_type>   whitelist_markets;
+	flat_set<asset_id_type>   blacklist_markets;
+
+	string description;
+	extensions_type extensions;
+
+	void validate()const;
 };
 ``` 
 	 
@@ -438,23 +444,14 @@ struct asset_options {
 
 ```
 struct bitasset_options {
-	/// Time before a price feed expires
 	uint32_t feed_lifetime_sec = GRAPHENE_DEFAULT_PRICE_FEED_LIFETIME;
-	/// Minimum number of unexpired feeds required to extract a median feed from
 	uint8_t minimum_feeds = 1;
-	/// This is the delay between the time a long requests settlement and the chain evaluates the settlement
 	uint32_t force_settlement_delay_sec = GRAPHENE_DEFAULT_FORCE_SETTLEMENT_DELAY;
-	/// This is the percent to adjust the feed price in the short's favor in the event of a forced settlement
 	uint16_t force_settlement_offset_percent = GRAPHENE_DEFAULT_FORCE_SETTLEMENT_OFFSET;
-	
-	Force settlement volume can be limited such that only a certain percentage of the total existing supply of the asset may be force-settled within any given chain maintenance interval. This field stores the percentage of the current supply which may be force settled within the current maintenance interval. If force settlements come due in an interval in which the maximum volume has already been settled, the new settlements will be enqueued and processed at the beginning of the next maintenance interval.
 	uint16_t maximum_force_settlement_volume = GRAPHENE_DEFAULT_FORCE_SETTLEMENT_MAX_VOLUME;
-	/// This speicifies which asset type is used to collateralize short sales. This field may only be updated if the current supply of the asset is zero.
 	asset_id_type short_backing_asset;
 	extensions_type extensions;
 
-	/// Perform internal consistency checks.
-	/// @throws fc::exception if any check fails
 	void validate()const;
 };
 ```
@@ -475,38 +472,21 @@ struct bitasset_options {
 *Operaions*
 
 ```
-		struct asset_create_operation : public base_operation{   };
-		struct asset_global_settle_operation : public base_operation{   };
-		struct asset_settle_operation : public base_operation{   };
-		struct asset_settle_cancel_operation : public base_operation{   };
-		struct asset_fund_fee_pool_operation : public base_operation{  };
-		struct asset_update_operation : public base_operation{  };
-		struct asset_update_bitasset_operation : public base_operation{  };
-		struct asset_update_feed_producers_operation : public base_operation{  };
-		struct asset_publish_feed_operation : public base_operation{  };
-		struct asset_issue_operation : public base_operation{  };
-		struct asset_reserve_operation : public base_operation{  };
-		struct asset_claim_fees_operation : public base_operation{  };
-		struct asset_update_issuer_operation : public base_operation{  };
-		struct asset_claim_pool_operation : public base_operation{  };
+struct asset_create_operation : public base_operation{   };
+struct asset_global_settle_operation : public base_operation{   };
+struct asset_settle_operation : public base_operation{   };
+struct asset_settle_cancel_operation : public base_operation{   };
+struct asset_fund_fee_pool_operation : public base_operation{  };
+struct asset_update_operation : public base_operation{  };
+struct asset_update_bitasset_operation : public base_operation{  };
+struct asset_update_feed_producers_operation : public base_operation{  };
+struct asset_publish_feed_operation : public base_operation{  };
+struct asset_issue_operation : public base_operation{  };
+struct asset_reserve_operation : public base_operation{  };
+struct asset_claim_fees_operation : public base_operation{  };
+struct asset_update_issuer_operation : public base_operation{  };
+struct asset_claim_pool_operation : public base_operation{  };	
 ```	
-	
-
-|  |  |  |
-|---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-
-
 
 ### authority 
 
@@ -515,96 +495,97 @@ struct bitasset_options {
 
 
 ```
-		struct authority
-		{
-			authority(){}
-			template<class ...Args>
-			authority(uint32_t threshhold, Args... auths)
-				 : weight_threshold(threshhold)
-			{
-				 add_authorities(auths...);
-			}
+struct authority
+{
+	authority(){}
+	template<class ...Args>
+	authority(uint32_t threshhold, Args... auths)
+		 : weight_threshold(threshhold)
+	{
+		 add_authorities(auths...);
+	}
 
-			enum classification
-			{
-				 /** the key that is authorized to change owner, active, and voting keys */
-				 owner  = 0,
-				 /** the key that is able to perform normal operations */
-				 active = 1,
-				 key    = 2
-			};
-			void add_authority( const public_key_type& k, weight_type w )
-			{
-				 key_auths[k] = w;
-			}
-			void add_authority( const address& k, weight_type w )
-			{
-				 address_auths[k] = w;
-			}
-			void add_authority( account_id_type k, weight_type w )
-			{
-				 account_auths[k] = w;
-			}
-			bool is_impossible()const
-			{
-				 uint64_t auth_weights = 0;
-				 for( const auto& item : account_auths ) auth_weights += item.second;
-				 for( const auto& item : key_auths ) auth_weights += item.second;
-				 for( const auto& item : address_auths ) auth_weights += item.second;
-				 return auth_weights < weight_threshold;
-			}
+	enum classification
+	{
+		 /** the key that is authorized to change owner, active, and voting keys */
+		 owner  = 0,
+		 /** the key that is able to perform normal operations */
+		 active = 1,
+		 key    = 2
+	};
+	void add_authority( const public_key_type& k, weight_type w )
+	{
+		 key_auths[k] = w;
+	}
+	void add_authority( const address& k, weight_type w )
+	{
+		 address_auths[k] = w;
+	}
+	void add_authority( account_id_type k, weight_type w )
+	{
+		 account_auths[k] = w;
+	}
+	bool is_impossible()const
+	{
+		 uint64_t auth_weights = 0;
+		 for( const auto& item : account_auths ) auth_weights += item.second;
+		 for( const auto& item : key_auths ) auth_weights += item.second;
+		 for( const auto& item : address_auths ) auth_weights += item.second;
+		 return auth_weights < weight_threshold;
+	}
 
-			template<typename AuthType>
-			void add_authorities(AuthType k, weight_type w)
-			{
-				 add_authority(k, w);
-			}
-			template<typename AuthType, class ...Args>
-			void add_authorities(AuthType k, weight_type w, Args... auths)
-			{
-				 add_authority(k, w);
-				 add_authorities(auths...);
-			}
+	template<typename AuthType>
+	void add_authorities(AuthType k, weight_type w)
+	{
+		 add_authority(k, w);
+	}
+	template<typename AuthType, class ...Args>
+	void add_authorities(AuthType k, weight_type w, Args... auths)
+	{
+		 add_authority(k, w);
+		 add_authorities(auths...);
+	}
 
-			vector<public_key_type> get_keys() const
-			{
-				 vector<public_key_type> result;
-				 result.reserve( key_auths.size() );
-				 for( const auto& k : key_auths )
-						result.push_back(k.first);
-				 return result;
-			}
-			vector<address> get_addresses() const
-			{
-				 vector<address> result;
-				 result.reserve( address_auths.size() );
-				 for( const auto& k : address_auths )
-						result.push_back(k.first);
-				 return result;
-			}
+	vector<public_key_type> get_keys() const
+	{
+		 vector<public_key_type> result;
+		 result.reserve( key_auths.size() );
+		 for( const auto& k : key_auths )
+				result.push_back(k.first);
+		 return result;
+	}
+	vector<address> get_addresses() const
+	{
+		 vector<address> result;
+		 result.reserve( address_auths.size() );
+		 for( const auto& k : address_auths )
+				result.push_back(k.first);
+		 return result;
+	}
 
 
-			friend bool operator == ( const authority& a, const authority& b )
-			{
-				 return (a.weight_threshold == b.weight_threshold) &&
-								(a.account_auths == b.account_auths) &&
-								(a.key_auths == b.key_auths) &&
-								(a.address_auths == b.address_auths); 
-			}
-			uint32_t num_auths()const { return account_auths.size() + key_auths.size() + address_auths.size(); }
-			void     clear() { account_auths.clear(); key_auths.clear(); }
+	friend bool operator == ( const authority& a, const authority& b )
+	{
+		 return (a.weight_threshold == b.weight_threshold) &&
+						(a.account_auths == b.account_auths) &&
+						(a.key_auths == b.key_auths) &&
+						(a.address_auths == b.address_auths); 
+	}
+	uint32_t num_auths()const { return account_auths.size() + key_auths.size() + address_auths.size(); }
+	void     clear() { account_auths.clear(); key_auths.clear(); }
 
-			static authority null_authority()
-			{
-				 return authority( 1, GRAPHENE_NULL_ACCOUNT, 1 );
-			}
+	static authority null_authority()
+	{
+		 return authority( 1, GRAPHENE_NULL_ACCOUNT, 1 );
+	}
 
-			uint32_t                              weight_threshold = 0;
-			flat_map<account_id_type,weight_type> account_auths;
-			flat_map<public_key_type,weight_type> key_auths;
-			/** needed for backward compatibility only */
-			flat_map<address,weight_type>         address_auths;
-		};
+	uint32_t                              weight_threshold = 0;
+	flat_map<account_id_type,weight_type> account_auths;
+	flat_map<public_key_type,weight_type> key_auths;
+	/** needed for backward compatibility only */
+	flat_map<address,weight_type>         address_auths;
+};
+
 ``` 
 	
 - Add all account members of the given authority to the given flat_set.
