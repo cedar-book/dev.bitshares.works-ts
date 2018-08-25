@@ -70,7 +70,8 @@ struct account_options
 	void validate()const;
 };
 ```
-*
+*`account_options` description*
+
 | Parameter  |   | Description |
 |---|---|---|
 |public_key_type  | memo_key |- The memo key is the key this account will typically use to encrypt/sign transaction memos and other non-validated account activities. This field is here to prevent confusion if the active authority has zero or multiple keys in it.  |
@@ -193,29 +194,12 @@ typedef static_variant<
 	block_id_predicate
  > predicate;
 ```
-- assert that some conditions are true.
 
-```
-struct assert_operation : public base_operation{  };
-```
+*Operation*
+| operation |   |
+|---|---|
+|  |-  assert_operation  |
 
-- this operation performs no changes to the database state, but can but used to verify pre or post conditions for other operations.
-```
-struct assert_operation : public base_operation
-{
-	struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
-
-	asset                      fee;
-	account_id_type            fee_paying_account;
-	vector<predicate>          predicates;
-	flat_set<account_id_type>  required_auths;
-	extensions_type            extensions;
-
-	account_id_type fee_payer()const { return fee_paying_account; }
-	void            validate()const;
-	share_type      calculate_fee(const fee_parameters_type& k)const;
-};
-```
 
 ## asset 
 ```
@@ -353,21 +337,21 @@ inline price& operator /=  ( price& p, const ratio_type& r ) { return p = p / r;
 -	BlackSwan ---> SQR ---> MCR ----> SP		 
 
 **Forced settlements will evaluate using this price, defined as BITASSET / COLLATERAL**
-
-		price settlement_price;
-
+```
+price settlement_price;
+```
 - Price at which automatically exchanging this asset for CORE from fee pool occurs (used for paying fees)
-
-		price core_exchange_rate;
-
+```
+price core_exchange_rate;
+```
 - Fixed point between 1.000 and 10.000, implied fixed point denominator is GRAPHENE_COLLATERAL_RATIO_DENOM */
-
-		uint16_t maintenance_collateral_ratio = GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO;
-
+```
+uint16_t maintenance_collateral_ratio = GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO;
+```
 - Fixed point between 1.000 and 10.000, implied fixed point denominator is GRAPHENE_COLLATERAL_RATIO_DENOM */
-
-		uint16_t maximum_short_squeeze_ratio = GRAPHENE_DEFAULT_MAX_SHORT_SQUEEZE_RATIO;
-
+```
+uint16_t maximum_short_squeeze_ratio = GRAPHENE_DEFAULT_MAX_SHORT_SQUEEZE_RATIO;
+```
 - When updating a call order the following condition must be maintained:
   - debt * maintenance_price() < collateral
   - debt * settlement_price    < debt * maintenance
@@ -392,9 +376,10 @@ price max_short_squeeze_price()const;
 ```
 	 
 ## asset_ops 
+```
+bool is_valid_symbol( const string& symbol );
+```
 
-		bool is_valid_symbol( const string& symbol );
-	
 - The asset_options struct contains options available on all assets in the network
 - **Note**: Changes to this struct will break protocol compatibility
 
@@ -477,28 +462,11 @@ struct bitasset_options {
 |---|---|
 |  | - balance_claim_operation <br /> - asset_create_operation <br /> - asset_global_settle_operation <br /> - asset_settle_operation <br />- asset_settle_cancel_operation <br /> - asset_fund_fee_pool_operation <br /> - asset_update_operation <br /> - asset_update_bitasset_operation <br /> - asset_update_feed_producers_operation <br /> - asset_publish_feed_operation <br /> - asset_issue_operation <br /> - asset_reserve_operation <br /> - asset_claim_fees_operation <br /> - asset_update_issuer_operation <br /> - asset_claim_pool_operation |
 
-```
-struct asset_create_operation : public base_operation{   };
-struct asset_global_settle_operation : public base_operation{   };
-struct asset_settle_operation : public base_operation{   };
-struct asset_settle_cancel_operation : public base_operation{   };
-struct asset_fund_fee_pool_operation : public base_operation{  };
-struct asset_update_operation : public base_operation{  };
-struct asset_update_bitasset_operation : public base_operation{  };
-struct asset_update_feed_producers_operation : public base_operation{  };
-struct asset_publish_feed_operation : public base_operation{  };
-struct asset_issue_operation : public base_operation{  };
-struct asset_reserve_operation : public base_operation{  };
-struct asset_claim_fees_operation : public base_operation{  };
-struct asset_update_issuer_operation : public base_operation{  };
-struct asset_claim_pool_operation : public base_operation{  };
-```
 
 ## authority 
 
 - class authority
 - Identifies a weighted set of keys and accounts that must approve operations.
-
 
 ```
 struct authority
@@ -610,11 +578,8 @@ void add_authority_accounts(
 |---|---|
 |  | - balance_claim_operation  |
 
-```
-struct balance_claim_operation : public base_operation{  };
-```
 
-### base 
+## base 
 
 - Operations
 - Transactions
@@ -624,20 +589,19 @@ struct balance_claim_operation : public base_operation{  };
 - Each operation is a fully defined state transition and can exist in a transaction on its own.
 
 #### @section operation_design_principles Design Principles
-- Operations have been carefully designed to include all of the information necessary to interpret them outside the context of the blockchain.   This means that information about current chain state is included in the operation even though it could be inferred from a subset of the data.   This makes the expected outcome of each operation well defined and easily understood without access to chain state.
+Operations have been carefully designed to include all of the information necessary to interpret them outside the context of the blockchain.   This means that information about current chain state is included in the operation even though it could be inferred from a subset of the data.   This makes the expected outcome of each operation well defined and easily understood without access to chain state.
 
 #### @subsection balance_calculation Balance Calculation Principle
-- We have stipulated that the current account balance may be entirely calculated from just the subset of operations that are relevant to that account.  There should be no need to process the entire blockchain inorder to know your account's balance.
+We have stipulated that the current account balance may be entirely calculated from just the subset of operations that are relevant to that account.  There should be no need to process the entire blockchain inorder to know your account's balance.
 		
 #### @subsection fee_calculation Explicit Fee Principle
-- Blockchain fees can change from time to time and it is important that a signed transaction explicitly agree to the fees it will be paying.  This aids with account balance updates and ensures that the sender agreed to the fee prior to making the transaction.
+Blockchain fees can change from time to time and it is important that a signed transaction explicitly agree to the fees it will be paying.  This aids with account balance updates and ensures that the sender agreed to the fee prior to making the transaction.
 
 #### @subsection defined_authority Explicit Authority
-- E
-ach operation shall contain enough information to know which accounts must authorize the operation.  This principle enables authority verification to occur in a centralized, optimized, and parallel manner.
+Each operation shall contain enough information to know which accounts must authorize the operation.  This principle enables authority verification to occur in a centralized, optimized, and parallel manner.
 
 #### @subsection relevancy_principle Explicit Relevant Accounts
-- Each operation contains enough information to enumerate all accounts for which the operation should apear in its account history.  This principle enables us to easily define and enforce the @balance_calculation. This is superset of the @ref defined_authority
+Each operation contains enough information to enumerate all accounts for which the operation should apear in its account history.  This principle enables us to easily define and enforce the @balance_calculation. This is superset of the @ref defined_authority
 
 ```
 struct void_result{};
@@ -674,15 +638,16 @@ typedef flat_set<future_extensions> extensions_type;
 
 ## block 
 
-
+*See listed `block`information section.
+```
 struct block_header{  };
 struct signed_block_header : public block_header{  }
 struct signed_block : public signed_block_header{  };
-
+```
 
 
 ## buyback 
-
+```
 struct buyback_account_options
 {
    /**
@@ -702,51 +667,117 @@ struct buyback_account_options
     */
    flat_set< asset_id_type > markets;
 };
+```
+*The descriptions of `buyback` elements*
+
+|  |   | descriptions |
+|---|---|---|
+| asset_id_type | asset_to_buy | The asset to buy. |
+| account_id_type | asset_to_buy_issuer | Issuer of the asset.  Must sign the transaction, must match issuer of specified asset. |
+| flat_set< asset_id_type > | markets | What assets the account is willing to buy with. <br />  Other assets will just sit there since the account has null authority. |
 
 
 ## chain_parameters 
+```
+struct fee_schedule;
+```
 
-   typedef static_variant<>  parameter_extension; 
-   struct chain_parameters
-   {
-      /** using a smart ref breaks the circular dependency created between operations and the fee schedule */
-      smart_ref<fee_schedule> current_fees;                       ///< current schedule of fees
-      uint8_t                 block_interval                      = GRAPHENE_DEFAULT_BLOCK_INTERVAL; ///< interval in seconds between blocks
-      uint32_t                maintenance_interval                = GRAPHENE_DEFAULT_MAINTENANCE_INTERVAL; ///< interval in sections between blockchain maintenance events
-      uint8_t                 maintenance_skip_slots              = GRAPHENE_DEFAULT_MAINTENANCE_SKIP_SLOTS; ///< number of block_intervals to skip at maintenance time
-      uint32_t                committee_proposal_review_period    = GRAPHENE_DEFAULT_COMMITTEE_PROPOSAL_REVIEW_PERIOD_SEC; ///< minimum time in seconds that a proposed transaction requiring committee authority may not be signed, prior to expiration
-      uint32_t                maximum_transaction_size            = GRAPHENE_DEFAULT_MAX_TRANSACTION_SIZE; ///< maximum allowable size in bytes for a transaction
-      uint32_t                maximum_block_size                  = GRAPHENE_DEFAULT_MAX_BLOCK_SIZE; ///< maximum allowable size in bytes for a block
-      uint32_t                maximum_time_until_expiration       = GRAPHENE_DEFAULT_MAX_TIME_UNTIL_EXPIRATION; ///< maximum lifetime in seconds for transactions to be valid, before expiring
-      uint32_t                maximum_proposal_lifetime           = GRAPHENE_DEFAULT_MAX_PROPOSAL_LIFETIME_SEC; ///< maximum lifetime in seconds for proposed transactions to be kept, before expiring
-      uint8_t                 maximum_asset_whitelist_authorities = GRAPHENE_DEFAULT_MAX_ASSET_WHITELIST_AUTHORITIES; ///< maximum number of accounts which an asset may list as authorities for its whitelist OR blacklist
-      uint8_t                 maximum_asset_feed_publishers       = GRAPHENE_DEFAULT_MAX_ASSET_FEED_PUBLISHERS; ///< the maximum number of feed publishers for a given asset
-      uint16_t                maximum_witness_count               = GRAPHENE_DEFAULT_MAX_WITNESSES; ///< maximum number of active witnesses
-      uint16_t                maximum_committee_count             = GRAPHENE_DEFAULT_MAX_COMMITTEE; ///< maximum number of active committee_members
-      uint16_t                maximum_authority_membership        = GRAPHENE_DEFAULT_MAX_AUTHORITY_MEMBERSHIP; ///< largest number of keys/accounts an authority can have
-      uint16_t                reserve_percent_of_fee              = GRAPHENE_DEFAULT_BURN_PERCENT_OF_FEE; ///< the percentage of the network's allocation of a fee that is taken out of circulation
-      uint16_t                network_percent_of_fee              = GRAPHENE_DEFAULT_NETWORK_PERCENT_OF_FEE; ///< percent of transaction fees paid to network
-      uint16_t                lifetime_referrer_percent_of_fee    = GRAPHENE_DEFAULT_LIFETIME_REFERRER_PERCENT_OF_FEE; ///< percent of transaction fees paid to network
-      uint32_t                cashback_vesting_period_seconds     = GRAPHENE_DEFAULT_CASHBACK_VESTING_PERIOD_SEC; ///< time after cashback rewards are accrued before they become liquid
-      share_type              cashback_vesting_threshold          = GRAPHENE_DEFAULT_CASHBACK_VESTING_THRESHOLD; ///< the maximum cashback that can be received without vesting
-      bool                    count_non_member_votes              = true; ///< set to false to restrict voting privlegages to member accounts
-      bool                    allow_non_member_whitelists         = false; ///< true if non-member accounts may set whitelists and blacklists; false otherwise
-      share_type              witness_pay_per_block               = GRAPHENE_DEFAULT_WITNESS_PAY_PER_BLOCK; ///< CORE to be allocated to witnesses (per block)
-      uint32_t                witness_pay_vesting_seconds         = GRAPHENE_DEFAULT_WITNESS_PAY_VESTING_SECONDS; ///< vesting_seconds parameter for witness VBO's
-      share_type              worker_budget_per_day               = GRAPHENE_DEFAULT_WORKER_BUDGET_PER_DAY; ///< CORE to be allocated to workers (per day)
-      uint16_t                max_predicate_opcode                = GRAPHENE_DEFAULT_MAX_ASSERT_OPCODE; ///< predicate_opcode must be less than this number
-      share_type              fee_liquidation_threshold           = GRAPHENE_DEFAULT_FEE_LIQUIDATION_THRESHOLD; ///< value in CORE at which accumulated fees in blockchain-issued market assets should be liquidated
-      uint16_t                accounts_per_fee_scale              = GRAPHENE_DEFAULT_ACCOUNTS_PER_FEE_SCALE; ///< number of accounts between fee scalings
-      uint8_t                 account_fee_scale_bitshifts         = GRAPHENE_DEFAULT_ACCOUNT_FEE_SCALE_BITSHIFTS; ///< number of times to left bitshift account registration fee at each scaling
-      uint8_t                 max_authority_depth                 = GRAPHENE_MAX_SIG_CHECK_DEPTH;
-      extensions_type         extensions;
+```
+typedef static_variant<>  parameter_extension; 
+struct chain_parameters
+{
+/** using a smart ref breaks the circular dependency created between operations and the fee schedule */
+smart_ref<fee_schedule> current_fees;                       ///< current schedule of fees
+uint8_t                 block_interval                      = GRAPHENE_DEFAULT_BLOCK_INTERVAL; ///< interval in seconds between blocks
+uint32_t                maintenance_interval                = GRAPHENE_DEFAULT_MAINTENANCE_INTERVAL; ///< interval in sections between blockchain maintenance events
+uint8_t                 maintenance_skip_slots              = GRAPHENE_DEFAULT_MAINTENANCE_SKIP_SLOTS; ///< number of block_intervals to skip at maintenance time
+uint32_t                committee_proposal_review_period    = GRAPHENE_DEFAULT_COMMITTEE_PROPOSAL_REVIEW_PERIOD_SEC; ///< minimum time in seconds that a proposed transaction requiring committee authority may not be signed, prior to expiration
+uint32_t                maximum_transaction_size            = GRAPHENE_DEFAULT_MAX_TRANSACTION_SIZE; ///< maximum allowable size in bytes for a transaction
+uint32_t                maximum_block_size                  = GRAPHENE_DEFAULT_MAX_BLOCK_SIZE; ///< maximum allowable size in bytes for a block
+uint32_t                maximum_time_until_expiration       = GRAPHENE_DEFAULT_MAX_TIME_UNTIL_EXPIRATION; ///< maximum lifetime in seconds for transactions to be valid, before expiring
+uint32_t                maximum_proposal_lifetime           = GRAPHENE_DEFAULT_MAX_PROPOSAL_LIFETIME_SEC; ///< maximum lifetime in seconds for proposed transactions to be kept, before expiring
+uint8_t                 maximum_asset_whitelist_authorities = GRAPHENE_DEFAULT_MAX_ASSET_WHITELIST_AUTHORITIES; ///< maximum number of accounts which an asset may list as authorities for its whitelist OR blacklist
+uint8_t                 maximum_asset_feed_publishers       = GRAPHENE_DEFAULT_MAX_ASSET_FEED_PUBLISHERS; ///< the maximum number of feed publishers for a given asset
+uint16_t                maximum_witness_count               = GRAPHENE_DEFAULT_MAX_WITNESSES; ///< maximum number of active witnesses
+uint16_t                maximum_committee_count             = GRAPHENE_DEFAULT_MAX_COMMITTEE; ///< maximum number of active committee_members
+uint16_t                maximum_authority_membership        = GRAPHENE_DEFAULT_MAX_AUTHORITY_MEMBERSHIP; ///< largest number of keys/accounts an authority can have
+uint16_t                reserve_percent_of_fee              = GRAPHENE_DEFAULT_BURN_PERCENT_OF_FEE; ///< the percentage of the network's allocation of a fee that is taken out of circulation
+uint16_t                network_percent_of_fee              = GRAPHENE_DEFAULT_NETWORK_PERCENT_OF_FEE; ///< percent of transaction fees paid to network
+uint16_t                lifetime_referrer_percent_of_fee    = GRAPHENE_DEFAULT_LIFETIME_REFERRER_PERCENT_OF_FEE; ///< percent of transaction fees paid to network
+uint32_t                cashback_vesting_period_seconds     = GRAPHENE_DEFAULT_CASHBACK_VESTING_PERIOD_SEC; ///< time after cashback rewards are accrued before they become liquid
+share_type              cashback_vesting_threshold          = GRAPHENE_DEFAULT_CASHBACK_VESTING_THRESHOLD; ///< the maximum cashback that can be received without vesting
+bool                    count_non_member_votes              = true; ///< set to false to restrict voting privlegages to member accounts
+bool                    allow_non_member_whitelists         = false; ///< true if non-member accounts may set whitelists and blacklists; false otherwise
+share_type              witness_pay_per_block               = GRAPHENE_DEFAULT_WITNESS_PAY_PER_BLOCK; ///< CORE to be allocated to witnesses (per block)
+uint32_t                witness_pay_vesting_seconds         = GRAPHENE_DEFAULT_WITNESS_PAY_VESTING_SECONDS; ///< vesting_seconds parameter for witness VBO's
+share_type              worker_budget_per_day               = GRAPHENE_DEFAULT_WORKER_BUDGET_PER_DAY; ///< CORE to be allocated to workers (per day)
+uint16_t                max_predicate_opcode                = GRAPHENE_DEFAULT_MAX_ASSERT_OPCODE; ///< predicate_opcode must be less than this number
+share_type              fee_liquidation_threshold           = GRAPHENE_DEFAULT_FEE_LIQUIDATION_THRESHOLD; ///< value in CORE at which accumulated fees in blockchain-issued market assets should be liquidated
+uint16_t                accounts_per_fee_scale              = GRAPHENE_DEFAULT_ACCOUNTS_PER_FEE_SCALE; ///< number of accounts between fee scalings
+uint8_t                 account_fee_scale_bitshifts         = GRAPHENE_DEFAULT_ACCOUNT_FEE_SCALE_BITSHIFTS; ///< number of times to left bitshift account registration fee at each scaling
+uint8_t                 max_authority_depth                 = GRAPHENE_MAX_SIG_CHECK_DEPTH;
+extensions_type         extensions;
 
-      /** defined in fee_schedule.cpp */
-      void validate()const;
-   };
+/** defined in fee_schedule.cpp */
+void validate()const;
+};
+```
+
+|  |   | descriptions |
+|---|---|---|
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+
+/** using a smart ref breaks the circular dependency created between operations and the fee schedule */
+smart_ref<fee_schedule> current_fees;                       ///< current schedule of fees
+uint8_t                 block_interval                      = GRAPHENE_DEFAULT_BLOCK_INTERVAL; ///< interval in seconds between blocks
+uint32_t                maintenance_interval                = GRAPHENE_DEFAULT_MAINTENANCE_INTERVAL; ///< interval in sections between blockchain maintenance events
+uint8_t                 maintenance_skip_slots              = GRAPHENE_DEFAULT_MAINTENANCE_SKIP_SLOTS; ///< number of block_intervals to skip at maintenance time
+uint32_t                committee_proposal_review_period    = GRAPHENE_DEFAULT_COMMITTEE_PROPOSAL_REVIEW_PERIOD_SEC; ///< minimum time in seconds that a proposed transaction requiring committee authority may not be signed, prior to expiration
+uint32_t                maximum_transaction_size            = GRAPHENE_DEFAULT_MAX_TRANSACTION_SIZE; ///< maximum allowable size in bytes for a transaction
+uint32_t                maximum_block_size                  = GRAPHENE_DEFAULT_MAX_BLOCK_SIZE; ///< maximum allowable size in bytes for a block
+uint32_t                maximum_time_until_expiration       = GRAPHENE_DEFAULT_MAX_TIME_UNTIL_EXPIRATION; ///< maximum lifetime in seconds for transactions to be valid, before expiring
+uint32_t                maximum_proposal_lifetime           = GRAPHENE_DEFAULT_MAX_PROPOSAL_LIFETIME_SEC; ///< maximum lifetime in seconds for proposed transactions to be kept, before expiring
+uint8_t                 maximum_asset_whitelist_authorities = GRAPHENE_DEFAULT_MAX_ASSET_WHITELIST_AUTHORITIES; ///< maximum number of accounts which an asset may list as authorities for its whitelist OR blacklist
+uint8_t                 maximum_asset_feed_publishers       = GRAPHENE_DEFAULT_MAX_ASSET_FEED_PUBLISHERS; ///< the maximum number of feed publishers for a given asset
+uint16_t                maximum_witness_count               = GRAPHENE_DEFAULT_MAX_WITNESSES; ///< maximum number of active witnesses
+uint16_t                maximum_committee_count             = GRAPHENE_DEFAULT_MAX_COMMITTEE; ///< maximum number of active committee_members
+uint16_t                maximum_authority_membership        = GRAPHENE_DEFAULT_MAX_AUTHORITY_MEMBERSHIP; ///< largest number of keys/accounts an authority can have
+uint16_t                reserve_percent_of_fee              = GRAPHENE_DEFAULT_BURN_PERCENT_OF_FEE; ///< the percentage of the network's allocation of a fee that is taken out of circulation
+uint16_t                network_percent_of_fee              = GRAPHENE_DEFAULT_NETWORK_PERCENT_OF_FEE; ///< percent of transaction fees paid to network
+uint16_t                lifetime_referrer_percent_of_fee    = GRAPHENE_DEFAULT_LIFETIME_REFERRER_PERCENT_OF_FEE; ///< percent of transaction fees paid to network
+uint32_t                cashback_vesting_period_seconds     = GRAPHENE_DEFAULT_CASHBACK_VESTING_PERIOD_SEC; ///< time after cashback rewards are accrued before they become liquid
+share_type              cashback_vesting_threshold          = GRAPHENE_DEFAULT_CASHBACK_VESTING_THRESHOLD; ///< the maximum cashback that can be received without vesting
+bool                    count_non_member_votes              = true; ///< set to false to restrict voting privlegages to member accounts
+bool                    allow_non_member_whitelists         = false; ///< true if non-member accounts may set whitelists and blacklists; false otherwise
+share_type              witness_pay_per_block               = GRAPHENE_DEFAULT_WITNESS_PAY_PER_BLOCK; ///< CORE to be allocated to witnesses (per block)
+uint32_t                witness_pay_vesting_seconds         = GRAPHENE_DEFAULT_WITNESS_PAY_VESTING_SECONDS; ///< vesting_seconds parameter for witness VBO's
+share_type              worker_budget_per_day               = GRAPHENE_DEFAULT_WORKER_BUDGET_PER_DAY; ///< CORE to be allocated to workers (per day)
+uint16_t                max_predicate_opcode                = GRAPHENE_DEFAULT_MAX_ASSERT_OPCODE; ///< predicate_opcode must be less than this number
+share_type              fee_liquidation_threshold           = GRAPHENE_DEFAULT_FEE_LIQUIDATION_THRESHOLD; ///< value in CORE at which accumulated fees in blockchain-issued market assets should be liquidated
+uint16_t                accounts_per_fee_scale              = GRAPHENE_DEFAULT_ACCOUNTS_PER_FEE_SCALE; ///< number of accounts between fee scalings
+uint8_t                 account_fee_scale_bitshifts         = GRAPHENE_DEFAULT_ACCOUNT_FEE_SCALE_BITSHIFTS; ///< number of times to left bitshift account registration fee at each scaling
+uint8_t                 max_authority_depth                 = GRAPHENE_MAX_SIG_CHECK_DEPTH;
+extensions_type         extensions;
+
+/** defined in fee_schedule.cpp */
+void validate()const;
 
 
-- committee_member 
+## committee_member 
+
 struct committee_member_create_operation : public base_operation{  };
 struct committee_member_update_operation : public base_operation{  };
 struct committee_member_update_global_parameters_operation : public base_operation{  };
