@@ -148,7 +148,8 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 		}
 
 
-	### assert 
+### assert 
+
 - Used to verify that account_id->name is equal to the given string literal.
 
 		struct account_name_eq_lit_predicate
@@ -393,7 +394,60 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 	 
 ### asset_ops 
 
-	bool is_valid_symbol( const string& symbol );
+		bool is_valid_symbol( const string& symbol );
+	
+- The asset_options struct contains options available on all assets in the network
+- **Note**: Changes to this struct will break protocol compatibility
+
+
+struct asset_options {
+		share_type max_supply = GRAPHENE_MAX_SHARE_SUPPLY;
+		uint16_t market_fee_percent = 0;	
+		share_type max_market_fee = GRAPHENE_MAX_SHARE_SUPPLY;
+		
+		uint16_t issuer_permissions = UIA_ASSET_ISSUER_PERMISSION_MASK;
+		uint16_t flags = 0;
+		
+		price core_exchange_rate = price(asset(), asset(0, asset_id_type(1)));
+
+		flat_set<account_id_type> whitelist_authorities;
+		flat_set<account_id_type> blacklist_authorities;
+
+		flat_set<asset_id_type>   whitelist_markets;
+		flat_set<asset_id_type>   blacklist_markets;
+
+		string description;
+		extensions_type extensions;
+
+		void validate()const;
+};
+
+|  |  |  |
+|---|---|---|
+| share_type | max_supply = GRAPHENE_MAX_SHARE_SUPPLY; | The maximum supply of this asset which may exist at any given time. This can be as large as GRAPHENE_MAX_SHARE_SUPPLY |
+| uint16_t | market_fee_percent = 0; | When this asset is traded on the markets, this percentage of the total traded will be exacted and paid to the issuer. This is a fixed point value, representing hundredths of a percent, i.e. a value of 100 in this field means a 1% fee is charged on market trades of this asset. |
+| share_type | max_market_fee = GRAPHENE_MAX_SHARE_SUPPLY; | Market fees calculated as @ref market_fee_percent of the traded volume are capped to this value |
+| uint16_t | issuer_permissions = UIA_ASSET_ISSUER_PERMISSION_MASK; | The flags which the issuer has permission to update. See @ref asset_issuer_permission_flags |
+| uint16_t | flags = 0; | The currently active flags on this permission. See @ref asset_issuer_permission_flags |
+| price | core_exchange_rate = price(asset(), asset(0, asset_id_type(1))); |  When a non-core asset is used to pay a fee, the blockchain must convert that asset to core asset in order to accept the fee. If this asset's fee pool is funded, the chain will automatically deposite fees in this asset to its accumulated fees, and withdraw from the fee pool the same amount as converted at the core exchange rate. |
+| flat_set<account_id_type> | whitelist_authorities; | A set of accounts which maintain whitelists to consult for this asset. If whitelist_authorities is non-empty, then only accounts in whitelist_authorities are allowed to hold, use, or transfer the asset. |
+|  flat_set<account_id_type> | blacklist_authorities; | A set of accounts which maintain blacklists to consult for this asset. If flags & white_list is set, an account may only send, receive, trade, etc. in this asset if none of these accounts appears in its account_object::blacklisting_accounts field. If the account is blacklisted, it may not transact in this asset even if it is also whitelisted. |
+|flat_set<asset_id_type>  | whitelist_markets; |  defines the assets that this asset may be traded against in the market |
+| flat_set<asset_id_type> |  blacklist_markets; | defines the assets that this asset may not be traded against in the market, must not overlap whitelist |
+| string | description | data that describes the meaning/purpose of this asset, fee will be charged proportional to size of description. |
+|extensions_type  | extensions; |  |
+| void | validate()const; | Perform internal consistency checks. @throws fc::exception if any check fails |
+
+
+
+
+
+
+|  |  |  |
+|  |  |  |
+
+
+		
 	struct asset_options {  };
 	struct bitasset_options {  };
 	struct asset_create_operation : public base_operation {  };
