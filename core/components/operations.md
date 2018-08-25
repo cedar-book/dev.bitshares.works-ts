@@ -865,7 +865,10 @@ Learning BitShares-Core Available Operations.
 ### proposal_create_operation
 - The `proposal_create_operation` creates a transaction proposal, for use in multi-sig scenarios
 - Creates a transaction proposal. The operations which compose the transaction are listed in order in proposed_ops, and expiration_time specifies the time by which the proposal must be accepted or it will fail permanently. The expiration_time cannot be farther in the future than the maximum expiration time set in the global properties object. 
-
+- Constructs a proposal_create_operation suitable for committee proposals, with expiration time and review period set
+        * appropriately.  No proposed_ops are added.  When used to create a proposal to change chain parameters, this method expects to receive the currently effective parameters, not the proposed parameters.  (The proposed parameters will go in proposed_ops, and proposed_ops is untouched by this function.)
+	
+	
 		struct proposal_create_operation : public base_operation
 		{
 		struct fee_parameters_type { 
