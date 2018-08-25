@@ -29,8 +29,7 @@ The below is simple blockchain structure image.
 ## Block Header - inheritance 
 
 #### block_header
--Note: when we need to add data to `extensions`, remember to review `database::_generate_block()`.
-      //       More info in https://github.com/bitshares/bitshares-core/issues/1136
+
 ```
 // *Block Header Inheritance* (i.e.) 1.0.0.0 
 // graphene::chain
@@ -48,7 +47,9 @@ struct block_header
     static uint32_t     num_from_id(const block_id_type& id);
 };
 ```
- 
+- Note: when we need to add data to `extensions`, remember to review `database::_generate_block()`.
+  - More info in https://github.com/bitshares/bitshares-core/issues/1136
+      
 #### signed_block_header
 ``` 
 // *Block Header Inheritance* (i.e.) 1.1.0.0
