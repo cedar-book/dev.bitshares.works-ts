@@ -42,78 +42,374 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 
 ***
 
-- account 
+### account 
 
 
-- address 
+	bool is_valid_name( const string& s );
+	bool is_cheap_name( const string& n );
 
-namespace fc { namespace ecc {
-	class public_key;
-	typedef fc::array<char,33>  public_key_data;
-} } // fc::ecc
+- These are the fields which can be updated by the active authority.
 
-namespace graphene { namespace chain {
+		struct account_options
+		{
+			public_key_type  memo_key;
+			account_id_type voting_account = GRAPHENE_PROXY_TO_SELF_ACCOUNT;
+			
+			uint16_t num_witness = 0;
+			uint16_t num_committee = 0;
+			
+			flat_set<vote_id_type> votes;
+			extensions_type        extensions;
 
-struct public_key_type;
+			/// Whether this account is voting
+			inline bool is_voting() const
+			{
+				return ( voting_account != GRAPHENE_PROXY_TO_SELF_ACCOUNT || !votes.empty() );
+			}
+
+			void validate()const;
+		};
+
+*
+| Parameter  |   | Description |
+|---|---|---|
+|public_key_type  | memo_key |- The memo key is the key this account will typically use to encrypt/sign transaction memos and other non-validated account activities. This field is here to prevent confusion if the active authority has zero or multiple keys in it.  |
+| account_id_type | voting_account = GRAPHENE_PROXY_TO_SELF_ACCOUNT; | - If this field is set to an account ID other than GRAPHENE_PROXY_TO_SELF_ACCOUNT, then this account's votes will be ignored; its stake will be counted as voting for the referenced account's selected votes instead.  |
+| uint16_t | num_witness = 0; | - The number of active witnesses this account votes the blockchain should appoint Must not exceed the actual number of witnesses voted for in @ref votes |
+| uint16_t | num_committee = 0; | - The number of active committee members this account votes the blockchain should appoint Must not exceed the actual number of committee members voted for in @ref votes |
+| flat_set<vote_id_type>  |votes;  | - This is the list of vote IDs this account votes for. The weight of these votes is determined by this account's balance of core asset. |
+| extensions_type | extensions; |  |
+
+
+	struct account_create_operation : public base_operation
+
+
+### address 
+
+	namespace fc { namespace ecc {
+		class public_key;
+		typedef fc::array<char,33>  public_key_data;
+	} } // fc::ecc
+
+
+
+	struct public_key_type;
 
 - A 160 bit hash of a public key
 - An address can be converted to or from a base58 string with 32 bit checksum.
 - An address is calculated as ripemd160( sha512( compressed_ecc_public_key ) )
 - When converted to a string, checksum calculated as the first 4 bytes ripemd160( address ) is appended to the binary address before converting to base58.
 
-class address
-{
-};
 
-};
+		class address
+		{
+			public:
+			 address(); ///< constructs empty / null address
+			 explicit address( const std::string& base58str );   ///< converts to binary, validates checksum
+			 address( const fc::ecc::public_key& pub ); ///< converts to binary
+			 explicit address( const fc::ecc::public_key_data& pub ); ///< converts to binary
+			 address( const pts_address& pub ); ///< converts to binary
+			 address( const public_key_type& pubkey );
 
-- assert 
+			 static bool is_valid( const std::string& base58str, const std::string& prefix = GRAPHENE_ADDRESS_PREFIX );
 
-struct account_name_eq_lit_predicate{  };
-struct asset_symbol_eq_lit_predicate{  };
-struct block_id_predicate{  };
+			 explicit operator std::string()const; ///< converts to base58 + checksum
 
-   typedef static_variant<
-      account_name_eq_lit_predicate,
-      asset_symbol_eq_lit_predicate,
-      block_id_predicate
-     > predicate;
+			 friend size_t hash_value( const address& v ) { 
+					const void* tmp = static_cast<const void*>(v.addr._hash+2);
 
-struct assert_operation : public base_operation{  };
-
-
-- asset 
-
-extern const int64_t scaled_precision_lut[];
-struct price;
-struct asset{  };
-struct price{  };
-struct price_feed{  };
+					const size_t* tmp2 = reinterpret_cast<const size_t*>(tmp);
+					return *tmp2;
+			 }
+			 fc::ripemd160 addr;
+		};
+		inline bool operator == ( const address& a, const address& b ) { return a.addr == b.addr; }
+		inline bool operator != ( const address& a, const address& b ) { return a.addr != b.addr; }
+		inline bool operator <  ( const address& a, const address& b ) { return a.addr <  b.addr; }
 
 
+		namespace fc
+		{
+			 void to_variant( const graphene::chain::address& var,  fc::variant& vo, uint32_t max_depth = 1 );
+			 void from_variant( const fc::variant& var,  graphene::chain::address& vo, uint32_t max_depth = 1 );
+		}
+
+		namespace std
+		{
+			 template<>
+			 struct hash<graphene::chain::address>
+			 {
+					 public:
+						 size_t operator()(const graphene::chain::address &a) const
+						 {
+								return (uint64_t(a.addr._hash[0])<<32) | uint64_t( a.addr._hash[0] );
+						 }
+			 };
+		}
 
 
-   
-   
-- asset_ops 
+	### assert 
+- Used to verify that account_id->name is equal to the given string literal.
 
-bool is_valid_symbol( const string& symbol );
-struct asset_options {  };
-struct bitasset_options {  };
-struct asset_create_operation : public base_operation {  };
-struct asset_global_settle_operation : public base_operation{   };
-struct asset_settle_operation : public base_operation{   };
-struct asset_settle_cancel_operation : public base_operation{   };
-struct asset_fund_fee_pool_operation : public base_operation{  };
-struct asset_update_operation : public base_operation{  };
-struct asset_update_bitasset_operation : public base_operation{  };
-struct asset_update_feed_producers_operation : public base_operation{  };
-struct asset_publish_feed_operation : public base_operation{  };
-struct asset_issue_operation : public base_operation{  };
-struct asset_reserve_operation : public base_operation{  };
-struct asset_claim_fees_operation : public base_operation{  };
-struct asset_update_issuer_operation : public base_operation{  };
-struct asset_claim_pool_operation : public base_operation{  };
+		struct account_name_eq_lit_predicate
+		{
+			account_id_type account_id;
+			string          name;
+
+			/**
+			 *  Perform state-independent checks.  Verify
+			 *  account_name is a valid account name.
+			 */
+			bool validate()const;
+		};
+
+- Used to verify that asset_id->symbol is equal to the given string literal.
+
+		struct asset_symbol_eq_lit_predicate
+		{
+			asset_id_type   asset_id;
+			string          symbol;
+
+			/**
+			 *  Perform state independent checks.  Verify symbol is a
+			 *  valid asset symbol.
+			 */
+			bool validate()const;
+
+		};
+
+- Used to verify that a specific block is part of the blockchain history.  This helps protect some high-value transactions to newly created IDs.
+- The block ID must be within the last 2^16 blocks.
+
+		struct block_id_predicate
+		{
+			block_id_type id;
+			bool validate()const{ return true; }
+		};
+
+- When defining predicates do not make the protocol dependent upon implementation details.
+
+		 typedef static_variant<
+				account_name_eq_lit_predicate,
+				asset_symbol_eq_lit_predicate,
+				block_id_predicate
+			 > predicate;
+
+- assert that some conditions are true.
+
+		struct assert_operation : public base_operation{  };
+
+- this operation performs no changes to the database state, but can but used to verify pre or post conditions for other operations.
+
+		struct assert_operation : public base_operation
+		{
+			struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
+
+			asset                      fee;
+			account_id_type            fee_paying_account;
+			vector<predicate>          predicates;
+			flat_set<account_id_type>  required_auths;
+			extensions_type            extensions;
+
+			account_id_type fee_payer()const { return fee_paying_account; }
+			void            validate()const;
+			share_type      calculate_fee(const fee_parameters_type& k)const;
+		};
+
+
+### asset 
+
+		extern const int64_t scaled_precision_lut[];
+
+		struct price;
+
+		struct asset
+		{
+			asset( share_type a = 0, asset_id_type id = asset_id_type() )
+			:amount(a),asset_id(id){}
+
+			share_type    amount;
+			asset_id_type asset_id;
+
+			asset& operator += ( const asset& o )
+			{
+				 FC_ASSERT( asset_id == o.asset_id );
+				 amount += o.amount;
+				 return *this;
+			}
+			asset& operator -= ( const asset& o )
+			{
+				 FC_ASSERT( asset_id == o.asset_id );
+				 amount -= o.amount;
+				 return *this;
+			}
+			asset operator -()const { return asset( -amount, asset_id ); }
+
+			friend bool operator == ( const asset& a, const asset& b )
+			{
+				 return std::tie( a.asset_id, a.amount ) == std::tie( b.asset_id, b.amount );
+			}
+			friend bool operator < ( const asset& a, const asset& b )
+			{
+				 FC_ASSERT( a.asset_id == b.asset_id );
+				 return a.amount < b.amount;
+			}
+			friend inline bool operator <= ( const asset& a, const asset& b )
+			{
+				 return !(b < a);
+			}
+
+			friend inline bool operator != ( const asset& a, const asset& b )
+			{
+				 return !(a == b);
+			}
+			friend inline bool operator > ( const asset& a, const asset& b )
+			{
+				 return (b < a);
+			}
+			friend inline bool operator >= ( const asset& a, const asset& b )
+			{
+				 return !(a < b);
+			}
+
+			friend asset operator - ( const asset& a, const asset& b )
+			{
+				 FC_ASSERT( a.asset_id == b.asset_id );
+				 return asset( a.amount - b.amount, a.asset_id );
+			}
+			friend asset operator + ( const asset& a, const asset& b )
+			{
+				 FC_ASSERT( a.asset_id == b.asset_id );
+				 return asset( a.amount + b.amount, a.asset_id );
+			}
+
+			static share_type scaled_precision( uint8_t precision )
+			{
+				 FC_ASSERT( precision < 19 );
+				 return scaled_precision_lut[ precision ];
+			}
+
+			asset multiply_and_round_up( const price& p )const; ///< Multiply and round up
+		};
+
+	 
+	struct price{  };
+	struct price_feed{  };
+
+
+- The price struct stores asset prices in the Graphene system.
+- A price is defined as a ratio between two assets, and represents a possible exchange rate between those two assets. prices are generally not stored in any simplified form, i.e. a price of (1000 CORE)/(20 USD) is perfectly normal.
+- The assets within a price are labeled base and quote. Throughout the Graphene code base, the convention used is that the base asset is the asset being sold, and the quote asset is the asset being purchased, where the price is represented as base/quote, so in the example price above the seller is looking to sell CORE asset and get USD in return.
+
+		struct price
+		{
+			explicit price(const asset& _base = asset(), const asset _quote = asset())
+				 : base(_base),quote(_quote){}
+
+			asset base;
+			asset quote;
+
+			static price max(asset_id_type base, asset_id_type quote );
+			static price min(asset_id_type base, asset_id_type quote );
+
+			static price call_price(const asset& debt, const asset& collateral, uint16_t collateral_ratio);
+
+			/// The unit price for an asset type A is defined to be a price such that for any asset m, m*A=m
+			static price unit_price(asset_id_type a = asset_id_type()) { return price(asset(1, a), asset(1, a)); }
+
+			price max()const { return price::max( base.asset_id, quote.asset_id ); }
+			price min()const { return price::min( base.asset_id, quote.asset_id ); }
+
+			double to_real()const { return double(base.amount.value)/double(quote.amount.value); }
+
+			bool is_null()const;
+			void validate()const;
+		};
+
+		price operator / ( const asset& base, const asset& quote );
+		inline price operator~( const price& p ) { return price{p.quote,p.base}; }
+
+		bool  operator <  ( const price& a, const price& b );
+		bool  operator == ( const price& a, const price& b );
+
+		inline bool  operator >  ( const price& a, const price& b ) { return (b < a); }
+		inline bool  operator <= ( const price& a, const price& b ) { return !(b < a); }
+		inline bool  operator >= ( const price& a, const price& b ) { return !(a < b); }
+		inline bool  operator != ( const price& a, const price& b ) { return !(a == b); }
+
+		asset operator *  ( const asset& a, const price& b ); ///< Multiply and round down
+
+		price operator *  ( const price& p, const ratio_type& r );
+		price operator /  ( const price& p, const ratio_type& r );
+
+		inline price& operator *=  ( price& p, const ratio_type& r )
+		{ return p = p * r; }
+		inline price& operator /=  ( price& p, const ratio_type& r )
+		{ return p = p / r; }
+
+- defines market parameters for margin positions
+- Required maintenance collateral is defined as a fixed point number with a maximum value of 10.000 and a minimum value of 1.000.  (denominated in GRAPHENE_COLLATERAL_RATIO_DENOM)
+- A black swan event occurs when value_of_collateral equals value_of_debt, to avoid a black swan a margin call is executed when value_of_debt * required_maintenance_collateral equals value_of_collateral using rate.
+-  Default requirement is $1.75 of collateral per $1 of debt       
+-	BlackSwan ---> SQR ---> MCR ----> SP		 
+
+**Forced settlements will evaluate using this price, defined as BITASSET / COLLATERAL**
+
+		price settlement_price;
+
+- Price at which automatically exchanging this asset for CORE from fee pool occurs (used for paying fees)
+
+		price core_exchange_rate;
+
+- Fixed point between 1.000 and 10.000, implied fixed point denominator is GRAPHENE_COLLATERAL_RATIO_DENOM */
+
+		uint16_t maintenance_collateral_ratio = GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO;
+
+- Fixed point between 1.000 and 10.000, implied fixed point denominator is GRAPHENE_COLLATERAL_RATIO_DENOM */
+
+		uint16_t maximum_short_squeeze_ratio = GRAPHENE_DEFAULT_MAX_SHORT_SQUEEZE_RATIO;
+
+- When updating a call order the following condition must be maintained:
+  - debt * maintenance_price() < collateral
+  - debt * settlement_price    < debt * maintenance
+  - debt * maintenance_price() < debt * max_short_squeeze_price()
+- price maintenance_price()const;
+- When selling collateral to pay off debt, the least amount of debt to receive should be
+  - min_usd = max_short_squeeze_price() * collateral
+- This is provided to ensure that a black swan cannot be trigged due to poor liquidity alone, it must be confirmed by having the max_short_squeeze_price() move below the black swan price.
+
+		price max_short_squeeze_price()const;
+
+			friend bool operator == ( const price_feed& a, const price_feed& b )
+			{
+				 return std::tie( a.settlement_price, a.maintenance_collateral_ratio, a.maximum_short_squeeze_ratio ) ==
+								std::tie( b.settlement_price, b.maintenance_collateral_ratio, b.maximum_short_squeeze_ratio );
+			}
+
+			void validate() const;
+			bool is_for( asset_id_type asset_id ) const;
+		};
+
+	 
+### asset_ops 
+
+	bool is_valid_symbol( const string& symbol );
+	struct asset_options {  };
+	struct bitasset_options {  };
+	struct asset_create_operation : public base_operation {  };
+	struct asset_global_settle_operation : public base_operation{   };
+	struct asset_settle_operation : public base_operation{   };
+	struct asset_settle_cancel_operation : public base_operation{   };
+	struct asset_fund_fee_pool_operation : public base_operation{  };
+	struct asset_update_operation : public base_operation{  };
+	struct asset_update_bitasset_operation : public base_operation{  };
+	struct asset_update_feed_producers_operation : public base_operation{  };
+	struct asset_publish_feed_operation : public base_operation{  };
+	struct asset_issue_operation : public base_operation{  };
+	struct asset_reserve_operation : public base_operation{  };
+	struct asset_claim_fees_operation : public base_operation{  };
+	struct asset_update_issuer_operation : public base_operation{  };
+	struct asset_claim_pool_operation : public base_operation{  };
 
 
 
