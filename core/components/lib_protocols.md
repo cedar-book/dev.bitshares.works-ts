@@ -42,7 +42,7 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 
 ***
 
-### account 
+## account 
 
 ```
 bool is_valid_name( const string& s );
@@ -84,7 +84,7 @@ struct account_options
 struct account_create_operation : public base_operation
 ```
 
-### address 
+## address 
 ```
 namespace fc { namespace ecc {
 	class public_key;
@@ -150,7 +150,7 @@ namespace std
 }
 ```
 
-### assert 
+## assert 
 
 - Used to verify that account_id->name is equal to the given string literal.
 - Perform state-independent checks.  Verify account_name is a valid account name.
@@ -217,7 +217,7 @@ struct assert_operation : public base_operation
 };
 ```
 
-### asset 
+## asset 
 ```
 extern const int64_t scaled_precision_lut[];
 
@@ -391,7 +391,7 @@ price max_short_squeeze_price()const;
 };
 ```
 	 
-### asset_ops 
+## asset_ops 
 
 		bool is_valid_symbol( const string& symbol );
 	
@@ -475,7 +475,7 @@ struct bitasset_options {
 
 | operation |   |
 |---|---|
-|  | - balance_claim_operation <br /> - asset_create_operation <br /> <br /> - asset_global_settle_operation <br /> - asset_settle_operation <br />- asset_settle_cancel_operation <br /> - asset_fund_fee_pool_operation <br /> - asset_update_operation <br /> - asset_update_bitasset_operation <br /> - asset_update_feed_producers_operation <br /> - asset_publish_feed_operation <br /> - asset_issue_operation <br /> - asset_reserve_operation <br /> - asset_claim_fees_operation <br /> - asset_update_issuer_operation <br /> - asset_claim_pool_operation |
+|  | - balance_claim_operation <br /> - asset_create_operation <br /> - asset_global_settle_operation <br /> - asset_settle_operation <br />- asset_settle_cancel_operation <br /> - asset_fund_fee_pool_operation <br /> - asset_update_operation <br /> - asset_update_bitasset_operation <br /> - asset_update_feed_producers_operation <br /> - asset_publish_feed_operation <br /> - asset_issue_operation <br /> - asset_reserve_operation <br /> - asset_claim_fees_operation <br /> - asset_update_issuer_operation <br /> - asset_claim_pool_operation |
 
 ```
 struct asset_create_operation : public base_operation{   };
@@ -494,7 +494,7 @@ struct asset_update_issuer_operation : public base_operation{  };
 struct asset_claim_pool_operation : public base_operation{  };
 ```
 
-### authority 
+## authority 
 
 - class authority
 - Identifies a weighted set of keys and accounts that must approve operations.
@@ -604,7 +604,7 @@ void add_authority_accounts(
 ```
 
 
-### balance 
+## balance 
 
 | operation |   |
 |---|---|
@@ -625,14 +625,14 @@ typedef static_variant<void_t>      future_extensions;
 typedef flat_set<future_extensions> extensions_type;
 
 
-### block 
+## block 
 struct block_header{  };
 struct signed_block_header : public block_header{  }
 struct signed_block : public signed_block_header{  };
 
 
 
-### buyback 
+## buyback 
 
 struct buyback_account_options
 {
@@ -655,7 +655,7 @@ struct buyback_account_options
 };
 
 
-### chain_parameters 
+## chain_parameters 
 
    typedef static_variant<>  parameter_extension; 
    struct chain_parameters
@@ -703,7 +703,7 @@ struct committee_member_update_operation : public base_operation{  };
 struct committee_member_update_global_parameters_operation : public base_operation{  };
 
 
-### confidential 
+## confidential 
 
 using fc::ecc::blind_factor_type;
 
@@ -767,16 +767,16 @@ struct blind_transfer_operation : public base_operation{  }:
 
 
 
-### config 
+## config 
 
 
-### custom 
+## custom 
 
 struct custom_operation : public base_operation{  };
 
 
 
-### ext 
+## ext 
 
 amespace graphene { namespace chain {
 
@@ -849,11 +849,11 @@ void unpack( Stream& s, graphene::chain::extension<T>& value, uint32_t _max_dept
 };
 
 
-### fba 
+## fba 
 struct fba_distribute_operation : public base_operation{  };
 
 
-### fee_schedule 
+## fee_schedule 
 
 ..\libraries\chain\include\graphene\chain\protocol\fee_schedule.hpp
 
@@ -915,7 +915,7 @@ typedef fee_schedule fee_schedule_type;
   
 
 
-### market 
+## market 
 
 **struct**
 limit_order_create_operation
@@ -927,7 +927,7 @@ execute_bid_operation
 
 
 
-### memo 
+## memo 
 
 - defines the keys used to derive the shared secret
 
@@ -985,7 +985,7 @@ execute_bid_operation
    };
 
 
-### operations 
+## operations 
 
 -  Defines the set of valid operations as a discriminated union type.
 
@@ -1063,7 +1063,7 @@ execute_bid_operation
 	};
 
 
-### proposal 
+## proposal 
 
 - proposed_transactions  The Graphene Transaction Proposal Protocol
 - Graphene allows users to propose a transaction which requires approval of multiple accounts in order to execute.
@@ -1085,10 +1085,10 @@ struct proposal_update_operation : public base_operation
 struct proposal_delete_operation : public base_operation
       
    
-### protocol 
+## protocol 
 
 
-### special_authority 
+## special_authority 
 
 struct no_special_authority {};
 
@@ -1107,7 +1107,7 @@ void validate_special_authority( const special_authority& auth );
 
 
 
-### transaction 
+## transaction 
 
 - All transactions are sets of operations that must be applied atomically. Transactions must refer to a recent block that defines the context of the operation so that they assert a known binding to the object id's referenced in the transaction.
 - Rather than specify a full block number, we only specify the lower 16 bits of the block number which means you can reference any block within the last 65,536 blocks which is 3.5 days with a 5 second block interval or 18 hours with a 1 second interval.
@@ -1252,7 +1252,7 @@ struct processed_transaction : public signed_transaction
   digest_type merkle_digest()const;
 };
 
-### transfer 
+## transfer 
 
 - operations
 
@@ -1260,7 +1260,7 @@ struct transfer_operation : public base_operation
 struct override_transfer_operation : public base_operation  
 
 
-### types 
+## types 
 
 using namespace graphene::db;
 
@@ -1528,7 +1528,7 @@ namespace fc
 }
 
 
-### vesting 
+## vesting 
 
 
 struct linear_vesting_policy_initializer
@@ -1554,7 +1554,7 @@ struct vesting_balance_withdraw_operation : public base_operation
 
 
 
-### vote 
+## vote 
 
 - An ID for some votable object
 - This class stores an ID for a votable object. The ID is comprised of two fields: a type, and an instance. The type field stores which kind of object is being voted on, and the instance stores which specific object of that type is being referenced by this ID.
@@ -1656,7 +1656,7 @@ void from_variant( const fc::variant& var, graphene::chain::vote_id_type& vo, ui
 }
 
 
-### withdraw_permission 
+## withdraw_permission 
 
 - Create a new withdrawal permission
 - This operation creates a withdrawal permission, which allows some authorized account to withdraw from an authorizing account. This operation is primarily useful for scheduling recurring payments.
@@ -1669,7 +1669,7 @@ struct withdraw_permission_update_operation : public base_operation
 struct withdraw_permission_claim_operation : public base_operation
 struct withdraw_permission_delete_operation : public base_operation
 
-### witness 
+## witness 
 
 - operations
 - Create a witness object, as a bid to hold a witness position on the network.
@@ -1679,7 +1679,7 @@ struct witness_create_operation : public base_operation
 struct witness_update_operation : public base_operation
 	
 	
-### worker 
+## worker 
 
 - operations
 - workers The Blockchain Worker System
