@@ -32,7 +32,7 @@ Learning BitShares-Core Available Operations.
   - [balance_claim_operation](../components/operations.md#balance_claim_operation)
 - Bit collateral
   - [bit_collateral_operation](../components/operations.md#bit_collateral_operation)
--Committee
+- Committee
   - [committee_member_create_operation](../components/operations.md#committee_member_create_operation)
   - [committee_member_update_global_parameters_operation](../components/operations.md#committee_member_update_global_parameters_operation)
   - [committee_member_update_operation](../components/operations.md#committee_member_update_operation)
