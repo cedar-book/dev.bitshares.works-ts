@@ -432,9 +432,9 @@ struct asset_options {
 | void | validate()const; | Perform internal consistency checks. @throws fc::exception if any check fails |
 
 
-
 - brief The bitasset_options struct contains configurable options available only to BitAssets.
 - **Note** Changes to th is struct will break protocol compatibility
+
 ```
 struct bitasset_options {
 	/// Time before a price feed expires
@@ -457,7 +457,9 @@ struct bitasset_options {
 	void validate()const;
 };
 ```
+
 *The descriptions of bitasset_options*
+
 |  |  |  |
 |---|---|---|
 | uint32_t | feed_lifetime_sec = GRAPHENE_DEFAULT_PRICE_FEED_LIFETIME | Time before a price feed expires |
@@ -470,21 +472,22 @@ struct bitasset_options {
 | void | validate()const; | Perform internal consistency checks. @throws fc::exception if any check fails |
 
 *Operaions*
+
 ```
-struct asset_create_operation : public base_operation{   };
-struct asset_global_settle_operation : public base_operation{   };
-struct asset_settle_operation : public base_operation{   };
-struct asset_settle_cancel_operation : public base_operation{   };
-struct asset_fund_fee_pool_operation : public base_operation{  };
-struct asset_update_operation : public base_operation{  };
-struct asset_update_bitasset_operation : public base_operation{  };
-struct asset_update_feed_producers_operation : public base_operation{  };
-struct asset_publish_feed_operation : public base_operation{  };
-struct asset_issue_operation : public base_operation{  };
-struct asset_reserve_operation : public base_operation{  };
-struct asset_claim_fees_operation : public base_operation{  };
-struct asset_update_issuer_operation : public base_operation{  };
-struct asset_claim_pool_operation : public base_operation{  };
+		struct asset_create_operation : public base_operation{   };
+		struct asset_global_settle_operation : public base_operation{   };
+		struct asset_settle_operation : public base_operation{   };
+		struct asset_settle_cancel_operation : public base_operation{   };
+		struct asset_fund_fee_pool_operation : public base_operation{  };
+		struct asset_update_operation : public base_operation{  };
+		struct asset_update_bitasset_operation : public base_operation{  };
+		struct asset_update_feed_producers_operation : public base_operation{  };
+		struct asset_publish_feed_operation : public base_operation{  };
+		struct asset_issue_operation : public base_operation{  };
+		struct asset_reserve_operation : public base_operation{  };
+		struct asset_claim_fees_operation : public base_operation{  };
+		struct asset_update_issuer_operation : public base_operation{  };
+		struct asset_claim_pool_operation : public base_operation{  };
 ```	
 	
 
@@ -502,20 +505,6 @@ struct asset_claim_pool_operation : public base_operation{  };
 |  |  |  |
 |  |  |  |
 
-
-|  |  |  |
-|---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
 
 
 ### authority 
