@@ -1,5 +1,4 @@
 #### BitShares Core - graphene::chain
-https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 
 # Protocols and Detailed Descriptions
 *graphene::chain::*
@@ -748,86 +747,111 @@ void validate()const;
 
 ## committee_member 
 
-struct committee_member_create_operation : public base_operation{  };
-struct committee_member_update_operation : public base_operation{  };
-struct committee_member_update_global_parameters_operation : public base_operation{  };
+*Operation*
 
+| operation |   |
+|---|---|
+|  | - committee_member_create_operation <br/ > - committee_member_update_operation <br /> - committee_member_update_global_parameters_operation  |
 
 ## confidential 
 
 using fc::ecc::blind_factor_type;
 
-/**
- * @defgroup stealth Stealth Transfer
- * @brief Operations related to stealth transfer of value
- *
- * Stealth Transfers enable users to maintain their finanical privacy against even
- * though all transactions are public.  Every account has three balances:
- *
- * 1. Public Balance - everyone can see the balance changes and the parties involved
- * 2. Blinded Balance - everyone can see who is transacting but not the amounts involved
- * 3. Stealth Balance - both the amounts and parties involved are obscured
- *
- * Account owners may set a flag that allows their account to receive(or not) transfers of these kinds
- * Asset issuers can enable or disable the use of each of these types of accounts.
- *
- * Using the "temp account" which has no permissions required, users can transfer a
- * stealth balance to the temp account and then use the temp account to register a new
- * account.  In this way users can use stealth funds to create anonymous accounts with which
- * they can perform other actions that are not compatible with blinded balances (such as market orders)
- *
- * @section referral_program Referral Progam
- *
- * Stealth transfers that do not specify any account id cannot pay referral fees so 100% of the
- * transaction fee is paid to the network.
- *
- * @section transaction_fees Fees
- *
- * Stealth transfers can have an arbitrarylly large size and therefore the transaction fee for
- * stealth transfers is based purley on the data size of the transaction.
- */
-///@{
+- stealth Stealth Transfer
+- Operations related to stealth transfer of value
+- Stealth Transfers enable users to maintain their finanical privacy against even though all transactions are public.  Every account has three balances:
+  - 1. Public Balance - everyone can see the balance changes and the parties involved
+	- 2. Blinded Balance - everyone can see who is transacting but not the amounts involved
+	- 3. Stealth Balance - both the amounts and parties involved are obscured
+- Account owners may set a flag that allows their account to receive(or not) transfers of these kinds. Asset issuers can enable or disable the use of each of these types of accounts.  
+- Using the "temp account" which has no permissions required, users can transfer a stealth balance to the temp account and then use the temp account to register a new account.  In this way users can use stealth funds to create anonymous accounts with which they can perform other actions that are not compatible with blinded balances (such as market orders)
 
-/**
- *  @ingroup stealth
- *  This data is encrypted and stored in the
- *  encrypted memo portion of the blind output.
- */
+#### section referral_program Referral Progam
+Stealth transfers that do not specify any account id cannot pay referral fees so 100% of the transaction fee is paid to the network.
+
+#### section transaction_fees Fees
+Stealth transfers can have an arbitrarylly large size and therefore the transaction fee for stealth transfers is based purley on the data size of the transaction.
+
+***
+- stealth
+- This data is encrypted and stored in the encrypted memo portion of the blind output.
+- set to the first 4 bytes of the shared secret used to encrypt the memo.  Used to verify that decryption was successful.
+```
 struct blind_memo
 {
    account_id_type     from;
    share_type          amount;
    string              message;
-   /** set to the first 4 bytes of the shared secret
-    * used to encrypt the memo.  Used to verify that
-    * decryption was successful.
-    */
    uint32_t            check= 0;
 };
+```
 
-struct blind_input{  };
+- stealth
+- provided to maintain the invariant that all authority required by an operation is explicit in the operation.  Must match blinded_balance_id->owner
+```
+struct blind_input
+{
+   fc::ecc::commitment_type      commitment;
+   authority                      owner;
+};
+```
+-  When sending a stealth tranfer we assume users are unable to scan the full blockchain; therefore, payments require confirmation data to be passed out of band.   We assume this out-of-band channel is not secure and therefore the contents of the confirmation must be encrypted
+```
+struct stealth_confirmation
+{
+   struct memo_data
+   {
+      optional<public_key_type> from;
+      asset                     amount;
+      fc::sha256                blinding_factor;
+      fc::ecc::commitment_type  commitment;
+      uint32_t                  check = 0;
+   };
+  
+   operator string()const; /** Packs *this then encodes as base58 encoded string. */
+   
+   stealth_confirmation( const std::string& base58 ); /** Unpacks from a base58 string */
+   stealth_confirmation(){}
 
-struct stealth_confirmation{  };
+   public_key_type           one_time_key;
+   optional<public_key_type> to;
+   vector<char>              encrypted_memo;
+};
+```
 
-struct blind_output{  };
+- class blind_output
+- Defines data required to create a new blind commitment
+- stealth
+- The blinded output that must be proven to be greater than 0
+```struct blind_output
+{
+   fc::ecc::commitment_type                commitment;   
+   range_proof_type                        range_proof;  /** only required if there is more than one blind output */
+   authority                               owner;
+   optional<stealth_confirmation>          stealth_memo;
+};
+```
 
-struct transfer_to_blind_operation : public base_operation{  };
-struct transfer_from_blind_operation : public base_operation{  };
-struct blind_transfer_operation : public base_operation{  }:
-
+*Operation*
+| operation |   |
+|---|---|
+|  | - transfer_to_blind_operation <br /> - transfer_from_blind_operation <br /> - blind_transfer_operation |
 
 
 ## config 
+*(none)*
 
 
 ## custom 
 
-struct custom_operation : public base_operation{  };
-
-
+*Operation*
+| operation |   |
+|---|---|
+|  | - custom_operation  |
 
 ## ext 
 
+```
 amespace graphene { namespace chain {
 
 using fc::unsigned_int;
@@ -849,8 +873,9 @@ struct graphene_extension_pack_read_visitor{  };
 template< typename Stream, typename T >
 struct graphene_extension_unpack_visitor{  };
 }};
+```
 
-
+```
 namespace fc {
 
 template< typename T >
@@ -868,7 +893,9 @@ struct graphene_extension_to_variant_visitor{  };
 
 template< typename T >
 void to_variant( const graphene::chain::extension<T>& value, fc::variant& var, uint32_t max_depth ){  };
+```
 
+```
 namespace raw {
 
 template< typename Stream, typename T >
@@ -897,16 +924,22 @@ void unpack( Stream& s, graphene::chain::extension<T>& value, uint32_t _max_dept
 
 } // fc::raw
 };
+```
 
 
 ## fba 
-struct fba_distribute_operation : public base_operation{  };
+
+*Operation*
+| operation |   |
+|---|---|
+|  | - fba_distribute_operation |
 
 
 ## fee_schedule 
 
 ..\libraries\chain\include\graphene\chain\protocol\fee_schedule.hpp
 
+```
 template<typename T> struct transform_to_fee_parameters;
 template<typename ...T>
 template<typename Operation>
@@ -919,9 +952,10 @@ class fee_helper<account_create_operation>
 class fee_helper<bid_collateral_operation> {
 class fee_helper<asset_update_issuer_operation>
 class fee_helper<asset_claim_pool_operation> 
+```
  
 *contains all of the parameters necessary to calculate the fee for any operation*
-
+```
 struct fee_schedule
 {
 	fee_schedule();
@@ -961,20 +995,16 @@ struct fee_schedule
 };
 
 typedef fee_schedule fee_schedule_type;
-
+```
   
 
 
 ## market 
 
-**struct**
-limit_order_create_operation
-limit_order_cancel_operation
-call_order_update_operation
-fill_order_operation
-bid_collateral_operation
-execute_bid_operation
-
+*Operation*
+| operation |   |
+|---|---|
+|  | - limit_order_create_operation <br /> - limit_order_cancel_operation <br /> - call_order_update_operation <br /> - fill_order_operation <br /> - bid_collateral_operation <br /> - execute_bid_operation  |
 
 
 ## memo 
@@ -985,133 +1015,133 @@ execute_bid_operation
 
 *  If @ref from == @ref to and @ref from == 0 then no encryption is used, the memo is public.
 *  If @ref from == @ref to and @ref from != 0 then invalid memo data
+```
+struct memo_data
+{
+	public_key_type from;
+	public_key_type to;
+	/**
+	 * 64 bit nonce format:
+	 * [  8 bits | 56 bits   ]
+	 * [ entropy | timestamp ]
+	 * Timestamp is number of microseconds since the epoch
+	 * Entropy is a byte taken from the hash of a new private key
+	 *
+	 * This format is not mandated or verified; it is chosen to ensure uniqueness of key-IV pairs only. This should
+	 * be unique with high probability as long as the generating host has a high-resolution clock OR a strong source
+	 * of entropy for generating private keys.
+	 */
+	uint64_t nonce = 0;
+	
+	/** This field contains the AES encrypted packed @ref memo_message */
+	vector<char> message;
 
-**struct**
+	/// @note custom_nonce is for debugging only; do not set to a nonzero value in production
+	void        set_message(const fc::ecc::private_key& priv,
+													const fc::ecc::public_key& pub, const string& msg, uint64_t custom_nonce = 0);
 
-   struct memo_data
-   {
-      public_key_type from;
-      public_key_type to;
-      /**
-       * 64 bit nonce format:
-       * [  8 bits | 56 bits   ]
-       * [ entropy | timestamp ]
-       * Timestamp is number of microseconds since the epoch
-       * Entropy is a byte taken from the hash of a new private key
-       *
-       * This format is not mandated or verified; it is chosen to ensure uniqueness of key-IV pairs only. This should
-       * be unique with high probability as long as the generating host has a high-resolution clock OR a strong source
-       * of entropy for generating private keys.
-       */
-      uint64_t nonce = 0;
-      /**
-       * This field contains the AES encrypted packed @ref memo_message
-       */
-      vector<char> message;
+	std::string get_message(const fc::ecc::private_key& priv,
+													const fc::ecc::public_key& pub)const;
+}
+```
 
-      /// @note custom_nonce is for debugging only; do not set to a nonzero value in production
-      void        set_message(const fc::ecc::private_key& priv,
-                              const fc::ecc::public_key& pub, const string& msg, uint64_t custom_nonce = 0);
-
-      std::string get_message(const fc::ecc::private_key& priv,
-                              const fc::ecc::public_key& pub)const;
-   }
-   
 - defines a message and checksum to enable validation of successful decryption
 - When encrypting/decrypting a checksum is required to determine whether or not decryption was successful.
  
-   
-   struct memo_message
-   {
-      memo_message(){}
-      memo_message( uint32_t checksum, const std::string& text )
-      :checksum(checksum),text(text){}
+```
+struct memo_message
+{
+	memo_message(){}
+	memo_message( uint32_t checksum, const std::string& text )
+	:checksum(checksum),text(text){}
 
-      uint32_t    checksum = 0;
-      std::string text;
+	uint32_t    checksum = 0;
+	std::string text;
 
-      string serialize() const;
-      static memo_message deserialize(const string& serial);
-   };
-
+	string serialize() const;
+	static memo_message deserialize(const string& serial);
+};
+```
 
 ## operations 
-
+- operations
 -  Defines the set of valid operations as a discriminated union type.
 
-  typedef fc::static_variant<
-            transfer_operation,
-            limit_order_create_operation,
-            limit_order_cancel_operation,
-            call_order_update_operation,
-            fill_order_operation,           // VIRTUAL
-            account_create_operation,
-            account_update_operation,
-            account_whitelist_operation,
-            account_upgrade_operation,
-            account_transfer_operation,
-            asset_create_operation,
-            asset_update_operation,
-            asset_update_bitasset_operation,
-            asset_update_feed_producers_operation,
-            asset_issue_operation,
-            asset_reserve_operation,
-            asset_fund_fee_pool_operation,
-            asset_settle_operation,
-            asset_global_settle_operation,
-            asset_publish_feed_operation,
-            witness_create_operation,
-            witness_update_operation,
-            proposal_create_operation,
-            proposal_update_operation,
-            proposal_delete_operation,
-            withdraw_permission_create_operation,
-            withdraw_permission_update_operation,
-            withdraw_permission_claim_operation,
-            withdraw_permission_delete_operation,
-            committee_member_create_operation,
-            committee_member_update_operation,
-            committee_member_update_global_parameters_operation,
-            vesting_balance_create_operation,
-            vesting_balance_withdraw_operation,
-            worker_create_operation,
-            custom_operation,
-            assert_operation,
-            balance_claim_operation,
-            override_transfer_operation,
-            transfer_to_blind_operation,
-            blind_transfer_operation,
-            transfer_from_blind_operation,
-            asset_settle_cancel_operation,  // VIRTUAL
-            asset_claim_fees_operation,
-            fba_distribute_operation,       // VIRTUAL
-            bid_collateral_operation,
-            execute_bid_operation,          // VIRTUAL
-            asset_claim_pool_operation,
-            asset_update_issuer_operation
-         > operation;
-
+```
+typedef fc::static_variant<
+					transfer_operation,
+					limit_order_create_operation,
+					limit_order_cancel_operation,
+					call_order_update_operation,
+					fill_order_operation,           // VIRTUAL
+					account_create_operation,
+					account_update_operation,
+					account_whitelist_operation,
+					account_upgrade_operation,
+					account_transfer_operation,
+					asset_create_operation,
+					asset_update_operation,
+					asset_update_bitasset_operation,
+					asset_update_feed_producers_operation,
+					asset_issue_operation,
+					asset_reserve_operation,
+					asset_fund_fee_pool_operation,
+					asset_settle_operation,
+					asset_global_settle_operation,
+					asset_publish_feed_operation,
+					witness_create_operation,
+					witness_update_operation,
+					proposal_create_operation,
+					proposal_update_operation,
+					proposal_delete_operation,
+					withdraw_permission_create_operation,
+					withdraw_permission_update_operation,
+					withdraw_permission_claim_operation,
+					withdraw_permission_delete_operation,
+					committee_member_create_operation,
+					committee_member_update_operation,
+					committee_member_update_global_parameters_operation,
+					vesting_balance_create_operation,
+					vesting_balance_withdraw_operation,
+					worker_create_operation,
+					custom_operation,
+					assert_operation,
+					balance_claim_operation,
+					override_transfer_operation,
+					transfer_to_blind_operation,
+					blind_transfer_operation,
+					transfer_from_blind_operation,
+					asset_settle_cancel_operation,  // VIRTUAL
+					asset_claim_fees_operation,
+					fba_distribute_operation,       // VIRTUAL
+					bid_collateral_operation,
+					execute_bid_operation,          // VIRTUAL
+					asset_claim_pool_operation,
+					asset_update_issuer_operation
+			 > operation;
+```
 
 - Appends required authorities to the result vector.  The authorities appended are not the same as those returned by get_required_auth 
 - Return a set of required authorities for @ref op.		 
-		 
-   void operation_get_required_authorities( const operation& op, 
-                                            flat_set<account_id_type>& active,
-                                            flat_set<account_id_type>& owner,
-                                            vector<authority>&  other );
+	
+```
+void operation_get_required_authorities( const operation& op, 
+																				flat_set<account_id_type>& active,
+																				flat_set<account_id_type>& owner,
+																				vector<authority>&  other );
 
-   void operation_validate( const operation& op );
-
+void operation_validate( const operation& op );
+```
 
 - necessary to support nested operations inside the proposal_create_operation
-
-	struct op_wrapper
-	{
-	  public:
-		 op_wrapper(const operation& op = operation()):op(op){}
-		 operation op;
-	};
-
+```
+struct op_wrapper
+{
+  public:
+   op_wrapper(const operation& op = operation()):op(op){}
+   operation op;
+};
+```
 
 ## proposal 
 
@@ -1124,22 +1154,21 @@ execute_bid_operation
   
   
 * op_wrapper is used to get around the circular definition of operation and proposals that contain them.
-
+```
 struct op_wrapper;
+```
 
-- The proposal_create_operation creates a transaction proposal, for use in multi-sig scenarios
-- Creates a transaction proposal. The operations which compose the transaction are listed in order in proposed_ops, and expiration_time specifies the time by which the proposal must be accepted or it will fail permanently. The expiration_time cannot be farther in the future than the maximum expiration time set in the global properties object.
-	 
-struct proposal_create_operation : public base_operation
-struct proposal_update_operation : public base_operation
-struct proposal_delete_operation : public base_operation
-      
-   
+*Operation*
+| operation |   |
+|---|---|
+|  | - proposal_create_operation <br/ > - proposal_update_operation <br /> - proposal_delete_operation |      
+  
+	
 ## protocol 
 
 
 ## special_authority 
-
+```
 struct no_special_authority {};
 
 struct top_holders_special_authority
@@ -1154,7 +1183,7 @@ typedef static_variant<
    > special_authority;
 
 void validate_special_authority( const special_authority& auth );
-
+```
 
 
 ## transaction 
@@ -1168,7 +1197,7 @@ void validate_special_authority( const special_authority& auth );
    
 
 **groups operations that should be applied atomically**
-
+```
 struct transaction
 {
   /**
@@ -1221,10 +1250,10 @@ struct transaction
 
   void get_required_authorities( flat_set<account_id_type>& active, flat_set<account_id_type>& owner, vector<authority>& other )const;
 };
-
+```
 
 **adds a signature to a transaction**
-
+```
 struct signed_transaction : public transaction
 {
   signed_transaction( const transaction& trx = transaction() )
@@ -1279,7 +1308,8 @@ struct signed_transaction : public transaction
   /// Removes all operations and signatures
   void clear() { operations.clear(); signatures.clear(); }
 };
-
+```
+```
 void verify_authority( const vector<operation>& ops, const flat_set<public_key_type>& sigs,
 					  const std::function<const authority*(account_id_type)>& get_active,
 					  const std::function<const authority*(account_id_type)>& get_owner,
@@ -1287,11 +1317,13 @@ void verify_authority( const vector<operation>& ops, const flat_set<public_key_t
 					  bool allow_committe = false,
 					  const flat_set<account_id_type>& active_aprovals = flat_set<account_id_type>(),
 					  const flat_set<account_id_type>& owner_approvals = flat_set<account_id_type>());
+```
 
 - captures the result of evaluating the operations contained in the transaction
 - When processing a transaction some operations generate new object IDs and these IDs cannot be known until the transaction is actually included into a block.  When a block is produced these new ids are captured and included with every transaction.  The index in operation_results should correspond to the same index in operations.
 - If an operation did not create any new object IDs then 0 should be returned.
 
+```
 struct processed_transaction : public signed_transaction
 {
   processed_transaction( const signed_transaction& trx = signed_transaction() )
@@ -1301,17 +1333,18 @@ struct processed_transaction : public signed_transaction
 
   digest_type merkle_digest()const;
 };
+```
 
 ## transfer 
 
-- operations
-
-struct transfer_operation : public base_operation
-struct override_transfer_operation : public base_operation  
+*Operation*
+| operation |   |
+|---|---|
+|  | - transfer_operation <br /> - override_transfer_operation |
 
 
 ## types 
-
+```
 using namespace graphene::db;
 
 using                               std::map;
@@ -1375,9 +1408,10 @@ enum reserved_spaces
 };
 
 inline bool is_relative( object_id_type o ){ return o.space() == 0; }
+```
 
 - List all object types from all namespaces here so they can be easily reflected and displayed in debug output.  If a 3rd party  wants to extend the core code then they will have to change the packed_object::type field from enum_type to uint16 to avoid warnings when converting packed_objects to/from json.
-
+```
 enum object_type
 {
   null_object_type,
@@ -1566,7 +1600,9 @@ struct extended_private_key_type
   friend bool operator == ( const extended_private_key_type& p1, const extended_private_key_type& p2);
   friend bool operator != ( const extended_private_key_type& p1, const extended_private_key_type& p2);
 };
+```
 
+```
 namespace fc
 {
     void to_variant( const graphene::chain::public_key_type& var,  fc::variant& vo, uint32_t max_depth = 2 );
@@ -1576,6 +1612,7 @@ namespace fc
     void to_variant( const graphene::chain::extended_private_key_type& var, fc::variant& vo, uint32_t max_depth = 2 );
     void from_variant( const fc::variant& var, graphene::chain::extended_private_key_type& vo, uint32_t max_depth = 2 );
 }
+```
 
 
 ## vesting 
