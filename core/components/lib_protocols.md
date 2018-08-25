@@ -712,38 +712,37 @@ void validate()const;
 
 *The descriptions of valuables*
 
-|  |   | descriptions |
-|---|---|---|
-|smart_ref<fee_schedule>| current_fees | current schedule of fees  |
-| | GRAPHENE_DEFAULT_BLOCK_INTERVAL |interval in seconds between blocks |  
-|  |GRAPHENE_DEFAULT_MAINTENANCE_INTERVAL  | interval in sections between blockchain maintenance events |
-|  | GRAPHENE_DEFAULT_MAINTENANCE_SKIP_SLOTS | number of block_intervals to skip at maintenance time |
-|  | GRAPHENE_DEFAULT_COMMITTEE_PROPOSAL_REVIEW_PERIOD_SEC | minimum time in seconds that a proposed transaction requiring committee authority may not be signed, prior to expiration |
-|  | GRAPHENE_DEFAULT_MAX_TRANSACTION_SIZE | maximum allowable size in bytes for a transaction|
-|  | GRAPHENE_DEFAULT_MAX_BLOCK_SIZE | aximum allowable size in bytes for a block |
-|  | GRAPHENE_DEFAULT_MAX_TIME_UNTIL_EXPIRATION | maximum lifetime in seconds for transactions to be valid, before expiring |
-|  | GRAPHENE_DEFAULT_MAX_PROPOSAL_LIFETIME_SEC | maximum lifetime in seconds for proposed transactions to be kept, before expiring |
-|  | GRAPHENE_DEFAULT_MAX_ASSET_WHITELIST_AUTHORITIES | maximum number of accounts which an asset may list as authorities for its whitelist OR blacklist |
-|  | GRAPHENE_DEFAULT_MAX_ASSET_FEED_PUBLISHERS | the maximum number of feed publishers for a given asset |
-|  | GRAPHENE_DEFAULT_MAX_WITNESSES | maximum number of active witnesses |
-|  | GRAPHENE_DEFAULT_MAX_COMMITTEE | aximum number of active committee_members |
-|  | GRAPHENE_DEFAULT_MAX_AUTHORITY_MEMBERSHIP | largest number of keys/accounts an authority can have |
-|  | GRAPHENE_DEFAULT_BURN_PERCENT_OF_FEE |the percentage of the network's allocation of a fee that is taken out of circulation  |
-|  | GRAPHENE_DEFAULT_NETWORK_PERCENT_OF_FEE | percent of transaction fees paid to network |
-|  | GRAPHENE_DEFAULT_LIFETIME_REFERRER_PERCENT_OF_FEE | percent of transaction fees paid to network |
-|  | GRAPHENE_DEFAULT_CASHBACK_VESTING_PERIOD_SEC | time after cashback rewards are accrued before they become liquid |
-|  | GRAPHENE_DEFAULT_CASHBACK_VESTING_THRESHOLD | the maximum cashback that can be received without vesting |
-|  |  |  |
-|  |  |  |
-|  | GRAPHENE_DEFAULT_WITNESS_PAY_PER_BLOCK |CORE to be allocated to witnesses (per block)  |
-|  | GRAPHENE_DEFAULT_WITNESS_PAY_VESTING_SECONDS | vesting_seconds parameter for witness VBO's |
-|  | GRAPHENE_DEFAULT_WORKER_BUDGET_PER_DAY | CORE to be allocated to workers (per day) |
-|  | GRAPHENE_DEFAULT_MAX_ASSERT_OPCODE | predicate_opcode must be less than this number |
-|  | GRAPHENE_DEFAULT_FEE_LIQUIDATION_THRESHOLD | value in CORE at which accumulated fees in blockchain-issued market assets should be liquidated |
-|  | GRAPHENE_DEFAULT_ACCOUNTS_PER_FEE_SCALE | number of accounts between fee scalings |
-|  | GRAPHENE_DEFAULT_ACCOUNT_FEE_SCALE_BITSHIFTS | number of times to left bitshift account registration fee at each scaling |
-|  | GRAPHENE_MAX_SIG_CHECK_DEPTH |  |
-|  |  |  |
+|   | descriptions |
+|---|---|
+| GRAPHENE_DEFAULT_BLOCK_INTERVAL |interval in seconds between blocks |  
+|GRAPHENE_DEFAULT_MAINTENANCE_INTERVAL  | interval in sections between blockchain maintenance events |
+| GRAPHENE_DEFAULT_MAINTENANCE_SKIP_SLOTS | number of block_intervals to skip at maintenance time |
+| GRAPHENE_DEFAULT_COMMITTEE_PROPOSAL_REVIEW_PERIOD_SEC | minimum time in seconds that a proposed transaction requiring committee authority may not be signed, prior to expiration |
+| GRAPHENE_DEFAULT_MAX_TRANSACTION_SIZE | maximum allowable size in bytes for a transaction|
+| GRAPHENE_DEFAULT_MAX_BLOCK_SIZE | aximum allowable size in bytes for a block |
+| GRAPHENE_DEFAULT_MAX_TIME_UNTIL_EXPIRATION | maximum lifetime in seconds for transactions to be valid, before expiring |
+| GRAPHENE_DEFAULT_MAX_PROPOSAL_LIFETIME_SEC | maximum lifetime in seconds for proposed transactions to be kept, before expiring |
+| GRAPHENE_DEFAULT_MAX_ASSET_WHITELIST_AUTHORITIES | maximum number of accounts which an asset may list as authorities for its whitelist OR blacklist |
+| GRAPHENE_DEFAULT_MAX_ASSET_FEED_PUBLISHERS | the maximum number of feed publishers for a given asset |
+| GRAPHENE_DEFAULT_MAX_WITNESSES | maximum number of active witnesses |
+| GRAPHENE_DEFAULT_MAX_COMMITTEE | aximum number of active committee_members |
+| GRAPHENE_DEFAULT_MAX_AUTHORITY_MEMBERSHIP | largest number of keys/accounts an authority can have |
+| GRAPHENE_DEFAULT_BURN_PERCENT_OF_FEE |the percentage of the network's allocation of a fee that is taken out of circulation  |
+| GRAPHENE_DEFAULT_NETWORK_PERCENT_OF_FEE | percent of transaction fees paid to network |
+| GRAPHENE_DEFAULT_LIFETIME_REFERRER_PERCENT_OF_FEE | percent of transaction fees paid to network |
+| GRAPHENE_DEFAULT_CASHBACK_VESTING_PERIOD_SEC | time after cashback rewards are accrued before they become liquid |
+| GRAPHENE_DEFAULT_CASHBACK_VESTING_THRESHOLD | the maximum cashback that can be received without vesting |
+|  |  |
+|  |  |
+| GRAPHENE_DEFAULT_WITNESS_PAY_PER_BLOCK |CORE to be allocated to witnesses (per block)  |
+| GRAPHENE_DEFAULT_WITNESS_PAY_VESTING_SECONDS | vesting_seconds parameter for witness VBO's |
+| GRAPHENE_DEFAULT_WORKER_BUDGET_PER_DAY | CORE to be allocated to workers (per day) |
+| GRAPHENE_DEFAULT_MAX_ASSERT_OPCODE | predicate_opcode must be less than this number |
+| GRAPHENE_DEFAULT_FEE_LIQUIDATION_THRESHOLD | value in CORE at which accumulated fees in blockchain-issued market assets should be liquidated |
+| GRAPHENE_DEFAULT_ACCOUNTS_PER_FEE_SCALE | number of accounts between fee scalings |
+| GRAPHENE_DEFAULT_ACCOUNT_FEE_SCALE_BITSHIFTS | number of times to left bitshift account registration fee at each scaling |
+| GRAPHENE_MAX_SIG_CHECK_DEPTH |  |
+|  |  |
 
 
 
