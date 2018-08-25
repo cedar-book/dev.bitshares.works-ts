@@ -14,7 +14,7 @@ Learning BitShares-Core Available Operations.
   - [account_whitelist_operation](../components/operations.md#account_whitelist_operation)
 - Asset
   - [asset_operation](../components/operations.md#asset_operation)
-  - [asset_clain_fees_operation](../components/operations.md#asset_clain_fees_operation)
+  - [asset_clain_fees_operation](../components/operations.md#asset_claim_fees_operation)
   - [asset_claim_pool_operation](../components/operations.md#asset_claim_pool_operation)
   - [asset_create_operation](../components/operations.md#asset_create_operation)
   - [asset_fund_fee_pool_operation](../components/operations.md#asset_fund_fee_pool_operation)
