@@ -584,18 +584,23 @@ Learning BitShares-Core Available Operations.
 - All assets in a blind transfer must be of the same type: fee.asset_id The fee_payer is the temp account and can be funded from the blinded values.
 - Using this operation you can transfer from an account and/or blinded balances to an account and/or blinded balances.
 
-**Stealth Transfers:**
-
-- Assuming Receiver has key pair R,r and has shared public key R with Sender Assuming Sender has key pair S,s Generate one time key pair O,o as s.child(nonce) where nonce can be inferred from transaction Calculate secret V = o*R blinding_factor = sha256(V) memo is encrypted via aes of V owner = R.child(sha256(blinding_factor))
-- Sender gives Receiver output ID to complete the payment.
+- **Stealth Transfers:**
+	- Assuming Receiver has key pair `R,r` and has shared public key `R` with Sender 
+	- Assuming Sender has key pair `S,s` 
+	- Generate one time key pair `O,o` as `s.child(nonce)` where nonce can be inferred from transaction 
+	- Calculate secret `V = o*R` 
+	- blinding_factor = `sha256(V)` 
+	- memo is encrypted via aes of `V `
+	- owner = `R.child(sha256(blinding_factor))`
+  - Sender gives Receiver output ID to complete the payment.
 - This process can also be used to send money to a cold wallet without having to pre-register any accounts.
 - Outputs are assigned the same IDs as the inputs until no more input IDs are available, in which case a the return value will be the first ID allocated for an output. Additional output IDs are allocated sequentially thereafter. If there are fewer outputs than inputs then the input IDs are freed and never used again. 
 
 		struct blind_transfer_operation : public base_operation
 		{
-		struct fee_parameters_type { 
-		uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
-		uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
+		  struct fee_parameters_type { 
+		  uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+		  uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
 		asset fee;
@@ -608,8 +613,8 @@ Learning BitShares-Core Available Operations.
 
 		void get_required_authorities( vector<authority>& a )const
 		{
-		for( const auto& in : inputs )
-		a.push_back( in.owner ); 
+		  for( const auto& in : inputs )
+		  a.push_back( in.owner ); 
 		}
 		};
 
