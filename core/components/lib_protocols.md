@@ -44,12 +44,12 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 
 ### account 
 
-
+```
 	bool is_valid_name( const string& s );
 	bool is_cheap_name( const string& n );
-
+```
 - These are the fields which can be updated by the active authority.
-
+```
 		struct account_options
 		{
 			public_key_type  memo_key;
@@ -69,7 +69,7 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 
 			void validate()const;
 		};
-
+```
 *
 | Parameter  |   | Description |
 |---|---|---|
@@ -85,22 +85,22 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 
 
 ### address 
-
+```
 	namespace fc { namespace ecc {
 		class public_key;
 		typedef fc::array<char,33>  public_key_data;
 	} } // fc::ecc
+```
 
-
-
+```
 	struct public_key_type;
-
+```
 - A 160 bit hash of a public key
 - An address can be converted to or from a base58 string with 32 bit checksum.
 - An address is calculated as ripemd160( sha512( compressed_ecc_public_key ) )
 - When converted to a string, checksum calculated as the first 4 bytes ripemd160( address ) is appended to the binary address before converting to base58.
 
-
+```
 		class address
 		{
 			public:
@@ -126,8 +126,9 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 		inline bool operator == ( const address& a, const address& b ) { return a.addr == b.addr; }
 		inline bool operator != ( const address& a, const address& b ) { return a.addr != b.addr; }
 		inline bool operator <  ( const address& a, const address& b ) { return a.addr <  b.addr; }
+```
 
-
+```
 		namespace fc
 		{
 			 void to_variant( const graphene::chain::address& var,  fc::variant& vo, uint32_t max_depth = 1 );
@@ -146,56 +147,48 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 						 }
 			 };
 		}
-
+```
 
 ### assert 
 
 - Used to verify that account_id->name is equal to the given string literal.
-
+- Perform state-independent checks.  Verify account_name is a valid account name.
+```
 		struct account_name_eq_lit_predicate
 		{
 			account_id_type account_id;
 			string          name;
-
-			/**
-			 *  Perform state-independent checks.  Verify
-			 *  account_name is a valid account name.
-			 */
 			bool validate()const;
 		};
-
+```
 - Used to verify that asset_id->symbol is equal to the given string literal.
-
+- Perform state independent checks.  Verify symbol is a valid asset symbol.
+```
 		struct asset_symbol_eq_lit_predicate
 		{
 			asset_id_type   asset_id;
 			string          symbol;
-
-			/**
-			 *  Perform state independent checks.  Verify symbol is a
-			 *  valid asset symbol.
-			 */
 			bool validate()const;
 
 		};
-
+```
 - Used to verify that a specific block is part of the blockchain history.  This helps protect some high-value transactions to newly created IDs.
 - The block ID must be within the last 2^16 blocks.
-
+```
 		struct block_id_predicate
 		{
 			block_id_type id;
 			bool validate()const{ return true; }
 		};
-
+```
 - When defining predicates do not make the protocol dependent upon implementation details.
-
+```
 		 typedef static_variant<
 				account_name_eq_lit_predicate,
 				asset_symbol_eq_lit_predicate,
 				block_id_predicate
 			 > predicate;
-
+```
 - assert that some conditions are true.
 
 		struct assert_operation : public base_operation{  };
@@ -219,7 +212,7 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 
 
 ### asset 
-
+```
 		extern const int64_t scaled_precision_lut[];
 
 		struct price;
@@ -296,12 +289,12 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 	 
 	struct price{  };
 	struct price_feed{  };
-
+```
 
 - The price struct stores asset prices in the Graphene system.
 - A price is defined as a ratio between two assets, and represents a possible exchange rate between those two assets. prices are generally not stored in any simplified form, i.e. a price of (1000 CORE)/(20 USD) is perfectly normal.
 - The assets within a price are labeled base and quote. Throughout the Graphene code base, the convention used is that the base asset is the asset being sold, and the quote asset is the asset being purchased, where the price is represented as base/quote, so in the example price above the seller is looking to sell CORE asset and get USD in return.
-
+```
 		struct price
 		{
 			explicit price(const asset& _base = asset(), const asset _quote = asset())
@@ -343,10 +336,9 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 		price operator *  ( const price& p, const ratio_type& r );
 		price operator /  ( const price& p, const ratio_type& r );
 
-		inline price& operator *=  ( price& p, const ratio_type& r )
-		{ return p = p * r; }
-		inline price& operator /=  ( price& p, const ratio_type& r )
-		{ return p = p / r; }
+		inline price& operator *=  ( price& p, const ratio_type& r ) { return p = p * r; }
+		inline price& operator /=  ( price& p, const ratio_type& r ) { return p = p / r; }
+```
 
 - defines market parameters for margin positions
 - Required maintenance collateral is defined as a fixed point number with a maximum value of 10.000 and a minimum value of 1.000.  (denominated in GRAPHENE_COLLATERAL_RATIO_DENOM)
@@ -378,7 +370,7 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 - When selling collateral to pay off debt, the least amount of debt to receive should be
   - min_usd = max_short_squeeze_price() * collateral
 - This is provided to ensure that a black swan cannot be trigged due to poor liquidity alone, it must be confirmed by having the max_short_squeeze_price() move below the black swan price.
-
+```
 		price max_short_squeeze_price()const;
 
 			friend bool operator == ( const price_feed& a, const price_feed& b )
@@ -390,7 +382,7 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 			void validate() const;
 			bool is_for( asset_id_type asset_id ) const;
 		};
-
+```
 	 
 ### asset_ops 
 
@@ -399,7 +391,7 @@ https://bitshares.org/doxygen/dir_88bb0b7a0369deae7dcd36c79a63cea0.html
 - The asset_options struct contains options available on all assets in the network
 - **Note**: Changes to this struct will break protocol compatibility
 
-
+```
 struct asset_options {
 		share_type max_supply = GRAPHENE_MAX_SHARE_SUPPLY;
 		uint16_t market_fee_percent = 0;	
@@ -421,7 +413,8 @@ struct asset_options {
 
 		void validate()const;
 };
-
+``` 
+	 
 |  |  |  |
 |---|---|---|
 | share_type | max_supply = GRAPHENE_MAX_SHARE_SUPPLY; | The maximum supply of this asset which may exist at any given time. This can be as large as GRAPHENE_MAX_SHARE_SUPPLY |
@@ -440,32 +433,103 @@ struct asset_options {
 
 
 
+- brief The bitasset_options struct contains configurable options available only to BitAssets.
+- **Note** Changes to th is struct will break protocol compatibility
+```
+struct bitasset_options {
+	/// Time before a price feed expires
+	uint32_t feed_lifetime_sec = GRAPHENE_DEFAULT_PRICE_FEED_LIFETIME;
+	/// Minimum number of unexpired feeds required to extract a median feed from
+	uint8_t minimum_feeds = 1;
+	/// This is the delay between the time a long requests settlement and the chain evaluates the settlement
+	uint32_t force_settlement_delay_sec = GRAPHENE_DEFAULT_FORCE_SETTLEMENT_DELAY;
+	/// This is the percent to adjust the feed price in the short's favor in the event of a forced settlement
+	uint16_t force_settlement_offset_percent = GRAPHENE_DEFAULT_FORCE_SETTLEMENT_OFFSET;
+	
+	Force settlement volume can be limited such that only a certain percentage of the total existing supply of the asset may be force-settled within any given chain maintenance interval. This field stores the percentage of the current supply which may be force settled within the current maintenance interval. If force settlements come due in an interval in which the maximum volume has already been settled, the new settlements will be enqueued and processed at the beginning of the next maintenance interval.
+	uint16_t maximum_force_settlement_volume = GRAPHENE_DEFAULT_FORCE_SETTLEMENT_MAX_VOLUME;
+	/// This speicifies which asset type is used to collateralize short sales. This field may only be updated if the current supply of the asset is zero.
+	asset_id_type short_backing_asset;
+	extensions_type extensions;
 
+	/// Perform internal consistency checks.
+	/// @throws fc::exception if any check fails
+	void validate()const;
+};
+```
+
+|  |  |  |
+|---|---|---|
+| uint32_t | feed_lifetime_sec = GRAPHENE_DEFAULT_PRICE_FEED_LIFETIME | Time before a price feed expires |
+|uint8_t  | minimum_feeds = 1; | Minimum number of unexpired feeds required to extract a median feed from |
+| uint32_t | force_settlement_delay_sec = GRAPHENE_DEFAULT_FORCE_SETTLEMENT_DELAY; | This is the delay between the time a long requests settlement and the chain evaluates the settlement |
+| uint16_t | force_settlement_offset_percent = GRAPHENE_DEFAULT_FORCE_SETTLEMENT_OFFSET; | This is the percent to adjust the feed price in the short's favor in the event of a forced settlement |
+| uint16_t |maximum_force_settlement_volume = GRAPHENE_DEFAULT_FORCE_SETTLEMENT_MAX_VOLUME;  | Force settlement volume can be limited such that only a certain percentage of the total existing supply of the asset may be force-settled within any given chain maintenance interval. This field stores the percentage of the current supply which may be force settled within the current maintenance interval. If force settlements come due in an interval in which the maximum volume has already been settled, the new settlements will be enqueued and processed at the beginning of the next maintenance interval. |
+| asset_id_type | short_backing_asset; | This speicifies which asset type is used to collateralize short sales. This field may only be updated if the current supply of the asset is zero |
+| extensions_type | extensions; |  |
+| void | validate()const; | Perform internal consistency checks. @throws fc::exception if any check fails |
+
+```
+struct asset_create_operation : public base_operation{   };
+struct asset_global_settle_operation : public base_operation{   };
+struct asset_settle_operation : public base_operation{   };
+struct asset_settle_cancel_operation : public base_operation{   };
+struct asset_fund_fee_pool_operation : public base_operation{  };
+struct asset_update_operation : public base_operation{  };
+struct asset_update_bitasset_operation : public base_operation{  };
+struct asset_update_feed_producers_operation : public base_operation{  };
+struct asset_publish_feed_operation : public base_operation{  };
+struct asset_issue_operation : public base_operation{  };
+struct asset_reserve_operation : public base_operation{  };
+struct asset_claim_fees_operation : public base_operation{  };
+struct asset_update_issuer_operation : public base_operation{  };
+struct asset_claim_pool_operation : public base_operation{  };
+```	
+	
+
+|  |  |  |
+|---|---|---|
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 
 
 |  |  |  |
+|---|---|---|
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 |  |  |  |
 
 
-		
-	struct asset_options {  };
-	struct bitasset_options {  };
-	struct asset_create_operation : public base_operation {  };
-	struct asset_global_settle_operation : public base_operation{   };
-	struct asset_settle_operation : public base_operation{   };
-	struct asset_settle_cancel_operation : public base_operation{   };
-	struct asset_fund_fee_pool_operation : public base_operation{  };
-	struct asset_update_operation : public base_operation{  };
-	struct asset_update_bitasset_operation : public base_operation{  };
-	struct asset_update_feed_producers_operation : public base_operation{  };
-	struct asset_publish_feed_operation : public base_operation{  };
-	struct asset_issue_operation : public base_operation{  };
-	struct asset_reserve_operation : public base_operation{  };
-	struct asset_claim_fees_operation : public base_operation{  };
-	struct asset_update_issuer_operation : public base_operation{  };
-	struct asset_claim_pool_operation : public base_operation{  };
-
-
+|  |  |  |
+|---|---|---|
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 
 ### authority 
 
