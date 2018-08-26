@@ -6,7 +6,7 @@
 *..\libraries\chain\include\graphene\chain\protocol\---.hpp*
 
 
-- [account](../core/components/lib_protocols.md#account)
+- [account](../components/lib_protocols.md#account)
 - address 
 - assert 
 - asset 
