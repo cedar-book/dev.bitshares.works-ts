@@ -2,10 +2,18 @@
 Documentation related to BitShares Core internals and development fundamentals.
 
 ### [Introduction/Architectures](../core/intro/README.md#introduction--architectures)
-- BitShares Core Workflow (Project / Issues) , BitShares Core Repository Gitflow
+- BitShares Core Workflow (Project / Issues) , BitShares Core Repository Gitflow, Development Environment 
    
+<<<<<<< HEAD:core/README.md
 ### [Development Environment & Getting Started](../core/installation/README.md#development-environment--getting-started)
 - Getting Started, Requirements(OS, Hardware, CPU, storage, Memory,etc), CLI-windows Tools, Core in WSL, Known issues
+=======
+### [Getting Started](../core/installation/README.md#getting-started)
+- Getting Started, Requirements(OS, Hardware, CPU, storage, Memory,etc), CLI-windows Tools, Core in WSL, Known issues, Next Step Guide
+ 
+### [Components Structures and Descriptions](../core/components/README.md#components-structures-and-descriptions)
+ - Block structure, operations, evaluators, objects
+>>>>>>> c13a233dbe91f627d4dae6ad71256ee64c2259ad:core/README_x.md
 
 ### [Components Structures and Descriptions](../core/components/README.md#components-structures-and-descriptions)
  - Block structure, operations, evaluators, objects

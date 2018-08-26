@@ -1,0 +1,51 @@
+#### BitShares Core - graphene::chain
+
+This document purpose: to bring BitShares Protocols information (files) close to users.
+
+These are a collection of the BitShares Protocols information. They are deep in the library, often hard to notice. The original files locate (*..\libraries\chain\include\graphene\chain\protocol\---.hpp*). 
+
+# Protocols and Detailed Descriptions
+*graphene::chain::*
+
+- [account](../components/lib_protocols.md#account)
+- [address](../components/lib_protocols.md#address) 
+- [assert](../components/lib_protocols.md#assert) 
+- [asset](../components/lib_protocols.md#asset) 
+- [asset_ops](../components/lib_protocols.md#asset_ops) 
+- [authority](../components/lib_protocols.md#authority) 
+- [balance](../components/lib_protocols.md#balance) 
+- [base](../components/lib_protocols.md#base) 
+- [block](../components/lib_protocols.md#block) 
+- [buyback](../components/lib_protocols.md#buyback) 
+- [chain_parameters](../components/lib_protocols.md#chain_parameters)
+- [committee_member](../components/lib_protocols.md#committee_member) 
+- [confidential](../components/lib_protocols.md#confidential) 
+- [config](../components/lib_protocols.md#config) 
+- [custom](../components/lib_protocols.md#custom) 
+- [ext](../components/lib_protocols.md#ext) 
+- [fba](../components/lib_protocols.md#fba) 
+- [fee_schedule](../components/lib_protocols.md#fee_schedule)
+- [market](../components/lib_protocols.md#market) 
+- [memo](../components/lib_protocols.md#memo) 
+- [operations](../components/lib_protocols.md#operations) 
+- [proposal](../components/lib_protocols.md#proposal) 
+- [special_authority](../components/lib_protocols.md#special_authority)
+- [transaction](../components/lib_protocols.md#transaction) 
+- [transfer](../components/lib_protocols.md#transfer) 
+- [types](../components/lib_protocols.md#types) 
+- [vesting](../components/lib_protocols.md#vesting) 
+- [vote](../components/lib_protocols.md#vote) 
+- [withdraw_permission](../components/lib_protocols.md#withdraw_permission) 
+- [witness](../components/lib_protocols.md#witness) 
+- [worker](../components/lib_protocols.md#worker) 
+
+***
+
+**Note**: Operations have [Operations and Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain) section to list all operations. Therefore, if a protocol includes any operations, you fine the operations list and a link to go to the description page.
+
+(e.g., ) 
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
+
+|  |   |
+|---|---|
+|  |  (operation name) |

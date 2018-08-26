@@ -1,64 +1,79 @@
 #### BitShares Core - graphene::chain
 
-##  graphene::chain::base_operation
+
+# Operations and Detailed Descriptions
+*graphene::chain::base_operation*
 
 Learning BitShares-Core Available Operations.
 
-#### base_operations and Detailed Descriptions
-
-- [account_create_operation](../components/operations.md#account_create_operation)
-- [account_transfer_operation](../components/operations.md#account_transfer_operation)
-- [account_update_operation](../components/operations.md#account_update_operation)
-- [account_upgrade_operation](../components/operations.md#account_upgrade_operation)
-- [account_whitelist_operation](../components/operations.md#account_whitelist_operation)
-- [asset_operation](../components/operations.md#asset_operation)
-- [asset_clain_fees_operation](../components/operations.md#asset_clain_fees_operation)
-- [asset_claim_pool_operation](../components/operations.md#asset_claim_pool_operation)
-- [asset_create_operation](../components/operations.md#asset_create_operation)
-- [asset_fund_fee_pool_operation](../components/operations.md#asset_fund_fee_pool_operation)
-- [asset_global_settle_operation](../components/operations.md#asset_global_settle_operation)
-- [asset_issue_operation](../components/operations.md#asset_issue_operation)
-- [asset_publish_feed_operation](../components/operations.md#asset_publish_feed_operat)
-- [asset_reserve_operation](../components/operations.md#asset_reserve_operation)
-- [asset_settle_cancel_operation](../components/operations.md#asset_settle_cancel_operation)
-- [asset_settle_operation](../components/operations.md#asset_settle_operation)
-- [asset_update_bitasset_operation](../components/operations.md#asset_update_bitasset_operation)
-- [asset_update_feed_producers_operation](../components/operations.md#asset_update_feed_producers_operation)
-- [asset_update_issuer_operation](../components/operations.md#asset_update_issuer_operation)
-- [asset_update_operation](../components/operations.md#asset_update_operation)
-- [balance_claim_operation](../components/operations.md#balance_claim_operation)
-- [bit_collateral_operation](../components/operations.md#bit_collateral_operation)
-- [blind_transfer_operation](../components/operations.md#blind_transfer_operation)
-- [call_order_update_operation](../components/operations.md#call_order_update_operation)
-- [committee_member_create_operation](../components/operations.md#committee_member_create_operation)
-- [committee_member_update_global_parameters_operation](../components/operations.md#committee_member_update_global_parameters_operation)
-- [committee_member_update_operation](../components/operations.md#committee_member_update_operation)
-- [custom_operation](../components/operations.md#custom_operation)
-- [execute_bit_operation](../components/operations.md#execute_bit_operation)
-- [fba_distribute_operation](../components/operations.md#fba_distribute_operation)
-- [fill_order_operation](../components/operations.md#fill_order_operation)
-- [limit_order_cancel_operation](../components/operations.md#limit_order_cancel_operation)
-- [limit_orders_create_operation](../components/operations.md#limit_orders_create_operation)
-- [override_transfer_operation](../components/operations.md#override_transfer_operation)
-- [proposal_create_operation](../components/operations.md#proposal_create_operation)
-- [proposal_delete_operation](../components/operations.md#proposal_delete_operation)
-- [proposal_update_operation](../components/operations.md#proposal_update_operation)
-- [transfer_from_blind_operation](../components/operations.md#transfer_from_blind_operation)
-- [transfer_operation](../components/operations.md#transfer_operation)
-- [transfer_to_blind_operation](../components/operations.md#transfer_to_blind_operation)
-- [vesting_balance_create_operation](../components/operations.md#vesting_balance_create_operation)
-- [vesting_balance_withdraw_operation](../components/operations.md#vesting_balance_withdraw_operation)
-- [withdraw_permission_claim_operation](../components/operations.md#withdraw_permission_claim_operation)
-- [withdraw_permission_create_operation](../components/operations.md#withdraw_permission_create_operation)
-- [withdraw_permission_delete_operation](../components/operations.md#withdraw_permission_delete_operation)
-- [withdraw_permission_update_operation](../components/operations.md#withdraw_permission_update_operation)
-- [witness_create_operation](../components/operations.md#witness_create_operation)
-- [witness_update_operation](../components/operations.md#witness_update_operation)
-- [worker_create_operation](../components/operations.md#worker_create_operation)
+- Account
+  - [account_create_operation](../components/operations.md#account_create_operation)
+  - [account_transfer_operation](../components/operations.md#account_transfer_operation)
+  - [account_update_operation](../components/operations.md#account_update_operation)
+  - [account_upgrade_operation](../components/operations.md#account_upgrade_operation)
+  - [account_whitelist_operation](../components/operations.md#account_whitelist_operation)
+- Asset
+  - [asset_operation](../components/operations.md#asset_operation)
+  - [asset_clain_fees_operation](../components/operations.md#asset_claim_fees_operation)
+  - [asset_claim_pool_operation](../components/operations.md#asset_claim_pool_operation)
+  - [asset_create_operation](../components/operations.md#asset_create_operation)
+  - [asset_fund_fee_pool_operation](../components/operations.md#asset_fund_fee_pool_operation)
+  - [asset_global_settle_operation](../components/operations.md#asset_global_settle_operation)
+  - [asset_issue_operation](../components/operations.md#asset_issue_operation)
+  - [asset_publish_feed_operation](../components/operations.md#asset_publish_feed_operat)
+  - [asset_reserve_operation](../components/operations.md#asset_reserve_operation)
+  - [asset_settle_cancel_operation](../components/operations.md#asset_settle_cancel_operation)
+  - [asset_settle_operation](../components/operations.md#asset_settle_operation)
+  - [asset_update_bitasset_operation](../components/operations.md#asset_update_bitasset_operation)
+  - [asset_update_feed_producers_operation](../components/operations.md#asset_update_feed_producers_operation)
+  - [asset_update_issuer_operation](../components/operations.md#asset_update_issuer_operation)
+  - [asset_update_operation](../components/operations.md#asset_update_operation)
+- Balance Claim
+  - [balance_claim_operation](../components/operations.md#balance_claim_operation)
+- Bit collateral (*market*)
+  - [bit_collateral_operation](../components/operations.md#bit_collateral_operation)
+- Committee
+  - [committee_member_create_operation](../components/operations.md#committee_member_create_operation)
+  - [committee_member_update_global_parameters_operation](../components/operations.md#committee_member_update_global_parameters_operation)
+  - [committee_member_update_operation](../components/operations.md#committee_member_update_operation)
+- Custom  (*market*)
+  - [custom_operation](../components/operations.md#custom_operation)
+  - [execute_bit_operation](../components/operations.md#execute_bit_operation)
+- FBA
+  - [fba_distribute_operation](../components/operations.md#fba_distribute_operation)
+- Order (*market*)
+  - [call_order_update_operation](../components/operations.md#call_order_update_operation)
+  - [fill_order_operation](../components/operations.md#fill_order_operation)
+  - [limit_order_cancel_operation](../components/operations.md#limit_order_cancel_operation)
+  - [limit_orders_create_operation](../components/operations.md#limit_orders_create_operation)
+- Transfer
+  - [blind_transfer_operation](../components/operations.md#blind_transfer_operation)
+  - [override_transfer_operation](../components/operations.md#override_transfer_operation)
+  - [transfer_from_blind_operation](../components/operations.md#transfer_from_blind_operation)
+  - [transfer_operation](../components/operations.md#transfer_operation)
+  - [transfer_to_blind_operation](../components/operations.md#transfer_to_blind_operation)
+- Proposal
+  - [proposal_create_operation](../components/operations.md#proposal_create_operation)
+  - [proposal_delete_operation](../components/operations.md#proposal_delete_operation)
+  - [proposal_update_operation](../components/operations.md#proposal_update_operation)
+- Vesting Balance
+  - [vesting_balance_create_operation](../components/operations.md#vesting_balance_create_operation)
+  - [vesting_balance_withdraw_operation](../components/operations.md#vesting_balance_withdraw_operation)  
+- Withdraw
+  - [withdraw_permission_claim_operation](../components/operations.md#withdraw_permission_claim_operation)
+  - [withdraw_permission_create_operation](../components/operations.md#withdraw_permission_create_operation)
+  - [withdraw_permission_delete_operation](../components/operations.md#withdraw_permission_delete_operation)
+  - [withdraw_permission_update_operation](../components/operations.md#withdraw_permission_update_operation)
+- Witnwss
+  - [witness_create_operation](../components/operations.md#witness_create_operation)
+  - [witness_update_operation](../components/operations.md#witness_update_operation)
+- Worker
+  - [worker_create_operation](../components/operations.md#worker_create_operation)
 
 
 ***
 
+<<<<<<< HEAD
 ## Detailed Descriptions
 
 ### account_create_operation
@@ -106,6 +121,55 @@ Learning BitShares-Core Available Operations.
 	  }
 	  };
 
+=======
+#### Detailed Descriptions
+
+### account_create_operation
+
+		  struct account_create_operation : public base_operation
+		  {
+		  struct ext
+		  {
+		  optional< void_t >                  null_ext;
+		  optional< special_authority >       owner_special_authority;
+		  optional< special_authority >       active_special_authority;
+		  optional< buyback_account_options > buyback_options;
+		  };
+		 
+		  struct fee_parameters_type
+		  {
+		  uint64_t basic_fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+		  uint64_t premium_fee = 2000*GRAPHENE_BLOCKCHAIN_PRECISION; 
+		  uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
+		  }; 
+
+		  asset           fee;
+		  account_id_type registrar;
+		 
+		  account_id_type referrer;
+		  uint16_t        referrer_percent = 0;
+		 
+		  string          name;
+		  authority       owner;
+		  authority       active;
+		 
+		  account_options  options;
+		  extension< ext > extensions;
+		 
+		  account_id_type  fee_payer()const { return registrar; }
+		  void             validate()const;
+		  share_type       calculate_fee(const fee_parameters_type& )const;
+		 
+		  void             get_required_active_authorities( flat_set<account_id_type>& a )const
+		  {
+		  // registrar should be required anyway as it is the fee_payer(), but we insert it here just to be sure
+		  a.insert( registrar );
+		  if( extensions.value.buyback_options.valid() )
+		  a.insert( extensions.value.buyback_options->asset_to_buy_issuer );
+		  }
+		  };
+
+>>>>>>> c13a233dbe91f627d4dae6ad71256ee64c2259ad
 ### account_transfer_operation
 - Transfers the account to another account while clearing the white list. 
 - In theory an account can be transferred by simply updating the authorities, but that kind of transfer lacks semantic meaning and is more often done to rotate keys without transferring ownership. This operation is used to indicate the legal transfer of title to this account and a break in the operation history. 
@@ -122,8 +186,8 @@ Learning BitShares-Core Available Operations.
 	  account_id_type new_owner;
 	  extensions_type extensions;
 	 
-	  account_id_type fee_payer()const { return account_id; }
-	  void validate()const;
+	  account_id_type  fee_payer()const { return account_id; }
+	  void             validate()const;
 	  };
 
 ### account_update_operation
@@ -134,29 +198,29 @@ Learning BitShares-Core Available Operations.
 		{
 		struct ext
 		{
-		optional< void_t > null_ext;
+		optional< void_t >            null_ext;
 		optional< special_authority > owner_special_authority;
 		optional< special_authority > active_special_authority;
 		};
 
 		struct fee_parameters_type
 		{
-		share_type fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
-		uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
+		share_type   fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
+		uint32_t     price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
+		asset           fee;
 		account_id_type account;
 
 		optional<authority> owner;
 		optional<authority> active;
 
 		optional<account_options> new_options;
-		extension< ext > extensions;
+		extension< ext >          extensions;
 
-		account_id_type fee_payer()const { return account; }
-		void validate()const;
-		share_type calculate_fee( const fee_parameters_type& k )const;
+		account_id_type  fee_payer()const { return account; }
+		void             validate()const;
+		share_type       calculate_fee( const fee_parameters_type& k )const;
 
 		bool is_owner_update()const
 		{ return owner || extensions.value.owner_special_authority.valid(); }
@@ -175,19 +239,19 @@ Learning BitShares-Core Available Operations.
 
 		struct account_upgrade_operation : public base_operation
 		{
-		struct fee_parameters_type { 
+		struct   fee_parameters_type { 
 		uint64_t membership_annual_fee = 2000 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		uint64_t membership_lifetime_fee = 10000 * GRAPHENE_BLOCKCHAIN_PRECISION; 
 		};
 
-		asset fee;
-		account_id_type account_to_upgrade;
-		bool upgrade_to_lifetime_member = false;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  account_to_upgrade;
+		bool             upgrade_to_lifetime_member = false;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return account_to_upgrade; }
-		void validate()const;
-		share_type calculate_fee( const fee_parameters_type& k )const;
+		account_id_type  fee_payer()const { return account_to_upgrade; }
+		void             validate()const;
+		share_type       calculate_fee( const fee_parameters_type& k )const;
 		};
 
 ### account_whitelist_operation
@@ -206,14 +270,14 @@ Learning BitShares-Core Available Operations.
 		  white_and_black_listed = white_listed | black_listed 
 		  };
 		 
-		  asset fee;
-		  account_id_type authorizing_account;
-		  account_id_type account_to_list;
-		  uint8_t new_listing = no_listing;
-		  extensions_type extensions;
+		  asset            fee;
+		  account_id_type  authorizing_account;
+		  account_id_type  account_to_list;
+		  uint8_t          new_listing = no_listing;
+		  extensions_type  extensions;
 		 
-		  account_id_type fee_payer()const { return authorizing_account; }
-		  void validate()const { FC_ASSERT( fee.amount >= 0 ); FC_ASSERT(new_listing < 0x4); }
+		  account_id_type  fee_payer()const { return authorizing_account; }
+		  void             validate()const { FC_ASSERT( fee.amount >= 0 ); FC_ASSERT(new_listing < 0x4); }
 		  };
 		 
 		 
@@ -226,15 +290,15 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee;
-		account_id_type fee_paying_account;
-		vector<predicate> predicates;
+		asset                     fee;
+		account_id_type           fee_paying_account;
+		vector<predicate>         predicates;
 		flat_set<account_id_type> required_auths;
-		extensions_type extensions;
+		extensions_type           extensions;
 
-		account_id_type fee_payer()const { return fee_paying_account; }
-		void validate()const;
-		share_type calculate_fee(const fee_parameters_type& k)const;
+		account_id_type           fee_payer()const { return fee_paying_account; }
+		void                      validate()const;
+		share_type                calculate_fee(const fee_parameters_type& k)const;
 		};
 
 ### asset_claim_fees_operation
@@ -242,17 +306,17 @@ Learning BitShares-Core Available Operations.
 
 		struct asset_claim_fees_operation : public base_operation
 		{
-		struct fee_parameters_type {
+		struct   fee_parameters_type {
 		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type issuer;
-		asset amount_to_claim; 
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer;
+		asset            amount_to_claim; 
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 		};
 
 ### asset_claim_pool_operation
@@ -274,21 +338,21 @@ Learning BitShares-Core Available Operations.
 		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_id; 
-		asset amount_to_claim; 
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer;
+		asset_id_type    asset_id; 
+		asset            amount_to_claim; 
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 		};
   
 ### asset_create_operation
  
 		struct asset_create_operation : public base_operation
 		{
-		struct fee_parameters_type { 
+		struct   fee_parameters_type { 
 		uint64_t symbol3 = 500000 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		uint64_t symbol4 = 300000 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		uint64_t long_symbol = 5000 * GRAPHENE_BLOCKCHAIN_PRECISION;
@@ -301,14 +365,14 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee; 
+		asset           fee; 
 		account_id_type from_account;
-		asset_id_type asset_id;
-		share_type amount; 
+		asset_id_type   asset_id;
+		share_type      amount; 
 		extensions_type extensions;
 
 		account_id_type fee_payer()const { return from_account; }
-		void validate()const;
+		void            validate()const;
 		};
 
 ### asset_global_settle_operation
@@ -320,23 +384,23 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee;
-		account_id_type issuer; 
-		asset_id_type asset_to_settle;
-		price settle_price;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer; 
+		asset_id_type    asset_to_settle;
+		price            settle_price;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 		};
 
 ### asset_issue_operation
 
 		struct asset_issue_operation : public base_operation
 		{
-		struct fee_parameters_type { 
-		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
-		uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
+		struct      fee_parameters_type { 
+		uint64_t    fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
+		uint32_t    price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
 ### asset_publish_feed_operation
@@ -348,14 +412,14 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee; 
-		account_id_type publisher;
-		asset_id_type asset_id; 
-		price_feed feed;
-		extensions_type extensions;
+		asset            fee; 
+		account_id_type  publisher;
+		asset_id_type    asset_id; 
+		price_feed       feed;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return publisher; }
-		void validate()const;
+		account_id_type  fee_payer()const { return publisher; }
+		void             validate()const;
 		};
   
 ### asset_reserve_operation
@@ -367,13 +431,13 @@ Learning BitShares-Core Available Operations.
 		  {
 		  struct fee_parameters_type { uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 		 
-		  asset fee;
-		  account_id_type payer;
-		  asset amount_to_reserve;
-		  extensions_type extensions;
+		  asset            fee;
+		  account_id_type  payer;
+		  asset            amount_to_reserve;
+		  extensions_type  extensions;
 		 
-		  account_id_type fee_payer()const { return payer; }
-		  void validate()const;
+		  account_id_type  fee_payer()const { return payer; }
+		  void             validate()const;
 		  };
  
  
@@ -384,13 +448,13 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { };
 
-		asset fee;
-		force_settlement_id_type settlement;
-		account_id_type account;
-		asset amount;
-		extensions_type extensions;
+		asset                     fee;
+		force_settlement_id_type  settlement;
+		account_id_type           account;
+		asset                     amount;
+		extensions_type           extensions;
 
-		account_id_type fee_payer()const { return account; }
+		account_id_type           fee_payer()const { return account; }
 		void validate()const {
 		FC_ASSERT( amount.amount > 0, "Must settle at least 1 unit" );
 		}
@@ -411,12 +475,12 @@ Learning BitShares-Core Available Operations.
 		uint64_t fee = 100 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type account;
-		asset amount;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  account;
+		asset            amount;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return account; }
+		account_id_type  fee_payer()const { return account; }
 		void validate()const;
 		};
 
@@ -435,18 +499,21 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_to_update;
+		asset            fee;
+		account_id_type  issuer;
+		asset_id_type    asset_to_update;
 
 		bitasset_options new_options;
-		extensions_type extensions;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 		};
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c13a233dbe91f627d4dae6ad71256ee64c2259ad
 ### asset_update_feed_producers_operation
 - Update the set of feed-producing accounts for a BitAsset
 - BitAssets have price feeds selected by taking the median values of recommendations from a set of feed producers. This operation is used to specify which accounts may produce feeds for a given BitAsset. 
@@ -464,17 +531,21 @@ Learning BitShares-Core Available Operations.
 		{
 		struct fee_parameters_type { uint64_t fee = 500 * GRAPHENE_BLOCKCHAIN_PRECISION; };
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_to_update;
+		asset             fee;
+		account_id_type   issuer;
+		asset_id_type     asset_to_update;
 
 		flat_set<account_id_type> new_feed_producers;
-		extensions_type extensions;
+		extensions_type           extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type   fee_payer()const { return issuer; }
+		void              validate()const;
 		};
+<<<<<<< HEAD
 
+=======
+		  
+>>>>>>> c13a233dbe91f627d4dae6ad71256ee64c2259ad
 ### asset_update_issuer_operation
 - Update issuer of an asset
 - An issuer has general administrative power of an asset and in some cases also its shares issued to individuals. Thus, changing the issuer today requires the use of a separate operation that needs to be signed by the owner authority. 
@@ -485,14 +556,14 @@ Learning BitShares-Core Available Operations.
 		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_to_update;
-		account_id_type new_issuer;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer;
+		asset_id_type    asset_to_update;
+		account_id_type  new_issuer;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 
 		void get_required_owner_authorities( flat_set<account_id_type>& a )const
 		{ a.insert( issuer ); }
@@ -517,18 +588,18 @@ Learning BitShares-Core Available Operations.
 
 		struct asset_update_issuer_operation : public base_operation
 		{
-		struct fee_parameters_type {
+		struct   fee_parameters_type {
 		uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
-		asset fee;
-		account_id_type issuer;
-		asset_id_type asset_to_update;
-		account_id_type new_issuer;
-		extensions_type extensions;
+		asset            fee;
+		account_id_type  issuer;
+		asset_id_type    asset_to_update;
+		account_id_type  new_issuer;
+		extensions_type  extensions;
 
-		account_id_type fee_payer()const { return issuer; }
-		void validate()const;
+		account_id_type  fee_payer()const { return issuer; }
+		void             validate()const;
 
 		void get_required_owner_authorities( flat_set<account_id_type>& a )const
 		{ a.insert( issuer ); }
@@ -570,18 +641,23 @@ Learning BitShares-Core Available Operations.
 - All assets in a blind transfer must be of the same type: fee.asset_id The fee_payer is the temp account and can be funded from the blinded values.
 - Using this operation you can transfer from an account and/or blinded balances to an account and/or blinded balances.
 
-**Stealth Transfers:**
-
-- Assuming Receiver has key pair R,r and has shared public key R with Sender Assuming Sender has key pair S,s Generate one time key pair O,o as s.child(nonce) where nonce can be inferred from transaction Calculate secret V = o*R blinding_factor = sha256(V) memo is encrypted via aes of V owner = R.child(sha256(blinding_factor))
-- Sender gives Receiver output ID to complete the payment.
+- **Stealth Transfers:**
+	- Assuming Receiver has key pair `R,r` and has shared public key `R` with Sender 
+	- Assuming Sender has key pair `S,s` 
+	- Generate one time key pair `O,o` as `s.child(nonce)` where nonce can be inferred from transaction 
+	- Calculate secret `V = o*R` 
+	- blinding_factor = `sha256(V)` 
+	- memo is encrypted via aes of `V `
+	- owner = `R.child(sha256(blinding_factor))`
+  - Sender gives Receiver output ID to complete the payment.
 - This process can also be used to send money to a cold wallet without having to pre-register any accounts.
 - Outputs are assigned the same IDs as the inputs until no more input IDs are available, in which case a the return value will be the first ID allocated for an output. Additional output IDs are allocated sequentially thereafter. If there are fewer outputs than inputs then the input IDs are freed and never used again. 
 
 		struct blind_transfer_operation : public base_operation
 		{
-		struct fee_parameters_type { 
-		uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
-		uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
+		  struct fee_parameters_type { 
+		  uint64_t fee = 5*GRAPHENE_BLOCKCHAIN_PRECISION; 
+		  uint32_t price_per_output = 5*GRAPHENE_BLOCKCHAIN_PRECISION;
 		};
 
 		asset fee;
@@ -594,8 +670,8 @@ Learning BitShares-Core Available Operations.
 
 		void get_required_authorities( vector<authority>& a )const
 		{
-		for( const auto& in : inputs )
-		a.push_back( in.owner ); 
+		  for( const auto& in : inputs )
+		  a.push_back( in.owner ); 
 		}
 		};
 
@@ -851,7 +927,10 @@ Learning BitShares-Core Available Operations.
 ### proposal_create_operation
 - The `proposal_create_operation` creates a transaction proposal, for use in multi-sig scenarios
 - Creates a transaction proposal. The operations which compose the transaction are listed in order in proposed_ops, and expiration_time specifies the time by which the proposal must be accepted or it will fail permanently. The expiration_time cannot be farther in the future than the maximum expiration time set in the global properties object. 
-
+- Constructs a proposal_create_operation suitable for committee proposals, with expiration time and review period set
+        * appropriately.  No proposed_ops are added.  When used to create a proposal to change chain parameters, this method expects to receive the currently effective parameters, not the proposed parameters.  (The proposed parameters will go in proposed_ops, and proposed_ops is untouched by this function.)
+	
+	
 		struct proposal_create_operation : public base_operation
 		{
 		struct fee_parameters_type { 
