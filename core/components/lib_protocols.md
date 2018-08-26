@@ -1,12 +1,11 @@
 #### BitShares Core - graphene::chain
 
-This document purpose: to bring BitShares Protocol files information close to users. These are a collection of BitShares Protocols information.  
+This document purpose: to bring BitShares Protocol files information close to users.
+
+These are a collection of BitShares Protocols information.  The original files locate *..\libraries\chain\include\graphene\chain\protocol\---.hpp*.he 
 
 # Protocols and Detailed Descriptions
 *graphene::chain::*
-
-*..\libraries\chain\include\graphene\chain\protocol\---.hpp*
-
 
 - [account](../components/lib_protocols.md#account)
 - [address](../components/lib_protocols.md#address) 
