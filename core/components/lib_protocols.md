@@ -652,7 +652,7 @@ typedef flat_set<future_extensions> extensions_type;
 
 ## block 
 
-*See listed `block`information section.
+*See listed [`block`information section](../components#block-header---inheritance).
 ```
 struct block_header{  };
 struct signed_block_header : public block_header{  }
