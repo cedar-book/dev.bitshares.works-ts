@@ -2,7 +2,7 @@
 
 This document purpose: to bring BitShares Protocol files information close to users.
 
-These are a collection of BitShares Protocols information.  The original files locate *..\libraries\chain\include\graphene\chain\protocol\---.hpp*.he 
+These are a collection of BitShares Protocols information.  The original files locate (*..\libraries\chain\include\graphene\chain\protocol\---.hpp*). 
 
 # Protocols and Detailed Descriptions
 *graphene::chain::*
