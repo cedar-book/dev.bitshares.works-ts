@@ -208,6 +208,7 @@ typedef static_variant<
 ```
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  |-  assert_operation  |
@@ -438,7 +439,7 @@ struct asset_options {
 | void | validate()const; | Perform internal consistency checks. @throws fc::exception if any check fails |
 
 
-- brief The bitasset_options struct contains configurable options available only to BitAssets.
+- The bitasset_options struct contains configurable options available only to BitAssets.
 - **Note** Changes to th is struct will break protocol compatibility
 
 ```
@@ -585,6 +586,7 @@ void add_authority_accounts(
 
 
 ## balance 
+*operation*
 
 | operation |   |
 |---|---|
@@ -846,6 +848,7 @@ struct stealth_confirmation
 ```
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - transfer_to_blind_operation <br /> - transfer_from_blind_operation <br /> - blind_transfer_operation |
@@ -858,6 +861,7 @@ struct stealth_confirmation
 ## custom 
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - custom_operation  |
@@ -943,6 +947,7 @@ void unpack( Stream& s, graphene::chain::extension<T>& value, uint32_t _max_dept
 ## fba 
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - fba_distribute_operation |
@@ -1015,6 +1020,7 @@ typedef fee_schedule fee_schedule_type;
 ## market 
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - limit_order_create_operation <br /> - limit_order_cancel_operation <br /> - call_order_update_operation <br /> - fill_order_operation <br /> - bid_collateral_operation <br /> - execute_bid_operation  |
@@ -1139,9 +1145,9 @@ typedef fc::static_variant<
 	
 ```
 void operation_get_required_authorities( const operation& op, 
-																				flat_set<account_id_type>& active,
-																				flat_set<account_id_type>& owner,
-																				vector<authority>&  other );
+     flat_set<account_id_type>& active,
+     flat_set<account_id_type>& owner,
+     vector<authority>&  other );
 
 void operation_validate( const operation& op );
 ```
@@ -1172,6 +1178,7 @@ struct op_wrapper;
 ```
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - proposal_create_operation <br/ > - proposal_update_operation <br /> - proposal_delete_operation |      
@@ -1351,6 +1358,7 @@ struct processed_transaction : public signed_transaction
 ## transfer 
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - transfer_operation <br /> - override_transfer_operation |
@@ -1651,6 +1659,7 @@ typedef fc::static_variant<linear_vesting_policy_initializer, cdd_vesting_policy
 ```
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - vesting_balance_create_operation <br /> - vesting_balance_withdraw_operation|
@@ -1771,6 +1780,7 @@ void from_variant( const fc::variant& var, graphene::chain::vote_id_type& vo, ui
 - The fee for this operation is paid by withdraw_from_account, and this account is required to authorize this operation.
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - withdraw_permission_create_operation <br /> - withdraw_permission_update_operation <br /> - withdraw_permission_claim_operation <br /> - withdraw_permission_delete_operation |
@@ -1782,6 +1792,7 @@ void from_variant( const fc::variant& var, graphene::chain::vote_id_type& vo, ui
 - Accounts which wish to become witnesses may use this operation to create a witness object which stakeholders may vote on to approve its position as a witness.
 	
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - witness_create_operation <br /> - witness_update_operation |
@@ -1816,6 +1827,7 @@ typedef static_variant<
 ```
 
 *Operation*
+
 | operation |   |
 |---|---|
 |  | - worker_create_operation | 
