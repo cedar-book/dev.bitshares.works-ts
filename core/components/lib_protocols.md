@@ -1,6 +1,6 @@
 #### BitShares Core - graphene::chain
 
-This document purpose: to bring BitShares Protocol information close to users. These are a collection of BitShares Protocols information. 
+This document purpose: to bring BitShares Protocol files information close to users. These are a collection of BitShares Protocols information.  
 
 # Protocols and Detailed Descriptions
 *graphene::chain::*
@@ -1181,11 +1181,11 @@ struct op_wrapper;
 
 | operation |   |
 |---|---|
-|  | - proposal_create_operation <br/ > - proposal_update_operation <br /> - proposal_delete_operation |      
+|  | - proposal_create_operation <br/ >  - proposal_update_operation <br /> - proposal_delete_operation |      
   
 	
 ## protocol 
-
+*--*
 
 ## special_authority 
 ```
