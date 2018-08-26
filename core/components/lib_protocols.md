@@ -43,12 +43,12 @@ This document purpose: to bring BitShares Protocol files information close to us
 
 ***
 
-**Note**: Operations have [Operations and Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain) section to list all operations. Therefore, if a protocol includes any operations, listed then in a table list and go to see the description page.
+**Note**: Operations have [Operations and Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain) section to list all operations. Therefore, if a protocol includes any operations, you fine the operations list and a link to go to the description page.
 
 (e.g., ) 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|  |   |
 |---|---|
 |  |  (operation name) |
 
@@ -469,9 +469,9 @@ struct bitasset_options {
 | extensions_type | extensions; |  |
 | void | validate()const; | Perform internal consistency checks. @throws fc::exception if any check fails |
 
-*Operaions*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|   |   |
 |---|---|
 |  | - balance_claim_operation <br /> - asset_create_operation <br /> - asset_global_settle_operation <br /> - asset_settle_operation <br />- asset_settle_cancel_operation <br /> - asset_fund_fee_pool_operation <br /> - asset_update_operation <br /> - asset_update_bitasset_operation <br /> - asset_update_feed_producers_operation <br /> - asset_publish_feed_operation <br /> - asset_issue_operation <br /> - asset_reserve_operation <br /> - asset_claim_fees_operation <br /> - asset_update_issuer_operation <br /> - asset_claim_pool_operation |
 
@@ -586,9 +586,10 @@ void add_authority_accounts(
 
 
 ## balance 
-*operation*
 
-| operation |   |
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
+
+|  |   |
 |---|---|
 |  | - balance_claim_operation  |
 
@@ -762,11 +763,11 @@ void validate()const;
 
 ## committee_member 
 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|  |   |
 |---|---|
-|  | - committee_member_create_operation <br/ > - committee_member_update_operation <br /> - committee_member_update_global_parameters_operation  |
+|  | - committee_member_create_operation <br /> - committee_member_update_operation <br /> - committee_member_update_global_parameters_operation  |
 
 ## confidential 
 
@@ -847,9 +848,9 @@ struct stealth_confirmation
 };
 ```
 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|  |   |
 |---|---|
 |  | - transfer_to_blind_operation <br /> - transfer_from_blind_operation <br /> - blind_transfer_operation |
 
@@ -860,9 +861,9 @@ struct stealth_confirmation
 
 ## custom 
 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|   |   |
 |---|---|
 |  | - custom_operation  |
 
@@ -946,9 +947,9 @@ void unpack( Stream& s, graphene::chain::extension<T>& value, uint32_t _max_dept
 
 ## fba 
 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|  |   |
 |---|---|
 |  | - fba_distribute_operation |
 
@@ -1019,9 +1020,9 @@ typedef fee_schedule fee_schedule_type;
 
 ## market 
 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|   |   |
 |---|---|
 |  | - limit_order_create_operation <br /> - limit_order_cancel_operation <br /> - call_order_update_operation <br /> - fill_order_operation <br /> - bid_collateral_operation <br /> - execute_bid_operation  |
 
@@ -1177,11 +1178,11 @@ struct op_wrapper
 struct op_wrapper;
 ```
 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|   |   |
 |---|---|
-|  | - proposal_create_operation <br/ >  - proposal_update_operation <br /> - proposal_delete_operation |      
+|  | - proposal_create_operation <br />  - proposal_update_operation <br /> - proposal_delete_operation |      
   
 	
 ## protocol 
@@ -1357,9 +1358,9 @@ struct processed_transaction : public signed_transaction
 
 ## transfer 
 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|   |   |
 |---|---|
 |  | - transfer_operation <br /> - override_transfer_operation |
 
@@ -1657,10 +1658,9 @@ struct cdd_vesting_policy_initializer
 
 typedef fc::static_variant<linear_vesting_policy_initializer, cdd_vesting_policy_initializer> vesting_policy_initializer;
 ```
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-*Operation*
-
-| operation |   |
+|   |   |
 |---|---|
 |  | - vesting_balance_create_operation <br /> - vesting_balance_withdraw_operation|
 
@@ -1779,9 +1779,9 @@ void from_variant( const fc::variant& var, graphene::chain::vote_id_type& vo, ui
 - Withdrawal permissions authorize only a specific pairing, i.e. a permission only authorizes one specified authorized account to withdraw from one specified authorizing account. Withdrawals are limited and may not exceed he withdrawal limit. The withdrawal must be made in the same asset as the limit; attempts with withdraw any other asset type will be rejected.
 - The fee for this operation is paid by withdraw_from_account, and this account is required to authorize this operation.
 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|   |   |
 |---|---|
 |  | - withdraw_permission_create_operation <br /> - withdraw_permission_update_operation <br /> - withdraw_permission_claim_operation <br /> - withdraw_permission_delete_operation |
 
@@ -1791,9 +1791,9 @@ void from_variant( const fc::variant& var, graphene::chain::vote_id_type& vo, ui
 - Create a witness object, as a bid to hold a witness position on the network.
 - Accounts which wish to become witnesses may use this operation to create a witness object which stakeholders may vote on to approve its position as a witness.
 	
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|   |   |
 |---|---|
 |  | - witness_create_operation <br /> - witness_update_operation |
 	
@@ -1826,11 +1826,11 @@ typedef static_variant<
   burn_worker_initializer > worker_initializer;
 ```
 
-*Operation*
+*[Operation(s)](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|   |   |
 |---|---|
 |  | - worker_create_operation | 
 
  
- 
+***
