@@ -835,7 +835,9 @@ struct stealth_confirmation
 - Defines data required to create a new blind commitment
 - stealth
 - The blinded output that must be proven to be greater than 0
-```struct blind_output
+
+```
+struct blind_output
 {
    fc::ecc::commitment_type                commitment;   
    range_proof_type                        range_proof;  /** only required if there is more than one blind output */
