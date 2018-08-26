@@ -1,5 +1,7 @@
 #### BitShares Core - graphene::chain
 
+This document purpose: to bring BitShares Protocol information close to users. These are a collection of BitShares Protocols information. 
+
 # Protocols and Detailed Descriptions
 *graphene::chain::*
 
