@@ -342,7 +342,7 @@ inline price& operator /=  ( price& p, const ratio_type& r ) { return p = p / r;
 - Required maintenance collateral is defined as a fixed point number with a maximum value of 10.000 and a minimum value of 1.000.  (denominated in GRAPHENE_COLLATERAL_RATIO_DENOM)
 - A black swan event occurs when value_of_collateral equals value_of_debt, to avoid a black swan a margin call is executed when value_of_debt * required_maintenance_collateral equals value_of_collateral using rate.
 -  Default requirement is $1.75 of collateral per $1 of debt       
--	BlackSwan ---> SQR ---> MCR ----> SP		 
+-  BlackSwan ---> SQR ---> MCR ----> SP 
 
 ```
 struct price_feed
@@ -393,7 +393,7 @@ bool is_valid_symbol( const string& symbol );
 ```
 struct asset_options {
     share_type  max_supply = GRAPHENE_MAX_SHARE_SUPPLY;
-    uint16_t    market_fee_percent = 0;	
+    uint16_t    market_fee_percent = 0;
     share_type  max_market_fee = GRAPHENE_MAX_SHARE_SUPPLY;
 
     uint16_t    issuer_permissions = UIA_ASSET_ISSUER_PERMISSION_MASK;
@@ -570,7 +570,7 @@ struct authority
 	
 - Add all account members of the given authority to the given flat_set.
 
-```	 
+``` 
 void add_authority_accounts(
    flat_set<account_id_type>& result,
    const authority& a
@@ -640,7 +640,7 @@ typedef static_variant<void_t>      future_extensions;
 - A flat_set is used to make sure that only one extension of each type is added and that they are added in order.  
 - **Note** static_variant compares only the type tag and not the  content
 
-```		
+``` 
 typedef flat_set<future_extensions> extensions_type;
 ```
 
@@ -1131,7 +1131,7 @@ typedef fc::static_variant<
 ```
 
 - Appends required authorities to the result vector.  The authorities appended are not the same as those returned by get_required_auth 
-- Return a set of required authorities for @ref op.		 
+- Return a set of required authorities for @ref op. 
 	
 ```
 void operation_get_required_authorities( const operation& op, 
