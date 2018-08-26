@@ -30,18 +30,18 @@ Learning BitShares-Core Available Operations.
   - [asset_update_operation](../components/operations.md#asset_update_operation)
 - Balance Claim
   - [balance_claim_operation](../components/operations.md#balance_claim_operation)
-- Bit collateral
+- Bit collateral (*market*)
   - [bit_collateral_operation](../components/operations.md#bit_collateral_operation)
 - Committee
   - [committee_member_create_operation](../components/operations.md#committee_member_create_operation)
   - [committee_member_update_global_parameters_operation](../components/operations.md#committee_member_update_global_parameters_operation)
   - [committee_member_update_operation](../components/operations.md#committee_member_update_operation)
-- Custom 
+- Custom  (*market*)
   - [custom_operation](../components/operations.md#custom_operation)
   - [execute_bit_operation](../components/operations.md#execute_bit_operation)
 - FBA
   - [fba_distribute_operation](../components/operations.md#fba_distribute_operation)
-- Order
+- Order (*market*)
   - [call_order_update_operation](../components/operations.md#call_order_update_operation)
   - [fill_order_operation](../components/operations.md#fill_order_operation)
   - [limit_order_cancel_operation](../components/operations.md#limit_order_cancel_operation)
