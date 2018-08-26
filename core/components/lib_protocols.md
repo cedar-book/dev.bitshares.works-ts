@@ -63,25 +63,25 @@ bool is_cheap_name( const string& n );
 ```
 struct account_options
 {
-	public_key_type  memo_key;
-	account_id_type voting_account = GRAPHENE_PROXY_TO_SELF_ACCOUNT;
+  public_key_type  memo_key;
+  account_id_type  voting_account = GRAPHENE_PROXY_TO_SELF_ACCOUNT;
 
-	uint16_t num_witness = 0;
-	uint16_t num_committee = 0;
+  uint16_t num_witness = 0;
+  uint16_t num_committee = 0;
 
-	flat_set<vote_id_type> votes;
-	extensions_type        extensions;
+  flat_set<vote_id_type>   votes;
+  extensions_type          extensions;
 
-	/// Whether this account is voting
-	inline bool is_voting() const
-	{
-		return ( voting_account != GRAPHENE_PROXY_TO_SELF_ACCOUNT || !votes.empty() );
-	}
+  /// Whether this account is voting
+  inline bool              is_voting() const
+  {
+    return ( voting_account != GRAPHENE_PROXY_TO_SELF_ACCOUNT || !votes.empty() );
+  }
 
-	void validate()const;
+  void validate()const;
 };
 ```
-*`account_options` description*
+*The description of `account_options` elements*
 
 | Parameter  |   | Description |
 |---|---|---|
@@ -99,8 +99,8 @@ struct account_create_operation : public base_operation
 ## address 
 ```
 namespace fc { namespace ecc {
-	class public_key;
-	typedef fc::array<char,33>  public_key_data;
+  class  public_key; 
+  typedef fc::array<char,33>  public_key_data;
 } } // fc::ecc
 ```
 
@@ -116,11 +116,11 @@ struct public_key_type;
 class address
 {
 	public:
-	 address(); ///< constructs empty / null address
-	 explicit address( const std::string& base58str );   ///< converts to binary, validates checksum
-	 address( const fc::ecc::public_key& pub ); ///< converts to binary
+	 address();                                          ///< constructs empty / null address
+	 explicit address( const std::string& base58str );       ///< converts to binary, validates checksum
+	 address( const fc::ecc::public_key& pub );              ///< converts to binary
 	 explicit address( const fc::ecc::public_key_data& pub ); ///< converts to binary
-	 address( const pts_address& pub ); ///< converts to binary
+	 address( const pts_address& pub );                       ///< converts to binary
 	 address( const public_key_type& pubkey );
 
 	 static bool is_valid( const std::string& base58str, const std::string& prefix = GRAPHENE_ADDRESS_PREFIX );
@@ -184,7 +184,6 @@ struct asset_symbol_eq_lit_predicate
 	asset_id_type   asset_id;
 	string          symbol;
 	bool validate()const;
-
 };
 ```
 
@@ -193,8 +192,8 @@ struct asset_symbol_eq_lit_predicate
 ```
 struct block_id_predicate
 {
-	block_id_type id;
-	bool validate()const{ return true; }
+  block_id_type id;
+  bool validate()const{ return true; }
 };
 ```
 - When defining predicates do not make the protocol dependent upon implementation details.
@@ -217,17 +216,17 @@ typedef static_variant<
 ```
 extern const int64_t scaled_precision_lut[];
 
-struct price;
+struct **price**;
 
-struct asset
+struct **asset**
 {
-	asset( share_type a = 0, asset_id_type id = asset_id_type() )
+  asset( share_type a = 0, asset_id_type id = asset_id_type() )
 	:amount(a),asset_id(id){}
 
-	share_type    amount;
-	asset_id_type asset_id;
+  share_type    amount;
+  asset_id_type asset_id;
 
-	asset& operator += ( const asset& o )
+  asset& operator += ( const asset& o )
 	{
 		 FC_ASSERT( asset_id == o.asset_id );
 		 amount += o.amount;
@@ -287,9 +286,6 @@ struct asset
 
 	asset multiply_and_round_up( const price& p )const; ///< Multiply and round up
 };
-
-struct price{  };
-struct price_feed{  };
 ```
 
 - The price struct stores asset prices in the Graphene system.
@@ -297,7 +293,7 @@ struct price_feed{  };
 - The assets within a price are labeled base and quote. Throughout the Graphene code base, the convention used is that the base asset is the asset being sold, and the quote asset is the asset being purchased, where the price is represented as base/quote, so in the example price above the seller is looking to sell CORE asset and get USD in return.
 
 ```
-struct price
+struct **price**
 {
 	explicit price(const asset& _base = asset(), const asset _quote = asset())
 		 : base(_base),quote(_quote){}
@@ -342,27 +338,30 @@ inline price& operator *=  ( price& p, const ratio_type& r ) { return p = p * r;
 inline price& operator /=  ( price& p, const ratio_type& r ) { return p = p / r; }
 ```
 
+- class price_feed
 - defines market parameters for margin positions
 - Required maintenance collateral is defined as a fixed point number with a maximum value of 10.000 and a minimum value of 1.000.  (denominated in GRAPHENE_COLLATERAL_RATIO_DENOM)
 - A black swan event occurs when value_of_collateral equals value_of_debt, to avoid a black swan a margin call is executed when value_of_debt * required_maintenance_collateral equals value_of_collateral using rate.
 -  Default requirement is $1.75 of collateral per $1 of debt       
 -	BlackSwan ---> SQR ---> MCR ----> SP		 
 
+struct **price_feed**
+{
 **Forced settlements will evaluate using this price, defined as BITASSET / COLLATERAL**
 ```
-price settlement_price;
+  price settlement_price;
 ```
 - Price at which automatically exchanging this asset for CORE from fee pool occurs (used for paying fees)
 ```
-price core_exchange_rate;
+  price core_exchange_rate;
 ```
 - Fixed point between 1.000 and 10.000, implied fixed point denominator is GRAPHENE_COLLATERAL_RATIO_DENOM */
 ```
-uint16_t maintenance_collateral_ratio = GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO;
+  uint16_t maintenance_collateral_ratio = GRAPHENE_DEFAULT_MAINTENANCE_COLLATERAL_RATIO;
 ```
 - Fixed point between 1.000 and 10.000, implied fixed point denominator is GRAPHENE_COLLATERAL_RATIO_DENOM */
 ```
-uint16_t maximum_short_squeeze_ratio = GRAPHENE_DEFAULT_MAX_SHORT_SQUEEZE_RATIO;
+  uint16_t maximum_short_squeeze_ratio = GRAPHENE_DEFAULT_MAX_SHORT_SQUEEZE_RATIO;
 ```
 - When updating a call order the following condition must be maintained:
   - debt * maintenance_price() < collateral
@@ -374,7 +373,7 @@ uint16_t maximum_short_squeeze_ratio = GRAPHENE_DEFAULT_MAX_SHORT_SQUEEZE_RATIO;
 - This is provided to ensure that a black swan cannot be trigged due to poor liquidity alone, it must be confirmed by having the max_short_squeeze_price() move below the black swan price.
 
 ```
-price max_short_squeeze_price()const;
+  price max_short_squeeze_price()const;
 
 	friend bool operator == ( const price_feed& a, const price_feed& b )
 	{
@@ -419,7 +418,7 @@ struct asset_options {
 };
 ``` 
 
-*The descriptions of `asset_options`*
+*The descriptions of `asset_options` elements*
 
 |  |  |  |
 |---|---|---|
@@ -455,7 +454,7 @@ struct bitasset_options {
 };
 ```
 
-*The descriptions of `bitasset_options`*
+*The descriptions of `bitasset_options` elements*
 
 |  |  |  |
 |---|---|---|
@@ -548,7 +547,6 @@ struct authority
 				result.push_back(k.first);
 		 return result;
 	}
-
 
 	friend bool operator == ( const authority& a, const authority& b )
 	{
