@@ -8,51 +8,44 @@ These are a collection of the BitShares Protocols information. They are deep in 
 *graphene::chain::*
 
 * Base
-- [base](../components/lib_protocols.md#base) 
-- [block](../components/lib_protocols.md#block) 
-- [address](../components/lib_protocols.md#address)
-- [authority](../components/lib_protocols.md#authority) 
-- [special_authority](../components/lib_protocols.md#special_authority)
-- [chain_parameters](../components/lib_protocols.md#chain_parameters)
-- [types](../components/lib_protocols.md#types)
-- [operations](../components/lib_protocols.md#operations) 
-
+  - [base](../components/lib_protocols.md#base) 
+  - [block](../components/lib_protocols.md#block) 
+  - [address](../components/lib_protocols.md#address)
+  - [authority](../components/lib_protocols.md#authority) 
+  - [special_authority](../components/lib_protocols.md#special_authority)
+  - [chain_parameters](../components/lib_protocols.md#chain_parameters)
+  - [types](../components/lib_protocols.md#types)
+  - [operations](../components/lib_protocols.md#operations) 
 * Account
-- [account](../components/lib_protocols.md#account)
-- [memo](../components/lib_protocols.md#memo) 
-- [balance](../components/lib_protocols.md#balance) 
-- [transfer](../components/lib_protocols.md#transfer) 
-- [confidential](../components/lib_protocols.md#confidential) 
-- [custom](../components/lib_protocols.md#custom) 
-
+  - [account](../components/lib_protocols.md#account)
+  - [memo](../components/lib_protocols.md#memo) 
+  - [balance](../components/lib_protocols.md#balance) 
+  - [transfer](../components/lib_protocols.md#transfer) 
+  - [confidential](../components/lib_protocols.md#confidential) 
+  - [custom](../components/lib_protocols.md#custom) 
 * Asset
-- [assert](../components/lib_protocols.md#assert) 
-- [asset](../components/lib_protocols.md#asset) 
-- [fba](../components/lib_protocols.md#fba) 
-- [asset_ops](../components/lib_protocols.md#asset_ops) 
-- [buyback](../components/lib_protocols.md#buyback) 
-
+  - [assert](../components/lib_protocols.md#assert) 
+  - [asset](../components/lib_protocols.md#asset) 
+  - [fba](../components/lib_protocols.md#fba) 
+  - [asset_ops](../components/lib_protocols.md#asset_ops) 
+  - [buyback](../components/lib_protocols.md#buyback) 
 * Transaction
-- [market](../components/lib_protocols.md#market) 
-- [proposal](../components/lib_protocols.md#proposal) 
-- [transaction](../components/lib_protocols.md#transaction)  
-- [withdraw_permission](../components/lib_protocols.md#withdraw_permission) 
-
+  - [market](../components/lib_protocols.md#market) 
+  - [proposal](../components/lib_protocols.md#proposal) 
+  - [transaction](../components/lib_protocols.md#transaction)  
+  - [withdraw_permission](../components/lib_protocols.md#withdraw_permission) 
 * Fee 
-- [fee_schedule](../components/lib_protocols.md#fee_schedule)
-
+  - [fee_schedule](../components/lib_protocols.md#fee_schedule)
 * Vote
-- [vesting](../components/lib_protocols.md#vesting) 
-- [vote](../components/lib_protocols.md#vote)
-
+  - [vesting](../components/lib_protocols.md#vesting) 
+  - [vote](../components/lib_protocols.md#vote)
 * BTS Holders
-- [committee_member](../components/lib_protocols.md#committee_member) 
-- [witness](../components/lib_protocols.md#witness) 
-- [worker](../components/lib_protocols.md#worker) 
-
+  - [committee_member](../components/lib_protocols.md#committee_member) 
+  - [witness](../components/lib_protocols.md#witness) 
+  - [worker](../components/lib_protocols.md#worker) 
 * Other
-- [ext](../components/lib_protocols.md#ext) 
-- [config](../components/lib_protocols.md#config) 
+  - [ext](../components/lib_protocols.md#ext) 
+  - [config](../components/lib_protocols.md#config) 
 
 ***
 
