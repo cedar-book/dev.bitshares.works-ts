@@ -3,7 +3,7 @@
 # Protocols and Detailed Descriptions
 *graphene::chain::*
 
-*..\libraries\chain\include\graphene\chain\protocol*
+*..\libraries\chain\include\graphene\chain\protocol\---.hpp*
 
 
 - account 
