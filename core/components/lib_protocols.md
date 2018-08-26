@@ -41,6 +41,16 @@
 
 ***
 
+**Note**: Operations have [Operations and Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain) section to list all operations. Therefore, if a protocol includes any operations, listed then in a table list and go to see the description page.
+
+(e.g., ) 
+*Operation*
+| operation |   |
+|---|---|
+|  |  (operation name) |
+
+***
+
 ## account 
 
 ```
