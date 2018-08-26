@@ -207,9 +207,9 @@ typedef static_variant<
  > predicate;
 ```
 
-*Operation*
+*[Operation](../components/operations.md#operations-and-detailed-descriptions)*
 
-| operation |   |
+|  |   |
 |---|---|
 |  |-  assert_operation  |
 
