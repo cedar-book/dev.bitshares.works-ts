@@ -1617,7 +1617,7 @@ namespace fc
 
 ## vesting 
 
-
+```
 struct linear_vesting_policy_initializer
 {
   /** while vesting begins on begin_timestamp, none may be claimed before vesting_cliff_seconds have passed */
@@ -1635,10 +1635,12 @@ struct cdd_vesting_policy_initializer
 };
 
 typedef fc::static_variant<linear_vesting_policy_initializer, cdd_vesting_policy_initializer> vesting_policy_initializer;
+```
 
-struct vesting_balance_create_operation : public base_operation
-struct vesting_balance_withdraw_operation : public base_operation
-
+*Operation*
+| operation |   |
+|---|---|
+|  | - vesting_balance_create_operation <br /> - vesting_balance_withdraw_operation|
 
 
 ## vote 
@@ -1650,6 +1652,7 @@ struct vesting_balance_withdraw_operation : public base_operation
 - In JSON, a vote_id_type is represented as a string "type:instance", i.e. "1:5" would be type 1 and instance 5. 
 - **Note**: In the Graphene protocol, vote_id_type instances are unique across types; that is to say, if an object of type 1 has instance 4, an object of type 0 may not also have instance 4. In other words, the type is not a namespace for instances; it is only an informational field.
 
+```
 struct vote_id_type
 {
    /// Lower 8 bits are type; upper 24 bits are instance
@@ -1726,12 +1729,15 @@ struct vote_id_type
       return std::to_string(type()) + ":" + std::to_string(instance());
    }
 };
+```
 
+```
 class global_property_object;
 
 vote_id_type get_next_vote_id( global_property_object& gpo, vote_id_type::vote_type type );
+```
 
-
+```
 namespace fc
 {
 
@@ -1741,7 +1747,7 @@ void to_variant( const graphene::chain::vote_id_type& var, fc::variant& vo, uint
 void from_variant( const fc::variant& var, graphene::chain::vote_id_type& vo, uint32_t max_depth = 1 );
 
 }
-
+```
 
 ## withdraw_permission 
 
@@ -1751,10 +1757,10 @@ void from_variant( const fc::variant& var, graphene::chain::vote_id_type& vo, ui
 - Withdrawal permissions authorize only a specific pairing, i.e. a permission only authorizes one specified authorized account to withdraw from one specified authorizing account. Withdrawals are limited and may not exceed he withdrawal limit. The withdrawal must be made in the same asset as the limit; attempts with withdraw any other asset type will be rejected.
 - The fee for this operation is paid by withdraw_from_account, and this account is required to authorize this operation.
 
-struct withdraw_permission_create_operation : public base_operation
-struct withdraw_permission_update_operation : public base_operation
-struct withdraw_permission_claim_operation : public base_operation
-struct withdraw_permission_delete_operation : public base_operation
+*Operation*
+| operation |   |
+|---|---|
+|  | - withdraw_permission_create_operation <br /> - withdraw_permission_update_operation <br /> - withdraw_permission_claim_operation <br /> - withdraw_permission_delete_operation |
 
 ## witness 
 
@@ -1762,8 +1768,10 @@ struct withdraw_permission_delete_operation : public base_operation
 - Create a witness object, as a bid to hold a witness position on the network.
 - Accounts which wish to become witnesses may use this operation to create a witness object which stakeholders may vote on to approve its position as a witness.
 	
-struct witness_create_operation : public base_operation
-struct witness_update_operation : public base_operation
+*Operation*
+| operation |   |
+|---|---|
+|  | - witness_create_operation <br /> - witness_update_operation |
 	
 	
 ## worker 
@@ -1775,7 +1783,7 @@ struct witness_update_operation : public base_operation
 - Payment is not prorated based on percentage of the interval the worker was approved. If the chain attempts to pay a worker, but the budget is insufficient to cover its entire pay, the worker is paid the remaining budget funds, even though this does not fulfill his total pay. The worker will not receive extra pay to make up the difference later. Worker pay is placed in a vesting balance and vests over the number of days specified at the worker's creation.
 -  Once created, a worker is immutable and will be kept by the blockchain forever.
 
-
+```
 struct vesting_balance_worker_initializer
 {
   vesting_balance_worker_initializer(uint16_t days=0):pay_vesting_period_days(days){}
@@ -1788,30 +1796,16 @@ struct burn_worker_initializer
 struct refund_worker_initializer
 {};
 
-
 typedef static_variant< 
   refund_worker_initializer,
   vesting_balance_worker_initializer,
   burn_worker_initializer > worker_initializer;
+```
 
-struct worker_create_operation : public base_operation
-{
-  struct fee_parameters_type { uint64_t fee = 5000*GRAPHENE_BLOCKCHAIN_PRECISION; };
-
-  asset                fee;
-  account_id_type      owner;
-  time_point_sec       work_begin_date;
-  time_point_sec       work_end_date;
-  share_type           daily_pay;
-  string               name;
-  string               url;
-  /// This should be set to the initializer appropriate for the type of worker to be created.
-  worker_initializer   initializer;
-
-  account_id_type   fee_payer()const { return owner; }
-  void              validate()const;
-};
-
+*Operation*
+| operation |   |
+|---|---|
+|  | - worker_create_operation | 
 
  
  
