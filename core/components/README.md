@@ -13,7 +13,7 @@
   - [Operations and Detailed Descriptions](../components/operations.md#bitshares-core---graphenechain) 
 - **Objects**
   - [Object Names and Detailed Descriptions](../components/objects.md#object-names-and-detailed-descriptions)
->>>>>>> c13a233dbe91f627d4dae6ad71256ee64c2259ad
+
 
 ***
 
