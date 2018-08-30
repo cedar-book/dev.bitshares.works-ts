@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-## Components Structures and Descriptions
-
-### Block
-- [A Block Elements and Structure(PDF)](../knowledge_base/shared_files/structures/BitShares-Block-Structurev1.pdf)
-- [Block Header - inheritance](README.md#block-header)
-
-
-### Evaluators
-- graphene::chain::account_create_evaluator 
-
-
-### Operations 
-- [graphene::chain::base_operation](../components/operations.md#bitshares-core---graphenechain)
-
-### Objects
-- [graphene::chain Namespace: Class - Objects](../components/objects.md#bitshares-core---graphenechain)
-
-=======
 # Components Structures and Descriptions
 
 #### Table of Contents:
