@@ -9,7 +9,8 @@ This location might be temporary for some of the documents. When we find a prope
 |  # |   |   | key notes  |done|
 |---|---|---|---|---|
 |#1011 |[Add CLI startup option to only generate keys](../documented_issues/1011_add_cli_startup.md) |  | cli,key |x|
-|#1068| [No need to serialize initial_chain_id field when creating example genesis json?](../documented_issues/1068_no_need_to serialize.md)  |  |(later)   | |
+|#1068 |[No need to serialize initial_chain_id field?](../documented_issues/1011_add_cli_startup.md) |  | (later) | |
+|#1068 | [No need to serialize initial_chain_id field when creating example genesis json?](../documented_issues/1068_no_need_to serialize.md)  |  |(later)   | |
 |#1069 | [initial_chain_id field when creating example genesis](../documented_issues/1069_initial_chain_id.md)  |  | application.cpp(startup) |x|
 |#1118 | [Setup Private Testnet --create-genesis-json creates witness_node_data_dir](../documented_issues/1118_data_dir.md)  |  | witness_node,data dir|x|
 | #1123 | Consider removing crypto_api  |  |  | |
